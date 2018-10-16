@@ -8,7 +8,6 @@ class AnimalTitle extends React.Component {
 
 
     render() {
-        console.log(this.props.isGettingTubed)
         return (
             <tr key={this.props.animal.id}>
                 <td>

@@ -2,6 +2,9 @@
 
 # dependencies
 /node_modules
+/apiserver/__pycache__
+/apiserver/animals.db
+
 
 # testing
 /coverage

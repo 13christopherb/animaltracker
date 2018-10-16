@@ -45,7 +45,7 @@ class NewAnimal extends Component {
             isGettingControlledMeds: this.state.isGettingControlledMeds,
             isGettingTubed: this.state.isGettingTubed
         };
-        this.props.dispatch(actions.addAnimal(animal));
+        this.props.dispatch(actions.postAnimal(animal));
     }
 
     render() {
