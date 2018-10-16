@@ -2,7 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 from __init__ import db
 
 
-class AnimalModel(db.Model):
+class Animal(db.Model):
     """Represents an item in an inventory"""
 
     """Represents an item in an inventory"""

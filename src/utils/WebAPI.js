@@ -21,3 +21,10 @@ export const postAnimal = (animal) =>
         headers: headers,
         body: JSON.stringify(animal)
     }).then(res => res.json())
+
+export const deleteAnimal = (id) =>
+    fetch(api + '/animals/' + id, {
+        method: 'DELETE',
+        headers: headers,
+        body: id
+    }).then(res => res.json())

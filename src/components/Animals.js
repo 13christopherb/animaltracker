@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import uuidv4 from 'uuid';
-import * as actions from '../actions/actions';
+import * as Actions from '../actions/AnimalActions';
 import AnimalTitle from './AnimalTitle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -14,15 +14,17 @@ class Animals extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(actions.getAnimals());
+        this.props.dispatch(Actions.getAnimals());
     }
 
-
+    deleteAnimal = (animal) => {
+        this.props.dispatch(Actions.deleteAnimal(animal.props.animal));
+    }
 
     render() {
         let animals = [];
         for (let animal of this.props.animals) {
-            animals.push(<AnimalTitle animal={animal} key={animal.id} />);
+            animals.push(<AnimalTitle animal={animal} deleteAnimal={this.deleteAnimal} key={animal.id} />);
         }
         return (
             <div>
@@ -46,4 +48,4 @@ function mapStateToProps({animals}, ownProps) {
 
 export default connect(
     mapStateToProps,
-)(Animals)
+)(Animals);

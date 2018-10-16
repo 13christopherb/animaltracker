@@ -6,6 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class AnimalTitle extends React.Component {
 
+    deleteAnimal = (e) => {
+        e.preventDefault();
+        this.props.deleteAnimal(this);
+    }
 
     render() {
         return (
@@ -26,9 +30,12 @@ class AnimalTitle extends React.Component {
                     {this.props.animal.isGettingControlledMeds ? (<FontAwesomeIcon icon="prescription-bottle-alt" />) :
                         <p></p>}
                 </td>
+                <td>
+                    <button onClick={this.deleteAnimal} className="btn btn-danger">Delete</button>
+                </td>
             </tr>
         )
     }
 }
 
-export default connect()(AnimalTitle)
+export default connect()(AnimalTitle);

@@ -4,11 +4,11 @@ import './App.css';
 import uuidv4 from 'uuid';
 import NewAnimal from './components/NewAnimal';
 import Animals from './components/Animals';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPrescriptionBottleAlt, faBlender } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faPrescriptionBottleAlt, faBlender } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faPrescriptionBottleAlt)
-library.add(faBlender)
+library.add(faPrescriptionBottleAlt);
+library.add(faBlender);
 
 class App extends Component {
 
@@ -26,6 +26,7 @@ function mapStateToProps() {
     return {
     }
 }
+
 
 export default connect(
     mapStateToProps,

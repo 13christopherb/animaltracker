@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import uuidv4 from 'uuid';
-import * as actions from '../actions/actions';
+import * as Actions from '../actions/AnimalActions';
 import AnimalTitle from './AnimalTitle';
 
 class NewAnimal extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {value: ''}
+        this.state = {value: ''};
     }
 
     componentDidMount() {
@@ -45,7 +45,7 @@ class NewAnimal extends Component {
             isGettingControlledMeds: this.state.isGettingControlledMeds,
             isGettingTubed: this.state.isGettingTubed
         };
-        this.props.dispatch(actions.postAnimal(animal));
+        this.props.dispatch(Actions.postAnimal(animal));
     }
 
     render() {

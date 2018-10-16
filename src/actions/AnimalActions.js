@@ -1,15 +1,15 @@
 import * as WebAPI from '../utils/WebAPI';
 
-export const ADD_ANIMAL = 'ADD_ANIMAL'
 export const POST_ANIMAL = 'POST_ANIMAL'
-export const GOT_ANIMALS = 'GOT_ANIMALS'
+export const POST_ANIMAL_SUCCESS = 'POST_ANIMAL_SUCCESS'
 export const GET_ANIMALS = 'GET_ANIMALS'
+export const GET_ANIMALS_SUCCESS = 'GET_ANIMALS_SUCCESS'
 export const EDIT_ANIMAL = 'EDIT_ANIMAL'
-export const DELETE_ANIMAL = 'DELETE_COMMENT'
+export const DELETE_ANIMAL = 'DELETE_ANIMAL'
 
 export function addAnimal(animal) {
     return {
-        type: ADD_ANIMAL,
+        type: POST_ANIMAL_SUCCESS,
         animal: animal
     }
 }
@@ -20,16 +20,16 @@ export const postAnimal = (animal) => dispatch => {
     });
 }
 
-export function gotAnimals(animals) {
+export function getAnimalsSuccess(animals) {
     return {
-        type: GOT_ANIMALS,
+        type: GET_ANIMALS_SUCCESS,
         animals: animals
     }
 }
 
 export const getAnimals = () => dispatch => {
-    WebAPI.getAllAnimals().then(res => {
-        dispatch(gotAnimals(res))
+    return WebAPI.getAllAnimals().then(res => {
+        return dispatch(getAnimalsSuccess(res['animals']))
     })
 }
 
@@ -45,4 +45,10 @@ export function removeAnimal(animal) {
         type: DELETE_ANIMAL,
         animal: animal
     }
+}
+
+export const deleteAnimal = (animal) => dispatch => {
+    WebAPI.deleteAnimal(animal.id).then(res => {
+        dispatch(removeAnimal(animal))
+    })
 }
