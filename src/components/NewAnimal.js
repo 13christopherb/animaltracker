@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import uuidv4 from 'uuid';
 import * as Actions from '../actions/AnimalActions';
-import AnimalTitle from './AnimalTitle';
+import AnimalTitle from './AnimalRow';
 
 class NewAnimal extends Component {
 
@@ -42,6 +42,7 @@ class NewAnimal extends Component {
         e.preventDefault();
         const animal = {
             timestamp: Date.now(),
+            location: this.state.location,
             name: this.state.name,
             species: this.state.species,
             weight: this.state.weight,
@@ -54,54 +55,67 @@ class NewAnimal extends Component {
     render() {
         return (
             <div>
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="form-row">
-                            <div className="col col-md-3">
-                                <label>
-                                    Species
-                                    <select name="species" className="custom-select" onChange={this.handleInputChange}>
-                                        <option value=""></option>
-                                        <option value="CSL">CSL</option>
-                                        <option value="ES">ES</option>
-                                        <option value="HS">HS</option>
-                                        <option value="NFS">NFS</option>
-                                        <option value="GFS">GFS</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                </label>
-                            </div>
-                            <div className="col">
-                                <label>
-                                    Name
-                                    <input
-                                        name="name" className="form-control"
-                                        onChange={this.handleInputChange}/>
-                                </label>
-                            </div>
+                <form onSubmit={this.handleSubmit}>
+                    <div className="form-row">
+                        <div className="col col-md-3">
+                            <label>
+                                Location
+                                <select name="location" className="custom-select" onChange={this.handleInputChange}>
+                                    <option value=""></option>
+                                    <option value="NRO">NRO</option>
+                                    <option value="MBO">MBO</option>
+                                    <option value="SLO">SLO</option>
+                                </select>
+                            </label>
                         </div>
-                        <label>
-                            Weight
-                            <input
-                                name="weight"
-                                onChange={this.handleInputChange}/>
-                        </label>
-                        <label>
-                            Controlled meds:
-                            <input
-                                name="isGettingControlledMeds"
-                                type="checkbox"
-                                onChange={this.handleInputChange} />
-                        </label>
-                        <label>
-                            Tube feeding:
-                            <input
-                                name="isGettingTubed"
-                                type="checkbox"
-                                onChange={this.handleInputChange} />
-                        </label>
-                        <button type="submit">Submit</button>
-                    </form>
-                </div>
+                    </div>
+                    <div className="form-row">
+                        <div className="col col-md-3">
+                            <label>
+                                Species
+                                <select name="species" className="custom-select" onChange={this.handleInputChange}>
+                                    <option value=""></option>
+                                    <option value="CSL">CSL</option>
+                                    <option value="ES">ES</option>
+                                    <option value="HS">HS</option>
+                                    <option value="NFS">NFS</option>
+                                    <option value="GFS">GFS</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div className="col">
+                            <label>
+                                Name
+                                <input
+                                    name="name" className="form-control"
+                                    onChange={this.handleInputChange}/>
+                            </label>
+                        </div>
+                    </div>
+                    <label>
+                        Weight
+                        <input
+                            name="weight"
+                            onChange={this.handleInputChange}/>
+                    </label>
+                    <label>
+                        Controlled meds:
+                        <input
+                            name="isGettingControlledMeds"
+                            type="checkbox"
+                            onChange={this.handleInputChange}/>
+                    </label>
+                    <label>
+                        Tube feeding:
+                        <input
+                            name="isGettingTubed"
+                            type="checkbox"
+                            onChange={this.handleInputChange}/>
+                    </label>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
         );
     }
 }

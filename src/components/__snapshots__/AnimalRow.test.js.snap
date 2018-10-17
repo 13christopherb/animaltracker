@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AnimalTitle /> render() should render the component 1`] = `
+exports[`<AnimalRow /> render() should render the component 1`] = `
 <tr
   key="3"
 >
@@ -39,6 +39,7 @@ exports[`<AnimalTitle /> render() should render the component 1`] = `
   <td>
     <button
       className="btn btn-danger"
+      id="delete"
       onClick={[Function]}
     >
       Delete

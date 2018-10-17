@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
-class AnimalTitle extends React.Component {
+class AnimalRow extends React.Component {
 
     deleteAnimal = (e) => {
         e.preventDefault();
@@ -31,11 +31,11 @@ class AnimalTitle extends React.Component {
                         <p></p>}
                 </td>
                 <td>
-                    <button onClick={this.deleteAnimal} className="btn btn-danger">Delete</button>
+                    <button onClick={this.deleteAnimal} id='delete' className="btn btn-danger">Delete</button>
                 </td>
             </tr>
         )
     }
 }
 
-export default AnimalTitle;
+export default AnimalRow;

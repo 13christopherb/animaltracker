@@ -12,6 +12,41 @@ exports[`<NewAnimal /> render() should render the component 1`] = `
         className="col col-md-3"
       >
         <label>
+          Location
+          <select
+            className="custom-select"
+            name="location"
+            onChange={[Function]}
+          >
+            <option
+              value=""
+            />
+            <option
+              value="NRO"
+            >
+              NRO
+            </option>
+            <option
+              value="MBO"
+            >
+              MBO
+            </option>
+            <option
+              value="SLO"
+            >
+              SLO
+            </option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div
+      className="form-row"
+    >
+      <div
+        className="col col-md-3"
+      >
+        <label>
           Species
           <select
             className="custom-select"

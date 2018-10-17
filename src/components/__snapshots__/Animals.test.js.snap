@@ -15,7 +15,7 @@ exports[`<Animals /> render() should render the component 1`] = `
           className="table table-striped"
         >
           <tbody>
-            <AnimalTitle
+            <AnimalRow
               animal={
                 Object {
                   "id": 1,
@@ -29,7 +29,7 @@ exports[`<Animals /> render() should render the component 1`] = `
               deleteAnimal={[Function]}
               key="1"
             />
-            <AnimalTitle
+            <AnimalRow
               animal={
                 Object {
                   "id": 2,
@@ -43,7 +43,7 @@ exports[`<Animals /> render() should render the component 1`] = `
               deleteAnimal={[Function]}
               key="2"
             />
-            <AnimalTitle
+            <AnimalRow
               animal={
                 Object {
                   "id": 3,

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import uuidv4 from 'uuid';
 import * as Actions from '../actions/AnimalActions';
-import AnimalTitle from './AnimalTitle';
+import AnimalTitle from './AnimalRow';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 

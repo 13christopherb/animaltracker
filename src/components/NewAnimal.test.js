@@ -22,5 +22,5 @@ describe('<NewAnimal />', () => {
 
         expect(toJson(component)).toMatchSnapshot()
         })
-    })
+    });
 });
