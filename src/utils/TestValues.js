@@ -4,7 +4,8 @@ export const animal1 = {
     weight: 14,
     isGettingTubed: true,
     isGettingControlledMeds: false,
-    id: 1
+    id: 1,
+    location: 'NRO'
 }
 
 export const animal2 = {
@@ -13,7 +14,8 @@ export const animal2 = {
     weight: 85,
     isGettingTubed: true,
     isGettingControlledMeds: false,
-    id: 2
+    id: 2,
+    location:'MBO'
 }
 
 export const animal3 = {
@@ -22,7 +24,8 @@ export const animal3 = {
     weight: 10,
     isGettingTubed: true,
     isGettingControlledMeds: false,
-    id: 3
+    id: 3,
+    location: 'SLO'
 }
 
 export const animal4 = {
@@ -31,7 +34,8 @@ export const animal4 = {
     weight: 34,
     isGettingTubed: true,
     isGettingControlledMeds: false,
-    id: 4
+    id: 4,
+    location: 'MBO'
 }
 
 export const animalsMinusOne = [animal2, animal3, animal4]

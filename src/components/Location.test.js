@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
-import Animals from './Animals';
+import Location from './Location';
 import toJson from 'enzyme-to-json';
 import thunk from 'redux-thunk'
 import * as testValues from '../utils/TestValues'
@@ -17,13 +17,13 @@ const initialState = {
 
 const store = mockStore(initialState)
 
-describe('<Animals />', () => {
+describe('<Location />', () => {
     describe('render()', () => {
         test('should render the component', () => {
-        const wrapper = shallow(<Animals store={store} animals={testValues.animals} />)
-        const component = wrapper.dive()
+            const wrapper = shallow(<Location store={store} animals={testValues.animals} />)
+            const component = wrapper.dive()
 
-        expect(toJson(component)).toMatchSnapshot()
+            expect(toJson(component)).toMatchSnapshot()
         })
     })
 });

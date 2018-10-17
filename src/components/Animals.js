@@ -46,7 +46,7 @@ class Animals extends Component {
 
 function mapStateToProps({animals}, ownProps) {
     return {
-        animals: animals
+        animals: ownProps.animals
     }
 }
 

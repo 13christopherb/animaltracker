@@ -4,6 +4,7 @@ import './App.css';
 import uuidv4 from 'uuid';
 import NewAnimal from './components/NewAnimal';
 import Animals from './components/Animals';
+import Locations from './components/Locations'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPrescriptionBottleAlt, faBlender } from '@fortawesome/free-solid-svg-icons';
 
@@ -15,8 +16,8 @@ class App extends Component {
     render() {
         return (
             <div className="container-fluid">
+                <Locations/>
                 <NewAnimal/>
-                <Animals/>
             </div>
         );
     }
