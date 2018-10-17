@@ -29,11 +29,15 @@ class Animals extends Component {
         return (
             <div>
                 <div className="row">
-                    <table className="table table-striped">
-                        <tbody>
-                        {animals}
-                        </tbody>
-                    </table>
+                    <div className="col col-md-12">
+                        <div className="table-responsive">
+                            <table className="table table-striped">
+                                <tbody>
+                                {animals}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

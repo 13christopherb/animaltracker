@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NewAnimal /> render() should render the component 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-row"
+    >
+      <div
+        className="col col-md-3"
+      >
+        <label>
+          Species
+          <select
+            className="custom-select"
+            name="species"
+            onChange={[Function]}
+          >
+            <option
+              value=""
+            />
+            <option
+              value="CSL"
+            >
+              CSL
+            </option>
+            <option
+              value="ES"
+            >
+              ES
+            </option>
+            <option
+              value="HS"
+            >
+              HS
+            </option>
+            <option
+              value="NFS"
+            >
+              NFS
+            </option>
+            <option
+              value="GFS"
+            >
+              GFS
+            </option>
+            <option
+              value="Other"
+            >
+              Other
+            </option>
+          </select>
+        </label>
+      </div>
+      <div
+        className="col"
+      >
+        <label>
+          Name
+          <input
+            className="form-control"
+            name="name"
+            onChange={[Function]}
+          />
+        </label>
+      </div>
+    </div>
+    <label>
+      Weight
+      <input
+        name="weight"
+        onChange={[Function]}
+      />
+    </label>
+    <label>
+      Controlled meds:
+      <input
+        name="isGettingControlledMeds"
+        onChange={[Function]}
+        type="checkbox"
+      />
+    </label>
+    <label>
+      Tube feeding:
+      <input
+        name="isGettingTubed"
+        onChange={[Function]}
+        type="checkbox"
+      />
+    </label>
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;

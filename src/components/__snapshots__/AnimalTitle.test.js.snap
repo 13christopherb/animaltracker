@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AnimalTitle /> render() should render the component 1`] = `
+<tr
+  key="3"
+>
+  <td>
+    CSL
+  </td>
+  <td>
+    Kirt
+  </td>
+  <td>
+    85
+  </td>
+  <td>
+    <p />
+  </td>
+  <td>
+    <FontAwesomeIcon
+      border={false}
+      className=""
+      fixedWidth={false}
+      flip={null}
+      icon="prescription-bottle-alt"
+      inverse={false}
+      listItem={false}
+      mask={null}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    />
+  </td>
+  <td>
+    <button
+      className="btn btn-danger"
+      onClick={[Function]}
+    >
+      Delete
+    </button>
+  </td>
+</tr>
+`;

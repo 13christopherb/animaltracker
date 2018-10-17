@@ -38,4 +38,4 @@ class AnimalTitle extends React.Component {
     }
 }
 
-export default connect()(AnimalTitle);
+export default AnimalTitle;

@@ -17,7 +17,6 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "underscore": "^1.9.1",
-
     "uuid": "^3.3.2"
   },
   "scripts": {
@@ -42,7 +41,6 @@
     "jest": "^23.6.0"
   },
   "jest": {
-
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ]

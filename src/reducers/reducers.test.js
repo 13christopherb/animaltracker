@@ -33,7 +33,7 @@ describe('animals reducer', () => {
         });
     })
 
-    it('should handle DELETE_ANIMALS_SUCCESS', () => {
+    it('should handle DELETE_ANIMAL_SUCCESS', () => {
         expect(
             reducer({animals: testValues.animals}, {
                 type: actions.DELETE_ANIMAL_SUCCESS,

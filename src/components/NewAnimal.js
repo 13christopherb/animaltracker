@@ -54,20 +54,31 @@ class NewAnimal extends Component {
     render() {
         return (
             <div>
-                <div className="row">
                     <form onSubmit={this.handleSubmit}>
-                        <label>
-                            Species
-                            <input
-                                name="species"
-                                onChange={this.handleInputChange}/>
-                        </label>
-                        <label>
-                            Name
-                            <input
-                                name="name"
-                                onChange={this.handleInputChange}/>
-                        </label>
+                        <div className="form-row">
+                            <div className="col col-md-3">
+                                <label>
+                                    Species
+                                    <select name="species" className="custom-select" onChange={this.handleInputChange}>
+                                        <option value=""></option>
+                                        <option value="CSL">CSL</option>
+                                        <option value="ES">ES</option>
+                                        <option value="HS">HS</option>
+                                        <option value="NFS">NFS</option>
+                                        <option value="GFS">GFS</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div className="col">
+                                <label>
+                                    Name
+                                    <input
+                                        name="name" className="form-control"
+                                        onChange={this.handleInputChange}/>
+                                </label>
+                            </div>
+                        </div>
                         <label>
                             Weight
                             <input
@@ -91,7 +102,6 @@ class NewAnimal extends Component {
                         <button type="submit">Submit</button>
                     </form>
                 </div>
-            </div>
         );
     }
 }
