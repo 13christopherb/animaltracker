@@ -50,8 +50,8 @@ def animals():
 
         db.session.add(animal)
         db.session.commit()
-        response = jsonify({'some': 'data'})
-        return response
+        #response = request.get_json()
+        return jsonify(animal.serialize)
 
     obj = 'test'
     return jsonify(obj)
@@ -64,7 +64,7 @@ def animal(animal_id):
         obj = Animal.query.filter_by(id=animal_id).one_or_none()
         db.session.delete(obj)
         db.session.commit()
-    return jsonify('okay')
+    return '500'
 
 if __name__ == '__main__':
     db.init_app(app)

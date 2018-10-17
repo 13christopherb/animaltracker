@@ -8,11 +8,15 @@ class NewAnimal extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {value: ''};
+        this.state = {
+            value: '',
+            isGettingTubed: false,
+            isGettingControlledMeds: false
+        };
     }
 
     componentDidMount() {
-        //this.props.dispatch(actions.getAnimals());
+        //this.props.dispatch(actions.fetchAnimals());
     }
 
     /**
@@ -37,7 +41,6 @@ class NewAnimal extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const animal = {
-            id: uuidv4(),
             timestamp: Date.now(),
             name: this.state.name,
             species: this.state.species,
@@ -45,7 +48,7 @@ class NewAnimal extends Component {
             isGettingControlledMeds: this.state.isGettingControlledMeds,
             isGettingTubed: this.state.isGettingTubed
         };
-        this.props.dispatch(Actions.postAnimal(animal));
+        this.props.dispatch(Actions.addAnimal(animal));
     }
 
     render() {

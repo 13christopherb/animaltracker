@@ -13,7 +13,7 @@ class Animal(db.Model):
     weight = db.Column(db.Integer)
     isGettingTubed = db.Column(db.Boolean)
     isGettingControlledMeds = db.Column(db.Boolean)
-'''
+
     @property
     def serialize(self):
         """
@@ -30,4 +30,3 @@ class Animal(db.Model):
             'isGettingTubed': self.isGettingTubed,
             'isGettingControlledMeds': self.isGettingControlledMeds
         }
-'''

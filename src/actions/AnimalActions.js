@@ -1,35 +1,36 @@
 import * as WebAPI from '../utils/WebAPI';
 
-export const POST_ANIMAL = 'POST_ANIMAL'
-export const POST_ANIMAL_SUCCESS = 'POST_ANIMAL_SUCCESS'
-export const GET_ANIMALS = 'GET_ANIMALS'
-export const GET_ANIMALS_SUCCESS = 'GET_ANIMALS_SUCCESS'
-export const EDIT_ANIMAL = 'EDIT_ANIMAL'
-export const DELETE_ANIMAL = 'DELETE_ANIMAL'
+export const ADD_ANIMAL = 'ADD_ANIMAL';
+export const ADD_ANIMAL_SUCCESS = 'ADD_ANIMAL_SUCCESS';
+export const FETCH_ANIMALS = 'FETCH_ANIMALS';
+export const FETCH_ANIMALS_SUCCESS = 'FETCH_ANIMALS_SUCCESS';
+export const EDIT_ANIMAL = 'EDIT_ANIMAL';
+export const DELETE_ANIMAL = 'DELETE_ANIMAL';
+export const DELETE_ANIMAL_SUCCESS = 'DELETE_ANIMAL_SUCCESS';
 
-export function addAnimal(animal) {
+export function addAnimalSuccess(animal) {
     return {
-        type: POST_ANIMAL_SUCCESS,
+        type: ADD_ANIMAL_SUCCESS,
         animal: animal
     }
 }
 
-export const postAnimal = (animal) => dispatch => {
-    WebAPI.postAnimal(animal).then(res => {
-        dispatch(addAnimal(animal));
+export const addAnimal = (animal) => dispatch => {
+    return WebAPI.postAnimal(animal).then(res => {
+        dispatch(addAnimalSuccess(res));
     });
 }
 
-export function getAnimalsSuccess(animals) {
+export function fetchAnimalsSuccess(animals) {
     return {
-        type: GET_ANIMALS_SUCCESS,
+        type: FETCH_ANIMALS_SUCCESS,
         animals: animals
     }
 }
 
-export const getAnimals = () => dispatch => {
+export const fetchAnimals = () => dispatch => {
     return WebAPI.getAllAnimals().then(res => {
-        return dispatch(getAnimalsSuccess(res['animals']))
+        dispatch(fetchAnimalsSuccess(res['animals']))
     })
 }
 
@@ -40,15 +41,15 @@ export function editAnimal(animal) {
     }
 }
 
-export function removeAnimal(animal) {
+export function deleteAnimalSuccess(animal) {
     return {
-        type: DELETE_ANIMAL,
+        type: DELETE_ANIMAL_SUCCESS,
         animal: animal
     }
 }
 
 export const deleteAnimal = (animal) => dispatch => {
-    WebAPI.deleteAnimal(animal.id).then(res => {
-        dispatch(removeAnimal(animal))
+    return WebAPI.deleteAnimal(animal.id).then(res => {
+        dispatch(deleteAnimalSuccess(animal))
     })
 }
