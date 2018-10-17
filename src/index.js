@@ -8,6 +8,9 @@ import { createStore , applyMiddleware} from 'redux'
 import thunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import $ from 'jquery';
+import Popper from 'popper.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import * as serviceWorker from './serviceWorker';
 
 const store = createStore(

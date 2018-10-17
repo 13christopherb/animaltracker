@@ -14,24 +14,27 @@ class AnimalRow extends React.Component {
     render() {
         return (
             <tr key={this.props.animal.id}>
-                <td>
+                <td style={{width: '16.66%'}}>
                     {this.props.animal.species}
                 </td>
-                <td>
+                <td style={{width: '40%'}}>
                     {this.props.animal.name}
                 </td>
-                <td>
+                <td style={{width: '16.66%'}}>
                     {this.props.animal.weight}
                 </td>
-                <td>
-                    {this.props.animal.isGettingTubed ? (<FontAwesomeIcon icon="blender" />): <p></p>}
+                <td style={{width: '1%'}}>
+                    {this.props.animal.isGettingTubed ? (
+                        <FontAwesomeIcon color="green" icon="blender" />):
+                        <FontAwesomeIcon opacity="0" color="grey" icon="blender" />}
                 </td>
-                <td>
-                    {this.props.animal.isGettingControlledMeds ? (<FontAwesomeIcon icon="prescription-bottle-alt" />) :
-                        <p></p>}
+                <td style={{width: '1%'}}>
+                    {this.props.animal.isGettingControlledMeds ? (
+                        <FontAwesomeIcon color="green" icon="prescription-bottle-alt" />) :
+                        <FontAwesomeIcon opacity="0" color="grey" icon="prescription-bottle-alt" />}
                 </td>
-                <td>
-                    <button onClick={this.deleteAnimal} id='delete' className="btn btn-danger">Delete</button>
+                <td style={{width: '16.66%'}}>
+                    <button onClick={this.deleteAnimal} id="delete" className="btn btn-danger">Delete</button>
                 </td>
             </tr>
         )

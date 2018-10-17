@@ -15,8 +15,14 @@ class Location extends Component {
     render() {
         return (
             <div>
-                {this.props.location}
-                <Animals animals={this.props.animals}/>
+                <a class="btn btn-info btn-block" data-toggle="collapse"
+                   href={'#'+this.props.location} role="button"
+                   aria-expanded="false">
+                    {this.props.location}
+                </a>
+                <div className="collapse" id={this.props.location}>
+                    <Animals animals={this.props.animals}/>
+                </div>
             </div>
         );
     }

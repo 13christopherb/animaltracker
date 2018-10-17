@@ -4,22 +4,72 @@ exports[`<AnimalRow /> render() should render the component 1`] = `
 <tr
   key="3"
 >
-  <td>
+  <td
+    style={
+      Object {
+        "width": "16.66%",
+      }
+    }
+  >
     CSL
   </td>
-  <td>
+  <td
+    style={
+      Object {
+        "width": "40%",
+      }
+    }
+  >
     Kirt
   </td>
-  <td>
+  <td
+    style={
+      Object {
+        "width": "16.66%",
+      }
+    }
+  >
     85
   </td>
-  <td>
-    <p />
-  </td>
-  <td>
+  <td
+    style={
+      Object {
+        "width": "1%",
+      }
+    }
+  >
     <FontAwesomeIcon
       border={false}
       className=""
+      color="grey"
+      fixedWidth={false}
+      flip={null}
+      icon="blender"
+      inverse={false}
+      listItem={false}
+      mask={null}
+      opacity="0"
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    />
+  </td>
+  <td
+    style={
+      Object {
+        "width": "1%",
+      }
+    }
+  >
+    <FontAwesomeIcon
+      border={false}
+      className=""
+      color="green"
       fixedWidth={false}
       flip={null}
       icon="prescription-bottle-alt"
@@ -36,7 +86,13 @@ exports[`<AnimalRow /> render() should render the component 1`] = `
       transform={null}
     />
   </td>
-  <td>
+  <td
+    style={
+      Object {
+        "width": "16.66%",
+      }
+    }
+  >
     <button
       className="btn btn-danger"
       id="delete"
