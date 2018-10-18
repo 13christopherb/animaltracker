@@ -22,7 +22,7 @@ describe('<AnimalRow />', () => {
         })
     });
     describe('Buttons', () => {
-        test('delete button calles deleteAnimal', () => {
+        test('delete button calls deleteAnimal', () => {
             const mockDelete = jest.fn();
             const wrapper = shallow(
                 <AnimalTitle deleteAnimal={mockDelete} animal={animal}/>

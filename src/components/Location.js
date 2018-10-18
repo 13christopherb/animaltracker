@@ -11,10 +11,6 @@ class Location extends Component {
         this.state = {expanded: true}
     }
 
-    onCollapseClick = (e) => {
-        console.log('test')
-    };
-
     render() {
         return (
             <div>

@@ -11,7 +11,8 @@ class NewAnimal extends Component {
         this.state = {
             value: '',
             isGettingTubed: false,
-            isGettingControlledMeds: false
+            isGettingControlledMeds: false,
+            name: ''
         };
     }
 
@@ -31,6 +32,7 @@ class NewAnimal extends Component {
         this.setState({
             [name]: value
         });
+        console.log(name)
     }
 
     /**
@@ -89,7 +91,10 @@ class NewAnimal extends Component {
                                 Name
                                 <input
                                     name="name" className="form-control"
-                                    onChange={this.handleInputChange}/>
+                                    type="text"
+                                    onChange={this.handleInputChange}
+                                    value={this.state.name}
+                                />
                             </label>
                         </div>
                     </div>

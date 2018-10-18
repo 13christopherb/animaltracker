@@ -7,7 +7,6 @@ exports[`<Location /> render() should render the component 1`] = `
     className="btn btn-info btn-block"
     data-toggle="collapse"
     href="#undefined"
-    onTransitionEnd={[Function]}
     role="button"
   />
   <div

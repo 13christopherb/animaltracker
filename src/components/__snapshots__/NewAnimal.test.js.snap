@@ -98,6 +98,8 @@ exports[`<NewAnimal /> render() should render the component 1`] = `
             className="form-control"
             name="name"
             onChange={[Function]}
+            type="text"
+            value=""
           />
         </label>
       </div>
