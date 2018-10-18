@@ -4,13 +4,15 @@ exports[`<Location /> render() should render the component 1`] = `
 <div>
   <a
     aria-expanded="false"
-    class="btn btn-info btn-block"
+    className="btn btn-info btn-block"
     data-toggle="collapse"
     href="#undefined"
+    onTransitionEnd={[Function]}
     role="button"
   />
   <div
-    className="collapse"
+    aria-expanded="true"
+    className="collapse show"
   >
     <Connect(Animals)
       animals={

@@ -6,10 +6,12 @@ import NewAnimal from './components/NewAnimal';
 import Animals from './components/Animals';
 import Locations from './components/Locations'
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faPrescriptionBottleAlt, faBlender } from '@fortawesome/free-solid-svg-icons';
+import { faPrescriptionBottleAlt, faBlender, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faPrescriptionBottleAlt);
 library.add(faBlender);
+library.add(faChevronRight);
+library.add(faChevronDown);
 
 class App extends Component {
 
