@@ -12,7 +12,10 @@ class NewAnimal extends Component {
             value: '',
             isGettingTubed: false,
             isGettingControlledMeds: false,
-            name: ''
+            name: '',
+            weight: '',
+            species: '',
+            location: ''
         };
     }
 
@@ -32,7 +35,6 @@ class NewAnimal extends Component {
         this.setState({
             [name]: value
         });
-        console.log(name)
     }
 
     /**
@@ -51,7 +53,7 @@ class NewAnimal extends Component {
             isGettingControlledMeds: this.state.isGettingControlledMeds,
             isGettingTubed: this.state.isGettingTubed
         };
-        this.props.dispatch(Actions.addAnimal(animal));
+        this.props.dispatch(Actions.postAnimal(animal));
     }
 
     render() {
@@ -62,7 +64,8 @@ class NewAnimal extends Component {
                         <div className="col col-md-3">
                             <label>
                                 Location
-                                <select name="location" className="custom-select" onChange={this.handleInputChange}>
+                                <select name="location" className="custom-select"
+                                        value={this.state.location} onChange={this.handleInputChange}>
                                     <option value=""></option>
                                     <option value="NRO">NRO</option>
                                     <option value="MBO">MBO</option>
@@ -75,7 +78,8 @@ class NewAnimal extends Component {
                         <div className="col col-md-3">
                             <label>
                                 Species
-                                <select name="species" className="custom-select" onChange={this.handleInputChange}>
+                                <select name="species" className="custom-select" onChange={this.handleInputChange}
+                                value={this.state.species}>
                                     <option value=""></option>
                                     <option value="CSL">CSL</option>
                                     <option value="ES">ES</option>
@@ -101,22 +105,29 @@ class NewAnimal extends Component {
                     <label>
                         Weight
                         <input
-                            name="weight"
-                            onChange={this.handleInputChange}/>
+                            name="weight" className="form-control"
+                            type="text"
+                            onChange={this.handleInputChange}
+                            value={this.state.weight}
+                        />
                     </label>
                     <label>
                         Controlled meds:
                         <input
                             name="isGettingControlledMeds"
                             type="checkbox"
-                            onChange={this.handleInputChange}/>
+                            onChange={this.handleInputChange}
+                            value={this.state.isGettingControlledMeds}
+                        />
                     </label>
                     <label>
                         Tube feeding:
                         <input
                             name="isGettingTubed"
                             type="checkbox"
-                            onChange={this.handleInputChange}/>
+                            onChange={this.handleInputChange}
+                            value={this.state.isGettingTubed}
+                        />
                     </label>
                     <button type="submit">Submit</button>
                 </form>

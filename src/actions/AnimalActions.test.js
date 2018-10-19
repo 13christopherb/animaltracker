@@ -55,11 +55,12 @@ describe('async actions', () => {
         });
 
         const expectedActions = [
-            {type: actions.ADD_ANIMAL_SUCCESS, animal: testValues.animal1}
+            {type: actions.ADD_ANIMAL, animal: testValues.animal1},
+            {type: actions.POST_ANIMAL_SUCCESS, animal: testValues.animal1}
         ];
 
         const store = mockStore({animals: []})
-        return store.dispatch(actions.addAnimal(testValues.animal1)).then(() => {
+        return store.dispatch(actions.postAnimal(testValues.animal1)).then(() => {
             expect(store.getActions()).toEqual(expectedActions);
         });
     });
@@ -71,11 +72,12 @@ describe('async actions', () => {
         });
 
         const expectedActions = [
-            {type: actions.ADD_ANIMAL_FAILURE, error: error}
+            {type: actions.ADD_ANIMAL, animal: testValues.animal1},
+            {type: actions.POST_ANIMAL_FAILURE, error: error}
         ]
 
         const store = mockStore({animals: []})
-        return store.dispatch(actions.addAnimal(testValues.animal1)).then(() => {
+        return store.dispatch(actions.postAnimal(testValues.animal1)).then(() => {
             expect(store.getActions()).toEqual(expectedActions);
         });
     });

@@ -17,6 +17,7 @@ exports[`<NewAnimal /> render() should render the component 1`] = `
             className="custom-select"
             name="location"
             onChange={[Function]}
+            value=""
           >
             <option
               value=""
@@ -52,6 +53,7 @@ exports[`<NewAnimal /> render() should render the component 1`] = `
             className="custom-select"
             name="species"
             onChange={[Function]}
+            value=""
           >
             <option
               value=""
@@ -107,8 +109,11 @@ exports[`<NewAnimal /> render() should render the component 1`] = `
     <label>
       Weight
       <input
+        className="form-control"
         name="weight"
         onChange={[Function]}
+        type="text"
+        value=""
       />
     </label>
     <label>
@@ -117,6 +122,7 @@ exports[`<NewAnimal /> render() should render the component 1`] = `
         name="isGettingControlledMeds"
         onChange={[Function]}
         type="checkbox"
+        value={false}
       />
     </label>
     <label>
@@ -125,6 +131,7 @@ exports[`<NewAnimal /> render() should render the component 1`] = `
         name="isGettingTubed"
         onChange={[Function]}
         type="checkbox"
+        value={false}
       />
     </label>
     <button

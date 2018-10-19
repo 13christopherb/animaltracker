@@ -11,10 +11,10 @@ describe('animals reducer', () => {
         )
     })
 
-    it('should handle ADD_ANIMAL_SUCCESS', () => {
+    it('should handle POST_ANIMAL_SUCCESS', () => {
         expect(
             reducer({animals: []}, {
-                type: actions.ADD_ANIMAL_SUCCESS,
+                type: actions.POST_ANIMAL_SUCCESS,
                 animal: testValues.animal1
             })
         ).toEqual({

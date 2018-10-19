@@ -1,8 +1,9 @@
 import * as WebAPI from '../utils/WebAPI';
 
 export const ADD_ANIMAL = 'ADD_ANIMAL';
-export const ADD_ANIMAL_SUCCESS = 'ADD_ANIMAL_SUCCESS';
-export const ADD_ANIMAL_FAILURE = 'ADD_ANIMAL_FAILURE';
+export const POST_ANIMAL_SUCCESS = 'POST_ANIMAL_SUCCESS';
+export const POST_ANIMAL_FAILURE = 'POST_ANIMAL_FAILURE';
+export const REQUEST_ANIMALS = 'REQUEST_ANIMALS';
 export const FETCH_ANIMALS = 'FETCH_ANIMALS';
 export const FETCH_ANIMALS_SUCCESS = 'FETCH_ANIMALS_SUCCESS';
 export const FETCH_ANIMALS_FAILURE = 'FETCH_ANIMALS_FAILURE';
@@ -12,27 +13,36 @@ export const DELETE_ANIMAL = 'DELETE_ANIMAL';
 export const DELETE_ANIMAL_SUCCESS = 'DELETE_ANIMAL_SUCCESS';
 export const DELETE_ANIMAL_FAILURE = 'DELETE_ANIMAL_FAILURE';
 
-export function addAnimalSuccess(animal) {
+export function addAnimal(animal) {
     return {
-        type: ADD_ANIMAL_SUCCESS,
-        animal: animal
+        type: ADD_ANIMAL,
+        animal
     }
 };
 
-export function addAnimalFailure(error) {
+export function postAnimalSuccess(animal) {
     return {
-        type: ADD_ANIMAL_FAILURE,
-        error: error
+        type: POST_ANIMAL_SUCCESS,
+        animal
     }
 };
 
-export const addAnimal = (animal) => dispatch => {
+export function postAnimalFailure(error) {
+    return {
+        type: POST_ANIMAL_FAILURE,
+        error
+    }
+};
+
+export const postAnimal = (animal) => dispatch => {
+    dispatch(addAnimal(animal));
     return WebAPI.postAnimal(animal).then(res => {
-        dispatch(addAnimalSuccess(res));
+        dispatch(postAnimalSuccess(res));
     }).catch((error) => {
-        dispatch(addAnimalFailure(error))
+        dispatch(postAnimalFailure(error))
     });
 }
+
 
 export function fetchAnimalsSuccess(animals) {
     return {
