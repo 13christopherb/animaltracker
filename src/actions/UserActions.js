@@ -43,8 +43,8 @@ function logout() {
 
 function register(login) {
     return dispatch => {
-        dispatch(request({username: login.username}));
-        userService.register(login)
+        dispatch(request(login.username));
+        return userService.register(login)
             .then(res => {
                     dispatch(success(login.username));
                 }, error => {

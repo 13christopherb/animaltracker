@@ -34,4 +34,21 @@ describe('async animalActions', () => {
         });
     });
 
+    it('should send registration request to API', () => {
+        fetchMock.postOnce('http://localhost:5000/registration', {
+            body: {username: 'user', password: 'password'},
+            headers: {'content-type': 'application/json'}
+        });
+
+        const expectedActions = [
+            {type: userConstants.REGISTER_REQUEST, user:'user'},
+            {type: userConstants.REGISTER_SUCCESS, user:'user'}
+        ];
+
+        const store = mockStore({animals: []})
+        return store.dispatch(userActions.register({username: 'user', password: 'password'})).then(() => {
+            expect(store.getActions()).toEqual(expectedActions);
+        });
+    });
+
 });

@@ -1,5 +1,4 @@
 import { animals } from './animals.reducer';
-import { animalActions } from '../actions/AnimalActions';
 import { animalConstants} from "../constants/animal.constants";
 import * as testValues from '../services/TestValues';
 
