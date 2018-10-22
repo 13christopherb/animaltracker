@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import uuidv4 from 'uuid';
-import * as Actions from '../actions/AnimalActions';
+import { animalActions } from '../actions/AnimalActions';
 import AnimalTitle from './AnimalRow';
 
 class NewAnimal extends Component {
@@ -22,7 +22,7 @@ class NewAnimal extends Component {
     }
 
     componentDidMount() {
-        //this.props.dispatch(actions.fetchAnimals());
+        //this.props.dispatch(animalActions.fetchAnimals());
     }
 
     /**
@@ -55,7 +55,7 @@ class NewAnimal extends Component {
             isGettingControlledMeds: this.state.isGettingControlledMeds,
             isGettingTubed: this.state.isGettingTubed
         };
-        this.props.dispatch(Actions.postAnimal(animal));
+        this.props.dispatch(animalActions.addAnimal(animal));
     };
 
     render() {

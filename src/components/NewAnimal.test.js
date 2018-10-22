@@ -4,7 +4,8 @@ import configureMockStore from 'redux-mock-store';
 import NewAnimal from './NewAnimal';
 import toJson from 'enzyme-to-json';
 import thunk from 'redux-thunk'
-import * as actions from '../actions/AnimalActions';
+import { animalActions } from '../actions/AnimalActions';
+import { animalConstants} from "../constants/animal.constants";
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
@@ -117,7 +118,7 @@ describe('<NewAnimal />', () => {
             const wrapper = shallow(<NewAnimal store={store}/>);
             const component = wrapper.dive();
             const expectedActions = [
-                {type: actions.ADD_ANIMAL}
+                {type: animalConstants.ADD_ANIMAL_REQUEST}
             ];
             component.find('form').simulate('submit', {
                 preventDefault: () => {

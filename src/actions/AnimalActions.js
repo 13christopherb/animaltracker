@@ -1,96 +1,86 @@
-import * as WebAPI from '../services/AnimalsService';
+import * as animalService from '../services/AnimalsService';
+import { animalConstants} from "../constants/animal.constants";
 
-export const ADD_ANIMAL = 'ADD_ANIMAL';
-export const POST_ANIMAL_SUCCESS = 'POST_ANIMAL_SUCCESS';
-export const POST_ANIMAL_FAILURE = 'POST_ANIMAL_FAILURE';
-export const REQUEST_ANIMALS = 'REQUEST_ANIMALS';
-export const FETCH_ANIMALS = 'FETCH_ANIMALS';
-export const FETCH_ANIMALS_SUCCESS = 'FETCH_ANIMALS_SUCCESS';
-export const FETCH_ANIMALS_FAILURE = 'FETCH_ANIMALS_FAILURE';
-export const EDIT_ANIMAL = 'EDIT_ANIMAL';
-export const EDIT_ANIMAL_SUCCESS = 'EDIT_ANIMAL_SUCCESS';
-export const DELETE_ANIMAL = 'DELETE_ANIMAL';
-export const DELETE_ANIMAL_SUCCESS = 'DELETE_ANIMAL_SUCCESS';
-export const DELETE_ANIMAL_FAILURE = 'DELETE_ANIMAL_FAILURE';
-
-export function addAnimal(animal) {
-    return {
-        type: ADD_ANIMAL,
-        animal
-    }
+export const animalActions = {
+    addAnimal,
+    getAnimals,
+    deleteAnimal
 };
 
-export function postAnimalSuccess(animal) {
-    return {
-        type: POST_ANIMAL_SUCCESS,
-        animal
+function addAnimal(animal) {
+    return dispatch => {
+        dispatch(request(animal));
+        return animalService.addAnimal(animal)
+            .then(
+                res => {
+                    dispatch(success(animal))
+                },
+                error => {
+                    dispatch(failure(error))
+                }
+            );
+    };
+    function request(animal) {
+        return {type: animalConstants.ADD_ANIMAL_REQUEST, animal}
     }
-};
 
-export function postAnimalFailure(error) {
-    return {
-        type: POST_ANIMAL_FAILURE,
-        error
+    function success(animal) {
+        return {type: animalConstants.ADD_ANIMAL_SUCCESS, animal}
     }
-};
 
-export const postAnimal = (animal) => dispatch => {
-    dispatch(addAnimal(animal));
-    return WebAPI.postAnimal(animal).then(res => {
-        dispatch(postAnimalSuccess(res));
-    }).catch((error) => {
-        dispatch(postAnimalFailure(error))
-    });
-};
-
-
-export function fetchAnimalsSuccess(animals) {
-    return {
-        type: FETCH_ANIMALS_SUCCESS,
-        animals: animals
+    function failure(error) {
+        return {type: animalConstants.ADD_ANIMAL_FAILURE, error}
     }
 }
 
-export function fetchAnimalsFailure(error) {
-    return {
-        type: FETCH_ANIMALS_FAILURE,
-        error: error
+function getAnimals() {
+    return dispatch => {
+        dispatch(request());
+        return animalService.getAllAnimals()
+            .then(
+                res => {
+                    dispatch(success(res['animals']))
+                },
+                error => {
+                    dispatch(failure(error))
+                }
+            );
+    };
+    function request() {
+        return {type: animalConstants.GET_ANIMALS_REQUEST}
+    }
+
+    function success(animals) {
+        return {type: animalConstants.GET_ANIMALS_SUCCESS, animals}
+    }
+
+    function failure(error) {
+        return {type: animalConstants.GET_ANIMALS_FAILURE, error}
     }
 }
 
-export const fetchAnimals = () => dispatch => {
-    return WebAPI.getAllAnimals().then(res => {
-        dispatch(fetchAnimalsSuccess(res['animals']))
-    }).catch((error) => {
-        dispatch(fetchAnimalsFailure(error))
-    });
-}
+function deleteAnimal(animal) {
+    return dispatch => {
+        dispatch(request(animal));
+        return animalService.deleteAnimal(animal.id)
+            .then(
+                res => {
+                    dispatch(success(animal))
+                },
+                error => {
+                    dispatch(failure(error))
+                }
+            );
+    }
+    function request(animal) {
+        return {type: animalConstants.DELETE_ANIMAL_REQUEST, animal}
+    }
 
-export function editAnimal(animal) {
-    return {
-        type: EDIT_ANIMAL,
-        animal: animal
+    function success(animal) {
+        return {type: animalConstants.DELETE_ANIMAL_SUCCESS, animal}
+    }
+
+    function failure(error) {
+        return {type: animalConstants.DELETE_ANIMAL_FAILURE, error}
     }
 }
-
-export function deleteAnimalSuccess(animal) {
-    return {
-        type: DELETE_ANIMAL_SUCCESS,
-        animal: animal
-    }
-}
-
-export function deleteAnimalFailure(error) {
-    return {
-        type: DELETE_ANIMAL_FAILURE,
-        error: error
-    }
-}
-
-export const deleteAnimal = (animal) => dispatch => {
-    return WebAPI.deleteAnimal(animal.id).then(res => {
-        dispatch(deleteAnimalSuccess(animal))
-    }).catch((error) => {
-        dispatch(deleteAnimalFailure(error))
-    })
-};

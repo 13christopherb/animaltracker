@@ -1,16 +1,16 @@
-import {userActions} from './UserActions';
-import * as userConstants from '../constants/user.constants'
-import configureMockStore from 'redux-mock-store'
-import {createStore, applyMiddleware} from 'redux'
-import thunk from 'redux-thunk'
-import fetchMock from 'fetch-mock'
+import { userActions } from './UserActions';
+import { userConstants } from '../constants/user.constants';
+import configureMockStore from 'redux-mock-store';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import fetchMock from 'fetch-mock';
 
 import * as testValues from '../services/TestValues'
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
-describe('async actions', () => {
+describe('async animalActions', () => {
     afterEach(() => {
         fetchMock.reset()
         fetchMock.restore()

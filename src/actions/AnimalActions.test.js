@@ -1,8 +1,9 @@
-import * as actions from './AnimalActions';
-import configureMockStore from 'redux-mock-store'
-import {createStore, applyMiddleware} from 'redux'
-import thunk from 'redux-thunk'
-import fetchMock from 'fetch-mock'
+import { animalActions } from './AnimalActions';
+import { animalConstants} from "../constants/animal.constants";
+import configureMockStore from 'redux-mock-store';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import fetchMock from 'fetch-mock';
 
 import * as testValues from '../services/TestValues'
 
@@ -10,7 +11,7 @@ const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
 
-describe('async actions', () => {
+describe('async animalActions', () => {
     afterEach(() => {
         fetchMock.reset()
         fetchMock.restore()
@@ -23,11 +24,12 @@ describe('async actions', () => {
         });
 
         const expectedActions = [
-            {type: actions.FETCH_ANIMALS_SUCCESS, animals: testValues.animals}
+            {type: animalConstants.GET_ANIMALS_REQUEST},
+            {type: animalConstants.GET_ANIMALS_SUCCESS, animals: testValues.animals}
         ];
 
         const store = mockStore({animals: []});
-        return store.dispatch(actions.fetchAnimals()).then(() => {
+        return store.dispatch(animalActions.getAnimals()).then(() => {
             expect(store.getActions()).toEqual(expectedActions);
         });
     });
@@ -39,11 +41,12 @@ describe('async actions', () => {
         });
 
         const expectedActions = [
-            {type: actions.FETCH_ANIMALS_FAILURE, error: error}
+            {type: animalConstants.GET_ANIMALS_REQUEST},
+            {type: animalConstants.GET_ANIMALS_FAILURE, error: error}
         ];
 
         const store = mockStore({animals: []})
-        return store.dispatch(actions.fetchAnimals()).then(() => {
+        return store.dispatch(animalActions.getAnimals()).then(() => {
             expect(store.getActions()).toEqual(expectedActions);
         });
     });
@@ -55,12 +58,12 @@ describe('async actions', () => {
         });
 
         const expectedActions = [
-            {type: actions.ADD_ANIMAL, animal: testValues.animal1},
-            {type: actions.POST_ANIMAL_SUCCESS, animal: testValues.animal1}
+            {type: animalConstants.ADD_ANIMAL_REQUEST, animal: testValues.animal1},
+            {type: animalConstants.ADD_ANIMAL_SUCCESS, animal: testValues.animal1}
         ];
 
         const store = mockStore({animals: []})
-        return store.dispatch(actions.postAnimal(testValues.animal1)).then(() => {
+        return store.dispatch(animalActions.addAnimal(testValues.animal1)).then(() => {
             expect(store.getActions()).toEqual(expectedActions);
         });
     });
@@ -72,12 +75,12 @@ describe('async actions', () => {
         });
 
         const expectedActions = [
-            {type: actions.ADD_ANIMAL, animal: testValues.animal1},
-            {type: actions.POST_ANIMAL_FAILURE, error: error}
+            {type: animalConstants.ADD_ANIMAL_REQUEST, animal: testValues.animal1},
+            {type: animalConstants.ADD_ANIMAL_FAILURE, error: error}
         ];
 
         const store = mockStore({animals: []})
-        return store.dispatch(actions.postAnimal(testValues.animal1)).then(() => {
+        return store.dispatch(animalActions.addAnimal(testValues.animal1)).then(() => {
             expect(store.getActions()).toEqual(expectedActions);
         });
     });
@@ -89,11 +92,12 @@ describe('async actions', () => {
         });
 
         const expectedActions = [
-            {type: actions.DELETE_ANIMAL_SUCCESS, animal: testValues.animal1}
+            {type: animalConstants.DELETE_ANIMAL_REQUEST, animal: testValues.animal1},
+            {type: animalConstants.DELETE_ANIMAL_SUCCESS, animal: testValues.animal1}
         ];
 
         const store = mockStore({animals: [testValues.animal1]})
-        return store.dispatch(actions.deleteAnimal(testValues.animal1)).then(() => {
+        return store.dispatch(animalActions.deleteAnimal(testValues.animal1)).then(() => {
             expect(store.getActions()).toEqual(expectedActions);
         });
     });
@@ -105,11 +109,12 @@ describe('async actions', () => {
         });
 
         const expectedActions = [
-            {type: actions.DELETE_ANIMAL_FAILURE, error: error}
+            {type: animalConstants.DELETE_ANIMAL_REQUEST, animal: testValues.animal1},
+            {type: animalConstants.DELETE_ANIMAL_FAILURE, error: error}
         ];
 
-        const store = mockStore({animals: [testValues.animal1]})
-        return store.dispatch(actions.deleteAnimal(testValues.animal1)).then(() => {
+        const store = mockStore({animals: [testValues.animal1]});
+        return store.dispatch(animalActions.deleteAnimal(testValues.animal1)).then(() => {
             expect(store.getActions()).toEqual(expectedActions);
         });
     });

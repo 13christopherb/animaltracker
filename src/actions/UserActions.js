@@ -1,5 +1,5 @@
 import * as userService from '../services/UserService';
-import * as userConstants from '../constants/user.constants.js';
+import { userConstants } from '../constants/user.constants.js';
 
 
 export const userActions = {
@@ -28,7 +28,6 @@ function login(login) {
     }
 
     function success(user) {
-        console.log(user);
         return {type: userConstants.LOGIN_SUCCESS, user}
     }
 

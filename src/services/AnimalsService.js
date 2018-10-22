@@ -15,7 +15,7 @@ export const getAllAnimals = () =>
         headers: headers
     }).then(res => res.json());
 
-export const postAnimal = (animal) =>
+export const addAnimal = (animal) =>
     fetch(api + `/animals`, {
         method: 'POST',
         headers: headers,

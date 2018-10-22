@@ -1,6 +1,7 @@
 import { animals } from './animals.reducer';
-import * as actions from '../actions/AnimalActions';
-import * as testValues from '../services/TestValues'
+import { animalActions } from '../actions/AnimalActions';
+import { animalConstants} from "../constants/animal.constants";
+import * as testValues from '../services/TestValues';
 
 describe('animals reducer', () => {
     it('should return the initial state', () => {
@@ -11,10 +12,10 @@ describe('animals reducer', () => {
         )
     });
 
-    it('should handle POST_ANIMAL_SUCCESS', () => {
+    it('should handle ADD_ANIMAL_SUCCESS', () => {
         expect(
             animals({animals: []}, {
-                type: actions.POST_ANIMAL_SUCCESS,
+                type: animalConstants.ADD_ANIMAL_SUCCESS,
                 animal: testValues.animal1
             })
         ).toEqual({
@@ -25,7 +26,7 @@ describe('animals reducer', () => {
     it('should handle FETCH_ANIMALS_SUCCESS', () => {
         expect(
             animals({animals: testValues.animals}, {
-                type: actions.FETCH_ANIMALS_SUCCESS,
+                type: animalConstants.GET_ANIMALS_SUCCESS,
                 animals: testValues.animals
             })
         ).toEqual({
@@ -36,7 +37,7 @@ describe('animals reducer', () => {
     it('should handle DELETE_ANIMAL_SUCCESS', () => {
         expect(
             animals({animals: testValues.animals}, {
-                type: actions.DELETE_ANIMAL_SUCCESS,
+                type: animalConstants.DELETE_ANIMAL_SUCCESS,
                 animal: testValues.animal1
             })
         ).toEqual({

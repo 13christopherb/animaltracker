@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import uuidv4 from 'uuid';
-import * as Actions from '../actions/AnimalActions';
+import { animalActions } from '../actions/AnimalActions';
 import AnimalTitle from './AnimalRow';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -15,11 +15,11 @@ class Animals extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(Actions.fetchAnimals());
+        this.props.dispatch(animalActions.getAnimals());
     }
 
     deleteAnimal(animal) {
-        this.props.dispatch(Actions.deleteAnimal(animal.props.animal));
+        this.props.dispatch(animalActions.deleteAnimal(animal.props.animal));
     }
 
     render() {
