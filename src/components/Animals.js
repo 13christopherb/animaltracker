@@ -11,13 +11,14 @@ class Animals extends Component {
     constructor(props) {
         super(props);
         this.state = {value: ''}
+        this.deleteAnimal = this.deleteAnimal.bind(this)
     }
 
     componentDidMount() {
         this.props.dispatch(Actions.fetchAnimals());
     }
 
-    deleteAnimal = (animal) => {
+    deleteAnimal(animal) {
         this.props.dispatch(Actions.deleteAnimal(animal.props.animal));
     }
 

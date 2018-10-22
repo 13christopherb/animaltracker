@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NewUser /> render() should render the component 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-row"
+    >
+      <div
+        className="col"
+      >
+        <label>
+          Username
+          <input
+            className="form-control"
+            name="username"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </label>
+      </div>
+    </div>
+    <label>
+      Password
+      <input
+        className="form-control"
+        name="password"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;

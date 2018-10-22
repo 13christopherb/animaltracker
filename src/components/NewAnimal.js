@@ -17,6 +17,8 @@ class NewAnimal extends Component {
             species: '',
             location: ''
         };
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -28,21 +30,21 @@ class NewAnimal extends Component {
      * when button is pressed
      * @param e Input change event
      */
-    handleInputChange = (e) => {
+    handleInputChange(e) {
         const target = e.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
         this.setState({
             [name]: value
         });
-    }
+    };
 
     /**
      * post the input values saved in the state
      * to the server.
      * @param e On click event
      */
-    handleSubmit = (e) => {
+    handleSubmit(e) {
         e.preventDefault();
         const animal = {
             timestamp: Date.now(),
@@ -54,7 +56,7 @@ class NewAnimal extends Component {
             isGettingTubed: this.state.isGettingTubed
         };
         this.props.dispatch(Actions.postAnimal(animal));
-    }
+    };
 
     render() {
         return (

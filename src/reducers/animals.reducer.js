@@ -5,7 +5,7 @@ const initialState = {
     animals: []
 }
 
-function reducers(state=initialState, action) {
+export function animals(state=initialState, action) {
     switch (action.type) {
         case actions.POST_ANIMAL_SUCCESS:
             var animals = [...state['animals']];
@@ -30,5 +30,3 @@ function reducers(state=initialState, action) {
             return state
     }
 }
-
-export default reducers;

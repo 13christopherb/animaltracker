@@ -1,4 +1,4 @@
-import * as WebAPI from '../utils/WebAPI';
+import * as WebAPI from '../services/AnimalsService';
 
 export const ADD_ANIMAL = 'ADD_ANIMAL';
 export const POST_ANIMAL_SUCCESS = 'POST_ANIMAL_SUCCESS';
@@ -41,7 +41,7 @@ export const postAnimal = (animal) => dispatch => {
     }).catch((error) => {
         dispatch(postAnimalFailure(error))
     });
-}
+};
 
 
 export function fetchAnimalsSuccess(animals) {

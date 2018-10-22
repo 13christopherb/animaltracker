@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import _ from 'underscore'
 import * as Actions from '../actions/AnimalActions';
 import Location from './Location';
+import UserLogin from './UserLogin'
 
 
 class Locations extends Component {
@@ -28,15 +29,19 @@ class Locations extends Component {
         }
         return (
             <div>
+                {this.props.loggedIn ? (
+                    <p>Log out</p>) :
+                <UserLogin/>}
                 {locations}
             </div>
         );
     }
 }
 
-function mapStateToProps({animals}, ownProps) {
+function mapStateToProps({authentication, animals}, ownProps) {
     return {
-        animals: animals
+        animals: animals.animals,
+        loggedIn: authentication.loggedIn
     }
 }
 
