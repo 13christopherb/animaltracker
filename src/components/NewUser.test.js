@@ -6,7 +6,7 @@ import thunk from 'redux-thunk'
 import * as actions from '../actions/AnimalActions';
 import * as userConstants from '../constants/user.constants';
 import {userActions} from "../actions/UserActions";
-import NewUser from './NewUser';
+import { NewUser } from './NewUser';
 
 
 const middlewares = [thunk]

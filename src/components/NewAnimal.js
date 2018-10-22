@@ -144,6 +144,8 @@ function mapStateToProps({animals}, ownProps) {
     }
 }
 
-export default connect(
+const connectedNewAnimal = connect(
     mapStateToProps,
-)(NewAnimal)
+)(NewAnimal);
+
+export {connectedNewAnimal as NewAnimal};

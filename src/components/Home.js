@@ -1,29 +1,19 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { animalActions } from '../actions/AnimalActions';
-import { AnimalRow } from './AnimalRow';
+import AnimalTitle from './AnimalRow';
 
 
-class Animals extends Component {
+class Home extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {value: ''}
-        this.deleteAnimal = this.deleteAnimal.bind(this)
-    }
-
-    componentDidMount() {
-        this.props.dispatch(animalActions.getAnimals());
-    }
-
-    deleteAnimal(animal) {
-        this.props.dispatch(animalActions.deleteAnimal(animal.props.animal));
     }
 
     render() {
         let animals = [];
         for (let animal of this.props.animals) {
-            animals.push(<AnimalRow animal={animal} deleteAnimal={this.deleteAnimal} key={animal.id} />);
+            animals.push(<AnimalTitle animal={animal} deleteAnimal={this.deleteAnimal} key={animal.id} />);
         }
         return (
             <div>
@@ -45,12 +35,10 @@ class Animals extends Component {
 
 function mapStateToProps({animals}, ownProps) {
     return {
-        animals: ownProps.animals
+        animals: ownProps.animals,
     }
 }
 
-const connectedAnimals = connect(
+export default connect(
     mapStateToProps,
-)(Animals);
-
-export {connectedAnimals as Animals}
+)(Home);

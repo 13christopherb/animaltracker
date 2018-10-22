@@ -41,4 +41,4 @@ class AnimalRow extends React.Component {
     }
 }
 
-export default AnimalRow;
+export {AnimalRow as AnimalRow};

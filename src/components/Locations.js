@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'underscore'
 import { animalActions } from '../actions/AnimalActions';
-import Location from './Location';
-import UserLogin from './UserLogin'
+import { Location } from './Location';
+import { UserLogin } from './UserLogin'
 
 
 class Locations extends Component {
@@ -45,6 +45,6 @@ function mapStateToProps({authentication, animals}, ownProps) {
     }
 }
 
-export default connect(
-    mapStateToProps,
-)(Locations);
+const connectedLocations = connect(mapStateToProps)(Locations);
+
+export {connectedLocations as Locations}

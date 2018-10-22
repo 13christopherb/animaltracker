@@ -71,6 +71,8 @@ function mapStateToProps() {
     return {}
 }
 
-export default connect(
+const connectedNewUser =  connect(
     mapStateToProps,
 )(NewUser);
+
+export {connectedNewUser as NewUser};

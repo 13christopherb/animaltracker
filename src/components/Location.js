@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import _ from 'underscore';
-import Animals from './Animals';
+import { Animals } from './Animals';
 
 
 class Location extends Component {
@@ -48,6 +48,8 @@ function mapStateToProps({animals}, ownProps) {
     }
 }
 
-export default connect(
+const connectedLocation =  connect(
     mapStateToProps,
 )(Location);
+
+export {connectedLocation as Location};

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
-import Locations from './Locations';
+import { Locations } from './Locations';
 import toJson from 'enzyme-to-json';
 import thunk from 'redux-thunk'
 import * as testValues from '../services/TestValues'

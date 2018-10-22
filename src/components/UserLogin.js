@@ -69,9 +69,9 @@ class UserLogin extends Component {
 }
 
 function mapStateToProps() {
-    return{};
+    return {};
 }
 
-export default connect(
-    mapStateToProps,
-)(UserLogin);
+const connectedLogin = connect(mapStateToProps)(UserLogin);
+
+export {connectedLogin as UserLogin}

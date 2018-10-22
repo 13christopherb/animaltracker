@@ -5,7 +5,7 @@ import toJson from 'enzyme-to-json';
 import thunk from 'redux-thunk'
 import {userActions} from "../actions/UserActions";
 
-import UserLogin from './UserLogin';
+import {UserLogin} from './UserLogin';
 
 
 const middlewares = [thunk]

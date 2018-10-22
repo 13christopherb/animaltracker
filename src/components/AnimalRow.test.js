@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import AnimalTitle from './AnimalRow';
+import { AnimalRow } from './AnimalRow';
 import toJson from 'enzyme-to-json';
 
 const animal = {
@@ -16,7 +16,7 @@ const animal = {
 describe('<AnimalRow />', () => {
     describe('render()', () => {
         test('should render the component', () => {
-            const wrapper = shallow(<AnimalTitle animal={animal}/>)
+            const wrapper = shallow(<AnimalRow animal={animal}/>)
 
             expect(toJson(wrapper)).toMatchSnapshot()
         })
@@ -25,7 +25,7 @@ describe('<AnimalRow />', () => {
         test('delete button calls deleteAnimal', () => {
             const mockDelete = jest.fn();
             const wrapper = shallow(
-                <AnimalTitle deleteAnimal={mockDelete} animal={animal}/>
+                <AnimalRow deleteAnimal={mockDelete} animal={animal}/>
             );
 
             wrapper.find('#delete').simulate('click', { preventDefault() {} })
