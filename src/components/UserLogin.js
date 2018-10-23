@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router';
 import {userActions} from '../actions/UserActions';
+import {NewUser} from "./NewUser";
 
 
 class UserLogin extends Component {
@@ -41,6 +42,7 @@ class UserLogin extends Component {
         }
         return (
             <div>
+                <NewUser/>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-row">
                         <div className="col">

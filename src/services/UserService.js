@@ -15,7 +15,6 @@ export const login = (login) =>
             if (user.accessToken) {
                 localStorage.setItem('user', JSON.stringify(user));
             }
-
             return user;
         });
 
