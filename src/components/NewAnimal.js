@@ -35,7 +35,7 @@ class NewAnimal extends Component {
         this.setState({
             [name]: value
         });
-    };
+    }
 
     /**
      * post the input values saved in the state
@@ -54,7 +54,7 @@ class NewAnimal extends Component {
             isGettingTubed: this.state.isGettingTubed
         };
         this.props.dispatch(animalActions.addAnimal(animal));
-    };
+    }
 
     render() {
         return (

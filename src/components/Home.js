@@ -3,8 +3,7 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router';
 import {Locations} from "./Locations";
 import {userActions} from '../actions/UserActions';
-import {UserLogin} from "./UserLogin";
-import {withRouter} from 'react-router'
+import {Header} from "./Header";
 
 
 class Home extends Component {
@@ -21,7 +20,6 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.logout} id="logout" className="btn btn-primary">Sign out</button>
                 <Locations/>
             </div>
         );
@@ -34,8 +32,8 @@ function mapStateToProps({animals, authentication}, ownProps) {
     }
 }
 
-const connectedHome = withRouter(connect(
+const connectedHome = connect(
     mapStateToProps,
-)(Home));
+)(Home);
 
 export {connectedHome as Home};

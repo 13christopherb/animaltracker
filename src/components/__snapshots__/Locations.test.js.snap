@@ -1,9 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Locations /> render() should render the component 1`] = `
-<div>
-  <p>
-    Log out
-  </p>
-</div>
-`;
+exports[`<Locations /> render() should render the component 1`] = `<div />`;

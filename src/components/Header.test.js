@@ -4,7 +4,7 @@ import configureMockStore from 'redux-mock-store';
 import toJson from 'enzyme-to-json';
 import thunk from 'redux-thunk'
 
-import {UserLogin} from './UserLogin';
+import {Header} from './Header';
 
 
 const middlewares = [thunk]
@@ -17,10 +17,10 @@ const initialState = {
 
 const store = mockStore(initialState)
 
-describe('<UserLogin />', () => {
+describe('<Header />', () => {
     describe('render()', () => {
         test('should render the component', () => {
-            const wrapper = shallow(<UserLogin store={store}/>);
+            const wrapper = shallow(<Header store={store}/>);
             const component = wrapper.dive();
 
             expect(toJson(component)).toMatchSnapshot()
@@ -30,7 +30,7 @@ describe('<UserLogin />', () => {
     describe('Log in', () => {
         describe('user inputs are echoed', () => {
             test('username text echoed', () => {
-                const wrapper = shallow(<UserLogin store={store}/>);
+                const wrapper = shallow(<Header store={store}/>);
                 const component = wrapper.dive();
                 component.find('input[name="username"]').simulate('change', {
                     target: {
@@ -42,7 +42,7 @@ describe('<UserLogin />', () => {
                 expect(component.find('input[name="username"]').props().value).toEqual('new text');
             });
             test('password text echoed', () => {
-                const wrapper = shallow(<UserLogin store={store}/>);
+                const wrapper = shallow(<Header store={store}/>);
                 const component = wrapper.dive();
                 component.find('input[name="password"]').simulate('change', {
                     target: {
@@ -56,7 +56,7 @@ describe('<UserLogin />', () => {
         });
 
         test('should prevent default browser submit event', () => {
-            const wrapper = shallow(<UserLogin store={store}/>);
+            const wrapper = shallow(<Header store={store}/>);
             const component = wrapper.dive();
             let prevented = false;
             component.find('form').simulate('submit', {

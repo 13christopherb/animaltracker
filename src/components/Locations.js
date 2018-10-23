@@ -29,9 +29,6 @@ class Locations extends Component {
         }
         return (
             <div>
-                {this.props.loggedIn ? (
-                    <p>Log out</p>) :
-                <UserLogin/>}
                 {locations}
             </div>
         );

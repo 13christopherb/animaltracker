@@ -9,6 +9,7 @@ import {PrivateRoute} from "./components/PrivateRoute";
 import {Home} from "./components/Home";
 import {UserLogin} from "./components/UserLogin";
 import {Locations} from "./components/Locations";
+import {Header} from "./components/Header";
 
 
 library.add(faPrescriptionBottleAlt);
@@ -21,6 +22,7 @@ class App extends Component {
     render() {
         return (
             <div className="container-fluid">
+                <Header/>
                 <PrivateRoute exact path="/" component={Home} auth={this.props.user}/>
                 <Route exact path="/login" component={UserLogin}/>
             </div>
