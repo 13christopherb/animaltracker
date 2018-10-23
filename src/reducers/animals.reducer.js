@@ -3,13 +3,13 @@ import { animalConstants} from "../constants/animal.constants";
 
 const initialState = {
     animals: []
-}
+};
 
 export function animals(state=initialState, action) {
     switch (action.type) {
         case animalConstants.ADD_ANIMAL_SUCCESS:
             var animals = [...state['animals']];
-            animals.push(action.animal)
+            animals.push(action.animal);
             return {
                 ...state,
                 animals: animals

@@ -7,19 +7,31 @@ import thunk from 'redux-thunk'
 import {Header} from './Header';
 
 
-const middlewares = [thunk]
-const mockStore = configureMockStore(middlewares)
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
-const initialState = {
-    animals: [],
-    authentication: {}
-}
-
-const store = mockStore(initialState)
 
 describe('<Header />', () => {
     describe('render()', () => {
-        test('should render the component', () => {
+        test('should render the component when logged in', () => {
+            const initialState = {
+                animals: [],
+                authentication: {user: 'user'}
+            };
+
+            const store = mockStore(initialState);
+            const wrapper = shallow(<Header store={store}/>);
+            const component = wrapper.dive();
+
+            expect(toJson(component)).toMatchSnapshot()
+        });
+        test('should render the component when logged out', () => {
+            const initialState = {
+                animals: [],
+                authentication: {}
+            };
+
+            const store = mockStore(initialState);
             const wrapper = shallow(<Header store={store}/>);
             const component = wrapper.dive();
 
@@ -28,6 +40,11 @@ describe('<Header />', () => {
     });
 
     describe('Log in', () => {
+        const initialState = {
+            animals: [],
+            authentication: {}
+        };
+        const store = mockStore(initialState);
         describe('user inputs are echoed', () => {
             test('username text echoed', () => {
                 const wrapper = shallow(<Header store={store}/>);
@@ -67,5 +84,4 @@ describe('<Header />', () => {
             expect(prevented).toBe(true);
         });
     });
-
 });

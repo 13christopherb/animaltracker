@@ -1,4 +1,4 @@
-const api = 'http://localhost:5000';
+const api = 'http://localhost:5000'
 //const api = 'https://mbo-animal-tracker-api.herokuapp.com'
 
 const headers = {
@@ -7,21 +7,21 @@ const headers = {
     'mode':  "cors"
 };
 
-export const getAllAnimals = () =>
-    fetch(api+ '/animals', {
+export const getAllTransports = () =>
+    fetch(api+ '/transports', {
         method: 'GET',
         headers: headers
     }).then(res => res.json());
 
-export const addAnimal = (animal) =>
-    fetch(api + `/animals`, {
+export const addTransport = (transport) =>
+    fetch(api + `/transports`, {
         method: 'POST',
         headers: headers,
-        body: JSON.stringify(animal)
+        body: JSON.stringify(transport)
     }).then(res => res.json());
 
 export const deleteAnimal = (id) =>
-    fetch(api + '/animals/' + id, {
+    fetch(api + '/transports/' + id, {
         method: 'DELETE',
         headers: headers,
         body: id

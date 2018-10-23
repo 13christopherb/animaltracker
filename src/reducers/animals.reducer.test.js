@@ -42,5 +42,5 @@ describe('animals reducer', () => {
         ).toEqual({
             animals: testValues.animalsMinusOne
         });
-    })
+    });
 });

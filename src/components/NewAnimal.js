@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { animalActions } from '../actions/AnimalActions';
+import {animalActions} from '../actions/AnimalActions';
 
 class NewAnimal extends Component {
 
@@ -73,13 +73,11 @@ class NewAnimal extends Component {
                                 </select>
                             </label>
                         </div>
-                    </div>
-                    <div className="form-row">
                         <div className="col col-md-3">
                             <label>
                                 Species
                                 <select name="species" className="custom-select" onChange={this.handleInputChange}
-                                value={this.state.species}>
+                                        value={this.state.species}>
                                     <option value=""></option>
                                     <option value="CSL">CSL</option>
                                     <option value="ES">ES</option>
@@ -90,7 +88,7 @@ class NewAnimal extends Component {
                                 </select>
                             </label>
                         </div>
-                        <div className="col">
+                        <div className="col col-md-3">
                             <label>
                                 Name
                                 <input
@@ -101,35 +99,42 @@ class NewAnimal extends Component {
                                 />
                             </label>
                         </div>
+                        <div className="col col-md-3">
+                            <label>
+                                Weight
+                                <input
+                                    name="weight" className="form-control"
+                                    type="text"
+                                    onChange={this.handleInputChange}
+                                    value={this.state.weight}
+                                />
+                            </label>
+                        </div>
                     </div>
-                    <label>
-                        Weight
-                        <input
-                            name="weight" className="form-control"
-                            type="text"
-                            onChange={this.handleInputChange}
-                            value={this.state.weight}
-                        />
-                    </label>
-                    <label>
-                        Controlled meds:
-                        <input
-                            name="isGettingControlledMeds"
-                            type="checkbox"
-                            onChange={this.handleInputChange}
-                            value={this.state.isGettingControlledMeds}
-                        />
-                    </label>
-                    <label>
-                        Tube feeding:
-                        <input
-                            name="isGettingTubed"
-                            type="checkbox"
-                            onChange={this.handleInputChange}
-                            value={this.state.isGettingTubed}
-                        />
-                    </label>
-                    <button type="submit">Submit</button>
+                    <div className="form-row">
+                        <label>
+                            Controlled meds:
+                            <input
+                                name="isGettingControlledMeds"
+                                type="checkbox"
+                                onChange={this.handleInputChange}
+                                value={this.state.isGettingControlledMeds}
+                            />
+                        </label>
+                        <label>
+                            Tube feeding:
+                            <input
+                                name="isGettingTubed"
+                                type="checkbox"
+                                onChange={this.handleInputChange}
+                                value={this.state.isGettingTubed}
+                            />
+                        </label>
+                        <button className="btn btn-primary" type="submit">Submit</button>
+                        <button onClick={this.props.toggleAddAnimal} className="btn btn-danger" type="button">
+                            Cancel
+                        </button>
+                    </div>
                 </form>
             </div>
         );

@@ -1,7 +1,6 @@
 import { animalActions } from './AnimalActions';
 import { animalConstants} from "../constants/animal.constants";
 import configureMockStore from 'redux-mock-store';
-import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
 
@@ -13,8 +12,8 @@ const mockStore = configureMockStore(middlewares)
 
 describe('async animalActions', () => {
     afterEach(() => {
-        fetchMock.reset()
-        fetchMock.restore()
+        fetchMock.reset();
+        fetchMock.restore();
     });
 
     it('should fetch array of animals from API', () => {
@@ -35,7 +34,7 @@ describe('async animalActions', () => {
     });
 
     it('should handle fetch error', () => {
-        const error = new Error('Network error')
+        const error = new Error('Network error');
         fetchMock.getOnce('http://localhost:5000/animals', {
             throws: error
         });
@@ -69,7 +68,7 @@ describe('async animalActions', () => {
     });
 
     it('should handle post error', () => {
-        const error = new Error('Network error')
+        const error = new Error('Network error');
         fetchMock.postOnce('http://localhost:5000/animals', {
             throws: error
         });
@@ -79,7 +78,7 @@ describe('async animalActions', () => {
             {type: animalConstants.ADD_ANIMAL_FAILURE, error: error}
         ];
 
-        const store = mockStore({animals: []})
+        const store = mockStore({animals: []});
         return store.dispatch(animalActions.addAnimal(testValues.animal1)).then(() => {
             expect(store.getActions()).toEqual(expectedActions);
         });
@@ -96,14 +95,14 @@ describe('async animalActions', () => {
             {type: animalConstants.DELETE_ANIMAL_SUCCESS, animal: testValues.animal1}
         ];
 
-        const store = mockStore({animals: [testValues.animal1]})
+        const store = mockStore({animals: [testValues.animal1]});
         return store.dispatch(animalActions.deleteAnimal(testValues.animal1)).then(() => {
             expect(store.getActions()).toEqual(expectedActions);
         });
     });
 
     it('should handle delete error', () => {
-        const error = new Error('Network error')
+        const error = new Error('Network error');
         fetchMock.deleteOnce('http://localhost:5000/animals/1', {
             throws: error
         });

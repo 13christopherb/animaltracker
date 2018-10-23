@@ -40,10 +40,6 @@ exports[`<NewAnimal /> render() should render the component 1`] = `
           </select>
         </label>
       </div>
-    </div>
-    <div
-      className="form-row"
-    >
       <div
         className="col col-md-3"
       >
@@ -92,7 +88,7 @@ exports[`<NewAnimal /> render() should render the component 1`] = `
         </label>
       </div>
       <div
-        className="col"
+        className="col col-md-3"
       >
         <label>
           Name
@@ -105,40 +101,55 @@ exports[`<NewAnimal /> render() should render the component 1`] = `
           />
         </label>
       </div>
+      <div
+        className="col col-md-3"
+      >
+        <label>
+          Weight
+          <input
+            className="form-control"
+            name="weight"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </label>
+      </div>
     </div>
-    <label>
-      Weight
-      <input
-        className="form-control"
-        name="weight"
-        onChange={[Function]}
-        type="text"
-        value=""
-      />
-    </label>
-    <label>
-      Controlled meds:
-      <input
-        name="isGettingControlledMeds"
-        onChange={[Function]}
-        type="checkbox"
-        value={false}
-      />
-    </label>
-    <label>
-      Tube feeding:
-      <input
-        name="isGettingTubed"
-        onChange={[Function]}
-        type="checkbox"
-        value={false}
-      />
-    </label>
-    <button
-      type="submit"
+    <div
+      className="form-row"
     >
-      Submit
-    </button>
+      <label>
+        Controlled meds:
+        <input
+          name="isGettingControlledMeds"
+          onChange={[Function]}
+          type="checkbox"
+          value={false}
+        />
+      </label>
+      <label>
+        Tube feeding:
+        <input
+          name="isGettingTubed"
+          onChange={[Function]}
+          type="checkbox"
+          value={false}
+        />
+      </label>
+      <button
+        className="btn btn-primary"
+        type="submit"
+      >
+        Submit
+      </button>
+      <button
+        className="btn btn-danger"
+        type="button"
+      >
+        Cancel
+      </button>
+    </div>
   </form>
 </div>
 `;
