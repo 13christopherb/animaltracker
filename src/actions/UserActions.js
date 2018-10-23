@@ -1,5 +1,5 @@
 import * as userService from '../services/UserService';
-import { userConstants } from '../constants/user.constants.js';
+import {userConstants} from '../constants/user.constants.js';
 
 
 export const userActions = {

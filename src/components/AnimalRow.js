@@ -6,7 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class AnimalRow extends React.Component {
 
-    deleteAnimal = (e) => {
+    constructor(props) {
+        super(props);
+        this.deleteAnimal = this.deleteAnimal.bind(this)
+    }
+
+    deleteAnimal(e) {
         e.preventDefault();
         this.props.deleteAnimal(this);
     }

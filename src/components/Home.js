@@ -1,44 +1,41 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { animalActions } from '../actions/AnimalActions';
-import AnimalTitle from './AnimalRow';
+import {Redirect} from 'react-router';
+import {Locations} from "./Locations";
+import {userActions} from '../actions/UserActions';
+import {UserLogin} from "./UserLogin";
+import {withRouter} from 'react-router'
 
 
 class Home extends Component {
 
     constructor(props) {
         super(props);
+        this.logout = this.logout.bind(this);
+    }
+
+    logout(e) {
+        this.props.dispatch(userActions.logout());
     }
 
     render() {
-        let animals = [];
-        for (let animal of this.props.animals) {
-            animals.push(<AnimalTitle animal={animal} deleteAnimal={this.deleteAnimal} key={animal.id} />);
-        }
         return (
             <div>
-                <div className="row">
-                    <div className="col col-md-12">
-                        <div className="table-responsive">
-                            <table className="table table-striped">
-                                <tbody>
-                                {animals}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+                <button onClick={this.logout} id="logout" className="btn btn-primary">Sign out</button>
+                <Locations/>
             </div>
         );
     }
 }
 
-function mapStateToProps({animals}, ownProps) {
+function mapStateToProps({animals, authentication}, ownProps) {
     return {
-        animals: ownProps.animals,
+        loggedIn: authentication.loggedIn
     }
 }
 
-export default connect(
+const connectedHome = withRouter(connect(
     mapStateToProps,
-)(Home);
+)(Home));
+
+export {connectedHome as Home};

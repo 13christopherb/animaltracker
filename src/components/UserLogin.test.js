@@ -12,7 +12,8 @@ const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
 const initialState = {
-    animals: []
+    animals: [],
+    authentication: {}
 }
 
 const store = mockStore(initialState)

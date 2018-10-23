@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import uuidv4 from 'uuid';
+import {Redirect} from 'react-router';
 import {userActions} from '../actions/UserActions';
 
 
@@ -36,6 +36,9 @@ class UserLogin extends Component {
     };
 
     render() {
+        if (this.props.user) {
+            return (<Redirect to={{ pathname: '/'}} />)
+        }
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
@@ -68,8 +71,10 @@ class UserLogin extends Component {
     }
 }
 
-function mapStateToProps() {
-    return {};
+function mapStateToProps({authentication}) {
+    return {
+        user: authentication.user
+    };
 }
 
 const connectedLogin = connect(mapStateToProps)(UserLogin);
