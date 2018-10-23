@@ -10,14 +10,12 @@ function addTransport(transport) {
     return dispatch => {
         dispatch(request(transport));
         return transportService.addTransport(transport)
-            .then(
-                res => {
+            .then(res => {
                     dispatch(success(transport))
                 },
-                error => {
+                error=>{
                     dispatch(failure(error))
-                }
-            );
+                });
     };
     function request(transport) {
         return {type: transportConstants.ADD_TRANSPORT_REQUEST, transport}

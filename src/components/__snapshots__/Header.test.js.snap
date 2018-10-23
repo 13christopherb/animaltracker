@@ -9,29 +9,14 @@ exports[`<Header /> render() should render the component when logged in 1`] = `
       className="navbar-nav mr-auto"
     >
       <li
-        className="nav-item active"
-      >
-        <a
-          className="nav-link"
-          href="#"
-        >
-          Home 
-          <span
-            className="sr-only"
-          >
-            (current)
-          </span>
-        </a>
-      </li>
-      <li
         className="nav-item"
       >
-        <a
+        <button
           className="nav-link"
           href="#"
         >
           Link
-        </a>
+        </button>
       </li>
     </ul>
     <form
@@ -72,29 +57,14 @@ exports[`<Header /> render() should render the component when logged out 1`] = `
       className="navbar-nav mr-auto"
     >
       <li
-        className="nav-item active"
-      >
-        <a
-          className="nav-link"
-          href="#"
-        >
-          Home 
-          <span
-            className="sr-only"
-          >
-            (current)
-          </span>
-        </a>
-      </li>
-      <li
         className="nav-item"
       >
-        <a
+        <button
           className="nav-link"
           href="#"
         >
           Link
-        </a>
+        </button>
       </li>
     </ul>
     <form

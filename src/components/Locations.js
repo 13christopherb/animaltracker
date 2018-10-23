@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'underscore';
+import moment from 'moment';
 import {animalActions} from '../actions/AnimalActions';
+import {transportActions} from "../actions/TransportActions";
 import {Location} from './Location';
 import {NewAnimal} from "./NewAnimal";
+import {NewTransport} from "./NewTransport";
 
 
 class Locations extends Component {
@@ -20,6 +23,7 @@ class Locations extends Component {
 
     componentDidMount() {
         this.props.dispatch(animalActions.getAnimals());
+        this.props.dispatch(transportActions.getTransports())
     }
 
     toggleAddAnimal(e) {
@@ -27,11 +31,11 @@ class Locations extends Component {
     }
 
     render() {
-        let locations = []
+        let locations = [];
         let animalsByLocation = _.groupBy(this.props.animals, (animal) => {
             return animal['location']
         });
-        for (var property in animalsByLocation) {
+        for (let property in animalsByLocation) {
             if (animalsByLocation.hasOwnProperty(property)) {
                 locations.push(<Location key={property} location={property} animals={animalsByLocation[property]}/>)
             }

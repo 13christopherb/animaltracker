@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
-class AnimalRow extends React.Component {
+export class AnimalRow extends React.Component {
 
     constructor(props) {
         super(props);
@@ -45,5 +45,3 @@ class AnimalRow extends React.Component {
         )
     }
 }
-
-export {AnimalRow as AnimalRow};

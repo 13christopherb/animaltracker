@@ -52,16 +52,17 @@ describe('async animalActions', () => {
 
     it('should POST an animal to API', () => {
         fetchMock.postOnce('http://localhost:5000/animals', {
-            body: testValues.animal1,
+            body: {animal: testValues.animal1},
             headers: {'content-type': 'application/json'}
         });
+
 
         const expectedActions = [
             {type: animalConstants.ADD_ANIMAL_REQUEST, animal: testValues.animal1},
             {type: animalConstants.ADD_ANIMAL_SUCCESS, animal: testValues.animal1}
         ];
 
-        const store = mockStore({animals: []})
+        const store = mockStore({animals: []});
         return store.dispatch(animalActions.addAnimal(testValues.animal1)).then(() => {
             expect(store.getActions()).toEqual(expectedActions);
         });

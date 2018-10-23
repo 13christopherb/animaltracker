@@ -7,22 +7,29 @@ const headers = {
     'mode':  "cors"
 };
 
+function handleErrors(response) {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+    return response;
+}
+
 export const getAllAnimals = () =>
     fetch(api+ '/animals', {
         method: 'GET',
         headers: headers
-    }).then(res => res.json());
+    }).then(handleErrors).then(res => res.json());
 
 export const addAnimal = (animal) =>
     fetch(api + `/animals`, {
         method: 'POST',
         headers: headers,
         body: JSON.stringify(animal)
-    }).then(res => res.json());
+    }).then(handleErrors).then(res => res.json());
 
 export const deleteAnimal = (id) =>
     fetch(api + '/animals/' + id, {
         method: 'DELETE',
         headers: headers,
         body: id
-    }).then(res => res.json());
+    }).then(handleErrors).then(res => res.json());

@@ -8,6 +8,13 @@ export const userActions = {
     register
 };
 
+function handleErrors(response) {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+    return response;
+}
+
 function login(login) {
     return dispatch => {
         dispatch(request({username: login.username}));

@@ -1,20 +1,19 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import configureMockStore from 'redux-mock-store';
-import { NewAnimal } from './NewAnimal';
+import {NewAnimal} from './NewAnimal';
 import toJson from 'enzyme-to-json';
 import thunk from 'redux-thunk'
-import { animalActions } from '../actions/AnimalActions';
-import { animalConstants} from "../constants/animal.constants";
+import {animalConstants} from "../constants/animal.constants";
 
-const middlewares = [thunk]
-const mockStore = configureMockStore(middlewares)
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 const initialState = {
     animals: []
-}
+};
 
-const store = mockStore(initialState)
+const store = mockStore(initialState);
 
 describe('<NewAnimal />', () => {
     describe('render()', () => {

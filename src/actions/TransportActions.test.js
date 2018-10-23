@@ -63,7 +63,8 @@ describe('async transportActions', () => {
     it('should POST an animal to API', () => {
         fetchMock.postOnce('http://localhost:5000/transports', {
             body: transport,
-            headers: {'content-type': 'application/json'}
+            headers: {'content-type': 'application/json'},
+            status: 200
         });
 
         const expectedActions = [

@@ -13,7 +13,8 @@ function addAnimal(animal) {
         return animalService.addAnimal(animal)
             .then(
                 res => {
-                    dispatch(success(animal))
+                    console.log(res);
+                    dispatch(success(res['animal']))
                 },
                 error => {
                     dispatch(failure(error))
