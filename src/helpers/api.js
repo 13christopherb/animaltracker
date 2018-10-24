@@ -1,7 +1,7 @@
 import axios from "axios";
 import jwt from 'jsonwebtoken';
 
-const isExpired = (token) => {
+export const isExpired = (token) => {
     if (token && jwt.decode(token)) {
         const expiry = jwt.decode(token).exp;
         const now = new Date();
@@ -34,7 +34,6 @@ const createApiInstance = () => {
                 ...config
             };
         }
-
         return config;
     });
 
@@ -56,29 +55,29 @@ const createApiInstance = () => {
 
 
             if (refreshToken && isExpired(accessToken) && is401(error)) {
-                return fetch(api + '/token/refresh', {      //Use fetch because of need for header with refreshToken
-                    method: 'POST',
+                return axios.post(api+'/token/refresh',{},{
                     headers: {
                         'Accept': 'application/json',
+                        'Authorization': 'Bearer ' + refreshToken,
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer '+ refreshToken
+                        'mode': "cors"
                     }
-                }).then(res => res.json()).then(data => {
-                    localStorage.setItem('accessToken', data['accessToken']);
+                }).then(res => {
+                    localStorage.setItem('accessToken', res.data['accessToken']);
                     const config = {
                         ...error.config,
-                        headers: {...error.config.headers, 'Authorization': 'Bearer ' + data['accessToken']},
+                        headers: {...error.config.headers, 'Authorization': 'Bearer ' + res.data['accessToken']},
                     };
                     return instance(config);
                 }).catch(refreshTokenError => {
-                        console.log('refresh token error', refreshTokenError);
-                        throw error;
-                    });
+                    console.log('refresh token error', refreshTokenError);
+                    throw error;
+                });
             }
-
             throw error;
         });
     return instance;
 };
 
-export const apiInstance = createApiInstance();
+const instance = createApiInstance()
+export {instance as apiInstance};

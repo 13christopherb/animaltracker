@@ -1,8 +1,9 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MockAdapter from 'axios-mock-adapter';
-import { userActions } from './UserActions';
-import { userConstants } from '../constants/user.constants';
+import jwt from 'jsonwebtoken'
+import {userActions} from './UserActions';
+import {userConstants} from '../constants/user.constants';
 import {authInstance} from "../helpers/authentication.api";
 
 
@@ -11,6 +12,11 @@ const mockStore = configureMockStore(middlewares);
 const mockAdapter = new MockAdapter(authInstance);
 
 describe('async userActions', () => {
+
+    beforeEach(() => {
+        localStorage.clear();
+    });
+
     it('should send login request to API and handle successful response', () => {
         mockAdapter.onPost('/login').reply(200, {
             username: 'user'
@@ -44,12 +50,12 @@ describe('async userActions', () => {
 
     it('should send registration request to API and handle response', () => {
         mockAdapter.onPost('/registration').reply(200, {
-                username: 'user'
-            });
+            username: 'user'
+        });
 
         const expectedActions = [
-            {type: userConstants.REGISTER_REQUEST, user:'user'},
-            {type: userConstants.REGISTER_SUCCESS, user:'user'}
+            {type: userConstants.REGISTER_REQUEST, user: 'user'},
+            {type: userConstants.REGISTER_SUCCESS, user: 'user'}
         ];
 
         const store = mockStore({animals: []});
