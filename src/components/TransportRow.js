@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 export class TransportRow extends Component {
@@ -11,6 +10,7 @@ export class TransportRow extends Component {
 
     deleteTransport(e) {
         e.preventDefault();
+        this.props.deleteTransport(this)
     }
 
     render() {

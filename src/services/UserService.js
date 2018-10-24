@@ -33,6 +33,21 @@ export const register = (login) =>
         body: JSON.stringify(login)
     }).then(res => res.json());
 
+export const refreshToken = () =>
+    fetch(api + '/token/refresh', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer '+ localStorage.getItem('refreshToken')
+        }
+    }).then(handleResponse).then(res => {
+        if (res.accessToken) {
+            localStorage.setItem('accessToken', res.accessToken);
+        }
+        return ''
+    });
+
 function handleResponse(response) {
     return response.text().then(text => {
         const data = text && JSON.parse(text);

@@ -1,12 +1,23 @@
 import * as userService from '../services/UserService';
 import {userConstants} from '../constants/user.constants.js';
+import jwt from "jsonwebtoken";
 
 
 export const userActions = {
     login,
     logout,
-    register
+    register,
+    unauthorized
 };
+
+const isExpired = (token) => {
+    if (token && jwt.decode(token)) {
+        const expiry = jwt.decode(token).exp;
+        const now = new Date();
+        return now.getTime() > expiry * 1000;
+    }
+    return false;
+}
 
 function handleErrors(response) {
     if (!response.ok) {
@@ -41,6 +52,26 @@ function login(login) {
     function failure(error) {
         return {type: userConstants.LOGIN_FAILURE, error}
     }
+}
+
+function unauthorized(action) {
+    return dispatch => {
+        if (isExpired(localStorage.getItem('accessToken'))) {
+            dispatch(refreshToken())
+        }
+        return false
+    }
+}
+
+function refreshToken() {
+    return dispatch => {
+        return userService.refreshToken().then(
+            refreshToken => {
+                console.log(refreshToken);
+            }
+        )
+    };
+
 }
 
 function logout() {

@@ -1,4 +1,5 @@
 import {transportConstants} from "../constants/transport.constants";
+import _ from "underscore";
 
 const initialState = {
     transports: []
@@ -8,6 +9,7 @@ export function transports(state=initialState, action) {
     switch (action.type) {
         case transportConstants.ADD_TRANSPORT_SUCCESS:
             var transports = [...state['transports']];
+            console.log(action.transport);
             transports.push(action.transport);
             return {
                 ...state,
@@ -17,6 +19,13 @@ export function transports(state=initialState, action) {
             return {
                 ...state,
                 transports: action.transports
+            };
+        case transportConstants.DELETE_TRANSPORT_SUCCESS:
+            return {
+                ...state,
+                transports: _.reject(state['transports'], (t) => {
+                    return action.transport.id === t.id;
+                })
             };
         default:
             return state

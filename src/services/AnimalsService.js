@@ -10,7 +10,6 @@ const headers = new Headers({
 });
 
 
-
 function handleErrors(response) {
     if (!response.ok) {
         throw Error(response.statusText);
