@@ -8,8 +8,7 @@ const initialState = {
 export function transports(state=initialState, action) {
     switch (action.type) {
         case transportConstants.ADD_TRANSPORT_SUCCESS:
-            var transports = [...state['transports']];
-            console.log(action.transport);
+            let transports = [...state['transports']];
             transports.push(action.transport);
             return {
                 ...state,

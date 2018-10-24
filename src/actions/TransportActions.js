@@ -14,7 +14,7 @@ function addTransport(transport) {
         dispatch(request(transport));
         return transportService.addTransport(transport)
             .then(res => {
-                    dispatch(success(res['transport']))
+                    dispatch(success(res))
                 },
                 error=>{
                     dispatch(failure(error))

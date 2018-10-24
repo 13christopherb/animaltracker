@@ -6,8 +6,7 @@ import jwt from "jsonwebtoken";
 export const userActions = {
     login,
     logout,
-    register,
-    unauthorized
+    register
 };
 
 const isExpired = (token) => {
@@ -54,25 +53,6 @@ function login(login) {
     }
 }
 
-function unauthorized(action) {
-    return dispatch => {
-        if (isExpired(localStorage.getItem('accessToken'))) {
-            dispatch(refreshToken())
-        }
-        return false
-    }
-}
-
-function refreshToken() {
-    return dispatch => {
-        return userService.refreshToken().then(
-            refreshToken => {
-                console.log(refreshToken);
-            }
-        )
-    };
-
-}
 
 function logout() {
     userService.logout();

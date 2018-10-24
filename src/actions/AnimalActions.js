@@ -14,7 +14,6 @@ function addAnimal(animal) {
         return animalService.addAnimal(animal)
             .then(
                 res => {
-                    console.log(res);
                     dispatch(success(res['animal']))
                 },
                 error => {
@@ -45,7 +44,6 @@ function getAnimals() {
                     dispatch(success(res['animals']))
                 },
                 error => {
-                    console.log(error.message);
                     dispatch(failure(error))
                 }
             );
@@ -60,12 +58,7 @@ function getAnimals() {
     }
 
     function failure(error) {
-        return dispatch => {
-            dispatch(userActions.unauthorized(this))
-            return {
-                type: animalConstants.GET_ANIMALS_FAILURE, error
-            }
-        }
+        return {type: animalConstants.GET_ANIMALS_FAILURE, error}
     }
 }
 
