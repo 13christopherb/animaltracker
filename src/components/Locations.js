@@ -23,7 +23,6 @@ class Locations extends Component {
 
     componentDidMount() {
         this.props.dispatch(animalActions.getAnimals());
-        this.props.dispatch(transportActions.getTransports())
     }
 
     toggleAddAnimal(e) {

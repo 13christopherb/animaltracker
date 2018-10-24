@@ -27,7 +27,7 @@ export const addTransport = (transport) =>
         body: JSON.stringify(transport)
     }).then(handleErrors).then(res => res.json());
 
-export const deleteAnimal = (id) =>
+export const deleteTransport = (id) =>
     fetch(api + '/transports/' + id, {
         method: 'DELETE',
         headers: headers,

@@ -14,12 +14,14 @@ export const login = (login) =>
         .then(user => {
             if (user.accessToken) {
                 localStorage.setItem('user', JSON.stringify(user));
+                localStorage.setItem('accessToken', user.accessToken)
             }
             return user;
         });
 
 export const logout = () =>
     localStorage.removeItem('user');
+    localStorage.removeItem('accessToken');
 
 export const register = (login) =>
     fetch(api + '/registration', {
