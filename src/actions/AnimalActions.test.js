@@ -86,7 +86,7 @@ describe('async animalActions', () => {
     });
 
     it('should DELETE an animal to API', () => {
-        fetchMock.deleteOnce('http://localhost:5000/animals/1', {
+        fetchMock.deleteOnce('http://localhost:5000/animal/1', {
             body: {animal: testValues.animal1},
             headers: {'content-type': 'application/json'}
         });
@@ -104,7 +104,7 @@ describe('async animalActions', () => {
 
     it('should handle delete error', () => {
         const error = new Error('Network error');
-        fetchMock.deleteOnce('http://localhost:5000/animals/1', {
+        fetchMock.deleteOnce('http://localhost:5000/animal/1', {
             throws: error
         });
 

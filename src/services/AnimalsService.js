@@ -9,6 +9,8 @@ const headers = new Headers({
     'mode':  "cors"
 });
 
+
+
 function handleErrors(response) {
     if (!response.ok) {
         throw Error(response.statusText);
@@ -19,6 +21,7 @@ function handleErrors(response) {
 export const getAllAnimals = () =>
     fetch(api+ '/animals', {
         method: 'GET',
+        withCredentials: true,
         headers: headers
     }).then(handleErrors).then(res => res.json());
 

@@ -15,8 +15,7 @@ describe('authentication reducer', () => {
                 user: 'user'
             })
         ).toEqual({
-            loggingIn: true,
-            user: 'user'
+            loggingIn: true
         })
     });
 

@@ -1,9 +1,12 @@
 import * as transportService from '../services/TransportService';
 import { transportConstants} from "../constants/transport.constants";
+import * as animalService from "../services/AnimalsService";
+import {animalConstants} from "../constants/animal.constants";
 
 export const transportActions = {
     addTransport,
-    getTransports
+    getTransports,
+    deleteTransport
 };
 
 function addTransport(transport) {
@@ -53,5 +56,31 @@ function getTransports() {
 
     function failure(error) {
         return {type: transportConstants.GET_TRANSPORTS_FAILURE, error}
+    }
+}
+
+function deleteTransport(transport) {
+    return dispatch => {
+        dispatch(request(transport));
+        return transportService.deleteTransport(transport.id)
+            .then(
+                res => {
+                    dispatch(success(transport))
+                },
+                error => {
+                    dispatch(failure(error))
+                }
+            );
+    }
+    function request(transport) {
+        return {type: transportConstants.DELETE_TRANSPORT_REQUEST, transport}
+    }
+
+    function success(transport) {
+        return {type: transportConstants.DELETE_TRANSPORT_SUCCESS, transport}
+    }
+
+    function failure(error) {
+        return {type: transportConstants.DELETE_TRANSPORT_FAILURE, error}
     }
 }

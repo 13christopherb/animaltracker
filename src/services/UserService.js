@@ -13,15 +13,18 @@ export const login = (login) =>
     }).then(handleResponse)
         .then(user => {
             if (user.accessToken) {
-                localStorage.setItem('user', JSON.stringify(user));
-                localStorage.setItem('accessToken', user.accessToken)
+                localStorage.setItem('user', user.username);
+                localStorage.setItem('accessToken', user.accessToken);
+                localStorage.setItem('refreshToken', user.refreshToken);
             }
             return user;
         });
 
-export const logout = () =>
+export const logout = () => {
     localStorage.removeItem('user');
     localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+}
 
 export const register = (login) =>
     fetch(api + '/registration', {

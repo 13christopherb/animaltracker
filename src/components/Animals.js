@@ -13,7 +13,6 @@ class Animals extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(animalActions.getAnimals());
     }
 
     deleteAnimal(animal) {

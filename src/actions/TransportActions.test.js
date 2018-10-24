@@ -5,6 +5,8 @@ import fetchMock from 'fetch-mock';
 import {transportActions} from "./TransportActions";
 import {transportConstants} from "../constants/transport.constants";
 import * as testValues from '../services/TestValues'
+import {animalConstants} from "../constants/animal.constants";
+import {animalActions} from "./AnimalActions";
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
@@ -17,6 +19,7 @@ describe('async transportActions', () => {
     });
 
     const transport = {
+        id: 1,
         departs: 'SLO',
         arrives: 'MBO',
         meetTime: Date.now()
@@ -60,9 +63,9 @@ describe('async transportActions', () => {
         });
     });
 
-    it('should POST an animal to API', () => {
+    it('should POST a transport to API', () => {
         fetchMock.postOnce('http://localhost:5000/transports', {
-            body: transport,
+            body: {transport: transport},
             headers: {'content-type': 'application/json'},
             status: 200
         });
@@ -91,6 +94,39 @@ describe('async transportActions', () => {
 
         const store = mockStore({animals: []});
         return store.dispatch(transportActions.addTransport(transport)).then(() => {
+            expect(store.getActions()).toEqual(expectedActions);
+        });
+    });
+    it('should DELETE an animal to API', () => {
+        fetchMock.deleteOnce('http://localhost:5000/transports/1', {
+            body: {transport: transport},
+            headers: {'content-type': 'application/json'}
+        });
+
+        const expectedActions = [
+            {type: transportConstants.DELETE_TRANSPORT_REQUEST, transport: transport},
+            {type: transportConstants.DELETE_TRANSPORT_SUCCESS, transport: transport}
+        ];
+
+        const store = mockStore({transports: [transport]});
+        return store.dispatch(transportActions.deleteTransport(transport)).then(() => {
+            expect(store.getActions()).toEqual(expectedActions);
+        });
+    });
+
+    it('should handle delete error', () => {
+        const error = new Error('Network error');
+        fetchMock.deleteOnce('http://localhost:5000/transports/1', {
+            throws: error
+        });
+
+        const expectedActions = [
+            {type: transportConstants.DELETE_TRANSPORT_REQUEST, transport: transport},
+            {type: transportConstants.DELETE_TRANSPORT_FAILURE, error: error}
+        ];
+
+        const store = mockStore({transports: [transport]});
+        return store.dispatch(transportActions.deleteTransport(transport)).then(() => {
             expect(store.getActions()).toEqual(expectedActions);
         });
     });

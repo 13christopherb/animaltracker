@@ -1,11 +1,13 @@
 const api = 'http://localhost:5000'
 //const api = 'https://mbo-animal-tracker-api.herokuapp.com'
 
-const headers = {
+const bearer = 'Bearer '+ localStorage.getItem('accessToken');
+const headers = new Headers({
     'Accept': 'application/json',
+    'Authorization': bearer,
     'Content-Type': 'application/json',
     'mode':  "cors"
-};
+});
 
 function handleErrors(response) {
     if (!response.ok) {
