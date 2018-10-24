@@ -1,20 +1,9 @@
-import axios from 'axios';
-const api = 'http://localhost:5000';
+import {authInstance} from "../helpers/authentication.api";
+
 //const api = 'https://mbo-animal-tracker-api.herokuapp.com'
 
-const headers = {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-    'mode': "cors"
-};
-
-const instance = axios.create({
-    baseURL: api,
-    headers: headers
-});
-
 export const login = (login) =>
-    instance.post('/login', JSON.stringify(login))
+    authInstance.post('/login', JSON.stringify(login))
         .then(user => {
             if (user.data.accessToken) {
                 localStorage.setItem('user', user.data.username);
@@ -31,7 +20,7 @@ export const logout = () => {
 }
 
 export const register = (login) =>
-    instance.post('/registration', JSON.stringify(login)).then(res => res.data);
+    authInstance.post('/registration', JSON.stringify(login)).then(res => res.data);
 
 function handleResponse(response) {
     return response.text().then(text => {

@@ -9,30 +9,13 @@ export const userActions = {
     register
 };
 
-const isExpired = (token) => {
-    if (token && jwt.decode(token)) {
-        const expiry = jwt.decode(token).exp;
-        const now = new Date();
-        return now.getTime() > expiry * 1000;
-    }
-    return false;
-}
-
-function handleErrors(response) {
-    if (!response.ok) {
-        throw Error(response.statusText);
-    }
-    return response;
-}
-
 function login(login) {
     return dispatch => {
         dispatch(request({username: login.username}));
-
         return userService.login(login)
             .then(
-                login => {
-                    dispatch(success({username: login.username}));
+                res => {
+                    dispatch(success(res['data']));
                 },
                 error => {
                     dispatch(failure(error));

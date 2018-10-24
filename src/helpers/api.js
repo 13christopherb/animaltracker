@@ -8,9 +8,9 @@ const isExpired = (token) => {
         return now.getTime() > expiry * 1000;
     }
     return false;
-}
+};
 
-export const createApiInstance = () => {
+const createApiInstance = () => {
     const api = 'http://localhost:5000';
     //const api = 'https://mbo-animal-tracker-api.herokuapp.com'
 
@@ -80,3 +80,5 @@ export const createApiInstance = () => {
         });
     return instance;
 };
+
+export const apiInstance = createApiInstance();

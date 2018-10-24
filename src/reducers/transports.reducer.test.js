@@ -38,4 +38,15 @@ describe('transports reducer', () => {
         });
     });
 
+    it('should handle DELETE_TRANSPORTS_SUCCESS', () => {
+        expect(
+            transports({transports: []}, {
+                type: transportConstants.DELETE_TRANSPORTS_SUCCESS,
+                transports: [transport]
+            })
+        ).toEqual({
+            transports: []
+        });
+    });
+
 });
