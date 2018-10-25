@@ -7,7 +7,7 @@ import {BrowserRouter} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import * as serviceWorker from './serviceWorker';
-import {store} from './helpers/store'
+import {store} from './utils/store'
 
 
 ReactDOM.render(

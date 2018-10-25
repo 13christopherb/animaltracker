@@ -1,0 +1,559 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> render() should render the component when logged in 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/",
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/",
+            "search": "",
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <withRouter(Connect(Header))
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Route>
+        <Connect(Header)
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "canGo": [Function],
+              "createHref": [Function],
+              "entries": Array [
+                Object {
+                  "hash": "",
+                  "key": "testKey",
+                  "pathname": "/",
+                  "search": "",
+                },
+              ],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "index": 0,
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "key": "testKey",
+                "pathname": "/",
+                "search": "",
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          location={
+            Object {
+              "hash": "",
+              "key": "testKey",
+              "pathname": "/",
+              "search": "",
+            }
+          }
+          match={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/",
+              "url": "/",
+            }
+          }
+          store={
+            Object {
+              "clearActions": [Function],
+              "dispatch": [Function],
+              "getActions": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+            }
+          }
+        >
+          <Header
+            dispatch={[Function]}
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "canGo": [Function],
+                "createHref": [Function],
+                "entries": Array [
+                  Object {
+                    "hash": "",
+                    "key": "testKey",
+                    "pathname": "/",
+                    "search": "",
+                  },
+                ],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "index": 0,
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "key": "testKey",
+                  "pathname": "/",
+                  "search": "",
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+            location={
+              Object {
+                "hash": "",
+                "key": "testKey",
+                "pathname": "/",
+                "search": "",
+              }
+            }
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+            store={
+              Object {
+                "clearActions": [Function],
+                "dispatch": [Function],
+                "getActions": [Function],
+                "getState": [Function],
+                "replaceReducer": [Function],
+                "subscribe": [Function],
+              }
+            }
+            storeSubscription={
+              Subscription {
+                "listeners": Object {
+                  "clear": [Function],
+                  "get": [Function],
+                  "notify": [Function],
+                  "subscribe": [Function],
+                },
+                "onStateChange": [Function],
+                "parentSub": undefined,
+                "store": Object {
+                  "clearActions": [Function],
+                  "dispatch": [Function],
+                  "getActions": [Function],
+                  "getState": [Function],
+                  "replaceReducer": [Function],
+                  "subscribe": [Function],
+                },
+                "unsubscribe": [Function],
+              }
+            }
+          >
+            <div>
+              <nav
+                className="navbar navbar-expand-lg navbar-light bg-light"
+              >
+                <ul
+                  className="navbar-nav mr-auto"
+                >
+                  <li
+                    className="nav-item active"
+                    id=""
+                    onClick={[Function]}
+                  >
+                    <Link
+                      className="nav-link"
+                      name=""
+                      replace={false}
+                      to="/"
+                    >
+                      <a
+                        className="nav-link"
+                        href="/"
+                        name=""
+                        onClick={[Function]}
+                      >
+                        Animals
+                      </a>
+                    </Link>
+                  </li>
+                  <li
+                    className="nav-item"
+                    id="transports"
+                    onClick={[Function]}
+                  >
+                    <Link
+                      className="nav-link"
+                      name="transports"
+                      replace={false}
+                      to="/transports"
+                    >
+                      <a
+                        className="nav-link"
+                        href="/transports"
+                        name="transports"
+                        onClick={[Function]}
+                      >
+                        Transports
+                      </a>
+                    </Link>
+                  </li>
+                </ul>
+                <form
+                  className="form-inline"
+                  onSubmit={[Function]}
+                >
+                  <input
+                    className="form-control mr-sm-2"
+                    name="username"
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                  <input
+                    className="form-control"
+                    name="password"
+                    onChange={[Function]}
+                    type="password"
+                    value=""
+                  />
+                  <button
+                    className="btn btn-outline-success my-2 my-sm-0"
+                    type="submit"
+                  >
+                    Sign in
+                  </button>
+                </form>
+              </nav>
+            </div>
+          </Header>
+        </Connect(Header)>
+      </Route>
+    </withRouter(Connect(Header))>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`<Header /> render() should render the component when logged out 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/",
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/",
+            "search": "",
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <withRouter(Connect(Header))
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Route>
+        <Connect(Header)
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "canGo": [Function],
+              "createHref": [Function],
+              "entries": Array [
+                Object {
+                  "hash": "",
+                  "key": "testKey",
+                  "pathname": "/",
+                  "search": "",
+                },
+              ],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "index": 0,
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "key": "testKey",
+                "pathname": "/",
+                "search": "",
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          location={
+            Object {
+              "hash": "",
+              "key": "testKey",
+              "pathname": "/",
+              "search": "",
+            }
+          }
+          match={
+            Object {
+              "isExact": true,
+              "params": Object {},
+              "path": "/",
+              "url": "/",
+            }
+          }
+          store={
+            Object {
+              "clearActions": [Function],
+              "dispatch": [Function],
+              "getActions": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+            }
+          }
+        >
+          <Header
+            dispatch={[Function]}
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "canGo": [Function],
+                "createHref": [Function],
+                "entries": Array [
+                  Object {
+                    "hash": "",
+                    "key": "testKey",
+                    "pathname": "/",
+                    "search": "",
+                  },
+                ],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "index": 0,
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "key": "testKey",
+                  "pathname": "/",
+                  "search": "",
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+            location={
+              Object {
+                "hash": "",
+                "key": "testKey",
+                "pathname": "/",
+                "search": "",
+              }
+            }
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+            store={
+              Object {
+                "clearActions": [Function],
+                "dispatch": [Function],
+                "getActions": [Function],
+                "getState": [Function],
+                "replaceReducer": [Function],
+                "subscribe": [Function],
+              }
+            }
+            storeSubscription={
+              Subscription {
+                "listeners": Object {
+                  "clear": [Function],
+                  "get": [Function],
+                  "notify": [Function],
+                  "subscribe": [Function],
+                },
+                "onStateChange": [Function],
+                "parentSub": undefined,
+                "store": Object {
+                  "clearActions": [Function],
+                  "dispatch": [Function],
+                  "getActions": [Function],
+                  "getState": [Function],
+                  "replaceReducer": [Function],
+                  "subscribe": [Function],
+                },
+                "unsubscribe": [Function],
+              }
+            }
+          >
+            <div>
+              <nav
+                className="navbar navbar-expand-lg navbar-light bg-light"
+              >
+                <ul
+                  className="navbar-nav mr-auto"
+                >
+                  <li
+                    className="nav-item active"
+                    id=""
+                    onClick={[Function]}
+                  >
+                    <Link
+                      className="nav-link"
+                      name=""
+                      replace={false}
+                      to="/"
+                    >
+                      <a
+                        className="nav-link"
+                        href="/"
+                        name=""
+                        onClick={[Function]}
+                      >
+                        Animals
+                      </a>
+                    </Link>
+                  </li>
+                  <li
+                    className="nav-item"
+                    id="transports"
+                    onClick={[Function]}
+                  >
+                    <Link
+                      className="nav-link"
+                      name="transports"
+                      replace={false}
+                      to="/transports"
+                    >
+                      <a
+                        className="nav-link"
+                        href="/transports"
+                        name="transports"
+                        onClick={[Function]}
+                      >
+                        Transports
+                      </a>
+                    </Link>
+                  </li>
+                </ul>
+                <form
+                  className="form-inline"
+                  onSubmit={[Function]}
+                >
+                  <input
+                    className="form-control mr-sm-2"
+                    name="username"
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                  <input
+                    className="form-control"
+                    name="password"
+                    onChange={[Function]}
+                    type="password"
+                    value=""
+                  />
+                  <button
+                    className="btn btn-outline-success my-2 my-sm-0"
+                    type="submit"
+                  >
+                    Sign in
+                  </button>
+                </form>
+              </nav>
+            </div>
+          </Header>
+        </Connect(Header)>
+      </Route>
+    </withRouter(Connect(Header))>
+  </Router>
+</MemoryRouter>
+`;

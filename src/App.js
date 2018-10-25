@@ -5,12 +5,12 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import {faPrescriptionBottleAlt, faBlender, faChevronRight, faChevronDown} from '@fortawesome/free-solid-svg-icons';
 import {Route} from 'react-router-dom';
 import {withRouter} from 'react-router';
-import {PrivateRoute} from "./components/PrivateRoute";
-import {Home} from "./components/Home";
-import {UserLogin} from "./components/UserLogin";
-import {Locations} from "./components/Locations";
-import {Header} from "./components/Header";
-import {Transports} from "./components/Transports";
+import {PrivateRoute} from "./utils/PrivateRoute";
+import {Home} from "./app/home/Home";
+import {UserLogin} from "./app/authentication/UserLogin";
+import {Locations} from "./app/animals/Locations";
+import {Header} from "./app/home/Header";
+import {Transports} from "./app/transports/Transports";
 
 
 library.add(faPrescriptionBottleAlt);
