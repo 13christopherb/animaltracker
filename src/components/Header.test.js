@@ -1,14 +1,17 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import toJson from 'enzyme-to-json';
 import thunk from 'redux-thunk'
+import {BrowserRouter} from 'react-router-dom';
+import { MemoryRouter as Router } from 'react-router-dom';
 
 import {Header} from './Header';
 
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
+const mountWithRouter = node => mount(<Router>{node}</Router>);
 
 
 describe('<Header />', () => {
@@ -20,10 +23,10 @@ describe('<Header />', () => {
             };
 
             const store = mockStore(initialState);
-            const wrapper = shallow(<Header store={store}/>);
-            const component = wrapper.dive();
+            const wrapper = mountWithRouter(<Header store={store}/>);
+            //const component = wrapper.dive();
 
-            expect(toJson(component)).toMatchSnapshot()
+            expect(toJson(wrapper)).toMatchSnapshot()
         });
         test('should render the component when logged out', () => {
             const initialState = {
@@ -32,10 +35,10 @@ describe('<Header />', () => {
             };
 
             const store = mockStore(initialState);
-            const wrapper = shallow(<Header store={store}/>);
-            const component = wrapper.dive();
+            const wrapper = mountWithRouter(<Header store={store}/>);
+            //const component = wrapper.dive();
 
-            expect(toJson(component)).toMatchSnapshot()
+            expect(toJson(wrapper)).toMatchSnapshot()
         })
     });
 
@@ -47,8 +50,8 @@ describe('<Header />', () => {
         const store = mockStore(initialState);
         describe('user inputs are echoed', () => {
             test('username text echoed', () => {
-                const wrapper = shallow(<Header store={store}/>);
-                const component = wrapper.dive();
+                const component = mountWithRouter(<Header store={store}/>);
+                //const component = wrapper.dive();
                 component.find('input[name="username"]').simulate('change', {
                     target: {
                         value: 'new text',
@@ -59,8 +62,8 @@ describe('<Header />', () => {
                 expect(component.find('input[name="username"]').props().value).toEqual('new text');
             });
             test('password text echoed', () => {
-                const wrapper = shallow(<Header store={store}/>);
-                const component = wrapper.dive();
+                const component = mountWithRouter(<Header store={store}/>);
+                //const component = wrapper.dive();
                 component.find('input[name="password"]').simulate('change', {
                     target: {
                         value: 'new text',
@@ -73,8 +76,8 @@ describe('<Header />', () => {
         });
 
         test('should prevent default browser submit event', () => {
-            const wrapper = shallow(<Header store={store}/>);
-            const component = wrapper.dive();
+            const component = mountWithRouter(<Header store={store}/>);
+            //const component = wrapper.dive();
             let prevented = false;
             component.find('form').simulate('submit', {
                 preventDefault: () => {

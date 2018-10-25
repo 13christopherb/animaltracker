@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Locations} from "./Locations";
+import {Link} from 'react-router-dom';
+import {withRouter} from "react-router";
 import {userActions} from '../actions/UserActions';
 
 
@@ -11,15 +12,24 @@ class Header extends Component {
         this.state = {
             value: '',
             username: '',
-            password: ''
+            password: '',
+            pathname: this.props.history.location.pathname.slice(1)
         };
         this.logout = this.logout.bind(this);
+        this.changeNavbar = this.changeNavbar.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     logout(e) {
         this.props.dispatch(userActions.logout());
+    }
+
+    changeNavbar(e) {
+        const newPath = e.target.name
+        this.setState({
+            pathname: newPath
+        })
     }
 
     handleInputChange(e) {
@@ -41,12 +51,19 @@ class Header extends Component {
     }
 
     render() {
+        const activeClassName = 'nav-item active';
+        const inactiveClassName = 'nav-item';
         return (
             <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item">
-                            <button className="nav-link" href="#">Link</button>
+                        <li id="" onClick={this.changeNavbar}
+                            className={this.state.pathname === '' ? (activeClassName):(inactiveClassName)}>
+                            <Link name="" className="nav-link" to="/">Animals</Link>
+                        </li>
+                        <li id="transports" onClick={this.changeNavbar}
+                            className={this.state.pathname === 'transports' ? (activeClassName):(inactiveClassName)}>
+                            <Link name="transports" className="nav-link" to="/transports">Transports</Link>
                         </li>
                     </ul>
                     {this.props.loggedIn ? (
@@ -72,8 +89,8 @@ function mapStateToProps({animals, authentication}, ownProps) {
     }
 }
 
-const connectedHeader = connect(
+const connectedHeader = withRouter(connect(
     mapStateToProps,
-)(Header);
+)(Header));
 
 export {connectedHeader as Header};
