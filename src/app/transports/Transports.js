@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {actions} from "./ducks/actions";
-import {NewTransport} from "./NewTransport";
+import {actions} from "./ducks/Actions";
+import moment from 'moment';
+import TransportFormContainer from "./TransportFormContainer";
 import {TransportRow} from "./TransportRow";
 
 
@@ -19,7 +20,7 @@ class Transports extends Component {
     }
 
     deleteTransport(transport) {
-        this.props.dispatch(actions.deleteTransport(transport.props.transport));
+        this.props.dispatch(actions.deleteTransport(transport));
     }
 
     render() {
@@ -31,7 +32,7 @@ class Transports extends Component {
         }
         return (
             <div>
-                <NewTransport/>
+                <TransportFormContainer currentTime={moment()}/>
                 <table className="table table-striped">
                     <tbody>
                     {transports}

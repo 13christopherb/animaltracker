@@ -5,7 +5,7 @@ import toJson from 'enzyme-to-json';
 import thunk from 'redux-thunk'
 import {MemoryRouter} from 'react-router-dom';
 
-import {Header} from './Header';
+import Header from './Header';
 
 
 const middlewares = [thunk];

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'underscore';
-import {actions} from './ducks/actions';
-import {Location} from './Location';
-import {NewAnimal} from "./NewAnimal";
+import {actions} from '../animals/ducks/Actions';
+import Location from './Location';
+import AnimalFormContainer from "../animals/AnimalFormContainer";
 
 
 class Locations extends Component {
@@ -39,7 +39,7 @@ class Locations extends Component {
         return (
             <div>
                 {this.state.addingAnimal ? (
-                    <NewAnimal toggleAddAnimal={this.toggleAddAnimal}/>) : (
+                    <AnimalFormContainer toggleAddAnimal={this.toggleAddAnimal}/>) : (
                     <button onClick={this.toggleAddAnimal} className="btn btn-success">Add animal</button>
                 )}
                 {locations}
@@ -55,6 +55,4 @@ function mapStateToProps({authentication, animals}, ownProps) {
     }
 }
 
-const connectedLocations = connect(mapStateToProps)(Locations);
-
-export {connectedLocations as Locations}
+export default connect(mapStateToProps)(Locations);

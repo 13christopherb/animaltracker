@@ -1,4 +1,4 @@
-import authenticationReducer from './reducers';
-export {actions as authenticatinActions} from './actions';
-export {types as authenticationTypes} from './types';
+import authenticationReducer from './Reducers';
+export {actions as authenticatinActions} from './Actions';
+export {types as authenticationTypes} from './Types';
 export default authenticationReducer;

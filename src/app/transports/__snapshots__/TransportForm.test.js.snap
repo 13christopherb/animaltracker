@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TransportForm /> render() should render the component 1`] = `
+<div>
+  <form
+    onSubmit={[MockFunction]}
+  >
+    <div
+      className="form-row"
+    >
+      <div
+        className="col col-md-2"
+      >
+        <Select
+          handleChange={[MockFunction]}
+          name="departs"
+          options={
+            Array [
+              "NRO",
+              "MBO",
+              "SLO",
+            ]
+          }
+          title="Departs"
+          value="MBO"
+        />
+      </div>
+      <div
+        className="col col-md-2"
+      >
+        <Select
+          handleChange={[MockFunction]}
+          name="arrives"
+          options={
+            Array [
+              "NRO",
+              "MBO",
+              "SLO",
+            ]
+          }
+          title="Arrives"
+          value="NRO"
+        />
+      </div>
+      <div
+        className="col col-md-3"
+      >
+        <label>
+          Meet Time
+          <DatePicker
+            allowSameDay={false}
+            autoComplete="off"
+            dateFormat="MM/DD/YYYY"
+            dateFormatCalendar="MMMM YYYY"
+            disabled={false}
+            disabledKeyboardNavigation={false}
+            dropdownMode="select"
+            maxDate={"2017-09-21T03:00:00.000Z"}
+            maxTime={"2017-09-21T03:00:00.000Z"}
+            minDate={"2017-09-21T03:00:00.000Z"}
+            minTime={"2017-09-21T03:00:00.000Z"}
+            monthsShown={1}
+            name="meetDate"
+            nextMonthButtonLabel="Next month"
+            onBlur={[Function]}
+            onChange={[MockFunction]}
+            onClickOutside={[Function]}
+            onFocus={[Function]}
+            onInputClick={[Function]}
+            onKeyDown={[Function]}
+            onMonthChange={[Function]}
+            onSelect={[Function]}
+            onYearChange={[Function]}
+            placeholderText="Click to select a date"
+            preventOpenOnFocus={false}
+            previousMonthButtonLabel="Previous Month"
+            readOnly={false}
+            selected={"2017-09-15T16:30:00.000Z"}
+            shouldCloseOnSelect={true}
+            showTimeSelect={true}
+            timeCaption="Time"
+            timeFormat="HH:mm"
+            timeIntervals={30}
+            withPortal={false}
+          />
+        </label>
+      </div>
+      <button
+        className="btn btn-primary"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+`;

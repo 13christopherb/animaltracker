@@ -30,7 +30,7 @@ exports[`<Location /> render() should render the component 1`] = `
     aria-expanded="true"
     className="collapse show"
   >
-    <Connect(Animals)
+    <Animals
       animals={
         Array [
           Object {

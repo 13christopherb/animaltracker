@@ -3,9 +3,7 @@ import {shallow} from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import toJson from 'enzyme-to-json';
 import thunk from 'redux-thunk'
-import * as userConstants from '../authentication/ducks/types';
-import {actions} from "../authentication/ducks/actions";
-import { NewUser } from './NewUser';
+import NewUser from './NewUser';
 
 
 const middlewares = [thunk]

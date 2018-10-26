@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {withRouter} from "react-router";
-import {actions} from '../authentication/ducks/actions';
+import {actions} from '../authentication/ducks/Actions';
 
 
 class Header extends Component {
@@ -89,8 +89,6 @@ function mapStateToProps({animals, authentication}, ownProps) {
     }
 }
 
-const connectedHeader = withRouter(connect(
+export default withRouter(connect(
     mapStateToProps,
 )(Header));
-
-export {connectedHeader as Header};

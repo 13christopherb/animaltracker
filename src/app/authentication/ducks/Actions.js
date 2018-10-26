@@ -1,5 +1,5 @@
-import * as userService from './operations';
-import {types} from './types.js';
+import * as userService from './Operations';
+import {types} from './Types.js';
 import jwt from "jsonwebtoken";
 
 

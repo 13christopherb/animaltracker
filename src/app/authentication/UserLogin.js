@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router';
-import {actions} from './ducks/actions';
-import {NewUser} from "../registration/NewUser";
+import {actions} from './ducks/Actions';
+import NewUser from "../registration/NewUser";
 
 
 class UserLogin extends Component {
@@ -79,6 +79,4 @@ function mapStateToProps({authentication}) {
     };
 }
 
-const connectedLogin = connect(mapStateToProps)(UserLogin);
-
-export {connectedLogin as UserLogin}
+export default connect(mapStateToProps)(UserLogin);

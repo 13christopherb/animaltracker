@@ -2,8 +2,8 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MockAdapter from 'axios-mock-adapter';
 import jwt from 'jsonwebtoken'
-import {actions} from './actions';
-import {types} from './types';
+import {actions} from './Actions';
+import {types} from './Types';
 import {authInstance} from "../../../utils/authentication.api";
 
 

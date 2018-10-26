@@ -7,9 +7,9 @@ import {Route} from 'react-router-dom';
 import {withRouter} from 'react-router';
 import {PrivateRoute} from "./utils/PrivateRoute";
 import {Home} from "./app/home/Home";
-import {UserLogin} from "./app/authentication/UserLogin";
-import {Locations} from "./app/animals/Locations";
-import {Header} from "./app/home/Header";
+import UserLogin from "./app/authentication/UserLogin";
+import Locations from "./app/locations/Locations";
+import Header from "./app/home/Header";
 import {Transports} from "./app/transports/Transports";
 
 

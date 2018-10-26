@@ -4,7 +4,7 @@ import configureMockStore from 'redux-mock-store';
 import toJson from 'enzyme-to-json';
 import thunk from 'redux-thunk'
 
-import {UserLogin} from './UserLogin';
+import UserLogin from './UserLogin';
 
 
 const middlewares = [thunk]

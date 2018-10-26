@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router';
-import {Locations} from "../animals/Locations";
-import {actions} from '../authentication/ducks/actions';
-import {Header} from "./Header";
+import Locations from "../locations/Locations";
+import {actions} from '../authentication/ducks/Actions';
 
 
 class Home extends Component {

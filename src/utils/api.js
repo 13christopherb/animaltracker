@@ -79,5 +79,5 @@ const createApiInstance = () => {
     return instance;
 };
 
-const instance = createApiInstance()
+const instance = createApiInstance();
 export {instance as apiInstance};

@@ -2,8 +2,8 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MockAdapter from 'axios-mock-adapter';
 import {apiInstance} from "../../../utils/api";
-import { actions } from './actions';
-import { types} from "./types";
+import { actions } from './Actions';
+import { types} from "./Types";
 
 import * as testValues from '../../../services/TestValues'
 

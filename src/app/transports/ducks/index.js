@@ -1,4 +1,4 @@
-import transportsReducer from './reducers';
-export {actions as transportActions} from './actions';
-export {types as transportTypes} from './types';
+import transportsReducer from './Reducers';
+export {actions as transportActions} from './Actions';
+export {types as transportTypes} from './Types';
 export default transportsReducer;

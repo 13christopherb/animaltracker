@@ -1,5 +1,5 @@
 import authenticationReducer from './index';
-import {types} from "./types";
+import {types} from "./Types";
 
 describe('authentication reducer', () => {
     it('should return the initial state', () => {

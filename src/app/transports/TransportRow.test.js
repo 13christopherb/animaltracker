@@ -1,22 +1,19 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import { AnimalRow } from './AnimalRow';
+import {TransportRow} from "./TransportRow";
+import moment from 'moment';
 import toJson from 'enzyme-to-json';
 
-const animal = {
-    name: 'Kirt',
-    species: 'CSL',
-    weight: 85,
-    isGettingTubed: false,
-    isGettingControlledMeds: true,
-    id: 3
-
+const transport = {
+    departs: 'MBO',
+    arrives: 'NRO',
+    meetTime: moment('2017-09-15 09:30:00') //Arbitrary time
 };
 
-describe('<AnimalRow />', () => {
+describe('<TransportRow />', () => {
     describe('render()', () => {
         test('should render the component', () => {
-            const wrapper = shallow(<AnimalRow animal={animal}/>)
+            const wrapper = shallow(<TransportRow transport={transport}/>)
 
             expect(toJson(wrapper)).toMatchSnapshot()
         })
@@ -25,10 +22,10 @@ describe('<AnimalRow />', () => {
         test('delete button calls deleteAnimal', () => {
             const mockDelete = jest.fn();
             const wrapper = shallow(
-                <AnimalRow deleteAnimal={mockDelete} animal={animal}/>
+                <TransportRow deleteTransport={mockDelete} transport={transport}/>
             );
 
-            wrapper.find('#delete').simulate('click', { preventDefault() {} })
+            wrapper.find('#delete').simulate('click', { preventDefault() {} });
             expect(mockDelete).toHaveBeenCalled()
         });
     });

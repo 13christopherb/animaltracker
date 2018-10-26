@@ -1,5 +1,5 @@
 import animalsReducer from './index';
-import { types} from "./types";
+import { types} from "./Types";
 import * as testValues from '../../../services/TestValues';
 
 describe('animalsReducer reducer', () => {

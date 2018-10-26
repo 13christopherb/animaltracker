@@ -1,11 +1,11 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import toJson from 'enzyme-to-json';
 import thunk from 'redux-thunk';
 import moment from 'moment';
-import {NewTransport} from "./NewTransport";
-import {types} from "./ducks/types";
+import TransportFormContainer from "./TransportFormContainer";
+import {types} from "./ducks/Types";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -17,54 +17,51 @@ const initialState = {
 
 const store = mockStore(initialState);
 
-describe('<NewTransport />', () => {
+describe('<TransportFormContainer />', () => {
     describe('render()', () => {
         let props = {
             currentTime: moment('2017-09-15 09:30:00')
         };
         test('should render the component', () => {
-            const wrapper = shallow(<NewTransport {...props} store={store}/>);
+            const wrapper = shallow(<TransportFormContainer {...props} store={store}/>);
             const component = wrapper.dive();
             expect(toJson(component)).toMatchSnapshot()
         })
     });
 
-    describe('Creating new transportsReducer', () => {
+    describe('Creating new transport', () => {
         let props = {
             currentTime: moment('2017-09-15 09:30:00')
         };
         describe('user inputs are echoed', () => {
             test('departs select is echoed', () => {
-                const wrapper = shallow(<NewTransport {...props} store={store}/>);
-                const component = wrapper.dive();
-                component.find('select[name="departs"]').simulate('change', {
+                const wrapper = mount(<TransportFormContainer {...props} store={store}/>)
+                wrapper.find('select[name="departs"]').simulate('change', {
                     target: {
                         value: 'new text',
                         type: 'test',
                         name: 'departs'
                     }
                 });
-                expect(component.find('select[name="departs"]').props().value).toEqual('new text');
+                expect(wrapper.find('select[name="departs"]').props().value).toEqual('new text');
             });
             test('arrives select is echoed', () => {
-                const wrapper = shallow(<NewTransport {...props} store={store}/>);
-                const component = wrapper.dive();
-                component.find('select[name="arrives"]').simulate('change', {
+                const wrapper = mount(<TransportFormContainer {...props} store={store}/>);
+                wrapper.find('select[name="arrives"]').simulate('change', {
                     target: {
                         value: 'new text',
                         type: 'test',
                         name: 'arrives'
                     }
                 });
-                expect(component.find('select[name="arrives"]').props().value).toEqual('new text');
+                expect(wrapper.find('select[name="arrives"]').props().value).toEqual('new text');
             });
         });
 
         test('should prevent default browser submit event', () => {
-            const wrapper = shallow(<NewTransport {...props} store={store}/>);
-            const component = wrapper.dive();
+            const wrapper = mount(<TransportFormContainer {...props} store={store}/>);
             let prevented = false;
-            component.find('form').simulate('submit', {
+            wrapper.find('form').simulate('submit', {
                 preventDefault: () => {
                     prevented = true;
                 }
@@ -73,12 +70,11 @@ describe('<NewTransport />', () => {
         });
 
         test('should fire ADD_ANIMAL action', () => {
-            const wrapper = shallow(<NewTransport {...props} store={store}/>);
-            const component = wrapper.dive();
+            const wrapper = mount(<TransportFormContainer {...props} store={store}/>);
             const expectedActions = [
                 {type: types.ADD_TRANSPORT_REQUEST}
             ];
-            component.find('form').simulate('submit', {
+            wrapper.find('form').simulate('submit', {
                 preventDefault: () => {
                     return false;
                 }

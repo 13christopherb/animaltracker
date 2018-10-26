@@ -1,4 +1,4 @@
-import { types } from './types';
+import { types } from './Types';
 
 let user = localStorage.getItem('user');
 const initialState = user ? { loggedIn: true, user} : {};

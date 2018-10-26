@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import uuidv4 from 'uuid';
-import {actions} from '../authentication/ducks/actions';
+import {actions} from '../authentication/ducks/Actions';
 
 
 class NewUser extends Component {
@@ -71,8 +71,6 @@ function mapStateToProps() {
     return {}
 }
 
-const connectedNewUser =  connect(
+export default connect(
     mapStateToProps,
 )(NewUser);
-
-export {connectedNewUser as NewUser};

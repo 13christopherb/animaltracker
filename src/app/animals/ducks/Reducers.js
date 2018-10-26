@@ -1,5 +1,5 @@
 import _ from 'underscore';
-import { types} from "./types";
+import { types} from "./Types";
 
 const initialState = {
     animals: []
