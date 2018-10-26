@@ -10,6 +10,7 @@ export default function authenticationReducer(state = initialState, action) {
                 loggingIn: true,
             };
         case types.LOGIN_SUCCESS:
+            localStorage.setItem('accessToken', action.user.accessToken)
             return {
                 loggedIn: true,
                 user: action.user
