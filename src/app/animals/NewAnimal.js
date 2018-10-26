@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {actions} from './ducks/actions';
+import {Input, Select, CheckBox} from '../forms/FormFields';
 
 class NewAnimal extends Component {
 
@@ -13,7 +14,13 @@ class NewAnimal extends Component {
             name: '',
             weight: '',
             species: '',
-            location: ''
+            location: '',
+            formErrors: {name: '', weight: '', species: '', location: ''},
+            isNameValid: false,
+            isWeightValid: false,
+            isSpeciesValid: false,
+            isLocationValid: false,
+            isFormValid: false
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -61,56 +68,55 @@ class NewAnimal extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-row">
-                        <div className="col col-md-3">
-                            <label>
-                                Location
-                                <select name="location" className="custom-select"
-                                        value={this.state.location} onChange={this.handleInputChange}>
-                                    <option value=""></option>
-                                    <option value="NRO">NRO</option>
-                                    <option value="MBO">MBO</option>
-                                    <option value="SLO">SLO</option>
-                                </select>
-                            </label>
+                        <div className="col col-md-2">
+                            <Select title={'Location'}
+                                    name={'location'}
+                                    value={this.state.location}
+                                    handleChange={this.handleInputChange}
+                                    options={[
+                                        'NRO',
+                                        'MBO',
+                                        'SLO'
+                                    ]}
+                            />
+
+                        </div>
+                        <div className="col col-md-2">
+                            <Select title={'Species'}
+                                    name={'species'}
+                                    value={this.state.species}
+                                    handleChange={this.handleInputChange}
+                                    options={[
+                                        'CSL',
+                                        'ES',
+                                        'HS',
+                                        'NFS',
+                                        'GFS',
+                                        'SSO',
+                                        'CET'
+                                    ]}
+                            />
                         </div>
                         <div className="col col-md-3">
-                            <label>
-                                Species
-                                <select name="species" className="custom-select" onChange={this.handleInputChange}
-                                        value={this.state.species}>
-                                    <option value=""></option>
-                                    <option value="CSL">CSL</option>
-                                    <option value="ES">ES</option>
-                                    <option value="HS">HS</option>
-                                    <option value="NFS">NFS</option>
-                                    <option value="GFS">GFS</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </label>
+                                <Input id={'name'}
+                                       name={'name'}
+                                       title={'Name'}
+                                       type={'text'}
+                                       value={this.state.name}
+                                       handleChange={this.handleInputChange}/>
+
                         </div>
                         <div className="col col-md-3">
-                            <label>
-                                Name
-                                <input
-                                    name="name" className="form-control"
-                                    type="text"
-                                    onChange={this.handleInputChange}
-                                    value={this.state.name}
-                                />
-                            </label>
-                        </div>
-                        <div className="col col-md-3">
-                            <label>
-                                Weight
-                                <input
-                                    name="weight" className="form-control"
-                                    type="text"
-                                    onChange={this.handleInputChange}
-                                    value={this.state.weight}
-                                />
-                            </label>
+                            <Input id={'weight'}
+                                   name={'weight'}
+                                   title={'Weight'}
+                                   type={'text'}
+                                   value={this.state.weight}
+                                   handleChange={this.handleInputChange}/>
+
                         </div>
                     </div>
+
                     <div className="form-row">
                         <label>
                             Controlled meds:

@@ -9,111 +9,66 @@ exports[`<NewAnimal /> render() should render the component 1`] = `
       className="form-row"
     >
       <div
-        className="col col-md-3"
+        className="col col-md-2"
       >
-        <label>
-          Location
-          <select
-            className="custom-select"
-            name="location"
-            onChange={[Function]}
-            value=""
-          >
-            <option
-              value=""
-            />
-            <option
-              value="NRO"
-            >
-              NRO
-            </option>
-            <option
-              value="MBO"
-            >
-              MBO
-            </option>
-            <option
-              value="SLO"
-            >
-              SLO
-            </option>
-          </select>
-        </label>
+        <Select
+          handleChange={[Function]}
+          name="location"
+          options={
+            Array [
+              "NRO",
+              "MBO",
+              "SLO",
+            ]
+          }
+          title="Location"
+          value=""
+        />
+      </div>
+      <div
+        className="col col-md-2"
+      >
+        <Select
+          handleChange={[Function]}
+          name="species"
+          options={
+            Array [
+              "CSL",
+              "ES",
+              "HS",
+              "NFS",
+              "GFS",
+              "SSO",
+              "CET",
+            ]
+          }
+          title="Species"
+          value=""
+        />
       </div>
       <div
         className="col col-md-3"
       >
-        <label>
-          Species
-          <select
-            className="custom-select"
-            name="species"
-            onChange={[Function]}
-            value=""
-          >
-            <option
-              value=""
-            />
-            <option
-              value="CSL"
-            >
-              CSL
-            </option>
-            <option
-              value="ES"
-            >
-              ES
-            </option>
-            <option
-              value="HS"
-            >
-              HS
-            </option>
-            <option
-              value="NFS"
-            >
-              NFS
-            </option>
-            <option
-              value="GFS"
-            >
-              GFS
-            </option>
-            <option
-              value="Other"
-            >
-              Other
-            </option>
-          </select>
-        </label>
+        <Input
+          handleChange={[Function]}
+          id="name"
+          name="name"
+          title="Name"
+          type="text"
+          value=""
+        />
       </div>
       <div
         className="col col-md-3"
       >
-        <label>
-          Name
-          <input
-            className="form-control"
-            name="name"
-            onChange={[Function]}
-            type="text"
-            value=""
-          />
-        </label>
-      </div>
-      <div
-        className="col col-md-3"
-      >
-        <label>
-          Weight
-          <input
-            className="form-control"
-            name="weight"
-            onChange={[Function]}
-            type="text"
-            value=""
-          />
-        </label>
+        <Input
+          handleChange={[Function]}
+          id="weight"
+          name="weight"
+          title="Weight"
+          type="text"
+          value=""
+        />
       </div>
     </div>
     <div

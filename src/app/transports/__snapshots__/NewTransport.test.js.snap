@@ -79,11 +79,16 @@ exports[`<NewTransport /> render() should render the component 1`] = `
           Meet Time
           <DatePicker
             allowSameDay={false}
+            autoComplete="off"
             dateFormat="MM/DD/YYYY"
             dateFormatCalendar="MMMM YYYY"
             disabled={false}
             disabledKeyboardNavigation={false}
             dropdownMode="scroll"
+            maxDate={"2018-10-31T00:18:27.243Z"}
+            maxTime={"2018-10-26T03:00:27.244Z"}
+            minDate={"2018-10-26T00:18:27.243Z"}
+            minTime={"2018-10-25T15:00:27.244Z"}
             monthsShown={1}
             name="meetDate"
             nextMonthButtonLabel="Next month"

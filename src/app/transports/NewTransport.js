@@ -91,6 +91,11 @@ class NewTransport extends Component {
                                     dateFormat="MM/DD/YYYY"
                                     placeholderText="Click to select a date"
                                     timeFormat='HH:mm'
+                                    minDate={moment()}
+                                    maxDate={moment().add(5, "days")}
+                                    minTime={moment().hours(8).minutes(0)}
+                                    maxTime={moment().hours(20).minutes(0)}
+                                    autoComplete="off"
                                 />
                             </label>
                         </div>
