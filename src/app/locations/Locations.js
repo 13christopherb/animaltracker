@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'underscore';
-import {actions} from '../animals/ducks/Actions';
+import {animalsActions} from '../animals/ducks/';
+import {locationActions} from './ducks/index';
 import Location from './Location';
 import AnimalFormContainer from "../animals/AnimalFormContainer";
 
@@ -19,7 +20,8 @@ class Locations extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(actions.getAnimals());
+        this.props.dispatch(animalsActions.getAnimals());
+        this.props.dispatch(locationActions.getLocations())
     }
 
     toggleAddAnimal(e) {

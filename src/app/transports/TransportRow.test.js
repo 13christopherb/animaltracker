@@ -11,9 +11,10 @@ const transport = {
 };
 
 describe('<TransportRow />', () => {
+
     describe('render()', () => {
         test('should render the component', () => {
-            const wrapper = shallow(<TransportRow transport={transport}/>)
+            const wrapper = shallow(<TransportRow transport={transport}/>);
 
             expect(toJson(wrapper)).toMatchSnapshot()
         })
