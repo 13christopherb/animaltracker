@@ -32,7 +32,7 @@ class Transports extends Component {
         }
         return (
             <div>
-                <TransportFormContainer currentTime={moment()}/>
+                <TransportFormContainer defaultTime={moment().hour(12)}/>
                 <table className="table table-striped">
                     <tbody>
                     {transports}

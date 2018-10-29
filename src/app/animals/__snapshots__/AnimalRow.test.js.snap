@@ -21,6 +21,13 @@ exports[`<AnimalRow /> render() should render the component 1`] = `
     }
   >
     Kirt
+    <p
+      style={
+        Object {
+          "fontSize": 11,
+        }
+      }
+    />
   </td>
   <td
     style={

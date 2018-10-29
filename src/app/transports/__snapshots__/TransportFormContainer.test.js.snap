@@ -4,7 +4,7 @@ exports[`<TransportFormContainer /> render() should render the component 1`] = `
 <div>
   <TransportForm
     arrives=""
-    currentTime={"2017-09-15T16:30:00.000Z"}
+    defaultTime={"2017-09-15T16:30:00.000Z"}
     departs=""
     handleDateTimeChange={[Function]}
     handleInputChange={[Function]}

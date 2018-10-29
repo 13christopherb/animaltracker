@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import {Select} from "../form_fields/Select";
 import DatePicker from "react-datepicker";
 
@@ -42,10 +43,10 @@ export const TransportForm = (props) => {
                                 dateFormat="MM/DD/YYYY"
                                 placeholderText="Click to select a date"
                                 timeFormat="HH:mm"
-                                minDate={props.currentTime}
-                                maxDate={props.currentTime.add(5, "days")}
-                                minTime={props.currentTime.hours(8).minutes(0)}
-                                maxTime={props.currentTime.hours(20).minutes(0)}
+                                minDate={props.defaultTime}
+                                maxDate={moment(props.defaultTime).add(5, "days")}
+                                minTime={moment(props.defaultTime).hours(8).minutes(0)}
+                                maxTime={moment(props.defaultTime).hours(20).minutes(0)}
                                 autoComplete="off"
                                 dropdownMode="select"
                             />

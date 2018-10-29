@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import moment from 'moment';
 import { actions } from './ducks/Actions';
 import { AnimalRow } from './AnimalRow';
 
@@ -8,7 +9,7 @@ class AnimalsTable extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {value: ''}
+        this.state = {value: ''};
         this.deleteAnimal = this.deleteAnimal.bind(this)
     }
 
@@ -23,6 +24,7 @@ class AnimalsTable extends Component {
         let animals = [];
         for (let animal of this.props.animals) {
             animals.push(<AnimalRow animal={animal}
+                                    timeAgo={moment(animal.timestamp).fromNow()}
                                     deleteAnimal={this.deleteAnimal}
                                     key={animal.id} />);
         }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import moment from 'moment';
 import {actions} from './ducks/Actions';
-import {Input, Select, CheckBox} from '../form_fields/FormFields';
 import {AnimalForm} from "./AnimalForm";
 
 class AnimalFormContainer extends Component {
@@ -53,7 +53,7 @@ class AnimalFormContainer extends Component {
     handleSubmit(e) {
         e.preventDefault();
         const animal = {
-            timestamp: Date.now(),
+            timestamp: moment().format(),
             location: this.state.location,
             name: this.state.name,
             species: this.state.species,

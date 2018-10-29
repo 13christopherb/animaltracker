@@ -69,7 +69,7 @@ function deleteTransport(transport) {
                     dispatch(failure(error))
                 }
             );
-    }
+    };
     function request(transport) {
         return {type: types.DELETE_TRANSPORT_REQUEST, transport}
     }

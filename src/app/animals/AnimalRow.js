@@ -14,6 +14,7 @@ export const AnimalRow = (props) => {
             </td>
             <td style={{width: '40%'}}>
                 {props.animal.name}
+                <p style={{fontSize: 11}}>{props.timeAgo}</p>
             </td>
             <td style={{width: '16.66%'}}>
                 {props.animal.weight}

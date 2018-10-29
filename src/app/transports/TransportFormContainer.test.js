@@ -20,7 +20,7 @@ const store = mockStore(initialState);
 describe('<TransportFormContainer />', () => {
     describe('render()', () => {
         let props = {
-            currentTime: moment('2017-09-15 09:30:00')
+            defaultTime: moment('2017-09-15 09:30:00')
         };
         test('should render the component', () => {
             const wrapper = shallow(<TransportFormContainer {...props} store={store}/>);
@@ -31,7 +31,7 @@ describe('<TransportFormContainer />', () => {
 
     describe('Creating new transport', () => {
         let props = {
-            currentTime: moment('2017-09-15 09:30:00')
+            defaultTime: moment('2017-09-15 09:30:00')
         };
         describe('user inputs are echoed', () => {
             test('departs select is echoed', () => {

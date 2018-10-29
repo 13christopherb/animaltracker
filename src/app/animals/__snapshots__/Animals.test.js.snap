@@ -29,6 +29,7 @@ exports[`<Animals /> render() should render the component 1`] = `
               }
               deleteAnimal={[Function]}
               key="1"
+              timeAgo="a few seconds ago"
             />
             <AnimalRow
               animal={
@@ -44,6 +45,7 @@ exports[`<Animals /> render() should render the component 1`] = `
               }
               deleteAnimal={[Function]}
               key="2"
+              timeAgo="a few seconds ago"
             />
             <AnimalRow
               animal={
@@ -59,6 +61,7 @@ exports[`<Animals /> render() should render the component 1`] = `
               }
               deleteAnimal={[Function]}
               key="3"
+              timeAgo="a few seconds ago"
             />
             <AnimalRow
               animal={
@@ -74,6 +77,7 @@ exports[`<Animals /> render() should render the component 1`] = `
               }
               deleteAnimal={[Function]}
               key="4"
+              timeAgo="a few seconds ago"
             />
           </tbody>
         </table>

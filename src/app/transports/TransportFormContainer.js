@@ -6,7 +6,6 @@ import {actions} from "./ducks/Actions";
 import {TransportForm} from "./TransportForm";
 
 import 'react-datepicker/dist/react-datepicker.css';
-import {Select} from "../form_fields/Select";
 
 class TransportFormContainer extends Component {
 
@@ -16,7 +15,7 @@ class TransportFormContainer extends Component {
             value: '',
             departs: '',
             arrives: '',
-            meetTime: this.props.currentTime
+            meetTime: this.props.defaultTime
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleDateTimeChange = this.handleDateTimeChange.bind(this);
@@ -63,7 +62,7 @@ class TransportFormContainer extends Component {
                    arrives={this.state.arrives}
                    departs={this.state.departs}
                    meetTime={this.state.meetTime}
-                   currentTime={this.props.currentTime}
+                   defaultTime={this.props.defaultTime}
 
                />
             </div>
@@ -73,7 +72,7 @@ class TransportFormContainer extends Component {
 
 function mapStateToProps({}, ownProps) {
     return {
-        meetTime: ownProps.currentTime
+        defaultTime: ownProps.defaultTime
     }
 }
 
