@@ -8,11 +8,12 @@ const initialState = {
 export default function transportsReducer(state=initialState, action) {
     switch (action.type) {
         case types.ADD_TRANSPORT_SUCCESS:
-            let transports = [...state['transports']];
-            transports.push(action.transport);
             return {
                 ...state,
-                transports: transports
+                transports: [
+                    ...state['transports'],
+                    action.transport
+                ]
             };
         case types.GET_TRANSPORTS_SUCCESS:
             return {
@@ -22,9 +23,7 @@ export default function transportsReducer(state=initialState, action) {
         case types.DELETE_TRANSPORT_SUCCESS:
             return {
                 ...state,
-                transports: _.reject(state['transports'], (t) => {
-                    return action.transport.id === t.id;
-                })
+                transports: state.transports.filter((transport) => transport.id !== action.transport.id)
             };
         default:
             return state

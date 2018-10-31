@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import moment from 'moment';
 import _ from 'underscore';
 import {animalsActions} from '../animals/ducks/';
 import {locationActions} from './ducks/index';
-import Location from './Location';
+import LocationContainer from './LocationContainer';
 import AnimalFormContainer from "../animals/AnimalFormContainer";
 
 
@@ -20,7 +21,6 @@ class Locations extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(animalsActions.getAnimals());
         this.props.dispatch(locationActions.getLocations())
     }
 
@@ -29,30 +29,25 @@ class Locations extends Component {
     }
 
     render() {
-        let locations = [];
-        let animalsByLocation = _.groupBy(this.props.animals, (animal) => {
-            return animal['location']
-        });
-        for (let property in animalsByLocation) {
-            if (animalsByLocation.hasOwnProperty(property)) {
-                locations.push(<Location key={property} location={property} animals={animalsByLocation[property]}/>)
-            }
-        }
         return (
             <div>
                 {this.state.addingAnimal ? (
                     <AnimalFormContainer toggleAddAnimal={this.toggleAddAnimal}/>) : (
                     <button onClick={this.toggleAddAnimal} className="btn btn-success">Add animal</button>
                 )}
-                {locations}
+                {Object.keys(this.props.locations).map((location) =>
+                    <LocationContainer key={location} //Need better unique key
+                              location={location} />
+
+                )}
             </div>
         );
     }
 }
 
-function mapStateToProps({authentication, animals}, ownProps) {
+function mapStateToProps({authentication, locations}, ownProps) {
     return {
-        animals: animals.animals,
+        locations: locations.locations,
         loggedIn: authentication.loggedIn
     }
 }

@@ -8,5 +8,9 @@ exports[`<Locations /> render() should render the component 1`] = `
   >
     Add animal
   </button>
+  <Connect(LocationContainer)
+    key="0"
+    location="0"
+  />
 </div>
 `;

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import uuidv4 from 'uuid';
 import {actions} from '../authentication/ducks/Actions';
 
 

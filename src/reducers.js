@@ -7,5 +7,6 @@ import transportsReducer from './app/transports/ducks';
 export default combineReducers({
     animals: animalsReducer,
     authentication: authenticationReducer,
+    locations: locationReducer,
     transports: transportsReducer
 });

@@ -31,11 +31,6 @@ class AnimalFormContainer extends Component {
         //this.props.dispatch(actions.fetchAnimals());
     }
 
-    /**
-     * Saves the input values to the state to submit later
-     * when button is pressed
-     * @param e Input change event
-     */
     handleInputChange(e) {
         const target = e.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -45,11 +40,6 @@ class AnimalFormContainer extends Component {
         });
     }
 
-    /**
-     * post the input values saved in the state
-     * to the server.
-     * @param e On click event
-     */
     handleSubmit(e) {
         e.preventDefault();
         const animal = {

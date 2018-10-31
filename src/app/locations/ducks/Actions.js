@@ -11,6 +11,7 @@ function getLocations() {
         return locationService.getAllLocations()
             .then(
                 res => {
+                    console.log(res);
                     dispatch(success(res['locations']))
                 },
                 error => {
