@@ -50,33 +50,25 @@ class AnimalFormContainer extends Component {
         }))
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
+    handleSubmit(values) {
         const animal = {
             timestamp: moment().format(),
-            location: this.props.fields.location,
-            name: this.props.fields.name,
-            species: this.props.fields.species,
-            weight: this.props.fields.weight,
-            isGettingControlledMeds: this.props.fields.isGettingControlledMeds,
-            isGettingTubed: this.props.fields.isGettingTubed
+            location: values.location,
+            name: values.name,
+            species: values.species,
+            weight: values.weight,
+            isGettingControlledMeds: values.isGettingControlledMeds,
+            isGettingTubed: values.isGettingTubed
         };
         this.props.dispatch(actions.addAnimal(animal));
     }
+
 
     render() {
         return (
             <div>
                 <AnimalForm
-                    handleInputChange={this.handleInputChange}
-                    onBlur={this.onBlur}
-                    handleSubmit={this.handleSubmit}
-                    location={this.state.location}
-                    name={this.state.name}
-                    species={this.state.species}
-                    weight={this.state.weight}
-                    isGettingControlledMeds={this.state.isGettingControlledMeds}
-                    isGettingTubed={this.state.isGettingTubed}
+                    onSubmit={this.handleSubmit}
                     toggleAddAnimal={this.props.toggleAddAnimal}
                 />
             </div>

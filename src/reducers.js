@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form'
 import animalsReducer from './app/animals/ducks';
 import animalFormReducer from './app/animal-form/ducks'
 import authenticationReducer from './app/authentication/ducks';
@@ -11,4 +12,5 @@ export default combineReducers({
     authentication: authenticationReducer,
     locations: locationReducer,
     transports: transportsReducer,
+    form: formReducer
 });

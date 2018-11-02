@@ -1,17 +1,17 @@
 import React from 'react';
 
-export const Select = (props) => {
+export const Select = ({input, title, options, ...other}) => {
     return (
         <div className="form-group">
-            <label>{props.title}</label>
+            <label>{title}</label>
             <select
-                name={props.name}
-                value={props.value}
                 className="custom-select"
-                {...props}
+                value={input.value}
+                onChange={input.onChange}
+                {...other}
             >
                 <option value="" disabled></option>
-                {props.options.map(option => {
+                {options.map(option => {
                     return (
                       <option
                           key={option}

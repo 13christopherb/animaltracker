@@ -1,4 +1,5 @@
 import React from 'react';
+import { Field, reduxForm } from 'redux-form'
 import {Input, Select} from "../form-fields/form-fields";
 
 /**
@@ -14,11 +15,12 @@ export const AnimalForm = (props) => {
                 <form onSubmit={props.handleSubmit}>
                     <div className="form-row">
                         <div className="col col-md-2">
-                            <Select title={'Location'}
-                                    name={'location'}
-                                    value={props.location}
-                                    onChange={props.handleInputChange}
-                                    onBlur={props.onBlur}
+                            <Field
+                                    component={Select}
+                                    title="Location"
+                                    name="location"
+                                    value={props.value}
+                                    onChange={props.handleChange}
                                     options={[
                                         'NRO',
                                         'MBO',
@@ -27,11 +29,12 @@ export const AnimalForm = (props) => {
                             />
                         </div>
                         <div className="col col-md-2">
-                            <Select title={'Species'}
-                                    name={'species'}
-                                    value={props.species}
-                                    onChange={props.handleInputChange}
-                                    onBlur={props.onBlur}
+                            <Field
+                                component={Select}
+                                title="Species"
+                                    name="species"
+                                    value={props.value}
+                                    onChange={props.handleChange}
                                     options={[
                                         'CSL',
                                         'ES',
@@ -44,46 +47,49 @@ export const AnimalForm = (props) => {
                             />
                         </div>
                         <div className="col col-md-3">
-                            <Input id={'name'}
-                                   name={'name'}
-                                   title={'Name'}
-                                   type={'text'}
-                                   onChange={props.handleInputChange}
-                                   onBlur={props.onBlur}
-                                   value={props.name}/>
+                            <Field
+                                component={Input}
+                                id="name"
+                                name="name"
+                                title="Name"
+                                type="text"
+                                onChange={props.handleChange}
+                                value={props.value}
+                            />
 
                         </div>
                         <div className="col col-md-3">
-                            <Input id={'weight'}
-                                   name={'weight'}
-                                   title={'Weight'}
-                                   type={'text'}
-                                   onChange={props.handleInputChange}
-                                   onBlur={props.onBlur}
-                                   value={props.weight}/>
-
+                            <Field
+                                component={Input}
+                                id="weight"
+                                name="weight"
+                                title={'Weight'}
+                                type="text"
+                                onChange={props.handleChange}
+                                value={props.value}
+                            />
                         </div>
                     </div>
                     <div className="form-row">
                         <div className="col col-md-6">
                         <label>
                             Controlled meds:
-                            <input
+                            <Field
+                                component="input"
                                 name="isGettingControlledMeds"
                                 type="checkbox"
-                                onChange={props.handleInputChange}
-                                onBlur={props.onBlur}
-                                value={props.isGettingControlledMeds}
+                                onChange={props.handleChange}
+                                value={props.value}
                             />
                         </label>
                         <label>
                             Tube feeding:
-                            <input
+                            <Field
+                                component="input"
                                 name="isGettingTubed"
                                 type="checkbox"
-                                onBlur={props.onBlur}
-                                onChange={props.handleInputChange}
-                                value={props.isGettingTubed}
+                                onChange={props.handleChange}
+                                value={props.value}
                             />
                         </label>
                         <button className="btn btn-primary" type="submit">Submit</button>
@@ -98,4 +104,4 @@ export const AnimalForm = (props) => {
     )
 };
 
-export default AnimalForm
+export default reduxForm({ form: 'AnimalForm' })(AnimalForm)
