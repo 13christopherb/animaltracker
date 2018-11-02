@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AnimalFormContainer /> render() should render the component 1`] = `
+<div>
+  <AnimalForm
+    handleInputChange={[Function]}
+    handleSubmit={[Function]}
+    isGettingControlledMeds={false}
+    isGettingTubed={false}
+    location=""
+    name=""
+    onBlur={[Function]}
+    species=""
+    weight=""
+  />
+</div>
+`;

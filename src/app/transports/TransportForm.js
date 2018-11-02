@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import {Select} from "../form_fields/Select";
+import {Select} from "../form-fields/select";
 import DatePicker from "react-datepicker";
 
 export const TransportForm = (props) => {

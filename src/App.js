@@ -5,11 +5,11 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import {faPrescriptionBottleAlt, faBlender, faChevronRight, faChevronDown} from '@fortawesome/free-solid-svg-icons';
 import {Route} from 'react-router-dom';
 import {withRouter} from 'react-router';
-import {PrivateRoute} from "./utils/PrivateRoute";
-import {Home} from "./app/home/Home";
-import UserLogin from "./app/authentication/UserLogin";
-import Locations from "./app/locations/Locations";
-import Header from "./app/home/Header";
+import {PrivateRoute} from "./utils/private-route";
+import {Home} from "./app/home/home";
+import UserLogin from "./app/authentication/user-login";
+import Locations from "./app/locations/locations";
+import Header from "./app/home/header";
 import {Transports} from "./app/transports/Transports";
 
 

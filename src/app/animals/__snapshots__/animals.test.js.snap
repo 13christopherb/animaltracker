@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Animals /> render() should render the component 1`] = `
+<AnimalsTable
+  animals={
+    Array [
+      Object {
+        "id": 1,
+        "isGettingControlledMeds": false,
+        "isGettingTubed": true,
+        "location": "NRO",
+        "name": "Edginald",
+        "species": "CSL",
+        "weight": 14,
+      },
+      Object {
+        "id": 2,
+        "isGettingControlledMeds": false,
+        "isGettingTubed": true,
+        "location": "MBO",
+        "name": "Kirt",
+        "species": "CSL",
+        "weight": 85,
+      },
+      Object {
+        "id": 3,
+        "isGettingControlledMeds": false,
+        "isGettingTubed": true,
+        "location": "SLO",
+        "name": "Pipester",
+        "species": "NFL",
+        "weight": 10,
+      },
+      Object {
+        "id": 4,
+        "isGettingControlledMeds": false,
+        "isGettingTubed": true,
+        "location": "MBO",
+        "name": "Spud",
+        "species": "ES",
+        "weight": 34,
+      },
+    ]
+  }
+  dispatch={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+/>
+`;
