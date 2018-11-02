@@ -4,7 +4,7 @@
 declare module "react-redux" {
   import type { ComponentType, ElementConfig } from 'react';
 
-  // These actionTypes are copied directly from the redux libdef. Importing them in
+  // These types are copied directly from the redux libdef. Importing them in
   // this libdef causes a loss in type coverage.
   declare type DispatchAPI<A> = (action: A) => A;
   declare type Dispatch<A: { type: $Subtype<string> }> = DispatchAPI<A>;

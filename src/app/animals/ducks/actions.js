@@ -1,16 +1,12 @@
-//@flow
-
 import * as animalService from './operations';
-import {actionTypes} from "./action-types";
-import type {Animal, ThunkAction, DeleteAnimalSuccessAction, DeleteAnimalRequestAction, DeleteAnimalFailureAction,
-    GetAnimalsSuccessAction, GetAnimalsFailureAction, GetAnimalsRequestAction} from './types';
+import {types} from "./types";
 
 export const actions = {
     getAnimals,
     deleteAnimal
 };
 
-function getAnimals(): ThunkAction {
+function getAnimals() {
     return dispatch => {
         dispatch(request());
         return animalService.getAllAnimals()
@@ -24,20 +20,20 @@ function getAnimals(): ThunkAction {
             );
     };
 
-    function request(): GetAnimalsRequestAction {
-        return {type: actionTypes.GET_ANIMALS_REQUEST}
+    function request() {
+        return {type: types.GET_ANIMALS_REQUEST}
     }
 
-    function success(animals:Array<Animal>): GetAnimalsSuccessAction {
-        return {type: actionTypes.GET_ANIMALS_SUCCESS, animals}
+    function success(animals) {
+        return {type: types.GET_ANIMALS_SUCCESS, animals}
     }
 
-    function failure(error): GetAnimalsFailureAction {
-        return {type: actionTypes.GET_ANIMALS_FAILURE, error}
+    function failure(error) {
+        return {type: types.GET_ANIMALS_FAILURE, error}
     }
 }
 
-function deleteAnimal(animal:Animal): ThunkAction {
+function deleteAnimal(animal) {
     return dispatch => {
         dispatch(request(animal));
         return animalService.deleteAnimal(animal.id)
@@ -51,15 +47,15 @@ function deleteAnimal(animal:Animal): ThunkAction {
             );
     }
 
-    function request(animal): DeleteAnimalRequestAction {
-        return {type: actionTypes.DELETE_ANIMAL_REQUEST, animal}
+    function request(animal) {
+        return {type: types.DELETE_ANIMAL_REQUEST, animal}
     }
 
-    function success(animal): DeleteAnimalSuccessAction {
-        return {type: actionTypes.DELETE_ANIMAL_SUCCESS, animal}
+    function success(animal) {
+        return {type: types.DELETE_ANIMAL_SUCCESS, animal}
     }
 
-    function failure(error): DeleteAnimalFailureAction {
-        return {type: actionTypes.DELETE_ANIMAL_FAILURE, error}
+    function failure(error) {
+        return {type: types.DELETE_ANIMAL_FAILURE, error}
     }
 }

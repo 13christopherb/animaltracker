@@ -1,4 +1,4 @@
 import animalsReducer from './reducers';
 export {actions as animalsActions} from './actions';
-export {actionTypes as animalsTypes} from './action-types';
+export {types as animalsTypes} from './types';
 export default animalsReducer;

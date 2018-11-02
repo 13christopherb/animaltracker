@@ -1,15 +1,12 @@
-//@flow
 import * as animalService from "../../animals/ducks/operations";
-import type {Animal, Field, ThunkAction, ChangeFieldAction,
-    AddAnimalRequestAction, AddAnimalSuccessAction, AddAnimalFailureAction} from './types';
-import {actionTypes} from "./action-types";
+import {types} from "./types";
 
 export const actions = {
     addAnimal,
     changeFieldValue
 };
 
-function addAnimal(animal:Animal): ThunkAction {
+function addAnimal(animal) {
     return dispatch => {
         dispatch(request(animal));
         return animalService.addAnimal(animal)
@@ -23,19 +20,19 @@ function addAnimal(animal:Animal): ThunkAction {
             );
     };
 
-    function request(animal): AddAnimalRequestAction {
-        return {type: actionTypes.ADD_ANIMAL_REQUEST, animal}
+    function request(animal) {
+        return {type: types.ADD_ANIMAL_REQUEST, animal}
     }
 
-    function success(animal): AddAnimalSuccessAction {
-        return {type: actionTypes.ADD_ANIMAL_SUCCESS, animal}
+    function success(animal) {
+        return {type: types.ADD_ANIMAL_SUCCESS, animal}
     }
 
-    function failure(error): AddAnimalFailureAction {
-        return {type: actionTypes.ADD_ANIMAL_FAILURE, error}
+    function failure(error) {
+        return {type: types.ADD_ANIMAL_FAILURE, error}
     }
 }
 
-function changeFieldValue(field:Field): ChangeFieldAction {
-    return { type: actionTypes.CHANGE_FIELD_VALUE, field}
+function changeFieldValue(field) {
+    return { type: types.CHANGE_FIELD_VALUE, field}
 }

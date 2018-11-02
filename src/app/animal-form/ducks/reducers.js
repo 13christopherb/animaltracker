@@ -1,7 +1,6 @@
 //@flow
 
-import {actionTypes} from "./action-types";
-import type {State, Action} from './types';
+import {types} from "./types";
 
 let initialState: State = {
     animals: [],
@@ -14,9 +13,9 @@ let initialState: State = {
     }
 };
 
-export default function animalFormReducer(state:State=initialState, action:Action): State {
+export default function animalFormReducer(state=initialState, action) {
     switch (action.type) {
-        case actionTypes.CHANGE_FIELD_VALUE:
+        case types.CHANGE_FIELD_VALUE:
             return {
                 ...state,
                 fields: {

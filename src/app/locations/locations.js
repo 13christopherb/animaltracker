@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import moment from 'moment';
-import _ from 'underscore';
-import {animalsActions} from '../animals/ducks/';
 import {locationActions} from './ducks/index';
 import LocationContainer from './location-container';
 import AnimalFormContainer from "../animal-form/animal-form-container";

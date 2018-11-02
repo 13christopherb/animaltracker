@@ -1,23 +1,15 @@
-//@flow
+import {types} from './types';
 
-import {actionTypes} from './action-types';
-import type {State, Action, Animal, ReadOnlyAnimal} from './types'
-
-const initialState:State = {
+const initialState = {
     animals: []
 };
 
-export default function animalsReducer(state:State=initialState, action:Action): State {
+export default function animalsReducer(state=initialState, action): State {
     switch (action.type) {
-        case actionTypes.GET_ANIMALS_SUCCESS:
+        case types.GET_ANIMALS_SUCCESS:
             return {
                 ...state,
                 animals: [...action.animals]
-            };
-        case actionTypes.DELETE_ANIMAL_SUCCESS:
-            return {
-                ...state,
-                animals: state.animals.filter((animal) => animal.id === action.animal)
             };
         default:
             return state

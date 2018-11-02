@@ -1,13 +1,11 @@
-import _ from 'underscore';
 import {locationTypes} from "./";
 import {animalFormTypes} from "../../animal-form/ducks";
-
+import {animalsTypes} from "../../animals/ducks";
 const initialState = {
     locations: []
 };
 
 export default function locationsReducer(state = initialState, action) {
-    console.log(animalFormTypes.ADD_ANIMAL_SUCCESS);
     switch (action.type) {
         case locationTypes.GET_LOCATIONS_SUCCESS:
             return {
@@ -31,7 +29,7 @@ export default function locationsReducer(state = initialState, action) {
                     }
                 }
             };
-        case animalFormTypes.DELETE_ANIMAL_SUCCESS:
+        case animalsTypes.DELETE_ANIMAL_SUCCESS:
             return {
                 ...state,
                 locations: {

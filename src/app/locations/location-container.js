@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'underscore';
-import {Location} from './location'
-import Animals from "../animals/animals";
+import {Location} from './location';
 
 
 class LocationContainer extends Component {

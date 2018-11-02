@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import MockAdapter from 'axios-mock-adapter';
 import {apiInstance} from "../../../utils/api";
 import { actions } from './actions';
-import { actionTypes} from "./action-types";
+import { types} from "./types";
 
 import * as testValues from '../../../services/TestValues'
 
@@ -18,8 +18,8 @@ describe('async actions', () => {
         });
 
         const expectedActions = [
-            {type: actionTypes.GET_ANIMALS_REQUEST},
-            {type: actionTypes.GET_ANIMALS_SUCCESS, animals: testValues.animals}
+            {type: types.GET_ANIMALS_REQUEST},
+            {type: types.GET_ANIMALS_SUCCESS, animals: testValues.animals}
         ];
 
         const store = mockStore({animals: []});
@@ -33,8 +33,8 @@ describe('async actions', () => {
         const error = new Error('Request failed with status code 422');
 
         const expectedActions = [
-            {type: actionTypes.GET_ANIMALS_REQUEST},
-            {type: actionTypes.GET_ANIMALS_FAILURE, error: error}
+            {type: types.GET_ANIMALS_REQUEST},
+            {type: types.GET_ANIMALS_FAILURE, error: error}
         ];
 
         const store = mockStore({animals: []});
@@ -47,8 +47,8 @@ describe('async actions', () => {
         mockAdapter.onDelete('/animal/'+testValues.animal1.id).reply(200);
 
         const expectedActions = [
-            {type: actionTypes.DELETE_ANIMAL_REQUEST, animal: testValues.animal1},
-            {type: actionTypes.DELETE_ANIMAL_SUCCESS, animal: testValues.animal1}
+            {type: types.DELETE_ANIMAL_REQUEST, animal: testValues.animal1},
+            {type: types.DELETE_ANIMAL_SUCCESS, animal: testValues.animal1}
         ];
 
         const store = mockStore({animals: [testValues.animal1]});
@@ -61,8 +61,8 @@ describe('async actions', () => {
         mockAdapter.onDelete('/animal/'+testValues.animal1.id).reply(422);
         const error = new Error('Request failed with status code 422');
         const expectedActions = [
-            {type: actionTypes.DELETE_ANIMAL_REQUEST, animal: testValues.animal1},
-            {type: actionTypes.DELETE_ANIMAL_FAILURE, error: error}
+            {type: types.DELETE_ANIMAL_REQUEST, animal: testValues.animal1},
+            {type: types.DELETE_ANIMAL_FAILURE, error: error}
         ];
 
         const store = mockStore({animals: [testValues.animal1]});

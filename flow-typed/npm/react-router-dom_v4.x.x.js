@@ -39,7 +39,7 @@ declare module "react-router-dom" {
   }>>
 
   // NOTE: Below are duplicated from react-router. If updating these, please
-  // update the react-router and react-router-native actionTypes as well.
+  // update the react-router and react-router-native types as well.
   declare export type Location = {
     pathname: string,
     search: string,

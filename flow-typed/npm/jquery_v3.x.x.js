@@ -1,7 +1,7 @@
 // flow-typed signature: d71d314ca25fc6c20610a3ba80af9df0
 // flow-typed version: 9698a46399/jquery_v3.x.x/flow_>=v0.28.x
 
-/* eslint-disable max-len, no-unused-vars, flowtype/no-weak-actionTypes */
+/* eslint-disable max-len, no-unused-vars, flowtype/no-weak-types */
 
 // Flow-typed type definitions for jQuery 3.x.x
 // Project: http://jquery.com/
@@ -61,7 +61,7 @@ declare interface JQueryAjaxSettings {
    */
   beforeSend?: (jqXHR: JQueryXHR, settings: JQueryAjaxSettings) => any;
   /**
-   * If set to false, it will force requested pages not to be cached by the browser. Note: Setting cache to false will only work correctly with HEAD and GET requests. It works by appending "_={timestamp}" to the GET parameters. The parameter is not needed for other actionTypes of requests, except in IE8 when a POST is made to a URL that has already been requested by a GET.
+   * If set to false, it will force requested pages not to be cached by the browser. Note: Setting cache to false will only work correctly with HEAD and GET requests. It works by appending "_={timestamp}" to the GET parameters. The parameter is not needed for other types of requests, except in IE8 when a POST is made to a URL that has already been requested by a GET.
    */
   cache?: boolean;
   /**
@@ -2174,7 +2174,7 @@ declare class JQuery {
   /**
    * Attach a handler to an event for the elements.
    *
-   * @param eventType A string containing one or more DOM event actionTypes, such as "click" or "submit," or custom event names.
+   * @param eventType A string containing one or more DOM event types, such as "click" or "submit," or custom event names.
    * @param eventData An object containing data that will be passed to the event handler.
    * @param handler A function to execute each time the event is triggered.
    */
@@ -2186,7 +2186,7 @@ declare class JQuery {
   /**
    * Attach a handler to an event for the elements.
    *
-   * @param eventType A string containing one or more DOM event actionTypes, such as "click" or "submit," or custom event names.
+   * @param eventType A string containing one or more DOM event types, such as "click" or "submit," or custom event names.
    * @param handler A function to execute each time the event is triggered.
    */
   bind(
@@ -2196,7 +2196,7 @@ declare class JQuery {
   /**
    * Attach a handler to an event for the elements.
    *
-   * @param eventType A string containing one or more DOM event actionTypes, such as "click" or "submit," or custom event names.
+   * @param eventType A string containing one or more DOM event types, such as "click" or "submit," or custom event names.
    * @param eventData An object containing data that will be passed to the event handler.
    * @param preventBubble Setting the third argument to false will attach a function that prevents the default action from occurring and stops the event from bubbling. The default is true.
    */
@@ -2204,14 +2204,14 @@ declare class JQuery {
   /**
    * Attach a handler to an event for the elements.
    *
-   * @param eventType A string containing one or more DOM event actionTypes, such as "click" or "submit," or custom event names.
+   * @param eventType A string containing one or more DOM event types, such as "click" or "submit," or custom event names.
    * @param preventBubble Setting the third argument to false will attach a function that prevents the default action from occurring and stops the event from bubbling. The default is true.
    */
   bind(eventType: string, preventBubble: boolean): JQuery;
   /**
    * Attach a handler to an event for the elements.
    *
-   * @param events An object containing one or more DOM event actionTypes and functions to execute for them.
+   * @param events An object containing one or more DOM event types and functions to execute for them.
    */
   bind(events: any, _: void): JQuery;
 
@@ -2625,13 +2625,13 @@ declare class JQuery {
   /**
    * Remove an event handler.
    *
-   * @param events One or more space-separated event actionTypes and optional namespaces, or just namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
+   * @param events One or more space-separated event types and optional namespaces, or just namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
    */
   off(events: string): JQuery;
   /**
    * Remove an event handler.
    *
-   * @param events One or more space-separated event actionTypes and optional namespaces, or just namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
+   * @param events One or more space-separated event types and optional namespaces, or just namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
    * @param selector A selector which should match the one originally passed to .on() when attaching event handlers.
    * @param handler A handler function previous: anyly attached for the event(s), or the special value false.
    */
@@ -2643,7 +2643,7 @@ declare class JQuery {
   /**
    * Remove an event handler.
    *
-   * @param events One or more space-separated event actionTypes and optional namespaces, or just namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
+   * @param events One or more space-separated event types and optional namespaces, or just namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
    * @param selector A selector which should match the one originally passed to .on() when attaching event handlers.
    */
   off(
@@ -2653,7 +2653,7 @@ declare class JQuery {
   /**
    * Remove an event handler.
    *
-   * @param events One or more space-separated event actionTypes and optional namespaces, or just namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
+   * @param events One or more space-separated event types and optional namespaces, or just namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
    * @param handler A handler function previous: anyly attached for the event(s), or the special value false. Takes handler with extra args that can be attached with on().
    */
   off(
@@ -2663,7 +2663,7 @@ declare class JQuery {
   /**
    * Remove an event handler.
    *
-   * @param events: any An object where the string keys represent one or more space-separated event actionTypes and optional namespaces, and the values represent handler functions previously attached for the event(s).
+   * @param events: any An object where the string keys represent one or more space-separated event types and optional namespaces, and the values represent handler functions previously attached for the event(s).
    * @param selector A selector which should match the one originally passed to .on() when attaching event handlers.
    */
   off(
@@ -2676,7 +2676,7 @@ declare class JQuery {
   /**
    * Attach an event handler function for one or more events to the selected elements.
    *
-   * @param events One or more space-separated event actionTypes and optional namespaces, such as "click" or "keydown.myPlugin".
+   * @param events One or more space-separated event types and optional namespaces, such as "click" or "keydown.myPlugin".
    * @param handler A function to execute when the event is triggered. The value false is also allowed as a shorthand for a function that simply does return false. Rest parameter args is for optional parameters passed to jQuery.trigger(). Note that the actual parameters on the event handler function must be marked as optional (? syntax).
    */
   on(
@@ -2686,7 +2686,7 @@ declare class JQuery {
   /**
    * Attach an event handler function for one or more events to the selected elements.
    *
-   * @param events One or more space-separated event actionTypes and optional namespaces, such as "click" or "keydown.myPlugin".
+   * @param events One or more space-separated event types and optional namespaces, such as "click" or "keydown.myPlugin".
    * @param data Data to be passed to the handler in event.data when an event is triggered.
    * @param handler A function to execute when the event is triggered. The value false is also allowed as a shorthand for a function that simply does return false.
    */
@@ -2698,7 +2698,7 @@ declare class JQuery {
   /**
    * Attach an event handler function for one or more events to the selected elements.
    *
-   * @param events One or more space-separated event actionTypes and optional namespaces, such as "click" or "keydown.myPlugin".
+   * @param events One or more space-separated event types and optional namespaces, such as "click" or "keydown.myPlugin".
    * @param selector A selector string to filter the descendants of the selected elements that trigger the event. If the selector is null or omitted, the event is always triggered when it reaches the selected element.
    * @param handler A function to execute when the event is triggered. The value false is also allowed as a shorthand for a function that simply does return false.
    */
@@ -2710,7 +2710,7 @@ declare class JQuery {
   /**
    * Attach an event handler function for one or more events to the selected elements.
    *
-   * @param events One or more space-separated event actionTypes and optional namespaces, such as "click" or "keydown.myPlugin".
+   * @param events One or more space-separated event types and optional namespaces, such as "click" or "keydown.myPlugin".
    * @param selector A selector string to filter the descendants of the selected elements that trigger the event. If the selector is null or omitted, the event is always triggered when it reaches the selected element.
    * @param data Data to be passed to the handler in event.data when an event is triggered.
    * @param handler A function to execute when the event is triggered. The value false is also allowed as a shorthand for a function that simply does return false.
@@ -2724,7 +2724,7 @@ declare class JQuery {
   /**
    * Attach an event handler function for one or more events to the selected elements.
    *
-   * @param events: any An object in which the string keys represent one or more space-separated event actionTypes and optional namespaces, and the values represent a handler function to be called for the event(s).
+   * @param events: any An object in which the string keys represent one or more space-separated event types and optional namespaces, and the values represent a handler function to be called for the event(s).
    * @param selector A selector string to filter the descendants of the selected elements that will call the handler. If the selector is null or omitted, the handler is always called when it reaches the selected element.
    * @param data Data to be passed to the handler in event.data when an event occurs.
    */
@@ -2738,7 +2738,7 @@ declare class JQuery {
   /**
    * Attach an event handler function for one or more events to the selected elements.
    *
-   * @param events: any An object in which the string keys represent one or more space-separated event actionTypes and optional namespaces, and the values represent a handler function to be called for the event(s).
+   * @param events: any An object in which the string keys represent one or more space-separated event types and optional namespaces, and the values represent a handler function to be called for the event(s).
    * @param data Data to be passed to the handler in event.data when an event occurs.
    */
   on(
@@ -2751,14 +2751,14 @@ declare class JQuery {
   /**
    * Attach a handler to an event for the elements. The handler is executed at most once per element per event type.
    *
-   * @param events A string containing one or more JavaScript event actionTypes, such as "click" or "submit," or custom event names.
+   * @param events A string containing one or more JavaScript event types, such as "click" or "submit," or custom event names.
    * @param handler A function to execute at the time the event is triggered.
    */
   one(events: string, handler: (eventObject: JQueryEventObject) => any): JQuery;
   /**
    * Attach a handler to an event for the elements. The handler is executed at most once per element per event type.
    *
-   * @param events A string containing one or more JavaScript event actionTypes, such as "click" or "submit," or custom event names.
+   * @param events A string containing one or more JavaScript event types, such as "click" or "submit," or custom event names.
    * @param data An object containing data that will be passed to the event handler.
    * @param handler A function to execute at the time the event is triggered.
    */
@@ -2771,7 +2771,7 @@ declare class JQuery {
   /**
    * Attach a handler to an event for the elements. The handler is executed at most once per element per event type.
    *
-   * @param events One or more space-separated event actionTypes and optional namespaces, such as "click" or "keydown.myPlugin".
+   * @param events One or more space-separated event types and optional namespaces, such as "click" or "keydown.myPlugin".
    * @param selector A selector string to filter the descendants of the selected elements that trigger the event. If the selector is null or omitted, the event is always triggered when it reaches the selected element.
    * @param handler A function to execute when the event is triggered. The value false is also allowed as a shorthand for a function that simply does return false.
    */
@@ -2783,7 +2783,7 @@ declare class JQuery {
   /**
    * Attach a handler to an event for the elements. The handler is executed at most once per element per event type.
    *
-   * @param events One or more space-separated event actionTypes and optional namespaces, such as "click" or "keydown.myPlugin".
+   * @param events One or more space-separated event types and optional namespaces, such as "click" or "keydown.myPlugin".
    * @param selector A selector string to filter the descendants of the selected elements that trigger the event. If the selector is null or omitted, the event is always triggered when it reaches the selected element.
    * @param data Data to be passed to the handler in event.data when an event is triggered.
    * @param handler A function to execute when the event is triggered. The value false is also allowed as a shorthand for a function that simply does return false.
@@ -2798,7 +2798,7 @@ declare class JQuery {
   /**
    * Attach a handler to an event for the elements. The handler is executed at most once per element per event type.
    *
-   * @param events: any An object in which the string keys represent one or more space-separated event actionTypes and optional namespaces, and the values represent a handler function to be called for the event(s).
+   * @param events: any An object in which the string keys represent one or more space-separated event types and optional namespaces, and the values represent a handler function to be called for the event(s).
    * @param selector A selector string to filter the descendants of the selected elements that will call the handler. If the selector is null or omitted, the handler is always called when it reaches the selected element.
    * @param data Data to be passed to the handler in event.data when an event occurs.
    */
@@ -2813,7 +2813,7 @@ declare class JQuery {
   /**
    * Attach a handler to an event for the elements. The handler is executed at most once per element per event type.
    *
-   * @param events: any An object in which the string keys represent one or more space-separated event actionTypes and optional namespaces, and the values represent a handler function to be called for the event(s).
+   * @param events: any An object in which the string keys represent one or more space-separated event types and optional namespaces, and the values represent a handler function to be called for the event(s).
    * @param data Data to be passed to the handler in event.data when an event occurs.
    */
   one(
@@ -2989,7 +2989,7 @@ declare class JQuery {
    * Remove a handler from the event for all elements which match the current selector, based upon a specific set of root elements.
    *
    * @param selector A selector which will be used to filter the event results.
-   * @param events An object of one or more event actionTypes and previously bound functions to unbind from them.
+   * @param events An object of one or more event types and previously bound functions to unbind from them.
    */
   undelegate(selector: string, events: Object): JQuery;
   /**

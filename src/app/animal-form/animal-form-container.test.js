@@ -3,7 +3,7 @@ import {shallow, mount} from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import toJson from 'enzyme-to-json';
 import thunk from 'redux-thunk'
-import {actionTypes} from "./ducks/action-types";
+import {types} from "./ducks/types";
 import AnimalFormContainer from "./animal-form-container";
 
 const middlewares = [thunk];
@@ -110,7 +110,7 @@ describe('<AnimalFormContainer />', () => {
         test('should fire ADD_ANIMAL action', () => {
             const wrapper = mount(<AnimalFormContainer store={store}/>);
             const expectedActions = [
-                {type: actionTypes.ADD_ANIMAL_REQUEST}
+                {type: types.ADD_ANIMAL_REQUEST}
             ];
             wrapper.find('form').simulate('submit', {
                 preventDefault: () => {

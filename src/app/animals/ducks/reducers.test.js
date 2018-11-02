@@ -1,5 +1,5 @@
 import animalsReducer from './index';
-import { actionTypes} from "./action-types";
+import { types} from "./types";
 import * as testValues from '../../../services/TestValues';
 
 describe('animalsReducer reducer', () => {
@@ -14,7 +14,7 @@ describe('animalsReducer reducer', () => {
     it('should handle ADD_ANIMAL_SUCCESS', () => {
         expect(
             animalsReducer({animals: []}, {
-                type: actionTypes.ADD_ANIMAL_SUCCESS,
+                type: types.ADD_ANIMAL_SUCCESS,
                 animal: testValues.animal1
             })
         ).toEqual({
@@ -25,7 +25,7 @@ describe('animalsReducer reducer', () => {
     it('should handle FETCH_ANIMALS_SUCCESS', () => {
         expect(
             animalsReducer({animals: testValues.animals}, {
-                type: actionTypes.GET_ANIMALS_SUCCESS,
+                type: types.GET_ANIMALS_SUCCESS,
                 animals: testValues.animals
             })
         ).toEqual({
@@ -36,7 +36,7 @@ describe('animalsReducer reducer', () => {
     it('should handle DELETE_ANIMAL_SUCCESS', () => {
         expect(
             animalsReducer({animals: testValues.animals}, {
-                type: actionTypes.DELETE_ANIMAL_SUCCESS,
+                type: types.DELETE_ANIMAL_SUCCESS,
                 animal: testValues.animal1
             })
         ).toEqual({
