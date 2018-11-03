@@ -1,4 +1,4 @@
-import {types} from "./Types";
+import {types} from "./types";
 import _ from "underscore";
 
 const initialState = {

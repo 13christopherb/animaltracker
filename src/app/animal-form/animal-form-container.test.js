@@ -25,100 +25,34 @@ describe('<AnimalFormContainer />', () => {
             expect(toJson(component)).toMatchSnapshot()
         })
     });
-
-    describe('Creating new animalsReducer', () => {
-        describe('user inputs are echoed', () => {
-            test('name text echoed', () => {
-                const wrapper = mount(<AnimalFormContainer store={store}/>);
-                wrapper.find('input[name="name"]').simulate('change', {
-                    target: {
-                        value: 'new text',
-                        type: 'test',
-                        name: 'name'
-                    }
-                });
-                expect(wrapper.find('input[name="name"]').props().value).toEqual('new text');
-            });
-            test('weight text echoed', () => {
-                const wrapper = mount(<AnimalFormContainer store={store}/>);
-                wrapper.find('input[name="weight"]').simulate('change', {
-                    target: {
-                        value: 'new text',
-                        type: 'test',
-                        name: 'weight'
-                    }
-                });
-                expect(wrapper.find('input[name="weight"]').props().value).toEqual('new text');
-            });
-            test('location value echoed', () => {
-                const wrapper = mount(<AnimalFormContainer store={store}/>);
-                wrapper.find('select[name="location"]').simulate('change', {
-                    target: {
-                        value: 'new text',
-                        type: 'test',
-                        name: 'location'
-                    }
-                });
-                expect(wrapper.find('select[name="location"]').props().value).toEqual('new text');
-            });
-            test('species value echoed', () => {
-                const wrapper = mount(<AnimalFormContainer store={store}/>);
-                wrapper.find('select[name="species"]').simulate('change', {
-                    target: {
-                        value: 'new text',
-                        type: 'test',
-                        name: 'species'
-                    }
-                });
-                expect(wrapper.find('select[name="species"]').props().value).toEqual('new text');
-            });
-            test('isGettingTubed value echoed', () => {
-                const wrapper = mount(<AnimalFormContainer store={store}/>);
-                wrapper.find('input[name="isGettingTubed"]').simulate('change', {
-                    target: {
-                        value: 'new text',
-                        type: 'test',
-                        name: 'isGettingTubed'
-                    }
-                });
-                expect(wrapper.find('input[name="isGettingTubed"]').props().value).toEqual('new text');
-            });
-            test('isGettingControlledMeds value echoed', () => {
-                const wrapper = mount(<AnimalFormContainer store={store}/>);
-                wrapper.find('input[name="isGettingControlledMeds"]').simulate('change', {
-                    target: {
-                        value: 'new text',
-                        type: 'test',
-                        name: 'isGettingControlledMeds'
-                    }
-                });
-                expect(wrapper.find('input[name="isGettingControlledMeds"]').props().value).toEqual('new text');
-            });
-        });
-
-        test('should prevent default browser submit event', () => {
-            const wrapper = mount(<AnimalFormContainer store={store}/>);
-            let prevented = false;
-            wrapper.find('form').simulate('submit', {
-                preventDefault: () => {
-                    prevented = true;
-                }
-            });
-            expect(prevented).toBe(true);
-        });
-
-        test('should fire ADD_ANIMAL action', () => {
-            const wrapper = mount(<AnimalFormContainer store={store}/>);
-            const expectedActions = [
-                {type: types.ADD_ANIMAL_REQUEST}
-            ];
-            wrapper.find('form').simulate('submit', {
-                preventDefault: () => {
-                    return false;
-                }
-            });
-            expect(store.getActions()[0]['type']).toEqual(expectedActions[0]['type']);
-        })
-    });
-
 });
+
+
+import React from 'react'
+import renderer from 'react-test-renderer'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import YourReduxFormComponent from 'path where it sitting in your project'
+import { reduxForm } from 'redux-form'
+
+jest.mock('react-dom')
+
+const spy = jest.fn()
+const initialStateValues = {/* initial state values that your form component expects */}
+const Decorated = reduxForm({
+    form: 'animal-form', onSubmit: { spy }
+})(YourReduxFormComponent)
+
+const formFieldValues = {/*Form field values*/}
+
+it('YourReduxFormComponent renders correctly', () => {
+    const store = createStore((state) => state, initialStateValues)
+    const tree = renderer.create(
+        <Provider store={store}>
+            <Decorated
+                {...formFieldValues}
+            />
+        </Provider>
+    ).toJSON()
+    expect(tree).toMatchSnapshot()
+})

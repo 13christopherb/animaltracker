@@ -1,7 +1,6 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form'
 import {Input, Select} from "../form-fields/index";
-import {validate} from './validators';
 
 /**
  * Form for creating a new animal
@@ -9,11 +8,11 @@ import {validate} from './validators';
  * @returns {*}
  * @constructor
  */
-export const AnimalForm = (props) => {
+const AnimalForm = ({handleSubmit, onSubmit, ...props}) => {
     return (
         <div>
             <div>
-                <form onSubmit={props.handleSubmit}>
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-row">
                         <div className="col col-md-2">
                             <Field
@@ -106,8 +105,10 @@ export const AnimalForm = (props) => {
         </div>
     )
 };
-
+/*
 export default reduxForm({
     form: 'AnimalForm',
     validate,
-})(AnimalForm)
+})(AnimalForm)*/
+
+export default AnimalForm;

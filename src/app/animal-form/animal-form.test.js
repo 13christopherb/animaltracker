@@ -14,16 +14,11 @@ describe('<AnimalForm />', () => {
     describe('render()', () => {
         test('should render the component', () => {
             const mockSubmit = jest.fn();
-            const mockChange = jest.fn();
-            const wrapper = shallow(<AnimalForm    handleSubmit={mockSubmit}
-                                                   handleInputChange={mockChange}
-                                                   location={''}
-                                                   name={''}
-                                                   species={''}
-                                                   weight={''}
-                                                   isGettingTubed={false}
-                                                   isGettingControlledMeds={false}
-                                                   />);
+            const mockToggle = jest.fn();
+            const wrapper = shallow(<AnimalForm
+                onSubmit={mockSubmit}
+                toggleAddAnimal={mockToggle}
+            />);
 
             expect(toJson(wrapper)).toMatchSnapshot()
         })

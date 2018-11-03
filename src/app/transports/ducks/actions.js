@@ -1,5 +1,5 @@
-import * as transportService from './Operations';
-import { types} from "./Types";
+import * as transportService from './operations';
+import { types} from "./types";
 
 export const actions = {
     addTransport,

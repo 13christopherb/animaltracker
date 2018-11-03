@@ -4,8 +4,8 @@ import configureMockStore from 'redux-mock-store';
 import toJson from 'enzyme-to-json';
 import thunk from 'redux-thunk';
 import moment from 'moment';
-import TransportFormContainer from "./TransportFormContainer";
-import {types} from "./ducks/Types";
+import TransportFormContainer from "./transport-form-container";
+import {types} from "./ducks/types";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

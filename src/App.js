@@ -10,7 +10,7 @@ import {Home} from "./app/home/home";
 import UserLogin from "./app/authentication/user-login";
 import Locations from "./app/locations/locations";
 import Header from "./app/home/header";
-import {Transports} from "./app/transports/Transports";
+import {Transports} from "./app/transports/transports";
 
 
 library.add(faPrescriptionBottleAlt);

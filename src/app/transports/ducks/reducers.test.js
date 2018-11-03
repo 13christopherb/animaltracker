@@ -1,5 +1,5 @@
 import transportsReducer from './index';
-import { types } from './Types';
+import { types } from './types';
 import * as testValues from '../../../services/TestValues';
 
 describe('transportsReducer reducer', () => {

@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-import {actions} from "./ducks/Actions";
-import {TransportForm} from "./TransportForm";
+import {actions} from "./ducks/actions";
+import {TransportForm} from "./transport-form";
 
 import 'react-datepicker/dist/react-datepicker.css';
 

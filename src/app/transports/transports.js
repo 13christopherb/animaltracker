@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {actions} from "./ducks/Actions";
+import {actions} from "./ducks/actions";
 import moment from 'moment';
-import TransportFormContainer from "./TransportFormContainer";
-import {TransportRow} from "./TransportRow";
+import TransportFormContainer from "./transport-form-container";
+import {TransportRow} from "./transport-row";
 
 
 class Transports extends Component {

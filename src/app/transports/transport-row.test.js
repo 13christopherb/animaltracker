@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {TransportRow} from "./TransportRow";
+import {TransportRow} from "./transport-row";
 import moment from 'moment';
 import toJson from 'enzyme-to-json';
 

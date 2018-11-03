@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import moment from 'moment';
 import {actions} from './ducks/actions';
 import AnimalForm from "./animal-form";
+import {Field, reduxForm} from 'redux-form'
+import {validate} from './validators';
 
 
 /**
@@ -43,7 +45,8 @@ class AnimalFormContainer extends Component {
             <div>
                 <AnimalForm
                     onSubmit={this.handleSubmit}
-                    toggleAddAnimal={this.props.toggleAddAnimal}
+                    handleSubmit={this.props.handleSubmit}
+                    {...this.props}
                 />
             </div>
         );
@@ -56,6 +59,7 @@ function mapStateToProps({animalForm}, ownProps) {
     }
 }
 
-export default connect(
-    mapStateToProps,
-)(AnimalFormContainer);
+export default reduxForm({
+    form: 'AnimalForm',
+    validate,
+})(connect(mapStateToProps)(AnimalFormContainer));

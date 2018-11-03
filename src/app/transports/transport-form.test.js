@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {TransportForm} from "./TransportForm";
+import {TransportForm} from "./transport-form";
 import toJson from 'enzyme-to-json';
 import moment from 'moment';
 
