@@ -19,7 +19,6 @@ describe('<AnimalForm />', () => {
                 onSubmit={mockSubmit}
                 toggleAddAnimal={mockToggle}
             />);
-
             expect(toJson(wrapper)).toMatchSnapshot()
         })
     });

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> render() should render the component normally 1`] = `
+<div
+  className="form-group"
+>
+  <label>
+    Location
+  </label>
+  <select
+    className="custom-select "
+    id="location"
+    name="location"
+  >
+    <option
+      disabled={true}
+      value=""
+    />
+    <option
+      label="NRO"
+      value="NRO"
+    >
+      NRO
+    </option>
+    <option
+      label="MBO"
+      value="MBO"
+    >
+      MBO
+    </option>
+    <option
+      label="SLO"
+      value="SLO"
+    >
+      SLO
+    </option>
+  </select>
+</div>
+`;

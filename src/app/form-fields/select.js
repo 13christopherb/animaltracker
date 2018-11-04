@@ -17,8 +17,7 @@ export const Select = ({input, meta: {touched, error}, title, options, ...other}
             <label>{title}</label>
             <select
                 className={'custom-select ' + isValid}
-                value={input.value}
-                onChange={input.onChange}
+                {...input}
                 {...other}
             >
                 <option value="" disabled></option>

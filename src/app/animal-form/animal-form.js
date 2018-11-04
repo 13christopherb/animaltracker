@@ -105,10 +105,5 @@ const AnimalForm = ({handleSubmit, onSubmit, ...props}) => {
         </div>
     )
 };
-/*
-export default reduxForm({
-    form: 'AnimalForm',
-    validate,
-})(AnimalForm)*/
 
 export default AnimalForm;

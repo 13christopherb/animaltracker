@@ -13,11 +13,11 @@ export const validate = values => {
     } else if (!/^[a-zA-Z\s]+$/.test(values.name)) {
         errors.name = 'Must contain only letters and whitespace'
     } else if (values.name.length > 30) {
-        errors.name = 'Must be 30 characters or less';
+        errors.name = 'Must be 30 characters or fewer';
     }
     if (!values.weight) {
         errors.weight = 'Required';
-    } else if (!/^[0-9]+$/.test(values.weight)) {
+    } else if (isNaN(values.weight)) {
         errors.weight = 'Must be a number';
     }
     if (!values.species) {
