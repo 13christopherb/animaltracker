@@ -1,18 +1,20 @@
 import React from 'react';
 import moment from 'moment';
-import {Select} from "../form-fields/select";
-import DatePicker from "react-datepicker";
+import {Select, Input} from "../form-fields/";
+import {Field} from 'redux-form'
 
-export const TransportForm = (props) => {
+export const TransportForm = ({handleSubmit, handleChange,  onSubmit, ...props}) => {
     return (
         <div>
-            <form onSubmit={props.handleSubmit}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-row">
                     <div className="col col-md-2">
-                        <Select title={'Departs'}
+                        <Field
+                            component={Select}
+                            title={'Departs'}
                                 name={'departs'}
-                                value={props.departs}
-                                handleChange={props.handleInputChange}
+                                value={props.value}
+                                onChange={handleChange}
                                 options={[
                                     'NRO',
                                     'MBO',
@@ -21,10 +23,12 @@ export const TransportForm = (props) => {
                         />
                     </div>
                     <div className="col col-md-2">
-                        <Select title={'Arrives'}
-                                name={'arrives'}
-                                value={props.arrives}
-                                handleChange={props.handleInputChange}
+                        <Field
+                            component={Select}
+                            title="Arrives"
+                                name="arrives"
+                                value={props.value}
+                                onChange={handleChange}
                                 options={[
                                     'NRO',
                                     'MBO',
@@ -32,27 +36,36 @@ export const TransportForm = (props) => {
                                 ]}
                         />
                     </div>
-                    <div className="col col-md-3">
-                        <label>
-                            Meet Time
-                            <DatePicker
+                    <div className="col col-md-2">
+                            <Field
+                                component={Select}
                                 name="meetDate"
-                                selected={props.meetTime}
-                                onChange={props.handleDateTimeChange}
-                                showTimeSelect
-                                dateFormat="MM/DD/YYYY"
-                                placeholderText="Click to select a date"
-                                timeFormat="HH:mm"
-                                minDate={props.defaultTime}
-                                maxDate={moment(props.defaultTime).add(5, "days")}
-                                minTime={moment(props.defaultTime).hours(8).minutes(0)}
-                                maxTime={moment(props.defaultTime).hours(20).minutes(0)}
-                                autoComplete="off"
-                                dropdownMode="select"
+                                id="meetDate"
+                                title="Meet Date"
+                                value={props.value}
+                                onChange={handleChange}
+                                options={[
+                                    moment().format('dddd MM/DD'),
+                                    moment().add(1, 'days').format('dddd MM/DD'),
+                                    moment().add(2, 'days').format('dddd MM/DD'),
+                                    moment().add(3, 'days').format('dddd MM/DD'),
+                                ]}
                             />
-                        </label>
                     </div>
-                    <button className="btn btn-primary" type="submit">Submit</button>
+                    <div className="col col-md-2">
+                        <Field
+                            component={Input}
+                            name="meetTime"
+                            id="meetTime"
+                            title="Meet Time"
+                            type="text"
+                            value={props.value}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="col pt-4 col-md-3">
+                        <button className="btn btn-primary" type="submit">Submit</button>
+                    </div>
                 </div>
             </form>
         </div>

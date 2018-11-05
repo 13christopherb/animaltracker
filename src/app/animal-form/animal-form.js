@@ -1,14 +1,17 @@
 import React from 'react';
-import {Field, reduxForm} from 'redux-form'
+import {Field} from 'redux-form'
 import {Input, Select} from "../form-fields/index";
 
 /**
  * Form for creating a new animal
+ * @param handleSubmit
+ * @param handleChange
+ * @param onSubmit
  * @param props
  * @returns {*}
  * @constructor
  */
-const AnimalForm = ({handleSubmit, onSubmit, ...props}) => {
+const AnimalForm = ({handleSubmit, handleChange, onSubmit, ...props}) => {
     return (
         <div>
             <div>
@@ -20,7 +23,7 @@ const AnimalForm = ({handleSubmit, onSubmit, ...props}) => {
                                 title="Location"
                                 name="location"
                                 value={props.value}
-                                onChange={props.handleChange}
+                                onChange={handleChange}
                                 options={[
                                     'NRO',
                                     'MBO',
@@ -53,7 +56,7 @@ const AnimalForm = ({handleSubmit, onSubmit, ...props}) => {
                                 name="name"
                                 title="Name"
                                 type="text"
-                                onChange={props.handleChange}
+                                onChange={handleChange}
                                 value={props.value}
                             />
 
@@ -65,7 +68,7 @@ const AnimalForm = ({handleSubmit, onSubmit, ...props}) => {
                                 name="weight"
                                 title={'Weight'}
                                 type="text"
-                                onChange={props.handleChange}
+                                onChange={handleChange}
                                 value={props.value}
                             />
                         </div>
@@ -78,7 +81,7 @@ const AnimalForm = ({handleSubmit, onSubmit, ...props}) => {
                                     component="input"
                                     name="isGettingControlledMeds"
                                     type="checkbox"
-                                    onChange={props.handleChange}
+                                    onChange={handleChange}
                                     value={props.value}
                                 />
                             </label>
@@ -88,7 +91,7 @@ const AnimalForm = ({handleSubmit, onSubmit, ...props}) => {
                                     component="input"
                                     name="isGettingTubed"
                                     type="checkbox"
-                                    onChange={props.handleChange}
+                                    onChange={handleChange}
                                     value={props.value}
                                 />
                             </label>

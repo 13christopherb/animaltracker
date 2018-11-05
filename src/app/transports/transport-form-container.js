@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import {actions} from "./ducks/actions";
 import {TransportForm} from "./transport-form";
 
-import 'react-datepicker/dist/react-datepicker.css';
+import {reduxForm} from "redux-form";
+import {validate} from './validators';
 
 class TransportFormContainer extends Component {
 
@@ -42,12 +42,12 @@ class TransportFormContainer extends Component {
         });
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
+    handleSubmit(values) {
+        let meetDateTime = moment(values.meetDate + ' ' + values.meetTime,'dddd MM/DD h:mm' );
         const transport = {
-            departs: this.state.departs,
-            arrives: this.state.arrives,
-            meetTime: this.state.meetTime.format()
+            departs: values.departs,
+            arrives: values.arrives,
+            meetTime: meetDateTime.format()
         };
         this.props.dispatch(actions.addTransport(transport));
     }
@@ -55,16 +55,11 @@ class TransportFormContainer extends Component {
     render() {
         return (
             <div>
-               <TransportForm
-                   handleSubmit={this.handleSubmit}
-                   handleInputChange={this.handleInputChange}
-                   handleDateTimeChange={this.handleDateTimeChange}
-                   arrives={this.state.arrives}
-                   departs={this.state.departs}
-                   meetTime={this.state.meetTime}
-                   defaultTime={this.props.defaultTime}
-
-               />
+                <TransportForm
+                    onSubmit={this.handleSubmit}
+                    handleSubmit={this.props.handleSubmit}
+                    {...this.props}
+                />
             </div>
         );
     }
@@ -76,6 +71,7 @@ function mapStateToProps({}, ownProps) {
     }
 }
 
-export default connect(
-    mapStateToProps,
-)(TransportFormContainer);
+export default reduxForm({
+    form: 'TransportForm',
+    validate
+})(connect(mapStateToProps)(TransportFormContainer));

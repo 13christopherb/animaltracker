@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import moment from 'moment';
 
 
 export const TransportRow = (props) => {
@@ -17,7 +18,7 @@ export const TransportRow = (props) => {
                 {props.transport.arrives}
             </td>
             <td style={{width: '16.66%'}}>
-                {props.transport.meetTime}
+                {moment(props.transport.meetTime).format('dddd MM/DD hhmm')}
             </td>
             <td style={{width: '16.66%'}}>
                 <button onClick={deleteTransport} id="delete" className="btn btn-danger">Delete</button>

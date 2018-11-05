@@ -28,7 +28,7 @@ class AnimalFormContainer extends Component {
 
     handleSubmit(values) {
         const animal = {
-            timestamp: moment().format(),
+            timestamp: moment().utc().format(),
             location: values.location,
             name: values.name,
             species: values.species,

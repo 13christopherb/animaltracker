@@ -15,7 +15,6 @@ class LocationContainer extends Component {
             return animal['species']
         });
         let speciesCount  = [];
-
         for (let property in animalsBySpecies) {
             if (animalsBySpecies.hasOwnProperty(property)) {
                 speciesCount.push(property + '(' + animalsBySpecies[property] + ') ')

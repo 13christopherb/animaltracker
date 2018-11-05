@@ -1,25 +1,48 @@
 import React from 'react';
-import {shallow} from 'enzyme';
-import {AnimalForm} from "./animal-form";
-import toJson from 'enzyme-to-json';
-import moment from 'moment';
+import configureMockStore from 'redux-mock-store';
+import {mount} from 'enzyme';
+import AnimalForm from './animal-form';
+import renderer from 'react-test-renderer'
+import {Provider} from 'react-redux'
+import {reduxForm} from 'redux-form'
 
-const transport = {
-    departs: 'MBO',
-    arrives: 'NRO',
-    meetTime: moment('2017-09-15 09:30:00') //Arbitrary time
-};
+const mockStore = configureMockStore();
+
+
+jest.mock('react-dom');
+
+const onSubmit = jest.fn();
+const Decorated = reduxForm({
+    form: 'animal-form', onSubmit: {onSubmit}
+})(AnimalForm);
 
 describe('<AnimalForm />', () => {
-    describe('render()', () => {
-        test('should render the component', () => {
-            const mockSubmit = jest.fn();
-            const mockToggle = jest.fn();
-            const wrapper = shallow(<AnimalForm
-                onSubmit={mockSubmit}
-                toggleAddAnimal={mockToggle}
-            />);
-            expect(toJson(wrapper)).toMatchSnapshot()
-        })
+    const defaultProps = {
+        pristine: false,
+        valid: true,
+    };
+    test('AnimalForm renders correctly', () => {
+        const store = mockStore();
+        const tree = renderer.create(
+            <Provider store={store}>
+                <Decorated
+                    {...defaultProps}
+                />
+            </Provider>
+        ).toJSON();
+        expect(tree).toMatchSnapshot()
+    });
+    test('Disables button on form errors', () => {
+        const store = mockStore();
+        const props = {
+            ...defaultProps,
+            valid: false,
+        };
+        const wrapper = mount(<Provider store={store}>
+            <Decorated
+                {...props}
+            />
+        </Provider>);
+        expect(wrapper.find('button[type="submit"]').props().disabled).toEqual(true);
     });
 });

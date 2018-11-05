@@ -17,8 +17,8 @@ export const validate = values => {
     }
     if (!values.weight) {
         errors.weight = 'Required';
-    } else if (isNaN(values.weight)) {
-        errors.weight = 'Must be a number';
+    } else if (!/^\d+(?:\.[0,5]{1})*$/.test(values.weight)) {
+        errors.weight = 'Must be an integer or end in .0 or .5';
     }
     if (!values.species) {
         errors.species = 'Required';
@@ -31,4 +31,4 @@ export const validate = values => {
         errors.location = 'Must be fewer than 4 characters'
     }
     return errors
-}
+};
