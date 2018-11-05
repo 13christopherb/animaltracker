@@ -10,7 +10,7 @@ export const validate = values => {
     const errors = {};
     if (!values.meetTime) {
         errors.meetTime = 'Required';
-    } else if (!/^[0-1]?\d\:?((?:60)|[0-5]\d)$/.test(values.meetTime)) {
+    } else if (!/^[0-2]?\d\:?((?:60)|[0-5]\d)$/.test(values.meetTime)) {
         errors.meetTime = 'Must be a valid military time'
     }
     return errors

@@ -18,7 +18,7 @@ export const TransportRow = (props) => {
                 {props.transport.arrives}
             </td>
             <td style={{width: '16.66%'}}>
-                {moment(props.transport.meetTime).format('dddd MM/DD hhmm')}
+                {moment(props.transport.meetTime).format('dddd MM/DD HHmm')}
             </td>
             <td style={{width: '16.66%'}}>
                 <button onClick={deleteTransport} id="delete" className="btn btn-danger">Delete</button>
