@@ -1,13 +1,13 @@
 import transportsReducer from './index';
-import { types } from './types';
-import * as testValues from '../../../services/TestValues';
+import {transportTypes} from './';
+import {transportFormTypes} from "../../transport-form/ducks";
 
 describe('transportsReducer reducer', () => {
     const transport = {
         departs: 'SLO',
         arrives: 'MBO',
         meetTime: Date.now()
-    }
+    };
     it('should return the initial state', () => {
         expect(transportsReducer(undefined, {})).toEqual(
             {
@@ -19,7 +19,7 @@ describe('transportsReducer reducer', () => {
     it('should handle ADD_TRANSPORT_SUCCESS', () => {
         expect(
             transportsReducer({transports: []}, {
-                type: types.ADD_TRANSPORT_SUCCESS,
+                type: transportFormTypes.ADD_TRANSPORT_SUCCESS,
                 transport: transport
             })
         ).toEqual({
@@ -30,7 +30,7 @@ describe('transportsReducer reducer', () => {
     it('should handle GET_TRANSPORTS_SUCCESS', () => {
         expect(
             transportsReducer({transports: []}, {
-                type: types.GET_TRANSPORTS_SUCCESS,
+                type: transportTypes.GET_TRANSPORTS_SUCCESS,
                 transports: [transport]
             })
         ).toEqual({
@@ -41,7 +41,7 @@ describe('transportsReducer reducer', () => {
     it('should handle DELETE_TRANSPORTS_SUCCESS', () => {
         expect(
             transportsReducer({transports: []}, {
-                type: types.DELETE_TRANSPORTS_SUCCESS,
+                type: transportTypes.DELETE_TRANSPORTS_SUCCESS,
                 transports: [transport]
             })
         ).toEqual({

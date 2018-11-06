@@ -2,34 +2,11 @@ import * as transportService from './operations';
 import { types} from "./types";
 
 export const actions = {
-    addTransport,
     getTransports,
     deleteTransport
 };
 
-function addTransport(transport) {
-    return dispatch => {
-        dispatch(request(transport));
-        return transportService.addTransport(transport)
-            .then(res => {
-                    dispatch(success(res))
-                },
-                error=>{
-                    dispatch(failure(error))
-                });
-    };
-    function request(transport) {
-        return {type: types.ADD_TRANSPORT_REQUEST, transport}
-    }
 
-    function success(transport) {
-        return {type: types.ADD_TRANSPORT_SUCCESS, transport}
-    }
-
-    function failure(error) {
-        return {type: types.ADD_TRANSPORT_FAILURE, error}
-    }
-}
 
 function getTransports() {
     return dispatch => {

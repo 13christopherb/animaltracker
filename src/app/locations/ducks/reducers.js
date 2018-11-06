@@ -29,6 +29,25 @@ export default function locationsReducer(state = initialState, action) {
                     }
                 }
             };
+        case animalsTypes.UPDATE_ANIMAL_SUCCESS:
+            return {
+                ...state,
+                locations: {
+                    ...state.locations,
+                    [action.oldAnimal.location]: {
+                        ...state.locations[action.oldAnimal.location],
+                        animals: state.locations[action.oldAnimal.location]
+                            .animals.filter((animal) => animal.id !== action.oldAnimal.id)
+                    },
+                    [action.updatedAnimal.location]: {
+                        ...state.locations[action.updatedAnimal.location],
+                        animals: [
+                            ...state.locations[action.updatedAnimal.location].animals,
+                            action.updatedAnimal
+                        ]
+                    }
+                }
+            };
         case animalsTypes.DELETE_ANIMAL_SUCCESS:
             return {
                 ...state,

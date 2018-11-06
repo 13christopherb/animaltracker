@@ -15,7 +15,7 @@ const initialState = {
     authentication: {}
 }
 
-const store = mockStore(initialState)
+const store = mockStore(initialState);
 
 describe('<UserLogin />', () => {
     describe('render()', () => {

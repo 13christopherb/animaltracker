@@ -14,15 +14,6 @@ class AnimalFormContainer extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            value: '',
-            isGettingTubed: false,
-            isGettingControlledMeds: false,
-            name: '',
-            weight: '',
-            species: '',
-            location: '',
-        };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 

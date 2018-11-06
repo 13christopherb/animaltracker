@@ -1,4 +1,5 @@
 import locationsReducer from "./";
+import {animalFormTypes} from '../../animal-form/ducks';
 import {animalsTypes} from '../../animals/ducks';
 
 describe('locations reducer', () => {
@@ -28,7 +29,7 @@ describe('locations reducer', () => {
                     }
                 }
             }, {
-                type: animalsTypes.ADD_ANIMAL_SUCCESS,
+                type: animalFormTypes.ADD_ANIMAL_SUCCESS,
                 animal: animal
             })
         ).toEqual({
@@ -36,6 +37,51 @@ describe('locations reducer', () => {
                 MBO: {
                     locationName: 'MBO',
                     animals: [animal]
+                }
+            }
+        })
+    });
+
+    it('should handle UPDATE_ANIMAL_SUCCESS', () => {
+        const oldAnimal = {
+            name: 'Edginald',
+            weight: 14,
+            id: 1,
+            location: 'MBO',
+            isGettingControlledMeds: false,
+            isGettingTubed: true,
+        };
+        const updatedAnimal = {
+            ...oldAnimal,
+            weight: 16,
+            location: 'NRO'
+        }
+        expect(
+            locationsReducer({
+                locations: {
+                    NRO: {
+                        locationName: 'NRO',
+                        animals: [],
+                    },
+                    MBO: {
+                        locationName: 'MBO',
+                        animals: [oldAnimal],
+                    }
+                }
+            }, {
+                type: animalsTypes.UPDATE_ANIMAL_SUCCESS,
+                oldAnimal: oldAnimal,
+                updatedAnimal: updatedAnimal,
+            })
+        ).toEqual({
+            locations: {
+                NRO: {
+                    locationName: 'NRO',
+                    animals: [updatedAnimal]
+                },
+                MBO: {
+                    locationName: 'MBO',
+                    animals: []
                 }
             }
         })

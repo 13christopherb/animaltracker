@@ -1,11 +1,20 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {Select} from "../form-fields";
+import {Field} from "redux-form";
 
 export const AnimalRow = (props) => {
 
     const deleteAnimal = () => {
         props.deleteAnimal(props.animal);
     };
+
+    const updateAnimal = (e) => {
+        props.handleChange({
+            ...props.animal,
+            location: e.target.value
+        })
+    }
 
     return (
         <tr key={props.animal.id}>
@@ -28,6 +37,22 @@ export const AnimalRow = (props) => {
                 {props.animal.isGettingControlledMeds ? (
                         <FontAwesomeIcon color="green" icon="prescription-bottle-alt" />) :
                     <FontAwesomeIcon opacity="0" color="grey" icon="prescription-bottle-alt" />}
+            </td>
+            <td style={{width: '15%'}}>
+                <div className="form-group">
+                    <select
+                        className={'custom-select'}
+                        id="location"
+                        title="Location"
+                        name="location"
+                        value={props.animal.location}
+                        onChange={updateAnimal}
+                    >
+                        <option value="NRO">NRO</option>
+                        <option value="MBO">MBO</option>
+                        <option value="SLO">SLO</option>
+                    </select>
+                </div>
             </td>
             <td style={{width: '16.66%'}}>
                 <button onClick={deleteAnimal} id="delete" className="btn btn-danger">Delete</button>

@@ -97,6 +97,41 @@ exports[`<AnimalRow /> render() should render the component 1`] = `
   <td
     style={
       Object {
+        "width": "15%",
+      }
+    }
+  >
+    <div
+      className="form-group"
+    >
+      <select
+        className="custom-select"
+        id="location"
+        name="location"
+        onChange={[Function]}
+        title="Location"
+      >
+        <option
+          value="NRO"
+        >
+          NRO
+        </option>
+        <option
+          value="MBO"
+        >
+          MBO
+        </option>
+        <option
+          value="SLO"
+        >
+          SLO
+        </option>
+      </select>
+    </div>
+  </td>
+  <td
+    style={
+      Object {
         "width": "16.66%",
       }
     }

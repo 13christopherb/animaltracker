@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TransportForm /> render() should render the component 1`] = `
+<div>
+  <form>
+    <div
+      className="form-row"
+    >
+      <div
+        className="col col-md-2"
+      >
+        <Field
+          component={[Function]}
+          id="departs"
+          name="departs"
+          options={
+            Array [
+              "NRO",
+              "MBO",
+              "SLO",
+            ]
+          }
+          title="Departs"
+        />
+      </div>
+      <div
+        className="col col-md-2"
+      >
+        <Field
+          component={[Function]}
+          id="arrives"
+          name="arrives"
+          options={
+            Array [
+              "NRO",
+              "MBO",
+              "SLO",
+            ]
+          }
+          title="Arrives"
+        />
+      </div>
+      <div
+        className="col col-md-2"
+      >
+        <Field
+          component={[Function]}
+          id="meetDate"
+          name="meetDate"
+          options={
+            Array [
+              "Tuesday 11/06",
+              "Wednesday 11/07",
+              "Thursday 11/08",
+              "Friday 11/09",
+            ]
+          }
+          title="Meet Date"
+        />
+      </div>
+      <div
+        className="col col-md-2"
+      >
+        <Field
+          component={[Function]}
+          id="meetTime"
+          name="meetTime"
+          title="Meet Time"
+          type="text"
+        />
+      </div>
+      <div
+        className="col pt-4 col-md-3"
+      >
+        <button
+          className="btn btn-primary"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+`;

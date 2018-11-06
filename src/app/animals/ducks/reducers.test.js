@@ -11,17 +11,6 @@ describe('animalsReducer reducer', () => {
         )
     });
 
-    it('should handle ADD_ANIMAL_SUCCESS', () => {
-        expect(
-            animalsReducer({animals: []}, {
-                type: types.ADD_ANIMAL_SUCCESS,
-                animal: testValues.animal1
-            })
-        ).toEqual({
-            animals: [testValues.animal1]
-        })
-    });
-
     it('should handle FETCH_ANIMALS_SUCCESS', () => {
         expect(
             animalsReducer({animals: testValues.animals}, {
@@ -30,17 +19,6 @@ describe('animalsReducer reducer', () => {
             })
         ).toEqual({
             animals: testValues.animals
-        });
-    });
-
-    it('should handle DELETE_ANIMAL_SUCCESS', () => {
-        expect(
-            animalsReducer({animals: testValues.animals}, {
-                type: types.DELETE_ANIMAL_SUCCESS,
-                animal: testValues.animal1
-            })
-        ).toEqual({
-            animals: testValues.animalsMinusOne
         });
     });
 });

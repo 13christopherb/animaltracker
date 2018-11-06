@@ -1,5 +1,5 @@
-import {types} from "./types";
-import _ from "underscore";
+import {transportTypes} from './';
+import {transportFormTypes} from "../../transport-form/ducks";
 
 const initialState = {
     transports: []
@@ -7,7 +7,7 @@ const initialState = {
 
 export default function transportsReducer(state=initialState, action) {
     switch (action.type) {
-        case types.ADD_TRANSPORT_SUCCESS:
+        case transportFormTypes.ADD_TRANSPORT_SUCCESS:
             return {
                 ...state,
                 transports: [
@@ -15,12 +15,12 @@ export default function transportsReducer(state=initialState, action) {
                     action.transport
                 ]
             };
-        case types.GET_TRANSPORTS_SUCCESS:
+        case transportTypes.GET_TRANSPORTS_SUCCESS:
             return {
                 ...state,
                 transports: action.transports
             };
-        case types.DELETE_TRANSPORT_SUCCESS:
+        case transportTypes.DELETE_TRANSPORT_SUCCESS:
             return {
                 ...state,
                 transports: state.transports.filter((transport) => transport.id !== action.transport.id)

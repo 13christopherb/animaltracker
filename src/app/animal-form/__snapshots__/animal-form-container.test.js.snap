@@ -21,6 +21,7 @@ exports[`<AnimalFormContainer> AnimalFormContainer renders correctly 1`] = `
               </label>
               <select
                 className="custom-select "
+                id="location"
                 name="location"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -65,6 +66,7 @@ exports[`<AnimalFormContainer> AnimalFormContainer renders correctly 1`] = `
               </label>
               <select
                 className="custom-select "
+                id="species"
                 name="species"
                 onBlur={[Function]}
                 onChange={[Function]}

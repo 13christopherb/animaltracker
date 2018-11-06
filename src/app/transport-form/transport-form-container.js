@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import moment from 'moment';
-import {actions} from "./ducks/actions";
+import {transportFormActions} from "./ducks";
 import {TransportForm} from "./transport-form";
 
 import {reduxForm} from "redux-form";
@@ -49,7 +49,7 @@ class TransportFormContainer extends Component {
             arrives: values.arrives,
             meetTime: meetDateTime.format()
         };
-        this.props.dispatch(actions.addTransport(transport));
+        this.props.dispatch(transportFormActions.addTransport(transport));
     }
 
     render() {

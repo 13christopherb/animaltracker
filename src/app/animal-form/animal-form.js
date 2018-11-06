@@ -20,6 +20,7 @@ const AnimalForm = ({handleSubmit, handleChange, onSubmit, ...props}) => {
                         <div className="col col-md-2">
                             <Field
                                 component={Select}
+                                id="location"
                                 title="Location"
                                 name="location"
                                 value={props.value}
@@ -34,6 +35,7 @@ const AnimalForm = ({handleSubmit, handleChange, onSubmit, ...props}) => {
                         <div className="col col-md-2">
                             <Field
                                 component={Select}
+                                id="species"
                                 title="Species"
                                 name="species"
                                 value={props.value}

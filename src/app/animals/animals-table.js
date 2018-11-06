@@ -10,7 +10,8 @@ class AnimalsTable extends Component {
     constructor(props) {
         super(props);
         this.state = {value: ''};
-        this.deleteAnimal = this.deleteAnimal.bind(this)
+        this.deleteAnimal = this.deleteAnimal.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount() {
@@ -20,12 +21,17 @@ class AnimalsTable extends Component {
         this.props.dispatch(actions.deleteAnimal(animal));
     }
 
+    handleChange(animal) {
+        this.props.dispatch(actions.updateAnimal(animal))
+    }
+
     render() {
         let animals = [];
         for (let animal of this.props.animals) {
             animals.push(<AnimalRow animal={animal}
                                     timeAgo={moment(animal.timestamp).fromNow()}
                                     deleteAnimal={this.deleteAnimal}
+                                    handleChange={this.handleChange}
                                     key={animal.id} />);
         }
         return (

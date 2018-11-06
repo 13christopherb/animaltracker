@@ -3,6 +3,7 @@ import {types} from "./types";
 
 export const actions = {
     getAnimals,
+    updateAnimal,
     deleteAnimal
 };
 
@@ -30,6 +31,33 @@ function getAnimals() {
 
     function failure(error) {
         return {type: types.GET_ANIMALS_FAILURE, error}
+    }
+}
+
+function updateAnimal(animal) {
+    return dispatch => {
+        dispatch(request());
+        return animalService.updateAnimal(animal)
+            .then(
+                res => {
+                    dispatch(success(res['old'], res['new']))
+                },
+                error => {
+                    dispatch(failure(error))
+                }
+            );
+    };
+
+    function request() {
+        return {type: types.UPDATE_ANIMAL_REQUEST}
+    }
+
+    function success(oldAnimal, updatedAnimal) {
+        return {type: types.UPDATE_ANIMAL_SUCCESS, oldAnimal: oldAnimal, updatedAnimal: updatedAnimal}
+    }
+
+    function failure(error) {
+        return {type: types.UPDATE_ANIMAL_FAILURE, error}
     }
 }
 
