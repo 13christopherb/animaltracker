@@ -13,7 +13,7 @@ export const Input = ({input, meta: {touched, error}, title, ...other}) => {
     const isValid = touched ? error ? 'is-invalid' : 'is-valid' : '';
     return (
         <div className="form-group">
-            <label className="form-label">{title}</label>
+            {title && <label className="form-label">{title}</label>}
             <input
                 className={'form-control ' + isValid}
                 {...input}

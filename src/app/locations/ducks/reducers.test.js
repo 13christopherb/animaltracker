@@ -55,7 +55,7 @@ describe('locations reducer', () => {
             ...oldAnimal,
             weight: 16,
             location: 'NRO'
-        }
+        };
         expect(
             locationsReducer({
                 locations: {

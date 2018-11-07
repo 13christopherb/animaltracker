@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HeaderLoggedIn /> render() should render correctly 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/",
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/",
+            "search": "",
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <HeaderLoggedIn
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <nav
+        className="navbar navbar-expand-lg navbar-light bg-light"
+      >
+        <ul
+          className="navbar-nav mr-auto"
+        >
+          <li
+            className="nav-item"
+            id=""
+          >
+            <Link
+              className="nav-link"
+              name=""
+              replace={false}
+              to="/"
+            >
+              <a
+                className="nav-link"
+                href="/"
+                name=""
+                onClick={[Function]}
+              >
+                Animals
+              </a>
+            </Link>
+          </li>
+          <li
+            className="nav-item"
+            id="transports"
+          >
+            <Link
+              className="nav-link"
+              name="transports"
+              replace={false}
+              to="/transports"
+            >
+              <a
+                className="nav-link"
+                href="/transports"
+                name="transports"
+                onClick={[Function]}
+              >
+                Transports
+              </a>
+            </Link>
+          </li>
+        </ul>
+        <button
+          className="btn btn-outline-primary my-2 my-sm-0"
+        >
+          Sign out
+        </button>
+      </nav>
+    </HeaderLoggedIn>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`<HeaderLoggedIn /> render() should render the component when logged out 1`] = `
+<nav
+  className="navbar navbar-expand-lg navbar-light bg-light"
+>
+  <ul
+    className="navbar-nav mr-auto"
+  />
+  <ReduxForm />
+</nav>
+`;
+
+exports[`<HeaderLoggedOut /> render() should render the component when logged out 1`] = `
+<nav
+  className="navbar navbar-expand-lg navbar-light bg-light"
+>
+  <ul
+    className="navbar-nav mr-auto"
+  />
+  <ReduxForm />
+</nav>
+`;

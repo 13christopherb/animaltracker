@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import moment from 'moment';
-import { actions } from './ducks/actions';
-import { AnimalRow } from './animal-row';
+import {actions} from './ducks/actions';
+import {AnimalRow} from './animal-row';
 
 
 class AnimalsTable extends Component {
@@ -32,19 +32,17 @@ class AnimalsTable extends Component {
                                     timeAgo={moment(animal.timestamp).fromNow()}
                                     deleteAnimal={this.deleteAnimal}
                                     handleChange={this.handleChange}
-                                    key={animal.id} />);
+                                    key={animal.id}/>);
         }
         return (
             <div>
                 <div className="row">
                     <div className="col col-md-12">
-                        <div className="table-responsive">
-                            <table className="table table-striped">
-                                <tbody>
-                                {animals}
-                                </tbody>
-                            </table>
-                        </div>
+                        <table className="table table-striped table-responsive">
+                            <tbody>
+                            {animals}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

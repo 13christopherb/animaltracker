@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Headers /> render() should render the component when logged in 1`] = `
+<Route>
+  <Component />
+</Route>
+`;
+
+exports[`<Headers /> render() should render the component when logged out 1`] = `
+<Route>
+  <Component />
+</Route>
+`;

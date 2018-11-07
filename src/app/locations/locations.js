@@ -33,7 +33,7 @@ class Locations extends Component {
                     <button onClick={this.toggleAddAnimal} className="btn btn-success">Add animal</button>
                 )}
                 {Object.keys(this.props.locations).map((location) =>
-                    <LocationContainer key={location} //Need better unique key
+                    <LocationContainer key={location}
                               location={location} />
 
                 )}

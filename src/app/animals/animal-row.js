@@ -14,7 +14,7 @@ export const AnimalRow = (props) => {
             ...props.animal,
             location: e.target.value
         })
-    }
+    };
 
     return (
         <tr key={props.animal.id}>

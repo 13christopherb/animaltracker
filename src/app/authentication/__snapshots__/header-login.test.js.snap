@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AnimalForm /> AnimalForm renders correctly 1`] = `
+<div>
+  <form
+    className="form-inline"
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group"
+    >
+      <input
+        className="form-control "
+        id="username"
+        name="username"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        type="text"
+        value=""
+      />
+      
+    </div>
+    <div
+      className="form-group"
+    >
+      <input
+        className="form-control "
+        id="password"
+        name="password"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        type="password"
+        value=""
+      />
+      
+    </div>
+    <button
+      className="btn btn-outline-success my-2 my-sm-0"
+      type="submit"
+    >
+      Sign in
+    </button>
+  </form>
+</div>
+`;

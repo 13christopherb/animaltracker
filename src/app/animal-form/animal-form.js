@@ -68,7 +68,7 @@ const AnimalForm = ({handleSubmit, handleChange, onSubmit, ...props}) => {
                                 component={Input}
                                 id="weight"
                                 name="weight"
-                                title={'Weight'}
+                                title="Weight"
                                 type="text"
                                 onChange={handleChange}
                                 value={props.value}
