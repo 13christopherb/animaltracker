@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {locationActions} from './ducks/index';
-import LocationContainer from './location-container';
+import Media from "react-media";
+import {locationActions} from './ducks/';
+import Location from './location';
 import AnimalFormContainer from "../animal-form/animal-form-container";
+import LocationSummary from "./location-summary";
 
 
 class Locations extends Component {
@@ -17,7 +19,7 @@ class Locations extends Component {
         this.toggleAddAnimal = this.toggleAddAnimal.bind(this);
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.props.dispatch(locationActions.getLocations())
     }
 
@@ -32,11 +34,26 @@ class Locations extends Component {
                     <AnimalFormContainer toggleAddAnimal={this.toggleAddAnimal}/>) : (
                     <button onClick={this.toggleAddAnimal} className="btn btn-success">Add animal</button>
                 )}
-                {Object.keys(this.props.locations).map((location) =>
-                    <LocationContainer key={location}
-                              location={location} />
-
-                )}
+                <Media query={{minWidth: 700}}>
+                    {matches =>
+                        matches ? (
+                            <div>
+                                {Object.keys(this.props.locations).map(
+                                    (location) =>
+                                        <Location key={location}
+                                                  location={location}/>
+                                )}
+                            </div>
+                        ) : (
+                            <div className="card-columns">
+                                {Object.keys(this.props.locations).map(
+                                    (location) =>
+                                        <LocationSummary key={location}
+                                                         {...this.props.locations[location]} />
+                                )}
+                            </div>)
+                    }
+                </Media>
             </div>
         );
     }

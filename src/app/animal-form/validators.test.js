@@ -9,7 +9,7 @@ describe('validators', () => {
     };
     const expectedErrors = {
         name: 'Must contain only letters and whitespace',
-        weight: 'Must be an integer or end in .0 or .5',
+        weight: 'Must be a number',
         species: 'Must be fewer than 4 characters',
         location: 'Must be fewer than 4 characters'
     };

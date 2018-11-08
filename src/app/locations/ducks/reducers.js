@@ -2,7 +2,7 @@ import {locationTypes} from "./";
 import {animalFormTypes} from "../../animal-form/ducks";
 import {animalsTypes} from "../../animals/ducks";
 const initialState = {
-    locations: []
+    locations: {}
 };
 
 export default function locationsReducer(state = initialState, action) {

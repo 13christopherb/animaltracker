@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form'
 import {authenticatinActions} from "./ducks/index";
 import {Input} from "../form-fields/index";
+import {validate} from "./validators";
 
 
 /**
@@ -34,6 +35,7 @@ class HeaderLogin extends Component {
                         type="text"
                         onChange={this.props.handleChange}
                         value={this.props.value}
+                        displayErrorMessage={false}
                     />
                     <Field
                         component={Input}
@@ -42,6 +44,7 @@ class HeaderLogin extends Component {
                         type="password"
                         onChange={this.props.handleChange}
                         value={this.props.value}
+                        displayErrorMessage={false}
                     />
                     <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Sign in</button>
                 </form>
@@ -51,5 +54,6 @@ class HeaderLogin extends Component {
 }
 
 export default reduxForm({
-    form: 'HeaderLogin'
+    form: 'HeaderLogin',
+    validate
 })(HeaderLogin);

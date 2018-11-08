@@ -1,7 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {Select} from "../form-fields";
-import {Field} from "redux-form";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 export const AnimalRow = (props) => {
 
@@ -15,30 +13,29 @@ export const AnimalRow = (props) => {
             location: e.target.value
         })
     };
-
     return (
         <tr key={props.animal.id}>
-            <td style={{width: '16.66%'}}>
+            <td>
                 {props.animal.species}
             </td>
-            <td style={{width: '40%'}}>
+            <td>
                 {props.animal.name}
                 <p style={{fontSize: 11}}>{props.timeAgo}</p>
             </td>
-            <td style={{width: '16.66%'}}>
+            <td>
                 {props.animal.weight} kg
             </td>
-            <td style={{width: '1%'}}>
-                {props.animal.isGettingTubed ? (
-                        <FontAwesomeIcon color="green" icon="blender" />):
-                    <FontAwesomeIcon opacity="0" color="grey" icon="blender" />}
+            <td style={{width: '5%'}}>
+                <FontAwesomeIcon color="green" icon="blender"
+                                 className={!props.animal.isGettingTubed ? 'invisible' : 'visible'}
+                />
             </td>
-            <td style={{width: '1%'}}>
-                {props.animal.isGettingControlledMeds ? (
-                        <FontAwesomeIcon color="green" icon="prescription-bottle-alt" />) :
-                    <FontAwesomeIcon opacity="0" color="grey" icon="prescription-bottle-alt" />}
+            <td style={{width: '5%'}}>
+                <FontAwesomeIcon color="green" icon="prescription-bottle-alt"
+                                 className={!props.animal.isGettingControlledMeds ? 'invisible' : ''}
+                />
             </td>
-            <td style={{width: '15%'}}>
+            <td  style={{width: '118px'}}>
                 <div className="form-group">
                     <select
                         className={'custom-select'}

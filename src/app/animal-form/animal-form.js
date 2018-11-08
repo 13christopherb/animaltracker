@@ -61,7 +61,6 @@ const AnimalForm = ({handleSubmit, handleChange, onSubmit, ...props}) => {
                                 onChange={handleChange}
                                 value={props.value}
                             />
-
                         </div>
                         <div className="col col-md-3">
                             <Field

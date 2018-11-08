@@ -147,7 +147,6 @@ exports[`<AnimalFormContainer> AnimalFormContainer renders correctly 1`] = `
                 type="text"
                 value=""
               />
-              
             </div>
           </div>
           <div
@@ -173,7 +172,6 @@ exports[`<AnimalFormContainer> AnimalFormContainer renders correctly 1`] = `
                 type="text"
                 value=""
               />
-              
             </div>
           </div>
         </div>

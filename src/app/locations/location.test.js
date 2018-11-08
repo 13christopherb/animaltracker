@@ -1,13 +1,13 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 import configureMockStore from 'redux-mock-store';
-import LocationContainer from './location-container';
+import Location from './location';
 import toJson from 'enzyme-to-json';
 import thunk from 'redux-thunk'
 import * as testValues from '../../services/TestValues'
 
-const middlewares = [thunk]
-const mockStore = configureMockStore(middlewares)
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 location = {
     locationName: 'MBO',
@@ -38,7 +38,7 @@ const store = mockStore(initialState);
 describe('<LocationContainer />', () => {
     describe('render()', () => {
         test('should render the component', () => {
-            const wrapper = shallow(<LocationContainer store={store} location="MBO"/>);
+            const wrapper = shallow(<Location store={store} location="MBO"/>);
             const component = wrapper.dive();
 
             expect(toJson(component)).toMatchSnapshot()

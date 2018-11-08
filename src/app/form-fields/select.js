@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from "prop-types";
+import {Input} from "./input";
 
 /**
  * Wrapper for select html element for use by redux-form Field
@@ -11,12 +13,12 @@ import React from 'react';
  * @returns {*} Rendered select field
  */
 export const Select = ({input, meta: {touched, error}, title, options, ...other}) => {
-    const isValid = touched ? error ? 'is-invalid' : 'is-valid' : '';
+    const validityClass = touched ? error ? 'is-invalid' : 'is-valid' : '';
     return (
         <div className="form-group">
             <label>{title}</label>
             <select
-                className={'custom-select ' + isValid}
+                className={'custom-select ' + validityClass}
                 {...input}
                 {...other}
             >

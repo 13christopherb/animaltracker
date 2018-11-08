@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import moment from 'moment';
-import {actions} from './ducks/actions';
+import {animalsActions} from "./ducks";
 import {AnimalRow} from './animal-row';
 
 
@@ -18,11 +18,11 @@ class AnimalsTable extends Component {
     }
 
     deleteAnimal(animal) {
-        this.props.dispatch(actions.deleteAnimal(animal));
+        this.props.dispatch(animalsActions.deleteAnimal(animal));
     }
 
     handleChange(animal) {
-        this.props.dispatch(actions.updateAnimal(animal))
+        this.props.dispatch(animalsActions.updateAnimal(animal))
     }
 
     render() {
@@ -38,7 +38,7 @@ class AnimalsTable extends Component {
             <div>
                 <div className="row">
                     <div className="col col-md-12">
-                        <table className="table table-striped table-responsive">
+                        <table className="table table-striped">
                             <tbody>
                             {animals}
                             </tbody>

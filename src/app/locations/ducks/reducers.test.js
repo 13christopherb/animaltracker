@@ -6,7 +6,7 @@ describe('locations reducer', () => {
     it('should return the initial state', () => {
         expect(locationsReducer(undefined, {})).toEqual(
             {
-                locations: []
+                locations: {}
             }
         )
     });

@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LocationContainer /> render() should render the component 1`] = `
+<div>
+  <a
+    aria-expanded="false"
+    className="btn btn-info btn-block"
+    data-toggle="collapse"
+    href="#undefined"
+    role="button"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-1 offset-md-5"
+      />
+      <div
+        className="col-md-1 "
+      >
+        <small />
+      </div>
+    </div>
+  </a>
+  <div
+    aria-expanded="true"
+    className="collapse show"
+  >
+    <Animals />
+  </div>
+</div>
+`;
