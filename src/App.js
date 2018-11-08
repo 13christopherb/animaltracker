@@ -5,7 +5,7 @@ import './App.css';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faPrescriptionBottleAlt, faBlender,
     faChevronRight, faChevronDown, faEdit, faTrashAlt,
-    faTimes, faEllipsisH, faPeopleCarry} from '@fortawesome/free-solid-svg-icons';
+    faTimes, faEllipsisH, faPeopleCarry, faPlus} from '@fortawesome/free-solid-svg-icons';
 import {Route} from 'react-router-dom';
 import {withRouter} from 'react-router';
 import Media from "react-media";
@@ -25,6 +25,7 @@ library.add(faTrashAlt);
 library.add(faTimes);
 library.add(faEllipsisH);
 library.add(faPeopleCarry);
+library.add(faPlus);
 
 class App extends Component {
 

@@ -43,7 +43,7 @@ class Header extends Component {
 
     render() {
         return (
-            <div>
+            <header>
                 {this.props.loggedIn ?
                     <HeaderLoggedIn
                         pathname={this.state.pathname}
@@ -52,7 +52,7 @@ class Header extends Component {
                     />:
                     <HeaderLoggedOut />
                 }
-            </div>
+            </header>
         );
     }
 }

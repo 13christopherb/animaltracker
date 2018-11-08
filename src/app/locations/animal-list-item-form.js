@@ -15,7 +15,9 @@ export const AnimalListItemForm = ({handleSubmit, handleChange, onSubmit, ...pro
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="form-row">
                 <div className="col col-md-2">
+                    <h6>{props.animal.name}</h6>
                     <Field
                         component={Select}
                         id="location"
@@ -36,6 +38,7 @@ export const AnimalListItemForm = ({handleSubmit, handleChange, onSubmit, ...pro
                     <button onClick={props.toggleAddAnimal} className="btn btn-danger" type="button">
                         Cancel
                     </button>
+                </div>
                 </div>
             </form>
         </div>

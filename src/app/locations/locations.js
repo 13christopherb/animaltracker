@@ -3,8 +3,9 @@ import {connect} from 'react-redux';
 import Media from "react-media";
 import {locationActions} from './ducks/';
 import Location from './location';
-import AnimalFormContainer from "../animal-form/animal-form-container";
+import {AnimalFormContainer} from "../animal-form/animal-form-container";
 import LocationSummary from "./location-summary";
+import {AnimalForm} from "../animal-form/animal-form";
 
 
 class Locations extends Component {
@@ -31,10 +32,10 @@ class Locations extends Component {
         return (
             <div>
                 {this.state.addingAnimal ? (
-                    <AnimalFormContainer toggleAddAnimal={this.toggleAddAnimal}/>) : (
+                    <AnimalFormContainer toggleAddAnimal={this.toggleAddAnimal}><AnimalForm/></AnimalFormContainer>) : (
                     <button onClick={this.toggleAddAnimal} className="btn btn-success">Add animal</button>
                 )}
-                <Media query={{minWidth: 700}}>
+                <Media query={{minWidth: 650}}>
                     {matches =>
                         matches ? (
                             <div>

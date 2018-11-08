@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import moment from 'moment';
 import {actions} from './ducks/actions';
-import AnimalForm from "./animal-form";
+import {AnimalForm} from "./animal-form";
 import {reduxForm} from 'redux-form'
 import {validate} from './validators';
 
@@ -33,13 +33,7 @@ class AnimalFormContainer extends Component {
 
     render() {
         return (
-            <div>
-                <AnimalForm
-                    onSubmit={this.handleSubmit}
-                    handleSubmit={this.props.handleSubmit}
-                    {...this.props}
-                />
-            </div>
+                React.cloneElement(this.props.children, {onSubmit: this.handleSubmit, ...this.props})
         );
     }
 }
@@ -50,7 +44,9 @@ function mapStateToProps({animalForm}, ownProps) {
     }
 }
 
-export default reduxForm({
+const connected = reduxForm({
     form: 'AnimalForm',
     validate,
 })(connect(mapStateToProps)(AnimalFormContainer));
+
+export {connected as AnimalFormContainer}

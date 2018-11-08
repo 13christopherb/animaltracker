@@ -12,7 +12,7 @@ exports[`<Locations /> render() should render the component 1`] = `
     defaultMatches={true}
     query={
       Object {
-        "minWidth": 700,
+        "minWidth": 650,
       }
     }
   >
