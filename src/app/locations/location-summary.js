@@ -1,28 +1,21 @@
 import React, {Component} from 'react';
 import _ from 'underscore';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import connect from "react-redux/es/connect/connect";
-import {AnimalListItem} from "./animal-list-item";
-import {animalsActions} from "../animals/ducks";
+import AnimalListItem from "./animal-list-item";
 
 /**
  * Condensed view of information about a location for mobile devices
  */
-class LocationSummary extends Component {
+export default class LocationSummary extends Component {
     constructor(props) {
         super(props);
         this.state = {isEditing: false};
         this.toggleEdit = this.toggleEdit.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
     }
 
     toggleEdit(e) {
         e.preventDefault();
         this.setState({isEditing: !this.state.isEditing});
-    }
-
-    handleDelete(animal) {
-        this.props.dispatch(animalsActions.deleteAnimal(animal));
     }
 
     render() {
@@ -38,21 +31,7 @@ class LocationSummary extends Component {
         return (
             <div className="card">
                 <div className="card-body h-100">
-                    <h5 className="card-title">{this.props.locationName}
-                        {this.state.isEditing ?
-                            (
-                                <button className="btn btn-sm btn-danger float-right"
-                                        onClick={this.toggleEdit}>
-                                    <FontAwesomeIcon icon="times"/> Cancel
-                                </button>
-                            ) : (
-                                <button className="btn btn-sm btn-primary float-right"
-                                        onClick={this.toggleEdit}>
-                                    <FontAwesomeIcon icon="edit"/> Edit
-                                </button>
-                            )
-                        }
-                    </h5>
+                    <h5 className="card-title">{this.props.locationName}</h5>
                     {this.props.animals.length >= 5 && !this.state.isEditing ? (
                             <p className="card-text">{speciesCount}</p>) :
 
@@ -68,5 +47,3 @@ class LocationSummary extends Component {
         );
     }
 }
-
-export default connect()(LocationSummary);

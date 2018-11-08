@@ -1,9 +1,11 @@
+
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './App.css';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faPrescriptionBottleAlt, faBlender,
-    faChevronRight, faChevronDown, faEdit, faTrashAlt, faTimes} from '@fortawesome/free-solid-svg-icons';
+    faChevronRight, faChevronDown, faEdit, faTrashAlt,
+    faTimes, faEllipsisH, faPeopleCarry} from '@fortawesome/free-solid-svg-icons';
 import {Route} from 'react-router-dom';
 import {withRouter} from 'react-router';
 import Media from "react-media";
@@ -21,6 +23,8 @@ library.add(faChevronDown);
 library.add(faEdit);
 library.add(faTrashAlt);
 library.add(faTimes);
+library.add(faEllipsisH);
+library.add(faPeopleCarry);
 
 class App extends Component {
 

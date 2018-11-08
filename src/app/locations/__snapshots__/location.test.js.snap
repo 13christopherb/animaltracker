@@ -26,7 +26,7 @@ exports[`<LocationContainer /> render() should render the component 1`] = `
     aria-expanded="true"
     className="collapse show"
   >
-    <Animals />
+    <Connect(AnimalsTable) />
   </div>
 </div>
 `;

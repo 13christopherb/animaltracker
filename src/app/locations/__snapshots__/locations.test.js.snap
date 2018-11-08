@@ -8,34 +8,15 @@ exports[`<Locations /> render() should render the component 1`] = `
   >
     Add animal
   </button>
-  <div
-    className="d-none d-md-block"
-  >
-    <Connect(Location)
-      key="0"
-      location="0"
-    />
-  </div>
-  <div
-    className="d-sm-none"
-  >
-    <LocationSummary
-      animals={
-        Array [
-          Object {
-            "id": 2,
-            "isGettingControlledMeds": false,
-            "isGettingTubed": true,
-            "location": "MBO",
-            "name": "Kirt",
-            "species": "CSL",
-            "weight": 85,
-          },
-        ]
+  <Media
+    defaultMatches={true}
+    query={
+      Object {
+        "minWidth": 700,
       }
-      key="0"
-      locationName="MBO"
-    />
-  </div>
+    }
+  >
+    <Component />
+  </Media>
 </div>
 `;

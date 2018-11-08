@@ -59,34 +59,6 @@ describe('async actions', () => {
         });
     });
 
-    it('should POST a transport to API', () => {
-        mockAdapter.onPost('/transports').reply(200, transport);
-
-        const expectedActions = [
-            {type: types.ADD_TRANSPORT_REQUEST, transport: transport},
-            {type: types.ADD_TRANSPORT_SUCCESS, transport: transport}
-        ];
-
-        const store = mockStore({transports: []});
-        return store.dispatch(actions.addTransport(transport)).then(() => {
-            expect(store.getActions()).toEqual(expectedActions);
-        });
-    });
-
-    it('should handle post error', () => {
-        const error = new Error('Request failed with status code 422');
-        mockAdapter.onPost('/transports').reply(422, transport);
-
-        const expectedActions = [
-            {type: types.ADD_TRANSPORT_REQUEST, transport: transport},
-            {type: types.ADD_TRANSPORT_FAILURE, error: error}
-        ];
-
-        const store = mockStore({animals: []});
-        return store.dispatch(actions.addTransport(transport)).then(() => {
-            expect(store.getActions()).toEqual(expectedActions);
-        });
-    });
     it('should DELETE an animal to API', () => {
         mockAdapter.onDelete('/transport/'+transport.id).reply(200);
 

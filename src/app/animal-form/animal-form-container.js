@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import moment from 'moment';
 import {actions} from './ducks/actions';
 import AnimalForm from "./animal-form";
-import {Field, reduxForm} from 'redux-form'
+import {reduxForm} from 'redux-form'
 import {validate} from './validators';
 
 
