@@ -1,6 +1,7 @@
 import React from 'react';
 import thunk from 'redux-thunk'
-import AnimalFormContainer from "./animal-form-container";
+import {AnimalFormContainer} from "./animal-form-container";
+import {AnimalForm} from "./animal-form";
 import {store} from '../../utils/store';
 import renderer from 'react-test-renderer'
 import {Provider} from 'react-redux'
@@ -22,7 +23,7 @@ describe('<AnimalFormContainer>', () => {
         };
         subject = mount(
             <Provider store={store}>
-                <AnimalFormContainer {...props}/>
+                <AnimalFormContainer {...props}><AnimalForm/></AnimalFormContainer>
             </Provider>
         )
     });
@@ -34,8 +35,7 @@ describe('<AnimalFormContainer>', () => {
         const tree = renderer.create(
             <Provider store={store}>
                 <Decorated
-                    onSubmit={jest.fn()}
-                />
+                    onSubmit={jest.fn()}><AnimalForm/></Decorated>
             </Provider>
         ).toJSON();
         expect(tree).toMatchSnapshot()

@@ -11,35 +11,7 @@ class TransportFormContainer extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            value: '',
-            departs: '',
-            arrives: '',
-            meetTime: this.props.defaultTime
-        };
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleDateTimeChange = this.handleDateTimeChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    componentDidMount() {
-        //this.props.dispatch(actions.fetchAnimals());
-    }
-
-
-    handleInputChange(e) {
-        const target = e.target;
-        const value = target.value;
-        const name = target.name;
-        this.setState({
-            [name]: value
-        });
-    }
-
-    handleDateTimeChange(dateTime) {
-        this.setState({
-            meetTime: dateTime
-        });
     }
 
     handleSubmit(values) {
@@ -47,6 +19,7 @@ class TransportFormContainer extends Component {
         const transport = {
             departs: values.departs,
             arrives: values.arrives,
+            meetPlace: values.meetPlace,
             meetTime: meetDateTime.format()
         };
         this.props.dispatch(transportFormActions.addTransport(transport));

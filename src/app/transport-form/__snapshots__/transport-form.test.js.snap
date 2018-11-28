@@ -45,14 +45,25 @@ exports[`<TransportForm /> render() should render the component 1`] = `
       >
         <Field
           component={[Function]}
+          id="meetPlace"
+          name="meetPlace"
+          title="Meet Place"
+          type="text"
+        />
+      </div>
+      <div
+        className="col col-md-2"
+      >
+        <Field
+          component={[Function]}
           id="meetDate"
           name="meetDate"
           options={
             Array [
-              "Thursday 11/08",
-              "Friday 11/09",
-              "Saturday 11/10",
-              "Sunday 11/11",
+              "Wednesday 11/28",
+              "Thursday 11/29",
+              "Friday 11/30",
+              "Saturday 12/01",
             ]
           }
           title="Meet Date"

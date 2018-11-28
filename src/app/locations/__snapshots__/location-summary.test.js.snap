@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LocationSummary /> render() should render the component 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="card-body h-100"
+  >
+    <h5
+      className="card-title"
+    >
+      MBO
+      <button
+        className="btn btn-success float-right btn-sm"
+        data-target="#animalModalForm"
+        data-toggle="modal"
+        type="button"
+      >
+        <FontAwesomeIcon
+          border={false}
+          className=""
+          fixedWidth={false}
+          flip={null}
+          icon="plus"
+          inverse={false}
+          listItem={false}
+          mask={null}
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size={null}
+          spin={false}
+          symbol={false}
+          title=""
+          transform={null}
+        />
+         Add animal
+      </button>
+    </h5>
+    <ul
+      className="list-group list-group-flush"
+    >
+      <ReduxForm
+        animal={
+          Object {
+            "id": 2,
+            "isGettingControlledMeds": false,
+            "isGettingTubed": true,
+            "location": "MBO",
+            "name": "Kirt",
+            "species": "CSL",
+            "weight": 85,
+          }
+        }
+        key="2"
+      />
+    </ul>
+  </div>
+  <footer
+    className="card-footer bg-transparent"
+  >
+    <button
+      className="btn btn-success btn-sm"
+    >
+      <FontAwesomeIcon
+        border={false}
+        className=""
+        fixedWidth={false}
+        flip={null}
+        icon="plus"
+        inverse={false}
+        listItem={false}
+        mask={null}
+        pull={null}
+        pulse={false}
+        rotation={null}
+        size={null}
+        spin={false}
+        symbol={false}
+        title=""
+        transform={null}
+      />
+       Add Transport
+    </button>
+  </footer>
+  <ReduxForm
+    toggleAddAnimal={[Function]}
+  >
+    <AnimalModalForm />
+  </ReduxForm>
+</div>
+`;

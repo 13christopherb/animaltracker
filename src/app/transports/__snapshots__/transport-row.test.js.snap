@@ -26,6 +26,13 @@ exports[`<TransportRow /> render() should render the component 1`] = `
         "width": "16.66%",
       }
     }
+  />
+  <td
+    style={
+      Object {
+        "width": "16.66%",
+      }
+    }
   >
     Friday 09/15 0930
   </td>

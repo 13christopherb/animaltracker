@@ -1,27 +1,30 @@
-import React, {Component} from "react";
+import React from "react";
 import moment from 'moment';
 
 
-export const TransportRow = (props) => {
+export const TransportRow = ({deleteTransport, transport, ...other}) => {
 
-    const deleteTransport = (e) => {
+    const handleDelete = (e) => {
         e.preventDefault();
-        props.deleteTransport(props.transport)
+        deleteTransport(transport)
     };
 
     return (
-        <tr key={props.transport.id}>
+        <tr key={transport.id}>
             <td style={{width: '16.66%'}}>
-                {props.transport.departs}
+                {transport.departs}
             </td>
             <td style={{width: '16.66%'}}>
-                {props.transport.arrives}
+                {transport.arrives}
             </td>
             <td style={{width: '16.66%'}}>
-                {moment(props.transport.meetTime).format('dddd MM/DD HHmm')}
+                {transport.meetPlace}
             </td>
             <td style={{width: '16.66%'}}>
-                <button onClick={deleteTransport} id="delete" className="btn btn-danger">Delete</button>
+                {moment(transport.meetTime).format('dddd MM/DD HHmm')}
+            </td>
+            <td style={{width: '16.66%'}}>
+                <button onClick={handleDelete} id="delete" className="btn btn-danger">Delete</button>
             </td>
         </tr>
     )

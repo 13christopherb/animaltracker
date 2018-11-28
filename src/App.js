@@ -3,9 +3,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './App.css';
 import {library} from '@fortawesome/fontawesome-svg-core';
-import {faPrescriptionBottleAlt, faBlender,
-    faChevronRight, faChevronDown, faEdit, faTrashAlt,
-    faTimes, faEllipsisH, faPeopleCarry, faPlus} from '@fortawesome/free-solid-svg-icons';
+import {faPrescriptionBottleAlt, faBlender, faChevronDown, faEdit, faTrashAlt,
+    faTimes, faEllipsisH, faPeopleCarry, faPlus, faArrowRight} from '@fortawesome/free-solid-svg-icons';
 import {Route} from 'react-router-dom';
 import {withRouter} from 'react-router';
 import Media from "react-media";
@@ -18,7 +17,6 @@ import {Transports} from "./app/transports/transports";
 
 library.add(faPrescriptionBottleAlt);
 library.add(faBlender);
-library.add(faChevronRight);
 library.add(faChevronDown);
 library.add(faEdit);
 library.add(faTrashAlt);
@@ -26,9 +24,9 @@ library.add(faTimes);
 library.add(faEllipsisH);
 library.add(faPeopleCarry);
 library.add(faPlus);
+library.add(faArrowRight);
 
 class App extends Component {
-
     render() {
         return (
             <div className="container-fluid">

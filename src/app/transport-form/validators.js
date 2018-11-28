@@ -15,5 +15,12 @@ export const validate = values => {
     } else if (!/^([0-1]?\d|(?:2[0-3])):?([0-5]\d)$/.test(values.meetTime)) {
         errors.meetTime = 'Must be a valid military time'
     }
+    if (!values.meetPlace) {
+        errors.meetPlace = 'Required';
+    } else if (!/^[a-zA-Z\s]+$/.test(values.meetPlace)) {
+        errors.meetPlace = 'Must only contain letters';
+    } else if (values.meetPlace.length > 20) {
+        errors.meetPlace = 'Must be fewer than 20 characters';
+    }
     return errors
 };

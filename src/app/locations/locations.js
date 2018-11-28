@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Media from "react-media";
 import {locationActions} from './ducks/';
+import {transportActions} from "../transports/ducks";
 import Location from './location';
 import {AnimalFormContainer} from "../animal-form/animal-form-container";
-import LocationSummary from "./location-summary";
+import LocationSummaries from "./location-summaries";
 import {AnimalForm} from "../animal-form/animal-form";
 
 
@@ -21,7 +22,8 @@ class Locations extends Component {
     }
 
     componentWillMount() {
-        this.props.dispatch(locationActions.getLocations())
+        this.props.dispatch(locationActions.getLocations());
+        this.props.dispatch(transportActions.getTransports())
     }
 
     toggleAddAnimal(e) {
@@ -47,11 +49,7 @@ class Locations extends Component {
                             </div>
                         ) : (
                             <div className="card-columns">
-                                {Object.keys(this.props.locations).map(
-                                    (location) =>
-                                        <LocationSummary key={location}
-                                                         {...this.props.locations[location]} />
-                                )}
+                                <LocationSummaries/>
                             </div>)
                     }
                 </Media>

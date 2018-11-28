@@ -40,6 +40,17 @@ export const TransportForm = ({handleSubmit, handleChange, onSubmit, ...props}) 
                     </div>
                     <div className="col col-md-2">
                         <Field
+                            component={Input}
+                            name="meetPlace"
+                            id="meetPlace"
+                            title="Meet Place"
+                            type="text"
+                            value={props.value}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="col col-md-2">
+                        <Field
                             component={Select}
                             name="meetDate"
                             id="meetDate"
