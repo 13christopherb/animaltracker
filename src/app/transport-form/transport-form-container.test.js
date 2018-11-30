@@ -1,11 +1,14 @@
 import React from 'react';
 import thunk from 'redux-thunk'
-import TransportFormContainer from './transport-form-container';
+import TransportFormContainer from './transport-form-container'
+import {TransportForm} from "./transport-form";
 import {store} from '../../utils/store';
 import renderer from 'react-test-renderer'
 import {Provider} from 'react-redux'
 import {reduxForm} from 'redux-form'
 import {mount} from "enzyme/build";
+
+const middlewares = [thunk];
 
 
 jest.mock('react-dom');
@@ -20,17 +23,12 @@ describe('<TransportFormContainer>', () => {
         };
         subject = mount(
             <Provider store={store}>
-                <TransportFormContainer {...props}/>
+                <TransportFormContainer {...props}><TransportForm/></TransportFormContainer>
             </Provider>
         )
     });
-    it("calls onSubmit", () => {
-        const form = subject.find('form');
-        const departs = subject.find('#departs').first();
-        const arrives = subject.find('#arrives').first();
-        departs.simulate('change', { target: { value: 'MBO' } });
-        arrives.simulate('change', { target: { value: 'SLO' } });
-        form.simulate('submit');
-        expect(handleSubmit.mock.calls.length).toBeGreaterThan(0);
+    it("passes its props to child form", () => {
+        expect(subject.find('TransportForm').props())
+            .toEqual(expect.objectContaining(subject.find('TransportFormContainer').props()))
     })
 });

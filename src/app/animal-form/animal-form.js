@@ -69,6 +69,7 @@ export const AnimalForm = ({handleSubmit, handleChange, onSubmit, ...props}) => 
                         type="text"
                         onChange={handleChange}
                         value={props.value}
+                        append="kg"
                     />
                 </div>
             </div>

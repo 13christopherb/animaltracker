@@ -12,9 +12,9 @@ exports[`<LocationSummary /> render() should render the component 1`] = `
     >
       MBO
       <button
-        className="btn btn-success float-right btn-sm"
-        data-target="#animalModalForm"
-        data-toggle="modal"
+        className="btn btn-sm btn-outline-success float-right"
+        data-toggle="dropdown"
+        id="dropdownTitleButton"
         type="button"
       >
         <FontAwesomeIcon
@@ -35,8 +35,61 @@ exports[`<LocationSummary /> render() should render the component 1`] = `
           title=""
           transform={null}
         />
-         Add animal
       </button>
+      <div
+        aria-labelledby="dropdownTitleButton"
+        className="dropdown-menu"
+      >
+        <button
+          className="btn btn-sm dropdown-item"
+          data-target="#MBOmodalForm"
+          data-toggle="modal"
+          type="button"
+        >
+          <FontAwesomeIcon
+            border={false}
+            className=""
+            fixedWidth={false}
+            flip={null}
+            icon="otter"
+            inverse={false}
+            listItem={false}
+            mask={null}
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size={null}
+            spin={false}
+            symbol={false}
+            title=""
+            transform={null}
+          />
+           Add animal
+        </button>
+        <button
+          className="btn btn-sm dropdown-item"
+        >
+          <FontAwesomeIcon
+            border={false}
+            className=""
+            fixedWidth={false}
+            flip={null}
+            icon="truck-pickup"
+            inverse={false}
+            listItem={false}
+            mask={null}
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size={null}
+            spin={false}
+            symbol={false}
+            title=""
+            transform={null}
+          />
+           Add Transport
+        </button>
+      </div>
     </h5>
     <ul
       className="list-group list-group-flush"
@@ -59,35 +112,14 @@ exports[`<LocationSummary /> render() should render the component 1`] = `
   </div>
   <footer
     className="card-footer bg-transparent"
-  >
-    <button
-      className="btn btn-success btn-sm"
-    >
-      <FontAwesomeIcon
-        border={false}
-        className=""
-        fixedWidth={false}
-        flip={null}
-        icon="plus"
-        inverse={false}
-        listItem={false}
-        mask={null}
-        pull={null}
-        pulse={false}
-        rotation={null}
-        size={null}
-        spin={false}
-        symbol={false}
-        title=""
-        transform={null}
-      />
-       Add Transport
-    </button>
-  </footer>
+  />
   <ReduxForm
+    location="MBO"
     toggleAddAnimal={[Function]}
   >
-    <AnimalModalForm />
+    <AnimalModalForm
+      id="MBOmodalForm"
+    />
   </ReduxForm>
 </div>
 `;

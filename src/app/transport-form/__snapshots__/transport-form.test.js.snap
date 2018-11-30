@@ -60,10 +60,10 @@ exports[`<TransportForm /> render() should render the component 1`] = `
           name="meetDate"
           options={
             Array [
-              "Wednesday 11/28",
-              "Thursday 11/29",
               "Friday 11/30",
               "Saturday 12/01",
+              "Sunday 12/02",
+              "Monday 12/03",
             ]
           }
           title="Meet Date"

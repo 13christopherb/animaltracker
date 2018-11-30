@@ -16,29 +16,29 @@ export const AnimalListItemForm = ({handleSubmit, handleChange, onSubmit, ...pro
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-row">
-                <div className="col col-md-2">
-                    <h6>{props.animal.name}</h6>
-                    <Field
-                        component={Select}
-                        id="location"
-                        name="location"
-                        value={props.value}
-                        onChange={props.handleChange}
-                        options={[
-                            'NRO',
-                            'MBO',
-                            'SLO'
-                        ]}
-                    />
-                </div>
-                <div className="col col-md-6">
-                    <button className="btn btn-primary" disabled={props.pristine || !props.valid} type="submit">
-                        Submit
-                    </button>
-                    <button onClick={props.toggleAddAnimal} className="btn btn-danger" type="button">
-                        Cancel
-                    </button>
-                </div>
+                    <div className="col col-md-2">
+                        <h6>{props.animal.name}</h6>
+                        <Field
+                            component={Select}
+                            id="location"
+                            name="location"
+                            value={props.value}
+                            onChange={props.handleChange}
+                            options={[
+                                'NRO',
+                                'MBO',
+                                'SLO'
+                            ]}
+                        />
+                    </div>
+                    <div className="col col-md-6">
+                        <button className="btn btn-primary" disabled={props.pristine || !props.valid} type="submit">
+                            Submit
+                        </button>
+                        <button onClick={props.toggleMoving} className="btn btn-danger" type="button">
+                            Cancel
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>

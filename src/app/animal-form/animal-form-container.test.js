@@ -27,18 +27,9 @@ describe('<AnimalFormContainer>', () => {
             </Provider>
         )
     });
-    test('AnimalFormContainer renders correctly', () => {
-        const spy = jest.fn();
-        const Decorated = reduxForm({
-            form: 'animal-form', onSubmit: {spy}
-        })(AnimalFormContainer);
-        const tree = renderer.create(
-            <Provider store={store}>
-                <Decorated
-                    onSubmit={jest.fn()}><AnimalForm/></Decorated>
-            </Provider>
-        ).toJSON();
-        expect(tree).toMatchSnapshot()
+    it("passes its props to child form", () => {
+        expect(subject.find('AnimalForm').props())
+            .toEqual(expect.objectContaining(subject.find('AnimalFormContainer').props()))
     });
     it("calls onSubmit", () => {
         const form = subject.find('form');
@@ -52,5 +43,5 @@ describe('<AnimalFormContainer>', () => {
         location.simulate('change', { target: { value: 'MBO' } });
         form.simulate('submit');
         expect(handleSubmit.mock.calls.length).toBeGreaterThan(0);
-    })
+    });
 });

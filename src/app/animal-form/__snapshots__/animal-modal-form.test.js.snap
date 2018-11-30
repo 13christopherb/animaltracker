@@ -3,7 +3,6 @@
 exports[`<AnimalModalForm /> AnimalForm renders correctly 1`] = `
 <div
   className="modal fade"
-  id="animalModalForm"
   role="dialog"
 >
   <div
@@ -31,7 +30,7 @@ exports[`<AnimalModalForm /> AnimalForm renders correctly 1`] = `
             className="form-row"
           >
             <div
-              className="col col-md-2"
+              className="col col-4"
             >
               <div
                 className="form-group"
@@ -75,8 +74,12 @@ exports[`<AnimalModalForm /> AnimalForm renders correctly 1`] = `
                 </select>
               </div>
             </div>
+          </div>
+          <div
+            className="form-row"
+          >
             <div
-              className="col col-md-2"
+              className="col col-4"
             >
               <div
                 className="form-group"
@@ -145,7 +148,7 @@ exports[`<AnimalModalForm /> AnimalForm renders correctly 1`] = `
               </div>
             </div>
             <div
-              className="col col-md-3"
+              className="col col-8"
             >
               <div
                 className="form-group"
@@ -155,43 +158,69 @@ exports[`<AnimalModalForm /> AnimalForm renders correctly 1`] = `
                 >
                   Name
                 </label>
-                <input
-                  className="form-control "
-                  id="name"
-                  name="name"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onDragStart={[Function]}
-                  onDrop={[Function]}
-                  onFocus={[Function]}
-                  type="text"
-                  value=""
-                />
+                <div
+                  className="input-group"
+                >
+                  <input
+                    className="form-control "
+                    id="name"
+                    name="name"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onDragStart={[Function]}
+                    onDrop={[Function]}
+                    onFocus={[Function]}
+                    type="text"
+                    value=""
+                  />
+                </div>
               </div>
             </div>
+          </div>
+          <div
+            className="form-row"
+          >
             <div
-              className="col col-md-3"
+              className="col col-5"
             >
               <div
-                className="form-group"
+                className="input-group"
               >
-                <label
-                  className="form-label"
+                <div
+                  className="form-group"
                 >
-                  Weight
-                </label>
-                <input
-                  className="form-control "
-                  id="weight"
-                  name="weight"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onDragStart={[Function]}
-                  onDrop={[Function]}
-                  onFocus={[Function]}
-                  type="text"
-                  value=""
-                />
+                  <label
+                    className="form-label"
+                  >
+                    Weight
+                  </label>
+                  <div
+                    className="input-group"
+                  >
+                    <input
+                      className="form-control "
+                      id="weight"
+                      name="weight"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onDragStart={[Function]}
+                      onDrop={[Function]}
+                      onFocus={[Function]}
+                      type="text"
+                      value=""
+                    />
+                    <div
+                      className="input-group-append"
+                    >
+                      <span
+                        className="input-group-text"
+                        id="inputGroupAppend"
+                      >
+                        kg
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -8,14 +8,13 @@ import {Input, Select} from "../form-fields/index";
  * @param handleSubmit
  * @param handleChange
  * @param onSubmit
- * @param id
  * @param props
  * @returns {*}
  * @constructor
  */
-export const AnimalModalForm = ({handleSubmit, handleChange, onSubmit, id, ...props}) => {
+export const AnimalModalForm = ({handleSubmit, handleChange, onSubmit, ...props}) => {
     return (
-        <div className="modal fade" id={id} role="dialog">
+        <div className="modal fade" id="transportModalForm" role="dialog">
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -26,37 +25,29 @@ export const AnimalModalForm = ({handleSubmit, handleChange, onSubmit, id, ...pr
                         </header>
                         <div className="modal-body">
                             <div className="form-row">
-                                <div className="col col-4">
-                                    {props.location ?
-                                        <div className="form-group">
-                                            <label>Location</label>
-                                            <select defaultValue={props.location} className="form-control" disabled>
-                                                <option>{props.location}</option>
-                                            </select>
-                                        </div> :
-                                        <Field
-                                            component={Select}
-                                            id="location"
-                                            title="Location"
-                                            name="location"
-                                            onChange={handleChange}
-                                            options={[
-                                                'NRO',
-                                                'MBO',
-                                                'SLO'
-                                            ]}
-                                        />
-                                    }
+                                <div className="col col-md-2">
+                                    <Field
+                                        component={Select}
+                                        id="location"
+                                        title="Location"
+                                        name="location"
+                                        value={props.value}
+                                        onChange={handleChange}
+                                        options={[
+                                            'NRO',
+                                            'MBO',
+                                            'SLO'
+                                        ]}
+                                    />
                                 </div>
-                            </div>
-                            <div className="form-row">
-                                <div className="col col-4">
+                                <div className="col col-md-2">
                                     <Field
                                         component={Select}
                                         id="species"
                                         title="Species"
                                         name="species"
-                                        onChange={handleChange}
+                                        value={props.value}
+                                        onChange={props.handleChange}
                                         options={[
                                             'CSL',
                                             'ES',
@@ -68,7 +59,7 @@ export const AnimalModalForm = ({handleSubmit, handleChange, onSubmit, id, ...pr
                                         ]}
                                     />
                                 </div>
-                                <div className="col col-8">
+                                <div className="col col-md-3">
                                     <Field
                                         component={Input}
                                         id="name"
@@ -76,22 +67,19 @@ export const AnimalModalForm = ({handleSubmit, handleChange, onSubmit, id, ...pr
                                         title="Name"
                                         type="text"
                                         onChange={handleChange}
+                                        value={props.value}
                                     />
                                 </div>
-                            </div>
-                            <div className="form-row">
-                                <div className="col col-5">
-                                    <div className="input-group">
-                                        <Field
-                                            component={Input}
-                                            id="weight"
-                                            name="weight"
-                                            title="Weight"
-                                            type="text"
-                                            onChange={handleChange}
-                                            append="kg"
-                                        />
-                                    </div>
+                                <div className="col col-md-3">
+                                    <Field
+                                        component={Input}
+                                        id="weight"
+                                        name="weight"
+                                        title="Weight"
+                                        type="text"
+                                        onChange={handleChange}
+                                        value={props.value}
+                                    />
                                 </div>
                             </div>
                             <div className="form-row">
@@ -103,6 +91,7 @@ export const AnimalModalForm = ({handleSubmit, handleChange, onSubmit, id, ...pr
                                             name="isGettingControlledMeds"
                                             type="checkbox"
                                             onChange={handleChange}
+                                            value={props.value}
                                         />
                                     </label>
                                     <label>
@@ -112,6 +101,7 @@ export const AnimalModalForm = ({handleSubmit, handleChange, onSubmit, id, ...pr
                                             name="isGettingTubed"
                                             type="checkbox"
                                             onChange={handleChange}
+                                            value={props.value}
                                         />
                                     </label>
                                 </div>

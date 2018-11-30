@@ -132,18 +132,22 @@ exports[`<AnimalForm /> AnimalForm renders correctly 1`] = `
         >
           Name
         </label>
-        <input
-          className="form-control "
-          id="name"
-          name="name"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onDragStart={[Function]}
-          onDrop={[Function]}
-          onFocus={[Function]}
-          type="text"
-          value=""
-        />
+        <div
+          className="input-group"
+        >
+          <input
+            className="form-control "
+            id="name"
+            name="name"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onDragStart={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
       </div>
     </div>
     <div
@@ -157,18 +161,32 @@ exports[`<AnimalForm /> AnimalForm renders correctly 1`] = `
         >
           Weight
         </label>
-        <input
-          className="form-control "
-          id="weight"
-          name="weight"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onDragStart={[Function]}
-          onDrop={[Function]}
-          onFocus={[Function]}
-          type="text"
-          value=""
-        />
+        <div
+          className="input-group"
+        >
+          <input
+            className="form-control "
+            id="weight"
+            name="weight"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onDragStart={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            type="text"
+            value=""
+          />
+          <div
+            className="input-group-append"
+          >
+            <span
+              className="input-group-text"
+              id="inputGroupAppend"
+            >
+              kg
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

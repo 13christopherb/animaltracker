@@ -4,11 +4,11 @@ import {Input} from "./input";
 
 /**
  * Wrapper for select html element for use by redux-form Field
- * @param input Prop passed in from redux-form
- * @param touched Prop changed to true on onBlur event
- * @param error Contains relevant error from validation function
- * @param title Content for label
- * @param options Array of values for options for select
+ * @param {Object} input Prop passed in from redux-form
+ * @param {boolean} touched Prop changed to true on onBlur event
+ * @param {string} error Contains relevant error from validation function
+ * @param {string} title Content for label
+ * @param {array} options Array of values for options for select
  * @param other Other props for the select tag
  * @returns {*} Rendered select field
  */
@@ -22,7 +22,7 @@ export const Select = ({input, meta: {touched, error}, title, options, ...other}
                 {...input}
                 {...other}
             >
-                <option value="" disabled></option>
+                <option value="" disabled />
                 {options.map(option => {
                     return (
                       <option

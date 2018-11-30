@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import _ from 'underscore';
 import $ from 'jquery';
-import moment from 'moment';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import AnimalListItem from "./animal-list-item";
 import {AnimalFormContainer} from "../animal-form/animal-form-container";
@@ -16,6 +15,7 @@ export default class LocationSummary extends Component {
         super(props);
         this.state = {isEditing: false};
         this.toggleEdit = this.toggleEdit.bind(this);
+        this.toggleAddAnimal = this.toggleAddAnimal.bind(this);
     }
 
     toggleEdit(e) {
@@ -23,8 +23,8 @@ export default class LocationSummary extends Component {
         this.setState({isEditing: !this.state.isEditing});
     }
 
-    static toggleAddAnimal(e) {
-        $('#animalModalForm').modal('hide');
+    toggleAddAnimal(e) {
+        $('#'+ this.props.locationName+'modalForm').modal('hide');
     }
 
     render() {
@@ -42,13 +42,22 @@ export default class LocationSummary extends Component {
                 <div className="card-body h-100">
                     <h5 className="card-title">
                         {this.props.locationName}
-                        <button type="button"
-                                className="btn btn-success float-right btn-sm"
-                                data-toggle="modal"
-                                data-target="#animalModalForm"
-                        >
-                            <FontAwesomeIcon icon="plus"/> Add animal
+                        <button className="btn btn-sm btn-outline-success float-right" type="button" id="dropdownTitleButton"
+                                data-toggle="dropdown">
+                            <FontAwesomeIcon icon="plus"/>
                         </button>
+                        <div className="dropdown-menu" aria-labelledby="dropdownTitleButton">
+                            <button type="button"
+                                    className="btn btn-sm dropdown-item"
+                                    data-toggle="modal"
+                                    data-target={"#" + this.props.locationName + 'modalForm'}
+                            >
+                                <FontAwesomeIcon icon="otter"/> Add animal
+                            </button>
+                            <button className="btn btn-sm dropdown-item">
+                                <FontAwesomeIcon icon="truck-pickup"/> Add Transport
+                            </button>
+                        </div>
                     </h5>
                     {this.props.animals.length >= 5 && !this.state.isEditing && !this.props.expanded ? (
                         <span>
@@ -60,7 +69,10 @@ export default class LocationSummary extends Component {
                     ) : (
                         <ul className="list-group list-group-flush">
                             {this.props.animals.map((animal) =>
-                                <AnimalListItem key={animal.id} animal={animal} onDelete={this.handleDelete}/>
+                                <AnimalListItem key={animal.id}
+                                                animal={animal}
+                                                form={animal.name+'Form'}
+                                                onDelete={this.handleDelete}/>
                             )}
                         </ul>
                     )}
@@ -77,12 +89,11 @@ export default class LocationSummary extends Component {
                             </div>
                         </div>
                     }
-                    <button className="btn btn-success btn-sm">
-                        <FontAwesomeIcon icon="plus"/> Add Transport
-                    </button>
                 </footer>
-                <AnimalFormContainer toggleAddAnimal={LocationSummary.toggleAddAnimal}>
-                    <AnimalModalForm/>
+                <AnimalFormContainer location={this.props.locationName}
+                                     toggleAddAnimal={this.toggleAddAnimal}
+                >
+                    <AnimalModalForm id={this.props.locationName+'modalForm'} />
                 </AnimalFormContainer>
             </div>
         );

@@ -23,7 +23,6 @@ class AnimalListItem extends Component {
     }
 
     toggleMoving(e) {
-        e.preventDefault();
         this.setState({isMoving: !this.state.isMoving})
     }
 
@@ -49,6 +48,7 @@ class AnimalListItem extends Component {
                             <AnimalListItemForm
                                 onSubmit={this.handleSubmit}
                                 handleSubmit={this.props.handleSubmit}
+                                toggleMoving={this.toggleMoving}
                                 {...this.props}
                             />
                         </div>
@@ -78,6 +78,4 @@ class AnimalListItem extends Component {
     }
 }
 
-export default reduxForm({
-    form: 'AnimalListItemForm'
-})(connect()(AnimalListItem));
+export default reduxForm({})(connect()(AnimalListItem));

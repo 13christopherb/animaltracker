@@ -27,13 +27,7 @@ class TransportFormContainer extends Component {
 
     render() {
         return (
-            <div>
-                <TransportForm
-                    onSubmit={this.handleSubmit}
-                    handleSubmit={this.props.handleSubmit}
-                    {...this.props}
-                />
-            </div>
+            React.cloneElement(this.props.children, {onSubmit: this.handleSubmit, ...this.props})
         );
     }
 }

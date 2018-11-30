@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {actions} from "./ducks/actions";
 import moment from 'moment';
 import TransportFormContainer from "../transport-form/transport-form-container";
+import {TransportForm} from "../transport-form/transport-form";
 import {TransportRow} from "./transport-row";
 
 
@@ -32,7 +33,9 @@ class Transports extends Component {
         }
         return (
             <div>
-                <TransportFormContainer defaultTime={moment().hour(12)}/>
+                <TransportFormContainer defaultTime={moment().hour(12)}>
+                    <TransportForm/>
+                </TransportFormContainer>
                 <table className="table table-striped">
                     <tbody>
                     {transports}
