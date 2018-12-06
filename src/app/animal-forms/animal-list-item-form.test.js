@@ -1,7 +1,7 @@
 import React from 'react';
 import configureMockStore from 'redux-mock-store';
 import {mount} from 'enzyme';
-import {AnimalForm} from './animal-form';
+import {AnimalListItemForm} from "./animal-list-item-form";
 import renderer from 'react-test-renderer'
 import {Provider} from 'react-redux'
 import {reduxForm} from 'redux-form'
@@ -13,13 +13,19 @@ jest.mock('react-dom');
 
 const onSubmit = jest.fn();
 const Decorated = reduxForm({
-    form: 'animal-form', onSubmit: {onSubmit}
-})(AnimalForm);
+    form: 'testForm', onSubmit: {onSubmit}
+})(AnimalListItemForm);
 
-describe('<AnimalForm />', () => {
+describe('<AnimalListeItemForm />', () => {
     const defaultProps = {
         pristine: false,
         valid: true,
+        animal: {
+            name: 'Kirt',
+            species: 'CSL',
+            location: 'MBO',
+            weight: 42
+        }
     };
     test('AnimalForm renders correctly', () => {
         const store = mockStore();

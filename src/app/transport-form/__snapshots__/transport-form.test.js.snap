@@ -13,6 +13,7 @@ exports[`<TransportForm /> render() should render the component 1`] = `
           component={[Function]}
           id="departs"
           name="departs"
+          onChange={[MockFunction]}
           options={
             Array [
               "NRO",
@@ -30,6 +31,7 @@ exports[`<TransportForm /> render() should render the component 1`] = `
           component={[Function]}
           id="arrives"
           name="arrives"
+          onChange={[MockFunction]}
           options={
             Array [
               "NRO",
@@ -47,6 +49,7 @@ exports[`<TransportForm /> render() should render the component 1`] = `
           component={[Function]}
           id="meetPlace"
           name="meetPlace"
+          onChange={[MockFunction]}
           title="Meet Place"
           type="text"
         />
@@ -58,12 +61,13 @@ exports[`<TransportForm /> render() should render the component 1`] = `
           component={[Function]}
           id="meetDate"
           name="meetDate"
+          onChange={[MockFunction]}
           options={
             Array [
-              "Friday 11/30",
-              "Saturday 12/01",
-              "Sunday 12/02",
-              "Monday 12/03",
+              "Thursday 12/06",
+              "Friday 12/07",
+              "Saturday 12/08",
+              "Sunday 12/09",
             ]
           }
           title="Meet Date"
@@ -76,6 +80,7 @@ exports[`<TransportForm /> render() should render the component 1`] = `
           component={[Function]}
           id="meetTime"
           name="meetTime"
+          onChange={[MockFunction]}
           title="Meet Time"
           type="text"
         />
@@ -85,6 +90,7 @@ exports[`<TransportForm /> render() should render the component 1`] = `
       >
         <button
           className="btn btn-primary"
+          disabled={true}
           type="submit"
         >
           Submit

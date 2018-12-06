@@ -13,7 +13,7 @@ jest.mock('react-dom');
 
 const onSubmit = jest.fn();
 const Decorated = reduxForm({
-    form: 'animal-form', onSubmit: {onSubmit}
+    form: 'animal-forms', onSubmit: {onSubmit}
 })(AnimalModalForm);
 
 describe('<AnimalModalForm />', () => {

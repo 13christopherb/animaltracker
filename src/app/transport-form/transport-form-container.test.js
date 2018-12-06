@@ -1,11 +1,9 @@
 import React from 'react';
 import thunk from 'redux-thunk'
-import TransportFormContainer from './transport-form-container'
+import {TransportFormContainer} from './transport-form-container'
 import {TransportForm} from "./transport-form";
 import {store} from '../../utils/store';
-import renderer from 'react-test-renderer'
 import {Provider} from 'react-redux'
-import {reduxForm} from 'redux-form'
 import {mount} from "enzyme/build";
 
 const middlewares = [thunk];

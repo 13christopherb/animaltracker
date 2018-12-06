@@ -2,6 +2,7 @@ import React from 'react';
 import {Field} from 'redux-form'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Input, Select} from "../form-fields/index";
+import moment from "moment";
 
 /**
  * Form for creating a new animal in the form of a modal
@@ -12,25 +13,25 @@ import {Input, Select} from "../form-fields/index";
  * @returns {*}
  * @constructor
  */
-export const AnimalModalForm = ({handleSubmit, handleChange, onSubmit, ...props}) => {
+export const TransportModalForm = ({handleSubmit, handleChange, onSubmit, id, hideModal, ...props}) => {
     return (
-        <div className="modal fade" id="transportModalForm" role="dialog">
+        <div className="modal fade" id={id} role="dialog">
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
+                    <header className="modal-header">
+                        <button type="button" className="close" onClick={() => hideModal(id)}>
+                            <FontAwesomeIcon icon="times" size="xs"/>
+                        </button>
+                    </header>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <header className="modal-header">
-                            <button type="button" className="close" onClick={props.toggleAddAnimal}>
-                                <FontAwesomeIcon icon="times" size="xs"/>
-                            </button>
-                        </header>
                         <div className="modal-body">
                             <div className="form-row">
-                                <div className="col col-md-2">
+                                <div className="col col-6">
                                     <Field
                                         component={Select}
-                                        id="location"
-                                        title="Location"
-                                        name="location"
+                                        title="Departs"
+                                        id="departs"
+                                        name="departs"
                                         value={props.value}
                                         onChange={handleChange}
                                         options={[
@@ -40,80 +41,72 @@ export const AnimalModalForm = ({handleSubmit, handleChange, onSubmit, ...props}
                                         ]}
                                     />
                                 </div>
-                                <div className="col col-md-2">
+                                <div className="col col-6">
                                     <Field
                                         component={Select}
-                                        id="species"
-                                        title="Species"
-                                        name="species"
+                                        title="Arrives"
+                                        name="arrives"
+                                        id="arrives"
                                         value={props.value}
-                                        onChange={props.handleChange}
+                                        onChange={handleChange}
                                         options={[
-                                            'CSL',
-                                            'ES',
-                                            'HS',
-                                            'NFS',
-                                            'GFS',
-                                            'SSO',
-                                            'CET'
+                                            'NRO',
+                                            'MBO',
+                                            'SLO'
                                         ]}
-                                    />
-                                </div>
-                                <div className="col col-md-3">
-                                    <Field
-                                        component={Input}
-                                        id="name"
-                                        name="name"
-                                        title="Name"
-                                        type="text"
-                                        onChange={handleChange}
-                                        value={props.value}
-                                    />
-                                </div>
-                                <div className="col col-md-3">
-                                    <Field
-                                        component={Input}
-                                        id="weight"
-                                        name="weight"
-                                        title="Weight"
-                                        type="text"
-                                        onChange={handleChange}
-                                        value={props.value}
                                     />
                                 </div>
                             </div>
                             <div className="form-row">
-                                <div className="col col-md-6">
-                                    <label>
-                                        Controlled meds:
-                                        <Field
-                                            component="input"
-                                            name="isGettingControlledMeds"
-                                            type="checkbox"
-                                            onChange={handleChange}
-                                            value={props.value}
-                                        />
-                                    </label>
-                                    <label>
-                                        Tube feeding:
-                                        <Field
-                                            component="input"
-                                            name="isGettingTubed"
-                                            type="checkbox"
-                                            onChange={handleChange}
-                                            value={props.value}
-                                        />
-                                    </label>
+                                <div className="col col-12">
+                                    <Field
+                                        component={Input}
+                                        name="meetPlace"
+                                        id="meetPlace"
+                                        title="Meet Place"
+                                        type="text"
+                                        value={props.value}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-row">
+                                <div className="col col-6">
+                                    <Field
+                                        component={Select}
+                                        name="meetDate"
+                                        id="meetDate"
+                                        title="Meet Date"
+                                        value={props.value}
+                                        onChange={handleChange}
+                                        options={[
+                                            moment().format('dddd MM/DD'),
+                                            moment().add(1, 'days').format('dddd MM/DD'),
+                                            moment().add(2, 'days').format('dddd MM/DD'),
+                                            moment().add(3, 'days').format('dddd MM/DD'),
+                                        ]}
+                                    />
+                                </div>
+                                <div className="col col-6">
+                                    <Field
+                                        component={Input}
+                                        name="meetTime"
+                                        id="meetTime"
+                                        title="Meet Time"
+                                        type="text"
+                                        value={props.value}
+                                        onChange={handleChange}
+                                    />
                                 </div>
                             </div>
                         </div>
                         <footer className="modal-footer">
-                            <button className="btn btn-primary" onClick={props.toggleAddAnimal}
+                            <button className="btn btn-primary" onClick={() => hideModal(id)}
                                     disabled={props.pristine || !props.valid}
                                     type="submit">
                                 Submit
                             </button>
-                            <button className="btn btn-danger" onClick={props.toggleAddAnimal}
+                            <button className="btn btn-danger" onClick={() => hideModal(id)}
                                     type="button">
                                 Cancel
                             </button>

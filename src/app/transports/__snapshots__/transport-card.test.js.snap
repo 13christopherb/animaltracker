@@ -5,20 +5,24 @@ exports[`<TransportCard /> render() should render the component 1`] = `
   className="list-group"
 >
   <TransportListItem
+    key="0"
     transport={
       Object {
         "arrives": "NRO",
         "departs": "MBO",
-        "meetTime": "2017-09-15T16:30:00.000Z",
+        "id": 0,
+        "meetTime": "2010-06-09T22:20:00.000Z",
       }
     }
   />
   <TransportListItem
+    key="1"
     transport={
       Object {
         "arrives": "MBO",
         "departs": "SLO",
-        "meetTime": "2017-09-15T18:30:00.000Z",
+        "id": 1,
+        "meetTime": "2010-06-09T22:20:00.000Z",
       }
     }
   />

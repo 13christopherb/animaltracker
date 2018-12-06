@@ -1,5 +1,5 @@
 import {locationTypes} from "./";
-import {animalFormTypes} from "../../animal-form/ducks";
+import {animalFormTypes} from "../../animal-forms/ducks";
 import {animalsTypes} from "../../animals/ducks";
 const initialState = {
     locations: {}

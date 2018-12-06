@@ -1,10 +1,9 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 import configureMockStore from 'redux-mock-store';
-import LocationSummary from './location-summary';
+import LocationCard from './location-card';
 import toJson from 'enzyme-to-json';
 import thunk from 'redux-thunk'
-import * as testValues from '../../services/TestValues'
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -23,21 +22,14 @@ let location = {
     ]
 };
 
-const initialState = {
-    animals: testValues.animals,
-    locations: {locations: {
-            'MBO': location
-        }}
-};
 
-
-describe('<LocationSummary />', () => {
+describe('<LocationCard />', () => {
     describe('render()', () => {
         test('should render the component', () => {
-            const wrapper = shallow(<LocationSummary expanded={false}
-                                                     expandSummary={jest.fn()}
-                                                     animals={location.animals}
-                                                     locationName={location.locationName}
+            const wrapper = shallow(<LocationCard expanded={false}
+                                                  expandSummary={jest.fn()}
+                                                  animals={location.animals}
+                                                  locationName={location.locationName}
 
             />);
 

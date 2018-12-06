@@ -13,14 +13,14 @@ import {Input, Select} from "../form-fields/index";
  * @returns {*}
  * @constructor
  */
-export const AnimalModalForm = ({handleSubmit, handleChange, onSubmit, id, ...props}) => {
+export const AnimalModalForm = ({handleSubmit, handleChange, onSubmit, id, hideModal, ...props}) => {
     return (
         <div className="modal fade" id={id} role="dialog">
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <header className="modal-header">
-                            <button type="button" className="close" onClick={props.toggleAddAnimal}>
+                            <button type="button" className="close" onClick={() => hideModal(id)}>
                                 <FontAwesomeIcon icon="times" size="xs"/>
                             </button>
                         </header>
@@ -118,12 +118,12 @@ export const AnimalModalForm = ({handleSubmit, handleChange, onSubmit, id, ...pr
                             </div>
                         </div>
                         <footer className="modal-footer">
-                            <button className="btn btn-primary" onClick={props.toggleAddAnimal}
+                            <button className="btn btn-primary" onClick={() => hideModal(id)}
                                     disabled={props.pristine || !props.valid}
                                     type="submit">
                                 Submit
                             </button>
-                            <button className="btn btn-danger" onClick={props.toggleAddAnimal}
+                            <button className="btn btn-danger" onClick={() => hideModal(id)}
                                     type="button">
                                 Cancel
                             </button>

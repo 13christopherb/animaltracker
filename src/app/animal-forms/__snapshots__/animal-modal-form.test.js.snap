@@ -20,6 +20,7 @@ exports[`<AnimalModalForm /> AnimalForm renders correctly 1`] = `
         >
           <button
             className="close"
+            onClick={[Function]}
             type="button"
           />
         </header>
@@ -267,12 +268,14 @@ exports[`<AnimalModalForm /> AnimalForm renders correctly 1`] = `
           <button
             className="btn btn-primary"
             disabled={true}
+            onClick={[Function]}
             type="submit"
           >
             Submit
           </button>
           <button
             className="btn btn-danger"
+            onClick={[Function]}
             type="button"
           >
             Cancel

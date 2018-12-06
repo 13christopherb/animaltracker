@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {reduxForm} from 'redux-form';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {AnimalListItemForm} from "./animal-list-item-form";
-import {animalsActions} from "../animals/ducks";
+import {AnimalListItemForm} from "../animal-forms";
+import {animalsActions} from "./ducks/index";
 
 /**
  * Component for displaying information about an animal inside a list

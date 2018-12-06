@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {actions} from "./ducks/actions";
 import moment from 'moment';
-import TransportFormContainer from "../transport-form/transport-form-container";
+import {TransportFormContainer} from '../transport-form/';
 import {TransportForm} from "../transport-form/transport-form";
 import {TransportRow} from "./transport-row";
 

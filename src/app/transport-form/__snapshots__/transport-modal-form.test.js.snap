@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TransportModalForm /> render() should render the component 1`] = `
+<div
+  className="modal fade"
+  id="MBO"
+  role="dialog"
+>
+  <div
+    className="modal-dialog"
+    role="document"
+  >
+    <div
+      className="modal-content"
+    >
+      <header
+        className="modal-header"
+      >
+        <button
+          className="close"
+          onClick={[Function]}
+          type="button"
+        >
+          <FontAwesomeIcon
+            border={false}
+            className=""
+            fixedWidth={false}
+            flip={null}
+            icon="times"
+            inverse={false}
+            listItem={false}
+            mask={null}
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size="xs"
+            spin={false}
+            symbol={false}
+            title=""
+            transform={null}
+          />
+        </button>
+      </header>
+      <form>
+        <div
+          className="modal-body"
+        >
+          <div
+            className="form-row"
+          >
+            <div
+              className="col col-6"
+            >
+              <Field
+                component={[Function]}
+                id="departs"
+                name="departs"
+                onChange={[MockFunction]}
+                options={
+                  Array [
+                    "NRO",
+                    "MBO",
+                    "SLO",
+                  ]
+                }
+                title="Departs"
+              />
+            </div>
+            <div
+              className="col col-6"
+            >
+              <Field
+                component={[Function]}
+                id="arrives"
+                name="arrives"
+                onChange={[MockFunction]}
+                options={
+                  Array [
+                    "NRO",
+                    "MBO",
+                    "SLO",
+                  ]
+                }
+                title="Arrives"
+              />
+            </div>
+          </div>
+          <div
+            className="form-row"
+          >
+            <div
+              className="col col-12"
+            >
+              <Field
+                component={[Function]}
+                id="meetPlace"
+                name="meetPlace"
+                onChange={[MockFunction]}
+                title="Meet Place"
+                type="text"
+              />
+            </div>
+          </div>
+          <div
+            className="form-row"
+          >
+            <div
+              className="col col-6"
+            >
+              <Field
+                component={[Function]}
+                id="meetDate"
+                name="meetDate"
+                onChange={[MockFunction]}
+                options={
+                  Array [
+                    "Thursday 12/06",
+                    "Friday 12/07",
+                    "Saturday 12/08",
+                    "Sunday 12/09",
+                  ]
+                }
+                title="Meet Date"
+              />
+            </div>
+            <div
+              className="col col-6"
+            >
+              <Field
+                component={[Function]}
+                id="meetTime"
+                name="meetTime"
+                onChange={[MockFunction]}
+                title="Meet Time"
+                type="text"
+              />
+            </div>
+          </div>
+        </div>
+        <footer
+          className="modal-footer"
+        >
+          <button
+            className="btn btn-primary"
+            disabled={true}
+            onClick={[Function]}
+            type="submit"
+          >
+            Submit
+          </button>
+          <button
+            className="btn btn-danger"
+            onClick={[Function]}
+            type="button"
+          >
+            Cancel
+          </button>
+        </footer>
+      </form>
+    </div>
+  </div>
+</div>
+`;

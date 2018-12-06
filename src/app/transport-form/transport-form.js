@@ -77,7 +77,11 @@ export const TransportForm = ({handleSubmit, handleChange, onSubmit, ...props}) 
                         />
                     </div>
                     <div className="col pt-4 col-md-3">
-                        <button className="btn btn-primary" type="submit">Submit</button>
+                        <button className="btn btn-primary"
+                                disabled={props.pristine || !props.valid}
+                                type="submit">
+                            Submit
+                        </button>
                     </div>
                 </div>
             </form>

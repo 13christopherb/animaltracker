@@ -22,5 +22,8 @@ export const validate = values => {
     } else if (values.meetPlace.length > 20) {
         errors.meetPlace = 'Must be fewer than 20 characters';
     }
+    if (values.departs === values.arrives) {
+        errors.arrives = 'Cannot be the same as Departs';
+    }
     return errors
 };

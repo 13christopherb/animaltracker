@@ -2,12 +2,6 @@
 
 exports[`<Locations /> render() should render the component 1`] = `
 <div>
-  <button
-    className="btn btn-success"
-    onClick={[Function]}
-  >
-    Add animal
-  </button>
   <Media
     defaultMatches={true}
     query={

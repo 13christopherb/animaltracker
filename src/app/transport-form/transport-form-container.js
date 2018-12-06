@@ -38,7 +38,9 @@ function mapStateToProps({}, ownProps) {
     }
 }
 
-export default reduxForm({
+const connected = reduxForm({
     form: 'TransportForm',
     validate
 })(connect(mapStateToProps)(TransportFormContainer));
+
+export {connected as TransportFormContainer};
