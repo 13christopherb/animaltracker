@@ -4,11 +4,14 @@ exports[`<Input /> render() should render the component normally 1`] = `
 <div
   className="form-group"
 >
-  <label>
+  <label
+    className="form-label"
+    htmlFor="location"
+  >
     Location
   </label>
   <select
-    className="custom-select "
+    className="form-control"
     id="location"
     name="location"
   >

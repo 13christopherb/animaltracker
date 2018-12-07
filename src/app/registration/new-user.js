@@ -9,7 +9,8 @@ class NewUser extends Component {
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            location: ''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,7 +29,8 @@ class NewUser extends Component {
         e.preventDefault();
         const login = {
             username: this.state.username,
-            password: this.state.password
+            password: this.state.password,
+            location: this.state.location
         };
         this.props.dispatch(actions.register(login));
     };
@@ -57,6 +59,15 @@ class NewUser extends Component {
                             type="text"
                             onChange={this.handleInputChange}
                             value={this.state.password}
+                        />
+                    </label>
+                    <label>
+                        Location
+                        <input
+                            name="location" className="form-control"
+                            type="text"
+                            onChange={this.handleInputChange}
+                            value={this.state.location}
                         />
                     </label>
                     <button type="submit">Submit</button>

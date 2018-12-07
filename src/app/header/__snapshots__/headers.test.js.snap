@@ -103,7 +103,7 @@ exports[`<HeaderLoggedIn /> render() should render correctly 1`] = `
           </li>
         </ul>
         <button
-          className="btn btn-outline-primary my-2 my-sm-0"
+          className="btn btn-outline-primary my-2"
         >
           Sign out
         </button>

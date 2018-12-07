@@ -5,7 +5,8 @@ exports[`<Input /> render() should render the component normally 1`] = `
   className="form-group"
 >
   <label
-    className="form-label"
+    className="form-label form-label"
+    htmlFor="name"
   >
     Name
   </label>
@@ -13,10 +14,13 @@ exports[`<Input /> render() should render the component normally 1`] = `
     className="input-group"
   >
     <input
-      className="form-control "
+      className="form-control"
       id="name"
       name="name"
       type="text"
+    />
+    <div
+      className="invalid-feedback"
     />
   </div>
 </div>

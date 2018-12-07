@@ -64,10 +64,10 @@ exports[`<TransportForm /> render() should render the component 1`] = `
           onChange={[MockFunction]}
           options={
             Array [
-              "Thursday 12/06",
               "Friday 12/07",
               "Saturday 12/08",
               "Sunday 12/09",
+              "Monday 12/10",
             ]
           }
           title="Meet Date"

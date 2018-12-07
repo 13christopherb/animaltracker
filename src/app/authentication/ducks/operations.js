@@ -5,16 +5,18 @@ import {authInstance} from "../../../utils/authentication.api";
 export const login = (login) =>
     authInstance.post('/login', JSON.stringify(login))
         .then(user => {
+            console.log(user);
             if (user.data.accessToken) {
-                localStorage.setItem('user', user.data.username);
+                localStorage.setItem('username', user.data.username);
                 localStorage.setItem('accessToken', user.data.accessToken);
                 localStorage.setItem('refreshToken', user.data.refreshToken);
+                localStorage.setItem('userLocation', 'MBO');
             }
             return user;
         });
 
 export const logout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem('username');
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
 }

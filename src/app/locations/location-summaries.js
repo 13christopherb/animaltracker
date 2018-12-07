@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import CardColumns from 'react-bootstrap/lib/CardColumns'
 import {locationActions} from './ducks/';
-import LocationCard from "../location-card";
+import LocationCard from "./location-card";
 
 class LocationSummaries extends Component {
 
@@ -9,11 +10,9 @@ class LocationSummaries extends Component {
         super(props);
         this.state = {
             value: '',
-            expandedLocationName: ''
+            expandedLocationNames: [this.props.userLocation],
         };
-
         this.componentWillMount = this.componentWillMount.bind(this);
-        this.toggleAddAnimal = this.toggleAddAnimal.bind(this);
         this.expandSummary = this.expandSummary.bind(this);
     }
 
@@ -22,46 +21,37 @@ class LocationSummaries extends Component {
     }
 
     expandSummary(locationName) {
+        const index = this.state.expandedLocationNames.indexOf(locationName);
+        const locations = [...this.state.expandedLocationNames];
+        index >= 0 ? locations.splice(index, 1) : locations.push(locationName);
         this.setState({
-            expandedLocationName: locationName ? locationName : ''
+            expandedLocationNames: locations
         });
-    }
-
-    toggleAddAnimal(e) {
-        //this.setState({addingAnimal: !this.state.addingAnimal})
     }
 
     render() {
         return (
-            <div className="card-columns">
-                {this.state.expandedLocationName ? (
-                    <LocationCard key={this.state.expandedLocationName}
-                                  {...this.props.locations[this.state.expandedLocationName]}
-                                  expandSummary={this.expandSummary}
-                                  expanded={true}/>
-                    ): (
-                    <div>
-                        {Object.keys(this.props.locations).map(
-                            (location) =>
-                                <LocationCard key={location}
-                                              {...this.props.locations[location]}
-                                              expandSummary={this.expandSummary}
-                                              expanded={this.state.expandedSummaryName === location}
-                                              transports={this.props.transports.filter((transport) =>
-                                                     transport.departs === location || transport.arrives === location)}
-                                />
-                        )}
-                    </div>
-                    )}
-            </div>
+            <CardColumns>
+                {Object.keys(this.props.locations).map(
+                    (location) =>
+                        <LocationCard key={location}
+                                      {...this.props.locations[location]}
+                                      expandSummary={this.expandSummary}
+                                      expanded={this.state.expandedLocationNames.includes(location)}
+                                      transports={this.props.transports.filter((transport) =>
+                                          transport.departs === location || transport.arrives === location)}
+                        />
+                )}
+            </CardColumns>
         );
     }
 }
 
-function mapStateToProps({locations, transports}, ownProps) {
+function mapStateToProps({locations, transports, authentication}, ownProps) {
     return {
         locations: locations.locations,
-        transports: transports.transports
+        transports: transports.transports,
+        userLocation: authentication.userLocation
     }
 }
 

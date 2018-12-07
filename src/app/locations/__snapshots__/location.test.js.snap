@@ -2,31 +2,36 @@
 
 exports[`<LocationContainer /> render() should render the component 1`] = `
 <div>
-  <a
-    aria-expanded="false"
-    className="btn btn-info btn-block"
-    data-toggle="collapse"
-    href="#undefined"
-    role="button"
+  <ForwardRef(Bootstrap(Button))
+    block={true}
+    onClick={[Function]}
+    variant="info"
   >
-    <div
-      className="row"
+    <ForwardRef(Bootstrap(Row))
+      className="justify-content-md-center"
     >
-      <div
-        className="col-md-1 offset-md-5"
+      <ForwardRef(Bootstrap(Col))
+        md={1}
       />
-      <div
-        className="col-md-1 "
+      <ForwardRef(Bootstrap(Col))
+        md={1}
       >
         <small />
-      </div>
-    </div>
-  </a>
-  <div
-    aria-expanded="true"
-    className="collapse show"
+      </ForwardRef(Bootstrap(Col))>
+    </ForwardRef(Bootstrap(Row))>
+  </ForwardRef(Bootstrap(Button))>
+  <Collapse
+    appear={false}
+    dimension="height"
+    getDimensionValue={[Function]}
+    in={true}
+    mountOnEnter={false}
+    timeout={300}
+    unmountOnExit={false}
   >
-    <Connect(AnimalsTable) />
-  </div>
+    <div>
+      <Connect(AnimalsTable) />
+    </div>
+  </Collapse>
 </div>
 `;

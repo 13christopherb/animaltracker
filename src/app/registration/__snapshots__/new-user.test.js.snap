@@ -33,6 +33,16 @@ exports[`<NewUser /> render() should render the component 1`] = `
         value=""
       />
     </label>
+    <label>
+      Location
+      <input
+        className="form-control"
+        name="location"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
     <button
       type="submit"
     >

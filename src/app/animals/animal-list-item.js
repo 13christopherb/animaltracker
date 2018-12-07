@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {reduxForm} from 'redux-form';
+import ListGroup from 'react-bootstrap/lib/ListGroup';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {AnimalListItemForm} from "../animal-forms";
 import {animalsActions} from "./ducks/index";
@@ -42,7 +43,7 @@ class AnimalListItem extends Component {
     render() {
         return (
             <div>
-                <li key={this.props.animal.name} className="list-group-item">
+                <ListGroup.Item key={this.props.animal.name}>
                     {this.state.isMoving ? (
                         <div>
                             <AnimalListItemForm
@@ -72,7 +73,7 @@ class AnimalListItem extends Component {
                         </div>
                     )
                     }
-                </li>
+                </ListGroup.Item>
             </div>
         )
     }

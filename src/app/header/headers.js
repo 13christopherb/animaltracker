@@ -34,15 +34,24 @@ export const HeaderLoggedIn = (props) => {
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <ul className="navbar-nav mr-auto">
                 <li id="" onClick={props.changeNavbar}
-                    className={props.pathname === '' ? (activeClassName):(inactiveClassName)}>
+                    className={props.pathname === '' ? (activeClassName) : (inactiveClassName)}>
                     <Link name="" className="nav-link" to="/">Animals</Link>
                 </li>
                 <li id="transports" onClick={props.changeNavbar}
-                    className={props.pathname === 'transportsReducer' ? (activeClassName):(inactiveClassName)}>
+                    className={props.pathname === 'transportsReducer' ? (activeClassName) : (inactiveClassName)}>
                     <Link name="transports" className="nav-link" to="/transports">Transports</Link>
                 </li>
             </ul>
-            <button className="btn btn-outline-primary my-2 my-sm-0" onClick={props.logout}>Sign out</button>
+            <button className="btn btn-outline-primary my-2" onClick={props.logout}>Sign out</button>
         </nav>
     )
+};
+
+export const MobileHeader = (props) => {
+    return (
+        <nav className="navbar navbar-light bg-light justify-content-between">
+            <span>Marine Mammals</span>
+            <button className="btn btn-outline-primary btn-sm my-2 my-sm-0" onClick={props.logout}>Sign out</button>
+        </nav>
+)
 };

@@ -1,7 +1,8 @@
 import { types } from './types';
 
-let user = localStorage.getItem('user');
-const initialState = user ? { loggedIn: true, user} : {};
+let user = localStorage.getItem('username');
+let userLocation = localStorage.getItem('userLocation');
+const initialState = user ? { loggedIn: true, user, userLocation} : {};
 
 export default function authenticationReducer(state = initialState, action) {
     switch(action.type) {
@@ -12,7 +13,8 @@ export default function authenticationReducer(state = initialState, action) {
         case types.LOGIN_SUCCESS:
             return {
                 loggedIn: true,
-                user: action.user
+                user: action.user,
+                userLocation: 'MBO'
             };
         case types.LOGIN_FAILURE:
             return {};

@@ -13,11 +13,14 @@ exports[`<AnimalForm /> AnimalForm renders correctly 1`] = `
       <div
         className="form-group"
       >
-        <label>
+        <label
+          className="form-label"
+          htmlFor="location"
+        >
           Location
         </label>
         <select
-          className="custom-select "
+          className="form-control"
           id="location"
           name="location"
           onBlur={[Function]}
@@ -58,11 +61,14 @@ exports[`<AnimalForm /> AnimalForm renders correctly 1`] = `
       <div
         className="form-group"
       >
-        <label>
+        <label
+          className="form-label"
+          htmlFor="species"
+        >
           Species
         </label>
         <select
-          className="custom-select "
+          className="form-control"
           id="species"
           name="species"
           onBlur={[Function]}
@@ -128,7 +134,8 @@ exports[`<AnimalForm /> AnimalForm renders correctly 1`] = `
         className="form-group"
       >
         <label
-          className="form-label"
+          className="form-label form-label"
+          htmlFor="name"
         >
           Name
         </label>
@@ -136,7 +143,7 @@ exports[`<AnimalForm /> AnimalForm renders correctly 1`] = `
           className="input-group"
         >
           <input
-            className="form-control "
+            className="form-control"
             id="name"
             name="name"
             onBlur={[Function]}
@@ -146,6 +153,9 @@ exports[`<AnimalForm /> AnimalForm renders correctly 1`] = `
             onFocus={[Function]}
             type="text"
             value=""
+          />
+          <div
+            className="invalid-feedback"
           />
         </div>
       </div>
@@ -157,7 +167,8 @@ exports[`<AnimalForm /> AnimalForm renders correctly 1`] = `
         className="form-group"
       >
         <label
-          className="form-label"
+          className="form-label form-label"
+          htmlFor="weight"
         >
           Weight
         </label>
@@ -165,7 +176,7 @@ exports[`<AnimalForm /> AnimalForm renders correctly 1`] = `
           className="input-group"
         >
           <input
-            className="form-control "
+            className="form-control"
             id="weight"
             name="weight"
             onBlur={[Function]}
@@ -179,13 +190,11 @@ exports[`<AnimalForm /> AnimalForm renders correctly 1`] = `
           <div
             className="input-group-append"
           >
-            <span
-              className="input-group-text"
-              id="inputGroupAppend"
-            >
-              kg
-            </span>
+            kg
           </div>
+          <div
+            className="invalid-feedback"
+          />
         </div>
       </div>
     </div>

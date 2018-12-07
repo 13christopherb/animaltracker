@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from "prop-types";
-import {Input} from "./input";
+import Form from 'react-bootstrap/lib/Form';
+import InputGroup from 'react-bootstrap/lib/InputGroup';
 
 /**
  * Wrapper for select html element for use by redux-form Field
@@ -12,28 +12,28 @@ import {Input} from "./input";
  * @param other Other props for the select tag
  * @returns {*} Rendered select field
  */
-export const Select = ({input, meta: {touched, error}, title, options, ...other}) => {
-    const validityClass = touched ? error ? 'is-invalid' : 'is-valid' : '';
+export const Select = ({input, meta: {touched, error}, id, title, options, ...other}) => {
     return (
-        <div className="form-group">
-            <label>{title}</label>
-            <select
-                className={'custom-select ' + validityClass}
-                {...input}
-                {...other}
+        <Form.Group controlId={id}>
+            <Form.Label>{title}</Form.Label>
+            <Form.Control as="select"
+                          isValid={touched && !error}
+                          isInvalid={touched && error}
+                          {...input}
+                          {...other}
             >
-                <option value="" disabled />
+                <option value="" disabled/>
                 {options.map(option => {
                     return (
-                      <option
-                          key={option}
-                          value={option}
-                          label={option}
-                      >{option}
-                      </option>
+                        <option
+                            key={option}
+                            value={option}
+                            label={option}
+                        >{option}
+                        </option>
                     );
                 })}
-            </select>
-        </div>
+            </Form.Control>
+        </Form.Group>
     )
 };

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Media from 'react-media';
+import Button from 'react-bootstrap/lib/Button';
 import {locationActions} from './ducks/';
 import {transportActions} from '../transports/ducks';
 import Location from './location';
@@ -40,7 +41,7 @@ class Locations extends Component {
                                     <AnimalFormContainer toggleAddAnimal={this.toggleAddAnimal}>
                                         <AnimalForm/>
                                     </AnimalFormContainer>) : (
-                                    <button onClick={this.toggleAddAnimal} className="btn btn-success">Add animal</button>
+                                    <Button variant="primary" onClick={this.toggleAddAnimal}>Add animal</Button>
                                 )}
                                 {Object.keys(this.props.locations).map(
                                     (location) =>
@@ -49,9 +50,8 @@ class Locations extends Component {
                                 )}
                             </div>
                         ) : (
-                            <div className="card-columns">
-                                <LocationSummaries/>
-                            </div>)
+                            <LocationSummaries/>
+                        )
                     }
                 </Media>
             </div>

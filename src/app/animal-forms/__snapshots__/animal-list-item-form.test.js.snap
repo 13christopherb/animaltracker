@@ -17,9 +17,12 @@ exports[`<AnimalListeItemForm /> AnimalForm renders correctly 1`] = `
         <div
           className="form-group"
         >
-          <label />
+          <label
+            className="form-label"
+            htmlFor="location"
+          />
           <select
-            className="custom-select "
+            className="form-control"
             id="location"
             name="location"
             onBlur={[Function]}

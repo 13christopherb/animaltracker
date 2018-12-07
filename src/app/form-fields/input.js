@@ -1,4 +1,6 @@
 import React from 'react';
+import Form from 'react-bootstrap/lib/Form';
+import InputGroup from 'react-bootstrap/lib/InputGroup';
 
 /**
  * Wrapper for input html element for use by redux-form Field
@@ -12,24 +14,22 @@ import React from 'react';
  * @param other Other props for the input tag
  * @returns {*} Rendered input field
  */
-export const Input = ({input, meta: {touched, error}, title, defaultValue, append, displayErrorMessage = true, ...other}) => {
-    const validityClass = touched ? error ? 'is-invalid' : 'is-valid' : '';
+export const Input = ({input, meta: {touched, error}, id, title, append, displayErrorMessage = true, ...other}) => {
     return (
-        <div className="form-group">
-            {title && <label className="form-label">{title}</label>}
-            <div className="input-group">
-                <input
-                    className={'form-control ' + validityClass}
+        <Form.Group controlId={id}>
+            {title && <Form.Label className="form-label">{title}</Form.Label>}
+            <InputGroup>
+                <Form.Control
+                    isValid={touched && !error}
+                    isInvalid={touched && error}
                     {...input}
                     {...other}
                 />
                 {append &&
-                <div className="input-group-append">
-                    <span className="input-group-text" id="inputGroupAppend">{append}</span>
-                </div>
+                    <InputGroup.Append>{append}</InputGroup.Append>
                 }
-            </div>
-            {touched && error && displayErrorMessage && <div className="invalid-feedback">{error}</div>}
-        </div>
+                <Form.Control.Feedback type="invalid">{error}</Form.Control.Feedback>
+            </InputGroup>
+        </Form.Group>
     )
 };

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
 import {withRouter} from "react-router";
 import {actions} from '../authentication/ducks/actions';
-import {HeaderLoggedIn, HeaderLoggedOut} from "./headers";
+import {HeaderLoggedIn, HeaderLoggedOut, MobileHeader} from "./headers";
+import Media from "react-media";
 
 
 class Header extends Component {
@@ -44,14 +44,24 @@ class Header extends Component {
     render() {
         return (
             <header>
-                {this.props.loggedIn ?
-                    <HeaderLoggedIn
-                        pathname={this.state.pathname}
-                        changeNavbar={this.changeNavbar}
-                        logout={this.logout}
-                    />:
-                    <HeaderLoggedOut />
-                }
+                <Media query={{minWidth: 650}}>
+                    {matches =>
+                        matches ? (
+                            this.props.loggedIn ?
+                                <HeaderLoggedIn
+                                    pathname={this.state.pathname}
+                                    changeNavbar={this.changeNavbar}
+                                    logout={this.logout}
+                                />:
+                                <HeaderLoggedOut />
+                        ) : (
+                            this.props.loggedIn ?
+                                <MobileHeader />:
+                                <HeaderLoggedOut />
+                        )
+                    }
+                </Media>
+
             </header>
         );
     }
