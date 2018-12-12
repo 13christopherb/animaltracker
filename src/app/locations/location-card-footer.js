@@ -24,9 +24,9 @@ export default class LocationCardFooter extends Component {
                         <FontAwesomeIcon icon="chevron-down"/> Transports
                     </Button>
                     <Collapse in={this.state.isOpen}>
-                    <div>
-                        <TransportCard transports={this.props.transports}/>
-                    </div>
+                        <div>
+                            <TransportCard transports={this.props.transports}/>
+                        </div>
                     </Collapse>
                 </div>
                 }

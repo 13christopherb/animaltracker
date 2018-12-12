@@ -1,11 +1,13 @@
 import React from "react";
+import ListGroup from 'react-bootstrap/lib/ListGroup';
+
 import {TransportListItem} from "./transport-list-item";
 
 
 export const TransportCard = ({transports}) => {
     return (
-            <ul className="list-group">
+            <ListGroup>
                 {transports.map(transport => <TransportListItem key={transport.id} transport={transport} />)}
-            </ul>
+            </ListGroup>
     )
 };

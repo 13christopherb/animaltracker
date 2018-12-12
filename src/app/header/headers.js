@@ -5,6 +5,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import HeaderLogin from '../authentication/header-login'
+import {Navbar, Nav, NavItem, Button} from 'react-bootstrap'
 
 /**
  * Component for header while user is logged out
@@ -13,11 +14,11 @@ import HeaderLogin from '../authentication/header-login'
  */
 export const HeaderLoggedOut = (props) => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <ul className="navbar-nav mr-auto">
-            </ul>
-            <HeaderLogin/>
-        </nav>
+        <Navbar bg="light">
+            <Nav className="justify-content-end">
+                <HeaderLogin/>
+            </Nav>
+        </Navbar>
     )
 };
 
@@ -28,22 +29,22 @@ export const HeaderLoggedOut = (props) => {
  * @constructor
  */
 export const HeaderLoggedIn = (props) => {
-    const activeClassName = 'nav-item active';
-    const inactiveClassName = 'nav-item';
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <ul className="navbar-nav mr-auto">
-                <li id="" onClick={props.changeNavbar}
-                    className={props.pathname === '' ? (activeClassName) : (inactiveClassName)}>
-                    <Link name="" className="nav-link" to="/">Animals</Link>
-                </li>
-                <li id="transports" onClick={props.changeNavbar}
-                    className={props.pathname === 'transportsReducer' ? (activeClassName) : (inactiveClassName)}>
-                    <Link name="transports" className="nav-link" to="/transports">Transports</Link>
-                </li>
-            </ul>
-            <button className="btn btn-outline-primary my-2" onClick={props.logout}>Sign out</button>
-        </nav>
+        <Navbar bg="light">
+            <Navbar.Collapse>
+                <Nav activeKey={props.pathname}>
+                    <NavItem eventKey="" onClick={props.changeNavbar}>
+                        <Link name="" className="nav-link" to="/">Animals</Link>
+                    </NavItem>
+                    <NavItem eventKey="transportsReducer" onClick={props.changeNavbar}>
+                        <Link name="transports" className="nav-link" to="/transports">Transports</Link>
+                    </NavItem>
+                    <NavItem pullRight>
+                        <Button variant="outline-primary" onClick={props.logout}>Sign out</Button>
+                    </NavItem>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
     )
 };
 
@@ -53,5 +54,5 @@ export const MobileHeader = (props) => {
             <span>Marine Mammals</span>
             <button className="btn btn-outline-primary btn-sm my-2 my-sm-0" onClick={props.logout}>Sign out</button>
         </nav>
-)
+    )
 };

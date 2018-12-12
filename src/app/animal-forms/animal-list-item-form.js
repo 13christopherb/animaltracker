@@ -1,6 +1,7 @@
 import React from 'react';
 import {Field} from 'redux-form'
-import {Input, Select} from "../form-fields/index";
+import {Form, Col, Button} from 'react-bootstrap'
+import {Select} from "../form-fields/index";
 
 /**
  * Form for creating a new animal
@@ -14,9 +15,9 @@ import {Input, Select} from "../form-fields/index";
 export const AnimalListItemForm = ({handleSubmit, handleChange, onSubmit, ...props}) => {
     return (
         <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="form-row">
-                    <div className="col col-md-2">
+            <Form onSubmit={handleSubmit(onSubmit)}>
+                <Form.Row>
+                    <Col md={2}>
                         <h6>{props.animal.name}</h6>
                         <Field
                             component={Select}
@@ -30,17 +31,17 @@ export const AnimalListItemForm = ({handleSubmit, handleChange, onSubmit, ...pro
                                 'SLO'
                             ]}
                         />
-                    </div>
-                    <div className="col col-md-6">
-                        <button className="btn btn-primary" disabled={props.pristine || !props.valid} type="submit">
+                    </Col>
+                    <Col md={6}>
+                        <Button variant="primary" disabled={props.pristine || !props.valid} type="submit">
                             Submit
-                        </button>
-                        <button onClick={props.toggleMoving} className="btn btn-danger" type="button">
+                        </Button>
+                        <Button onClick={props.toggleMoving} variant="danger" type="button">
                             Cancel
-                        </button>
-                    </div>
-                </div>
-            </form>
+                        </Button>
+                    </Col>
+                </Form.Row>
+            </Form>
         </div>
     )
 };

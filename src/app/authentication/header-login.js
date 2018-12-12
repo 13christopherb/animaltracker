@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Field, reduxForm} from 'redux-form'
+import {Field, reduxForm} from 'redux-form';
+import {Navbar, Form, Button} from 'react-bootstrap';
 import {authenticatinActions} from "./ducks/index";
 import {Input} from "../form-fields/index";
 import {validate} from "./validators";
@@ -26,13 +27,13 @@ class HeaderLogin extends Component {
 
     render() {
         return (
-            <div>
-                <form className="form-inline" onSubmit={this.props.handleSubmit(this.handleSubmit)}>
+                <Form inline onSubmit={this.props.handleSubmit(this.handleSubmit)}>
                     <Field
                         component={Input}
                         id="username"
                         name="username"
                         type="text"
+                        className="mr-sm-2"
                         onChange={this.props.handleChange}
                         value={this.props.value}
                         displayErrorMessage={false}
@@ -46,9 +47,8 @@ class HeaderLogin extends Component {
                         value={this.props.value}
                         displayErrorMessage={false}
                     />
-                    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Sign in</button>
-                </form>
-            </div>
+                    <Button variant="outline-success" type="submit">Sign in</Button>
+                </Form>
         );
     }
 }

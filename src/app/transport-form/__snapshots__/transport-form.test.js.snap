@@ -1,102 +1,98 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<TransportForm /> render() should render the component 1`] = `
-<div>
-  <form>
-    <div
-      className="form-row"
+<ForwardRef(Bootstrap(Form))>
+  <ForwardRef(Bootstrap(FormRow))>
+    <ForwardRef(Bootstrap(Col))
+      md={2}
     >
-      <div
-        className="col col-md-2"
+      <Field
+        component={[Function]}
+        id="departs"
+        name="departs"
+        onChange={[MockFunction]}
+        options={
+          Array [
+            "NRO",
+            "MBO",
+            "SLO",
+          ]
+        }
+        title="Departs"
+      />
+    </ForwardRef(Bootstrap(Col))>
+    <ForwardRef(Bootstrap(Col))
+      md={2}
+    >
+      <Field
+        component={[Function]}
+        id="arrives"
+        name="arrives"
+        onChange={[MockFunction]}
+        options={
+          Array [
+            "NRO",
+            "MBO",
+            "SLO",
+          ]
+        }
+        title="Arrives"
+      />
+    </ForwardRef(Bootstrap(Col))>
+    <ForwardRef(Bootstrap(Col))
+      md={2}
+    >
+      <Field
+        component={[Function]}
+        id="meetPlace"
+        name="meetPlace"
+        onChange={[MockFunction]}
+        title="Meet Place"
+        type="text"
+      />
+    </ForwardRef(Bootstrap(Col))>
+    <ForwardRef(Bootstrap(Col))
+      md={2}
+    >
+      <Field
+        component={[Function]}
+        id="meetDate"
+        name="meetDate"
+        onChange={[MockFunction]}
+        options={
+          Array [
+            "Wednesday 12/12",
+            "Thursday 12/13",
+            "Friday 12/14",
+            "Saturday 12/15",
+          ]
+        }
+        title="Meet Date"
+      />
+    </ForwardRef(Bootstrap(Col))>
+    <ForwardRef(Bootstrap(Col))
+      md={2}
+    >
+      <Field
+        component={[Function]}
+        id="meetTime"
+        name="meetTime"
+        onChange={[MockFunction]}
+        title="Meet Time"
+        type="text"
+      />
+    </ForwardRef(Bootstrap(Col))>
+    <ForwardRef(Bootstrap(Col))
+      md={3}
+    >
+      <ForwardRef(Bootstrap(Button))
+        disabled={true}
+        type="submit"
+        variant="primary"
       >
-        <Field
-          component={[Function]}
-          id="departs"
-          name="departs"
-          onChange={[MockFunction]}
-          options={
-            Array [
-              "NRO",
-              "MBO",
-              "SLO",
-            ]
-          }
-          title="Departs"
-        />
-      </div>
-      <div
-        className="col col-md-2"
-      >
-        <Field
-          component={[Function]}
-          id="arrives"
-          name="arrives"
-          onChange={[MockFunction]}
-          options={
-            Array [
-              "NRO",
-              "MBO",
-              "SLO",
-            ]
-          }
-          title="Arrives"
-        />
-      </div>
-      <div
-        className="col col-md-2"
-      >
-        <Field
-          component={[Function]}
-          id="meetPlace"
-          name="meetPlace"
-          onChange={[MockFunction]}
-          title="Meet Place"
-          type="text"
-        />
-      </div>
-      <div
-        className="col col-md-2"
-      >
-        <Field
-          component={[Function]}
-          id="meetDate"
-          name="meetDate"
-          onChange={[MockFunction]}
-          options={
-            Array [
-              "Friday 12/07",
-              "Saturday 12/08",
-              "Sunday 12/09",
-              "Monday 12/10",
-            ]
-          }
-          title="Meet Date"
-        />
-      </div>
-      <div
-        className="col col-md-2"
-      >
-        <Field
-          component={[Function]}
-          id="meetTime"
-          name="meetTime"
-          onChange={[MockFunction]}
-          title="Meet Time"
-          type="text"
-        />
-      </div>
-      <div
-        className="col pt-4 col-md-3"
-      >
-        <button
-          className="btn btn-primary"
-          disabled={true}
-          type="submit"
-        >
-          Submit
-        </button>
-      </div>
-    </div>
-  </form>
-</div>
+        Submit
+      </ForwardRef(Bootstrap(Button))>
+    </ForwardRef(Bootstrap(Col))>
+  </ForwardRef(Bootstrap(FormRow))>
+</ForwardRef(Bootstrap(Form))>
 `;

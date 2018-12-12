@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<TransportCard /> render() should render the component 1`] = `
-<ul
-  className="list-group"
->
+<ForwardRef>
   <TransportListItem
     key="0"
     transport={
@@ -26,5 +24,5 @@ exports[`<TransportCard /> render() should render the component 1`] = `
       }
     }
   />
-</ul>
+</ForwardRef>
 `;

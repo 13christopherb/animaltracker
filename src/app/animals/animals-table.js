@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import moment from 'moment';
+import {Row, Col, Table} from 'react-bootstrap';
 import {animalsActions} from "./ducks";
 import {AnimalRow} from './animal-row';
 
@@ -35,17 +36,15 @@ class AnimalsTable extends Component {
                                     key={animal.id}/>);
         }
         return (
-            <div>
-                <div className="row">
-                    <div className="col col-md-12">
-                        <table className="table table-striped">
-                            <tbody>
-                            {animals}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+            <Row>
+                <Col md={12}>
+                    <Table striped>
+                        <tbody>
+                        {animals}
+                        </tbody>
+                    </Table>
+                </Col>
+            </Row>
         );
     }
 }

@@ -1,5 +1,7 @@
 import React from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import Button from 'react-bootstrap/lib/Button';
+
 
 export const AnimalRow = (props) => {
 
@@ -52,7 +54,7 @@ export const AnimalRow = (props) => {
                 </div>
             </td>
             <td style={{width: '16.66%'}}>
-                <button onClick={deleteAnimal} id="delete" className="btn btn-danger">Delete</button>
+                <Button onClick={deleteAnimal} id="delete" variant="danger">Delete</Button>
             </td>
         </tr>
     )

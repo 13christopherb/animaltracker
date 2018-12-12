@@ -15,7 +15,6 @@ import {Input, Select} from "../form-fields/index";
  * @constructor
  */
 export const AnimalModalForm = ({handleSubmit, handleChange, onSubmit, show, toggleModal, ...props}) => {
-    console.log(show)
     return (
         <Modal show={show} onHide={toggleModal}>
             <Form onSubmit={handleSubmit(onSubmit)}>

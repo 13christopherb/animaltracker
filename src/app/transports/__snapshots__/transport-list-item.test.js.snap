@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<TransportListItem /> render() should render the component 1`] = `
-<li
-  className="list-group-item"
->
+<ForwardRef(Bootstrap(ListGroupItem))>
   MBO
     
   <FontAwesomeIcon
@@ -28,5 +26,5 @@ exports[`<TransportListItem /> render() should render the component 1`] = `
   NRO
     
   09/15 0930
-</li>
+</ForwardRef(Bootstrap(ListGroupItem))>
 `;

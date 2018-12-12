@@ -1,5 +1,6 @@
 import React from 'react';
 import {Field} from 'redux-form'
+import {Form, Col, Button} from 'react-bootstrap'
 import {Input, Select} from "../form-fields/index";
 
 /**
@@ -13,9 +14,9 @@ import {Input, Select} from "../form-fields/index";
  */
 export const AnimalForm = ({handleSubmit, handleChange, onSubmit, ...props}) => {
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-row">
-                <div className="col col-md-2">
+        <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form.Row>
+                <Col md={2}>
                     <Field
                         component={Select}
                         id="location"
@@ -29,8 +30,8 @@ export const AnimalForm = ({handleSubmit, handleChange, onSubmit, ...props}) => 
                             'SLO'
                         ]}
                     />
-                </div>
-                <div className="col col-md-2">
+                </Col>
+                <Col md={2}>
                     <Field
                         component={Select}
                         id="species"
@@ -48,8 +49,8 @@ export const AnimalForm = ({handleSubmit, handleChange, onSubmit, ...props}) => 
                             'CET'
                         ]}
                     />
-                </div>
-                <div className="col col-md-3">
+                </Col>
+                <Col md={3}>
                     <Field
                         component={Input}
                         id="name"
@@ -59,8 +60,8 @@ export const AnimalForm = ({handleSubmit, handleChange, onSubmit, ...props}) => 
                         onChange={handleChange}
                         value={props.value}
                     />
-                </div>
-                <div className="col col-md-3">
+                </Col>
+                <Col md={3}>
                     <Field
                         component={Input}
                         id="weight"
@@ -71,38 +72,38 @@ export const AnimalForm = ({handleSubmit, handleChange, onSubmit, ...props}) => 
                         value={props.value}
                         append="kg"
                     />
-                </div>
-            </div>
-            <div className="form-row">
-                <div className="col col-md-6">
-                    <label>
-                        Controlled meds:
-                        <Field
-                            component="input"
-                            name="isGettingControlledMeds"
-                            type="checkbox"
-                            onChange={handleChange}
-                            value={props.value}
-                        />
-                    </label>
-                    <label>
-                        Tube feeding:
-                        <Field
-                            component="input"
-                            name="isGettingTubed"
-                            type="checkbox"
-                            onChange={handleChange}
-                            value={props.value}
-                        />
-                    </label>
-                    <button className="btn btn-primary" disabled={props.pristine || !props.valid} type="submit">
-                        Submit
-                    </button>
-                    <button onClick={props.toggleAddAnimal} className="btn btn-danger" type="button">
-                        Cancel
-                    </button>
-                </div>
-            </div>
-        </form>
+                </Col>
+            </Form.Row>
+            <Form.Row>
+                <Col md={8}>
+                    <Form.Group>
+                        <Form.Label>
+                            Controlled meds:
+                            <Field
+                                component="input"
+                                name="isGettingControlledMeds"
+                                type="checkbox"
+                                onChange={handleChange}
+                            />
+                        </Form.Label>
+                        <Form.Label>
+                            Tube feeding:
+                            <Field
+                                component="input"
+                                name="isGettingTubed"
+                                type="checkbox"
+                                onChange={handleChange}
+                            />
+                        </Form.Label>
+                        <Button variant="primary" disabled={props.pristine || !props.valid} type="submit">
+                            Submit
+                        </Button>
+                        <Button onClick={props.toggleAddAnimal} variant="danger" type="button">
+                            Cancel
+                        </Button>
+                    </Form.Group>
+                </Col>
+            </Form.Row>
+        </Form>
     )
 };

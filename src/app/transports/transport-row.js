@@ -1,5 +1,7 @@
 import React from "react";
 import moment from 'moment';
+import Button from 'react-bootstrap/lib/Button';
+
 
 
 export const TransportRow = ({deleteTransport, transport, ...other}) => {
@@ -24,7 +26,7 @@ export const TransportRow = ({deleteTransport, transport, ...other}) => {
                 {moment(transport.meetTime).format('dddd MM/DD HHmm')}
             </td>
             <td style={{width: '16.66%'}}>
-                <button onClick={handleDelete} id="delete" className="btn btn-danger">Delete</button>
+                <Button onClick={handleDelete} id="delete" variant="danger">Delete</Button>
             </td>
         </tr>
     )

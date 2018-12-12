@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {actions} from "./ducks/actions";
 import moment from 'moment';
+import Table from 'react-bootstrap/lib/Table';
+
 import {TransportFormContainer} from '../transport-form/';
 import {TransportForm} from "../transport-form/transport-form";
 import {TransportRow} from "./transport-row";
@@ -36,11 +38,11 @@ class Transports extends Component {
                 <TransportFormContainer defaultTime={moment().hour(12)}>
                     <TransportForm/>
                 </TransportFormContainer>
-                <table className="table table-striped">
+                <Table striped>
                     <tbody>
-                    {transports}
+                        {transports}
                     </tbody>
-                </table>
+                </Table>
             </div>
         );
     }

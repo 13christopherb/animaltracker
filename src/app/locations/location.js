@@ -33,10 +33,10 @@ class Location extends Component {
             <div>
                 <Button variant="info" onClick={() => this.setState({isOpen: !this.state.isOpen})} block>
                     <Row className="justify-content-md-center">
-                    <Col md={1}>{this.props.locationName}</Col>
-                    <Col md={1}>
-                        <small>{speciesCount}</small>
-                    </Col>
+                        <Col md={1}>{this.props.locationName}</Col>
+                        <Col md={1}>
+                            <small>{speciesCount}</small>
+                        </Col>
                     </Row>
                 </Button>
                 <Collapse in={this.state.isOpen}>
