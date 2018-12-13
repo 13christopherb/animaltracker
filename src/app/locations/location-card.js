@@ -11,6 +11,7 @@ import {TransportFormContainer, TransportModalForm} from '../transport-form/inde
 import Dropdown from "react-bootstrap/lib/Dropdown";
 
 
+
 /**
  * Condensed view of information about a location for mobile devices
  */
@@ -60,11 +61,12 @@ export default class LocationCard extends Component {
                             </h5>
                         </Dropdown>
                     </Card.Title>
+                    {this.props.animals.length > 0 ?
                     <Button variant="primary" size="sm"
                             onClick={(e) => this.setState({isOpen: !this.state.isOpen})}>
                         {this.state.isOpen ? <span><FontAwesomeIcon icon="chevron-down" /> {speciesCount}</span>
                             : <span><FontAwesomeIcon icon="chevron-up"/> {speciesCount}</span>}
-                    </Button>
+                    </Button> : <span>No animals</span>}
                     <Collapse in={this.state.isOpen}>
                         <div>
                             <AnimalList animals={this.props.animals}/>

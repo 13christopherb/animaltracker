@@ -5,7 +5,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import HeaderLogin from '../authentication/header-login'
-import {Navbar, Nav, NavItem, Button} from 'react-bootstrap'
+import {Navbar, Nav, NavItem, Button, NavDropdown, FormControl, Form} from 'react-bootstrap'
 
 /**
  * Component for header while user is logged out
@@ -14,10 +14,12 @@ import {Navbar, Nav, NavItem, Button} from 'react-bootstrap'
  */
 export const HeaderLoggedOut = (props) => {
     return (
-        <Navbar bg="light">
-            <Nav className="justify-content-end">
+        <Navbar bg="light" expand="lg">
+            <Navbar.Brand href="#home">TMMC</Navbar.Brand>
+            <Navbar.Collapse>
+                <Nav className="mr-auto"/>
                 <HeaderLogin/>
-            </Nav>
+            </Navbar.Collapse>
         </Navbar>
     )
 };
@@ -32,27 +34,33 @@ export const HeaderLoggedIn = (props) => {
     return (
         <Navbar bg="light">
             <Navbar.Collapse>
-                <Nav activeKey={props.pathname}>
-                    <NavItem eventKey="" onClick={props.changeNavbar}>
+                <Nav activeKey={props.pathname} onSelect={props.changeNavbar} className="mr-auto">
+                    <NavItem>
                         <Link name="" className="nav-link" to="/">Animals</Link>
                     </NavItem>
-                    <NavItem eventKey="transportsReducer" onClick={props.changeNavbar}>
+                    <NavItem>
                         <Link name="transports" className="nav-link" to="/transports">Transports</Link>
                     </NavItem>
-                    <NavItem pullRight>
-                        <Button variant="outline-primary" onClick={props.logout}>Sign out</Button>
-                    </NavItem>
+                </Nav>
+                <Nav>
+                    <Button className="mr-sm-2" variant="outline-primary" onClick={props.logout}>Sign out</Button>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
+
     )
 };
 
 export const MobileHeader = (props) => {
     return (
-        <nav className="navbar navbar-light bg-light justify-content-between">
-            <span>Marine Mammals</span>
-            <button className="btn btn-outline-primary btn-sm my-2 my-sm-0" onClick={props.logout}>Sign out</button>
-        </nav>
+        <Navbar bg="light">
+            <Navbar.Brand>Marine Mammals</Navbar.Brand>
+            <Navbar.Collapse>
+                <Nav>
+                    <Button className="mr-sm-2" size="sm" variant="outline-primary" onClick={props.logout}>Sign
+                        out</Button>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
     )
 };

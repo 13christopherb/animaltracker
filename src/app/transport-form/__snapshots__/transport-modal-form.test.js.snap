@@ -67,7 +67,7 @@ exports[`<TransportModalForm /> render() should render the component 1`] = `
       </ForwardRef(Bootstrap(FormRow))>
       <ForwardRef(Bootstrap(FormRow))>
         <ForwardRef(Bootstrap(Col))
-          xs={6}
+          xs={8}
         >
           <Field
             component={[Function]}
@@ -85,6 +85,8 @@ exports[`<TransportModalForm /> render() should render the component 1`] = `
             title="Meet Date"
           />
         </ForwardRef(Bootstrap(Col))>
+      </ForwardRef(Bootstrap(FormRow))>
+      <ForwardRef(Bootstrap(FormRow))>
         <ForwardRef(Bootstrap(Col))
           xs={6}
         >

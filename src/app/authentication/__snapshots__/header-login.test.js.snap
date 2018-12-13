@@ -1,63 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<AnimalForm /> AnimalForm renders correctly 1`] = `
-<div>
-  <form
-    className="form-inline"
-    onSubmit={[Function]}
+<form
+  className="form-inline"
+  onSubmit={[Function]}
+>
+  <div
+    className="form-group"
   >
     <div
-      className="form-group"
+      className="input-group"
     >
+      <input
+        className="mr-sm-2 form-control"
+        id="username"
+        name="username"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        type="text"
+        value=""
+      />
       <div
-        className="input-group"
-      >
-        <input
-          className="form-control"
-          id="username"
-          name="username"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onDragStart={[Function]}
-          onDrop={[Function]}
-          onFocus={[Function]}
-          type="text"
-          value=""
-        />
-        <div
-          className="invalid-feedback"
-        />
-      </div>
+        className="invalid-feedback"
+      />
     </div>
+  </div>
+  <div
+    className="form-group"
+  >
     <div
-      className="form-group"
+      className="input-group"
     >
+      <input
+        className="form-control"
+        id="password"
+        name="password"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        type="password"
+        value=""
+      />
       <div
-        className="input-group"
-      >
-        <input
-          className="form-control"
-          id="password"
-          name="password"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onDragStart={[Function]}
-          onDrop={[Function]}
-          onFocus={[Function]}
-          type="password"
-          value=""
-        />
-        <div
-          className="invalid-feedback"
-        />
-      </div>
+        className="invalid-feedback"
+      />
     </div>
-    <button
-      className="btn btn-outline-success my-2 my-sm-0"
-      type="submit"
-    >
-      Sign in
-    </button>
-  </form>
-</div>
+  </div>
+  <button
+    className="btn btn-outline-success"
+    disabled={false}
+    type="submit"
+  >
+    Sign in
+  </button>
+</form>
 `;

@@ -27,7 +27,8 @@ describe('authentication reducer', () => {
             })
         ).toEqual({
             loggedIn: true,
-            user: 'user'
+            user: 'user',
+            userLocation: 'MBO'
         })
     });
 

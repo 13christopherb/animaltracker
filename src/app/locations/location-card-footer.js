@@ -18,7 +18,7 @@ export default class LocationCardFooter extends Component {
         const {isOpen} = this.state;
         return (
             <Card.Footer className="bg-transparent">
-                {this.props.transports.length > 0 &&
+                {this.props.transports.length > 0 ?
                 <div>
                     <Button variant="primary" size="sm" onClick={() => this.setState({isOpen: !isOpen})}>
                         <FontAwesomeIcon icon="chevron-down"/> Transports
@@ -28,7 +28,8 @@ export default class LocationCardFooter extends Component {
                             <TransportCard transports={this.props.transports}/>
                         </div>
                     </Collapse>
-                </div>
+                </div> :
+                    <span>No transports</span>
                 }
             </Card.Footer>
         )

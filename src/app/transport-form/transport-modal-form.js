@@ -68,7 +68,7 @@ export const TransportModalForm = ({handleSubmit, handleChange, onSubmit, toggle
                         </Col>
                     </Form.Row>
                     <Form.Row>
-                        <Col xs={6}>
+                        <Col xs={8}>
                             <Field
                                 component={Select}
                                 name="meetDate"
@@ -84,6 +84,8 @@ export const TransportModalForm = ({handleSubmit, handleChange, onSubmit, toggle
                                 ]}
                             />
                         </Col>
+                    </Form.Row>
+                    <Form.Row>
                         <Col xs={6}>
                             <Field
                                 component={Input}

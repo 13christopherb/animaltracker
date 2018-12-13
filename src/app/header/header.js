@@ -56,7 +56,9 @@ class Header extends Component {
                                 <HeaderLoggedOut />
                         ) : (
                             this.props.loggedIn ?
-                                <MobileHeader />:
+                                <MobileHeader
+                                    logout={this.logout}
+                                />:
                                 <HeaderLoggedOut />
                         )
                     }

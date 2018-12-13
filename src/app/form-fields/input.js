@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/lib/Form';
+import FormControl from 'react-bootstrap/lib/FormControl';
 import InputGroup from 'react-bootstrap/lib/InputGroup';
 
 /**
@@ -14,21 +15,22 @@ import InputGroup from 'react-bootstrap/lib/InputGroup';
  * @param other Other props for the input tag
  * @returns {*} Rendered input field
  */
-export const Input = ({input, meta: {touched, error}, id, title, append, displayErrorMessage = true, ...other}) => {
+export const Input = ({input, meta: {touched, error}, id, title, append, className, displayErrorMessage = true, ...other}) => {
     return (
         <Form.Group controlId={id}>
             {title && <Form.Label className="form-label">{title}</Form.Label>}
             <InputGroup>
-                <Form.Control
+                <FormControl
                     isValid={touched && !error}
                     isInvalid={touched && error}
+                    className={className}
                     {...input}
                     {...other}
                 />
                 {append &&
                     <InputGroup.Append>{append}</InputGroup.Append>
                 }
-                <Form.Control.Feedback type="invalid">{error}</Form.Control.Feedback>
+                <FormControl.Feedback type="invalid">{error}</FormControl.Feedback>
             </InputGroup>
         </Form.Group>
     )

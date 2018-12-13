@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
-import {Navbar, Form, Button} from 'react-bootstrap';
+import {Navbar, Form, Button, FormControl} from 'react-bootstrap';
 import {authenticatinActions} from "./ducks/index";
 import {Input} from "../form-fields/index";
 import {validate} from "./validators";

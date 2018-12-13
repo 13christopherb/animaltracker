@@ -3,13 +3,14 @@
 exports[`<AnimalListeItemForm /> AnimalForm renders correctly 1`] = `
 <div>
   <form
+    className=""
     onSubmit={[Function]}
   >
     <div
       className="form-row"
     >
       <div
-        className="col col-md-2"
+        className="col-md-2"
       >
         <h6>
           Kirt
@@ -58,7 +59,7 @@ exports[`<AnimalListeItemForm /> AnimalForm renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="col col-md-6"
+        className="col-md-6"
       >
         <button
           className="btn btn-primary"
@@ -69,6 +70,7 @@ exports[`<AnimalListeItemForm /> AnimalForm renders correctly 1`] = `
         </button>
         <button
           className="btn btn-danger"
+          disabled={false}
           type="button"
         >
           Cancel

@@ -117,13 +117,13 @@ exports[`<AnimalRow /> render() should render the component 1`] = `
       }
     }
   >
-    <button
-      className="btn btn-danger"
+    <ForwardRef(Bootstrap(Button))
       id="delete"
       onClick={[Function]}
+      variant="danger"
     >
       Delete
-    </button>
+    </ForwardRef(Bootstrap(Button))>
   </td>
 </tr>
 `;

@@ -55,82 +55,288 @@ exports[`<HeaderLoggedIn /> render() should render correctly 1`] = `
         }
       }
     >
-      <nav
-        className="navbar navbar-expand-lg navbar-light bg-light"
+      <ForwardRef(Bootstrap(undefined))
+        bg="light"
       >
-        <ul
-          className="navbar-nav mr-auto"
+        <ForwardRef
+          bg="light"
+          bsPrefix="navbar"
+          innerRef={null}
         >
-          <li
-            className="nav-item"
-            id=""
+          <Uncontrolled(Navbar)
+            bg="light"
+            bsPrefix="navbar"
+            innerRef={null}
           >
-            <Link
-              className="nav-link"
-              name=""
-              replace={false}
-              to="/"
+            <Navbar
+              as="nav"
+              bg="light"
+              bsPrefix="navbar"
+              collapseOnSelect={false}
+              expand={true}
+              onToggle={[Function]}
+              variant="light"
             >
-              <a
-                className="nav-link"
-                href="/"
-                name=""
-                onClick={[Function]}
+              <nav
+                className="navbar navbar-expand navbar-light bg-light"
               >
-                Animals
-              </a>
-            </Link>
-          </li>
-          <li
-            className="nav-item"
-            id="transports"
-          >
-            <Link
-              className="nav-link"
-              name="transports"
-              replace={false}
-              to="/transports"
-            >
-              <a
-                className="nav-link"
-                href="/transports"
-                name="transports"
-                onClick={[Function]}
-              >
-                Transports
-              </a>
-            </Link>
-          </li>
-        </ul>
-        <button
-          className="btn btn-outline-primary my-2"
-        >
-          Sign out
-        </button>
-      </nav>
+                <ForwardRef(Bootstrap(NavbarCollapse))>
+                  <NavbarCollapse
+                    bsPrefix="navbar-collapse"
+                  >
+                    <Collapse
+                      appear={false}
+                      dimension="height"
+                      getDimensionValue={[Function]}
+                      in={false}
+                      mountOnEnter={false}
+                      timeout={300}
+                      unmountOnExit={false}
+                    >
+                      <Transition
+                        addEndListener={[Function]}
+                        appear={false}
+                        aria-expanded={null}
+                        enter={true}
+                        exit={true}
+                        in={false}
+                        mountOnEnter={false}
+                        onEnter={[Function]}
+                        onEntered={[Function]}
+                        onEntering={[Function]}
+                        onExit={[Function]}
+                        onExited={[Function]}
+                        onExiting={[Function]}
+                        timeout={300}
+                        unmountOnExit={false}
+                      >
+                        <div
+                          aria-expanded={null}
+                          className="navbar-collapse collapse"
+                        >
+                          <ForwardRef(ContextTransform)
+                            className="mr-auto"
+                          >
+                            <ForwardRef
+                              className="mr-auto"
+                              navbar={true}
+                              navbarBsPrefix="navbar"
+                            >
+                              <Uncontrolled(Component)
+                                className="mr-auto"
+                                innerRef={null}
+                                navbar={true}
+                                navbarBsPrefix="navbar"
+                              >
+                                <ForwardRef(Bootstrap(Nav))
+                                  className="mr-auto"
+                                  navbar={true}
+                                  navbarBsPrefix="navbar"
+                                  onSelect={[Function]}
+                                >
+                                  <Nav
+                                    as="div"
+                                    bsPrefix="nav"
+                                    className="mr-auto"
+                                    fill={false}
+                                    justify={false}
+                                    navbar={true}
+                                    navbarBsPrefix="navbar"
+                                    onSelect={[Function]}
+                                  >
+                                    <ForwardRef(ContextTransform(AbstractNav))
+                                      as="div"
+                                      className="mr-auto navbar-nav"
+                                      onSelect={[Function]}
+                                    >
+                                      <AbstractNav
+                                        as="div"
+                                        className="mr-auto navbar-nav"
+                                        onSelect={[Function]}
+                                        parentOnSelect={[Function]}
+                                      >
+                                        <div
+                                          className="mr-auto navbar-nav"
+                                          onKeyDown={[Function]}
+                                        >
+                                          <ForwardRef(Bootstrap(NavItem))>
+                                            <NavItem
+                                              as="div"
+                                              bsPrefix="nav-item"
+                                            >
+                                              <div
+                                                className="nav-item"
+                                              >
+                                                <Link
+                                                  className="nav-link"
+                                                  name=""
+                                                  replace={false}
+                                                  to="/"
+                                                >
+                                                  <a
+                                                    className="nav-link"
+                                                    href="/"
+                                                    name=""
+                                                    onClick={[Function]}
+                                                  >
+                                                    Animals
+                                                  </a>
+                                                </Link>
+                                              </div>
+                                            </NavItem>
+                                          </ForwardRef(Bootstrap(NavItem))>
+                                          <ForwardRef(Bootstrap(NavItem))>
+                                            <NavItem
+                                              as="div"
+                                              bsPrefix="nav-item"
+                                            >
+                                              <div
+                                                className="nav-item"
+                                              >
+                                                <Link
+                                                  className="nav-link"
+                                                  name="transports"
+                                                  replace={false}
+                                                  to="/transports"
+                                                >
+                                                  <a
+                                                    className="nav-link"
+                                                    href="/transports"
+                                                    name="transports"
+                                                    onClick={[Function]}
+                                                  >
+                                                    Transports
+                                                  </a>
+                                                </Link>
+                                              </div>
+                                            </NavItem>
+                                          </ForwardRef(Bootstrap(NavItem))>
+                                        </div>
+                                      </AbstractNav>
+                                    </ForwardRef(ContextTransform(AbstractNav))>
+                                  </Nav>
+                                </ForwardRef(Bootstrap(Nav))>
+                              </Uncontrolled(Component)>
+                            </ForwardRef>
+                          </ForwardRef(ContextTransform)>
+                          <ForwardRef(ContextTransform)>
+                            <ForwardRef
+                              navbar={true}
+                              navbarBsPrefix="navbar"
+                            >
+                              <Uncontrolled(Component)
+                                innerRef={null}
+                                navbar={true}
+                                navbarBsPrefix="navbar"
+                              >
+                                <ForwardRef(Bootstrap(Nav))
+                                  navbar={true}
+                                  navbarBsPrefix="navbar"
+                                  onSelect={[Function]}
+                                >
+                                  <Nav
+                                    as="div"
+                                    bsPrefix="nav"
+                                    fill={false}
+                                    justify={false}
+                                    navbar={true}
+                                    navbarBsPrefix="navbar"
+                                    onSelect={[Function]}
+                                  >
+                                    <ForwardRef(ContextTransform(AbstractNav))
+                                      as="div"
+                                      className="navbar-nav"
+                                      onSelect={[Function]}
+                                    >
+                                      <AbstractNav
+                                        as="div"
+                                        className="navbar-nav"
+                                        onSelect={[Function]}
+                                        parentOnSelect={[Function]}
+                                      >
+                                        <div
+                                          className="navbar-nav"
+                                          onKeyDown={[Function]}
+                                        >
+                                          <ForwardRef(Bootstrap(Button))
+                                            className="mr-sm-2"
+                                            variant="outline-primary"
+                                          >
+                                            <Button
+                                              active={false}
+                                              bsPrefix="btn"
+                                              className="mr-sm-2"
+                                              disabled={false}
+                                              innerRef={null}
+                                              type="button"
+                                              variant="outline-primary"
+                                            >
+                                              <button
+                                                className="mr-sm-2 btn btn-outline-primary"
+                                                disabled={false}
+                                                type="button"
+                                              >
+                                                Sign out
+                                              </button>
+                                            </Button>
+                                          </ForwardRef(Bootstrap(Button))>
+                                        </div>
+                                      </AbstractNav>
+                                    </ForwardRef(ContextTransform(AbstractNav))>
+                                  </Nav>
+                                </ForwardRef(Bootstrap(Nav))>
+                              </Uncontrolled(Component)>
+                            </ForwardRef>
+                          </ForwardRef(ContextTransform)>
+                        </div>
+                      </Transition>
+                    </Collapse>
+                  </NavbarCollapse>
+                </ForwardRef(Bootstrap(NavbarCollapse))>
+              </nav>
+            </Navbar>
+          </Uncontrolled(Navbar)>
+        </ForwardRef>
+      </ForwardRef(Bootstrap(undefined))>
     </HeaderLoggedIn>
   </Router>
 </MemoryRouter>
 `;
 
 exports[`<HeaderLoggedIn /> render() should render the component when logged out 1`] = `
-<nav
-  className="navbar navbar-expand-lg navbar-light bg-light"
+<ForwardRef(Bootstrap(undefined))
+  bg="light"
+  expand="lg"
 >
-  <ul
-    className="navbar-nav mr-auto"
-  />
-  <ReduxForm />
-</nav>
+  <ForwardRef(Bootstrap(NavbarBrand))
+    href="#home"
+  >
+    TMMC
+  </ForwardRef(Bootstrap(NavbarBrand))>
+  <ForwardRef(Bootstrap(NavbarCollapse))>
+    <ForwardRef(ContextTransform)
+      className="mr-auto"
+    />
+    <ReduxForm />
+  </ForwardRef(Bootstrap(NavbarCollapse))>
+</ForwardRef(Bootstrap(undefined))>
 `;
 
 exports[`<HeaderLoggedOut /> render() should render the component when logged out 1`] = `
-<nav
-  className="navbar navbar-expand-lg navbar-light bg-light"
+<ForwardRef(Bootstrap(undefined))
+  bg="light"
+  expand="lg"
 >
-  <ul
-    className="navbar-nav mr-auto"
-  />
-  <ReduxForm />
-</nav>
+  <ForwardRef(Bootstrap(NavbarBrand))
+    href="#home"
+  >
+    TMMC
+  </ForwardRef(Bootstrap(NavbarBrand))>
+  <ForwardRef(Bootstrap(NavbarCollapse))>
+    <ForwardRef(ContextTransform)
+      className="mr-auto"
+    />
+    <ReduxForm />
+  </ForwardRef(Bootstrap(NavbarCollapse))>
+</ForwardRef(Bootstrap(undefined))>
 `;
