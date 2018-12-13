@@ -40,7 +40,6 @@ class AnimalFormContainer extends Component {
 
 function mapStateToProps({animalForm}, ownProps) {
     return {
-        fields: animalForm.fields
     }
 }
 

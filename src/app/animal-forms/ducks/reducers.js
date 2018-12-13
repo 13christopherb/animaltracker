@@ -1,5 +1,3 @@
-//@flow
-
 import {types} from "./types";
 
 let initialState: State = {
