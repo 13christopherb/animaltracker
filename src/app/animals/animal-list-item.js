@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {reduxForm} from 'redux-form';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
+import {ButtonDropdownToggle} from "../form-fields/button-dropdown-toggle";
+import Button from 'react-bootstrap/lib/Button';
+import Dropdown from 'react-bootstrap/lib/Dropdown';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {AnimalListItemForm} from "../animal-forms";
 import {animalsActions} from "./ducks/index";
@@ -45,31 +48,29 @@ class AnimalListItem extends Component {
             <div>
                 <ListGroup.Item key={this.props.animal.name}>
                     {this.state.isMoving ? (
-                        <div>
                             <AnimalListItemForm
                                 onSubmit={this.handleSubmit}
                                 handleSubmit={this.props.handleSubmit}
                                 toggleMoving={this.toggleMoving}
                                 {...this.props}
                             />
-                        </div>
                     ) : (
                         <div>
-                            <span>
+
+                            <Dropdown>
                                 {this.props.animal.species} | {this.props.animal.name} {this.props.animal.weight} kg
-                             </span>
-                            <button className="btn btn-sm btn-light float-right" type="button" id="dropdownMenuButton"
-                                    data-toggle="dropdown">
-                                <FontAwesomeIcon icon="ellipsis-h"/>
-                            </button>
-                            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <button className="dropdown-item" onClick={this.toggleMoving}>
-                                    <FontAwesomeIcon icon="people-carry"/> Move
-                                </button>
-                                <button className="dropdown-item" onClick={this.handleDelete}>
-                                    <FontAwesomeIcon icon="trash-alt"/> Delete
-                                </button>
-                            </div>
+                                <Dropdown.Toggle as={ButtonDropdownToggle} variant="light" size="sm" className="no-caret">
+                                    <FontAwesomeIcon icon="ellipsis-h"/>
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item onClick={this.toggleMoving}>
+                                        <FontAwesomeIcon icon="people-carry"/> Move
+                                    </Dropdown.Item>
+                                    <Dropdown.Item onClick={this.handleDelete}>
+                                        <FontAwesomeIcon icon="trash-alt"/> Delete
+                                    </Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
                         </div>
                     )
                     }

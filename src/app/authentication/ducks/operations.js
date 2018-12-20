@@ -5,7 +5,6 @@ import {authInstance} from "../../../utils/authentication.api";
 export const login = (login) =>
     authInstance.post('/login', JSON.stringify(login))
         .then(user => {
-            console.log(user);
             if (user.data.accessToken) {
                 localStorage.setItem('username', user.data.username);
                 localStorage.setItem('accessToken', user.data.accessToken);
