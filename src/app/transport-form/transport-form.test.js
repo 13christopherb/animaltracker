@@ -1,15 +1,18 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import {TransportForm} from "./transport-form";
 import toJson from 'enzyme-to-json';
 import moment from 'moment';
-import {TransportModalForm} from "./transport-modal-form";
+import {reduxForm} from "redux-form";
+import configureMockStore from "redux-mock-store";
+import {Provider} from "react-redux";
 
-const transport = {
-    departs: 'MBO',
-    arrives: 'NRO',
-    meetTime: moment('2017-09-15 09:30:00') //Arbitrary time
-};
+const mockStore = configureMockStore();
+
+const onSubmit = jest.fn();
+const Decorated = reduxForm({
+    form: 'animal-forms', onSubmit: {onSubmit}
+})(TransportForm);
 
 describe('<TransportForm />', () => {
     const mockSubmit = jest.fn();
@@ -26,12 +29,16 @@ describe('<TransportForm />', () => {
     });
     describe('submit', () => {
         it('should disable button on form errors', () => {
-            const wrapper = shallow(<TransportForm handleSubmit={mockSubmit}
-                                                        handleChange={mockChange}
-                                                        id="MBO"
-                                                        defaultTime={defaultTime}
-                                                        pristine={false}
-                                                        errors={{departs: 'Error'}}/>);
+            const store = mockStore();
+            const props = {
+                pristine: false,
+                valid: false,
+            };
+            const wrapper = mount(<Provider store={store}>
+                <Decorated
+                    {...props}
+                />
+            </Provider>);
             expect(wrapper.find('button[type="submit"]').props().disabled).toEqual(true);
         });
     })

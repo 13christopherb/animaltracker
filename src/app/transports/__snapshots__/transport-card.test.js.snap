@@ -2,7 +2,7 @@
 
 exports[`<TransportCard /> render() should render the component 1`] = `
 <ForwardRef>
-  <TransportListItem
+  <Connect(TransportListItem)
     key="0"
     transport={
       Object {
@@ -13,7 +13,7 @@ exports[`<TransportCard /> render() should render the component 1`] = `
       }
     }
   />
-  <TransportListItem
+  <Connect(TransportListItem)
     key="1"
     transport={
       Object {

@@ -15,7 +15,7 @@ const initialState = {
     animals: testValues.animals
 }
 
-const store = mockStore(initialState)
+const store = mockStore(initialState);
 
 describe('<Animals />', () => {
     describe('render()', () => {

@@ -6,7 +6,7 @@ import {transportActions} from "./ducks";
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {ButtonDropdownToggle} from "../form-fields/button-dropdown-toggle";
-import connect from "react-redux/es/connect/connect";
+import {connect} from "react-redux";
 
 
 class TransportListItem extends React.Component {

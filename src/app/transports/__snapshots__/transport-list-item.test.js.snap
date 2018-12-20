@@ -1,30 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<TransportListItem /> render() should render the component 1`] = `
-<ForwardRef(Bootstrap(ListGroupItem))>
-  MBO
-    
-  <FontAwesomeIcon
-    border={false}
-    className=""
-    fixedWidth={false}
-    flip={null}
-    icon="arrow-right"
-    inverse={false}
-    listItem={false}
-    mask={null}
-    pull={null}
-    pulse={false}
-    rotation={null}
-    size={null}
-    spin={false}
-    symbol={false}
-    title=""
-    transform={null}
-  />
-    
-  NRO
-    
-  09/15 0930
-</ForwardRef(Bootstrap(ListGroupItem))>
+<TransportListItem
+  dispatch={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  transport={
+    Object {
+      "arrives": "NRO",
+      "departs": "MBO",
+      "meetTime": "2017-09-15T16:30:00.000Z",
+    }
+  }
+/>
 `;

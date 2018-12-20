@@ -1,17 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<UserLogin /> render() should render the component 1`] = `
-<div>
-  <Connect(NewUser) />
-  <form
+<ForwardRef(Bootstrap(Jumbotron))>
+  <ForwardRef(Bootstrap(Form))
     onSubmit={[Function]}
   >
-    <div
-      className="form-row"
-    >
-      <div
-        className="col"
-      >
+    <ForwardRef(Bootstrap(FormRow))>
+      <ForwardRef(Bootstrap(Col))>
         <label>
           Username
           <input
@@ -22,23 +17,26 @@ exports[`<UserLogin /> render() should render the component 1`] = `
             value=""
           />
         </label>
-      </div>
-    </div>
-    <label>
-      Password
-      <input
-        className="form-control"
-        name="password"
-        onChange={[Function]}
-        type="text"
-        value=""
-      />
-    </label>
-    <button
+      </ForwardRef(Bootstrap(Col))>
+    </ForwardRef(Bootstrap(FormRow))>
+    <ForwardRef(Bootstrap(FormRow))>
+      <label>
+        Password
+        <input
+          className="form-control"
+          name="password"
+          onChange={[Function]}
+          type="password"
+          value=""
+        />
+      </label>
+    </ForwardRef(Bootstrap(FormRow))>
+    <ForwardRef(Bootstrap(Button))
       type="submit"
+      variant="primary"
     >
-      Submit
-    </button>
-  </form>
-</div>
+      Sign in
+    </ForwardRef(Bootstrap(Button))>
+  </ForwardRef(Bootstrap(Form))>
+</ForwardRef(Bootstrap(Jumbotron))>
 `;
