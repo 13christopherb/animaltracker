@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {reduxForm} from 'redux-form';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import {ButtonDropdownToggle} from "../form-fields/button-dropdown-toggle";
-import Button from 'react-bootstrap/lib/Button';
 import Dropdown from 'react-bootstrap/lib/Dropdown';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {AnimalListItemForm} from "../animal-forms";
@@ -48,30 +47,27 @@ class AnimalListItem extends Component {
             <div>
                 <ListGroup.Item key={this.props.animal.name}>
                     {this.state.isMoving ? (
-                            <AnimalListItemForm
-                                onSubmit={this.handleSubmit}
-                                handleSubmit={this.props.handleSubmit}
-                                toggleMoving={this.toggleMoving}
-                                {...this.props}
-                            />
+                        <AnimalListItemForm
+                            onSubmit={this.handleSubmit}
+                            handleSubmit={this.props.handleSubmit}
+                            toggleMoving={this.toggleMoving}
+                            {...this.props}
+                        />
                     ) : (
-                        <div>
-
-                            <Dropdown>
-                                {this.props.animal.species} | {this.props.animal.name} {this.props.animal.weight} kg
-                                <Dropdown.Toggle as={ButtonDropdownToggle} variant="light" size="sm" className="no-caret">
-                                    <FontAwesomeIcon icon="ellipsis-h"/>
-                                </Dropdown.Toggle>
-                                <Dropdown.Menu>
-                                    <Dropdown.Item onClick={this.toggleMoving}>
-                                        <FontAwesomeIcon icon="people-carry"/> Move
-                                    </Dropdown.Item>
-                                    <Dropdown.Item onClick={this.handleDelete}>
-                                        <FontAwesomeIcon icon="trash-alt"/> Delete
-                                    </Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>
-                        </div>
+                        <Dropdown>
+                            {this.props.animal.species} | {this.props.animal.name} {this.props.animal.weight} kg
+                            <Dropdown.Toggle as={ButtonDropdownToggle} variant="light" size="sm">
+                                <FontAwesomeIcon icon="ellipsis-h"/>
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item onClick={this.toggleMoving}>
+                                    <FontAwesomeIcon icon="people-carry"/> Move
+                                </Dropdown.Item>
+                                <Dropdown.Item onClick={this.handleDelete}>
+                                    <FontAwesomeIcon icon="trash-alt"/> Delete
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                     )
                     }
                 </ListGroup.Item>
