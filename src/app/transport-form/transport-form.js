@@ -4,7 +4,7 @@ import {Select, Input} from "../form-fields/index";
 import {Button, Col, Form} from 'react-bootstrap';
 import {Field} from 'redux-form'
 
-export const TransportForm = ({handleSubmit, handleChange, onSubmit, ...props}) => {
+export const TransportForm = ({handleSubmit, handleChange, onSubmit, value, pristine, valid, ...rest}) => {
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Row>
@@ -14,7 +14,7 @@ export const TransportForm = ({handleSubmit, handleChange, onSubmit, ...props}) 
                         title="Departs"
                         id="departs"
                         name="departs"
-                        value={props.value}
+                        value={value}
                         onChange={handleChange}
                         options={[
                             'NRO',
@@ -29,7 +29,7 @@ export const TransportForm = ({handleSubmit, handleChange, onSubmit, ...props}) 
                         title="Arrives"
                         name="arrives"
                         id="arrives"
-                        value={props.value}
+                        value={value}
                         onChange={handleChange}
                         options={[
                             'NRO',
@@ -45,7 +45,7 @@ export const TransportForm = ({handleSubmit, handleChange, onSubmit, ...props}) 
                         id="meetPlace"
                         title="Meet Place"
                         type="text"
-                        value={props.value}
+                        value={value}
                         onChange={handleChange}
                     />
                 </Col>
@@ -55,7 +55,7 @@ export const TransportForm = ({handleSubmit, handleChange, onSubmit, ...props}) 
                         name="meetDate"
                         id="meetDate"
                         title="Meet Date"
-                        value={props.value}
+                        value={value}
                         onChange={handleChange}
                         options={[
                             moment().format('dddd MM/DD'),
@@ -72,13 +72,13 @@ export const TransportForm = ({handleSubmit, handleChange, onSubmit, ...props}) 
                         id="meetTime"
                         title="Meet Time"
                         type="text"
-                        value={props.value}
+                        value={value}
                         onChange={handleChange}
                     />
                 </Col>
                 <Col md={3}>
                     <Button variant="primary"
-                            disabled={props.pristine || !props.valid}
+                            disabled={pristine || !valid}
                             type="submit">
                         Submit
                     </Button>

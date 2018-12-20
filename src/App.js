@@ -10,7 +10,7 @@ import {withRouter} from 'react-router';
 import Container from 'react-bootstrap/lib/Container';
 import {PrivateRoute} from "./utils/private-route";
 import {Home} from "./app/home/home";
-import UserLogin from "./app/authentication/user-login";
+import {Login} from "./app/home/login";
 import Header from "./app/header/header";
 import {Transports} from "./app/transports/transports";
 
@@ -36,7 +36,7 @@ class App extends Component {
                 <Header />
                 <PrivateRoute exact path="/" component={Home} auth={this.props.user}/>
                 <PrivateRoute exact path="/transports" component={Transports} auth={this.props.user}/>
-                <Route exact path="/login" component={UserLogin}/>
+                <Route exact path="/login" component={Login}/>
             </Container>
         );
     }

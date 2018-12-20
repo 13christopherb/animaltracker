@@ -4,8 +4,9 @@
 
 import React from 'react';
 import {Link} from 'react-router-dom';
-import HeaderLogin from '../authentication/header-login'
-import {Navbar, Nav, NavItem, Button, NavDropdown, FormControl, Form} from 'react-bootstrap'
+import {HeaderLogin} from '../authentication/header-login';
+import LoginFormContainer from '../authentication/login-form-container';
+import {Navbar, Nav, NavItem, Button} from 'react-bootstrap';
 
 /**
  * Component for header while user is logged out
@@ -18,7 +19,9 @@ export const HeaderLoggedOut = (props) => {
             <Navbar.Brand href="#home">TMMC</Navbar.Brand>
             <Navbar.Collapse>
                 <Nav className="mr-auto"/>
-                <HeaderLogin/>
+                <LoginFormContainer>
+                    <HeaderLogin/>
+                </LoginFormContainer>
             </Navbar.Collapse>
         </Navbar>
     )

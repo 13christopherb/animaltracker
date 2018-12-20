@@ -17,7 +17,10 @@ export default function authenticationReducer(state = initialState, action) {
                 userLocation: 'MBO'
             };
         case types.LOGIN_FAILURE:
-            return {};
+            return {
+                loggedIn: false,
+                loginError: true
+            };
         case types.LOGOUT:
             return {};
         default:
