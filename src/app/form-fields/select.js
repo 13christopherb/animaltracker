@@ -12,7 +12,7 @@ import InputGroup from 'react-bootstrap/lib/InputGroup';
  * @param other Other props for the select tag
  * @returns {*} Rendered select field
  */
-export const Select = ({input, meta: {touched, error}, id, title, options, ...other}) => {
+export const Select = ({input, meta: {touched, error}, id, title, options, ...rest}) => {
     return (
         <Form.Group controlId={id}>
             <Form.Label>{title}</Form.Label>
@@ -20,7 +20,7 @@ export const Select = ({input, meta: {touched, error}, id, title, options, ...ot
                           isValid={touched && !error}
                           isInvalid={touched && error}
                           {...input}
-                          {...other}
+                          {...rest}
             >
                 <option value="" disabled/>
                 {options.map(option => {

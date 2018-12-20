@@ -23,9 +23,6 @@ exports[`<AnimalForm /> AnimalForm renders correctly 1`] = `
         type="text"
         value=""
       />
-      <div
-        className="invalid-feedback"
-      />
     </div>
   </div>
   <div
@@ -45,9 +42,6 @@ exports[`<AnimalForm /> AnimalForm renders correctly 1`] = `
         onFocus={[Function]}
         type="password"
         value=""
-      />
-      <div
-        className="invalid-feedback"
       />
     </div>
   </div>

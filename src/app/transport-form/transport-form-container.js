@@ -14,13 +14,11 @@ class TransportFormContainer extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(values) {
-        let meetDateTime = moment(values.meetDate + ' ' + values.meetTime,'dddd MM/DD h:mm' );
+    handleSubmit({meetDate, meetTime, ...rest}) {
+        let meetDateTime = moment(meetDate + ' ' + meetTime,'dddd MM/DD h:mm' );
         const transport = {
-            departs: values.departs,
-            arrives: values.arrives,
-            meetPlace: values.meetPlace,
-            meetTime: meetDateTime.format()
+            meetTime: meetDateTime.format(),
+            ...rest
         };
         this.props.dispatch(transportFormActions.addTransport(transport));
     }

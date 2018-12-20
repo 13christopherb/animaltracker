@@ -21,11 +21,7 @@ class AnimalFormContainer extends Component {
         const animal = {
             timestamp: moment().utc().format(),
             location: this.props.location ? this.props.location : values.location,
-            name: values.name,
-            species: values.species,
-            weight: values.weight,
-            isGettingControlledMeds: values.isGettingControlledMeds,
-            isGettingTubed: values.isGettingTubed
+            ...values
         };
         this.props.dispatch(actions.addAnimal(animal));
     }
