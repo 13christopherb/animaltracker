@@ -1,24 +1,24 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Locations from "../locations/locations";
-import {actions} from '../authentication/ducks/actions';
-
+import LoginFormContainer from '../authentication/login-container';
+import {UserLogin} from '../authentication/user-login';
+import {Redirect} from "react-router";
 
 class Login extends Component {
 
     constructor(props) {
         super(props);
-        this.logout = this.logout.bind(this);
-    }
-
-    logout(e) {
-        this.props.dispatch(actions.logout());
     }
 
     render() {
+        if (this.props.loggedIn) {
+            return (<Redirect to={{pathname: '/'}}/>)
+        }
         return (
             <div>
-                <Locations/>
+                <LoginFormContainer>
+                    <UserLogin />
+                </LoginFormContainer>
             </div>
         );
     }

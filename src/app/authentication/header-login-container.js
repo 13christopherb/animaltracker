@@ -8,7 +8,7 @@ import {validate} from "./validators";
 /**
  * Container component for a form to create a new animal
  */
-class LoginFormContainer extends Component {
+class HeaderLoginContainer extends Component {
 
     constructor(props) {
         super(props);
@@ -39,6 +39,6 @@ function mapStateToProps({authentication}) {
 }
 
 export default reduxForm({
-    form: 'UserLogin',
+    form: 'HeaderLogin',
     validate
-})(connect(mapStateToProps)(LoginFormContainer));
+})(connect(mapStateToProps)(HeaderLoginContainer));

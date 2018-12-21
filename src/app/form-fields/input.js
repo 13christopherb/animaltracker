@@ -15,14 +15,16 @@ import InputGroup from 'react-bootstrap/lib/InputGroup';
  * @param other Other props for the input tag
  * @returns {*} Rendered input field
  */
-export const Input = ({input, meta: {touched, error}, id, title, append, className, displayErrorMessage = true, ...rest}) => {
+export const Input = ({input, meta: {touched, error}, id,
+                          title, append, className, displayErrorMessage = true,
+                          serverError, ...rest}) => {
     return (
         <Form.Group controlId={id}>
             {title && <Form.Label className="form-label">{title}</Form.Label>}
             <InputGroup>
                 <FormControl
                     isValid={touched && !error}
-                    isInvalid={touched && error}
+                    isInvalid={touched && (error || serverError)}
                     className={className}
                     {...input}
                     {...rest}

@@ -1,47 +1,60 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Redirect} from 'react-router';
-import {actions} from './ducks/actions';
+import React from 'react';
 import Jumbotron from 'react-bootstrap/lib/Jumbotron';
+import Alert from 'react-bootstrap/lib/Alert';
 import Form from 'react-bootstrap/lib/Form';
 import Col from 'react-bootstrap/lib/Col';
 import Button from 'react-bootstrap/lib/Button';
+import Fade from 'react-bootstrap/lib/Fade';
+import {Input} from "../form-fields";
+import {Field} from "redux-form";
 
 
-export const UserLogin = ({handleSubmit, handleChange, onSubmit, value, user, ...rest}) => {
-
-    if (this.props.user) {
-        return (<Redirect to={{pathname: '/'}}/>)
-    }
+export const UserLogin = ({handleSubmit, handleChange, onSubmit, value, loginError = false, ...rest}) => {
     return (
         <Jumbotron>
-            <Form onSubmit={this.handleSubmit}>
+            <Fade in={loginError}>
+                <div id="login-error-fade">
+                    <Alert variant="danger">Username or password is incorrect</Alert>
+                </div>
+            </Fade>
+            <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Row>
-                    <Col>
-                        <label>
-                            Username
-                            <input
-                                name="username" className="form-control"
-                                type="text"
-                                onChange={this.handleInputChange}
-                                value={this.state.username}
-                            />
-                        </label>
+                    <Col md={3} xs={12}>
+                        <Field
+                            component={Input}
+                            id="username"
+                            name="username"
+                            title="Username"
+                            type="text"
+                            className="mr-sm-2"
+                            onChange={handleChange}
+                            value={value}
+                            serverError={loginError}
+                        />
                     </Col>
                 </Form.Row>
                 <Form.Row>
-                    <label>
-                        Password
-                        <input
-                            name="password" className="form-control"
+                    <Col md={3} xs={12}>
+                        <Field
+                            component={Input}
+                            id="password"
+                            name="password"
+                            title="Password"
                             type="password"
-                            onChange={this.handleInputChange}
-                            value={this.state.password}
+                            onChange={handleChange}
+                            value={value}
+                            serverError={loginError}
                         />
-                    </label>
+                    </Col>
                 </Form.Row>
-                {this.props.loginError && <h3>Error</h3>}
-                <Button variant="primary" type="submit">Sign in</Button>
+                <Form.Row>
+                    <Col md={3} xs={12}>
+                        <Button variant="primary"
+                                type="submit"
+                                aria-controls="login-error-fade"
+                                block>Sign in</Button>
+                    </Col>
+                </Form.Row>
             </Form>
         </Jumbotron>
     );

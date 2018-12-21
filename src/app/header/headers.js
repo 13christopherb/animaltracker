@@ -5,7 +5,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {HeaderLogin} from '../authentication/header-login';
-import LoginFormContainer from '../authentication/login-form-container';
+import HeaderLoginContainer from '../authentication/header-login-container';
 import {Navbar, Nav, NavItem, Button} from 'react-bootstrap';
 
 /**
@@ -19,9 +19,9 @@ export const HeaderLoggedOut = (props) => {
             <Navbar.Brand href="#home">TMMC</Navbar.Brand>
             <Navbar.Collapse>
                 <Nav className="mr-auto"/>
-                <LoginFormContainer>
+                <HeaderLoginContainer>
                     <HeaderLogin/>
-                </LoginFormContainer>
+                </HeaderLoginContainer>
             </Navbar.Collapse>
         </Navbar>
     )
