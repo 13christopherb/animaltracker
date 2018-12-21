@@ -73,8 +73,7 @@ class Locations extends Component {
                                 {this.props.locations.map(
                                     (location) =>
                                         <Location key={location.locationName}
-                                                  locationName={location.locationName}
-                                                  animals={location.animals}
+                                                  {...location}
                                         />
                                 )}
                             </div>

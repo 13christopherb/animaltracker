@@ -317,7 +317,9 @@ exports[`<HeaderLoggedIn /> render() should render the component when logged out
     <ForwardRef(ContextTransform)
       className="mr-auto"
     />
-    <ReduxForm />
+    <ReduxForm>
+      <HeaderLogin />
+    </ReduxForm>
   </ForwardRef(Bootstrap(NavbarCollapse))>
 </ForwardRef(Bootstrap(undefined))>
 `;
@@ -336,7 +338,9 @@ exports[`<HeaderLoggedOut /> render() should render the component when logged ou
     <ForwardRef(ContextTransform)
       className="mr-auto"
     />
-    <ReduxForm />
+    <ReduxForm>
+      <HeaderLogin />
+    </ReduxForm>
   </ForwardRef(Bootstrap(NavbarCollapse))>
 </ForwardRef(Bootstrap(undefined))>
 `;

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import CardColumns from 'react-bootstrap/lib/CardColumns'
 import {locationActions} from './ducks/';
 import LocationCard from "./location-card";
+import Locations from './locations';
 
 class LocationSummaries extends Component {
 
@@ -32,14 +33,15 @@ class LocationSummaries extends Component {
     render() {
         return (
             <CardColumns>
-                {Object.keys(this.props.locations).map(
+                {this.props.locations.map(
                     (location) =>
-                        <LocationCard key={location}
-                                      {...this.props.locations[location]}
+                        <LocationCard key={location.locationName}
+                                      {...location}
                                       expandSummary={this.expandSummary}
-                                      expanded={this.state.expandedLocationNames.includes(location)}
+                                      expanded={this.state.expandedLocationNames.includes(location.locationName)}
                                       transports={this.props.transports.filter((transport) =>
-                                          transport.departs === location || transport.arrives === location)}
+                                          transport.departs === location.locationName ||
+                                          transport.arrives === location.locationName)}
                         />
                 )}
             </CardColumns>
@@ -49,7 +51,7 @@ class LocationSummaries extends Component {
 
 function mapStateToProps({locations, transports, authentication}, ownProps) {
     return {
-        locations: locations.locations,
+        locations: Locations.sortLocations(locations.locations),
         transports: transports.transports,
         userLocation: authentication.userLocation
     }
