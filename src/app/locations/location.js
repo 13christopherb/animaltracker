@@ -3,14 +3,11 @@ import Button from 'react-bootstrap/lib/Button';
 import Collapse from 'react-bootstrap/lib/Collapse';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-import {connect} from 'react-redux';
 import _ from 'underscore';
 import AnimalsTable from "../animals/animals-table";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {TransportCard} from "../transports/transport-card";
 
 
-class Location extends Component {
+export default class Location extends Component {
 
     constructor(props) {
         super(props);
@@ -48,12 +45,3 @@ class Location extends Component {
         );
     }
 }
-
-function mapStateToProps({locations}, ownProps) {
-    return {
-        animals: locations.locations[ownProps.location].animals,
-        locationName: locations.locations[ownProps.location].locationName
-    }
-}
-
-export default connect(mapStateToProps)(Location);

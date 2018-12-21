@@ -33,12 +33,22 @@ class Locations extends Component {
         this.setState({addingAnimal: !this.state.addingAnimal})
     }
 
-    render() {
-
-        {Object.keys(this.props.locations).map(
+    static sortLocations(locations) {
+        const locationOrder = {
+            'NRO': 0,
+            'MBO': 1,
+            'SLO': 2,
+        };
+        let locs = [];
+        Object.keys(locations).map(
             (location) =>
-                console.log(location)
-        )}
+                locs.push(locations[location])
+        );
+        locs.sort((loc1, loc2) => locationOrder[loc1.locationName] < locationOrder[loc2.locationName] ? -1 : 1);
+        return locs;
+    }
+
+    render() {
         return (
             <div>
                 <Media query={{minWidth: 650}}>
@@ -60,10 +70,12 @@ class Locations extends Component {
                                         >Add animal</Button>
                                     </div>
                                 </Fade>
-                                {Object.keys(this.props.locations).map(
+                                {this.props.locations.map(
                                     (location) =>
-                                        <Location key={location}
-                                                  location={location}/>
+                                        <Location key={location.locationName}
+                                                  locationName={location.locationName}
+                                                  animals={location.animals}
+                                        />
                                 )}
                             </div>
                         ) : (
@@ -78,7 +90,7 @@ class Locations extends Component {
 
 function mapStateToProps({authentication, locations}, ownProps) {
     return {
-        locations: locations,
+        locations: Locations.sortLocations(locations.locations),
         loggedIn: authentication.loggedIn
     }
 }
