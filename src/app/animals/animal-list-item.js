@@ -45,7 +45,8 @@ class AnimalListItem extends Component {
     render() {
         return (
             <div>
-                <ListGroup.Item key={this.props.animal.name}>
+                <ListGroup.Item key={this.props.animal.name} disabled={this.props.isDeletingAnimal
+                && this.props.deletedAnimal.id === this.props.animal.id}>
                     {this.state.isMoving ? (
                         <AnimalListItemForm
                             onSubmit={this.handleSubmit}
@@ -56,9 +57,9 @@ class AnimalListItem extends Component {
                     ) : (
                         <Dropdown>
                             {this.props.animal.species} | {this.props.animal.name} {this.props.animal.weight} kg
-                            <Dropdown.Toggle as={ButtonDropdownToggle} variant="light" size="sm">
-                                <FontAwesomeIcon icon="ellipsis-h"/>
-                            </Dropdown.Toggle>
+                                <Dropdown.Toggle as={ButtonDropdownToggle} variant="light" size="sm">
+                                    <FontAwesomeIcon icon="ellipsis-h"/>
+                                </Dropdown.Toggle>
                             <Dropdown.Menu>
                                 <Dropdown.Item onClick={this.toggleMoving}>
                                     <FontAwesomeIcon icon="people-carry"/> Move
@@ -76,4 +77,11 @@ class AnimalListItem extends Component {
     }
 }
 
-export default reduxForm({})(connect()(AnimalListItem));
+function mapStateToProps({locations}, ownProps) {
+    return {
+        isDeletingAnimal: locations.isDeletingAnimal,
+        deletedAnimal: locations.deletedAnimal,
+    }
+}
+
+export default reduxForm({})(connect(mapStateToProps)(AnimalListItem));

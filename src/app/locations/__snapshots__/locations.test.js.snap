@@ -1,16 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Locations /> render() should render the component 1`] = `
-<div>
-  <Media
-    defaultMatches={true}
-    query={
-      Object {
-        "minWidth": 650,
-      }
+<Media
+  defaultMatches={true}
+  query={
+    Object {
+      "minWidth": 650,
     }
-  >
-    <Component />
-  </Media>
-</div>
+  }
+>
+  <Component />
+</Media>
 `;

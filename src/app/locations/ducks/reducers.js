@@ -2,7 +2,10 @@ import {locationTypes} from "./";
 import {animalFormTypes} from "../../animal-forms/ducks";
 import {animalsTypes} from "../../animals/ducks";
 const initialState = {
-    locations: {}
+    locations: {},
+    isLoading: false,
+    isDeletingAnimal: false,
+    deletedAnimal: {},
 };
 
 export default function locationsReducer(state = initialState, action) {
@@ -54,9 +57,17 @@ export default function locationsReducer(state = initialState, action) {
                     }
                 }
             };
+        case animalsTypes.DELETE_ANIMAL_REQUEST:
+            return {
+                ...state,
+                isDeletingAnimal: true,
+                deletedAnimal: action.animal
+            };
         case animalsTypes.DELETE_ANIMAL_SUCCESS:
             return {
                 ...state,
+                isDeletingAnimal: false,
+                deletedAnimal: {},
                 locations: {
                     ...state.locations,
                     [action.animal.location]: {
