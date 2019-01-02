@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import CardColumns from 'react-bootstrap/lib/CardColumns'
-import {locationActions} from './ducks/';
+import BounceLoader from 'react-spinners/BounceLoader';
 import LocationCard from "./location-card";
 import Locations from './locations';
+import Row from "react-bootstrap/lib/Container";
+import Col from "react-bootstrap/lib/Col";
 
 class LocationSummaries extends Component {
 
@@ -13,12 +15,7 @@ class LocationSummaries extends Component {
             value: '',
             expandedLocationNames: [this.props.userLocation],
         };
-        this.componentWillMount = this.componentWillMount.bind(this);
         this.expandSummary = this.expandSummary.bind(this);
-    }
-
-    componentWillMount() {
-        this.props.dispatch(locationActions.getLocations())
     }
 
     expandSummary(locationName) {
@@ -32,19 +29,34 @@ class LocationSummaries extends Component {
 
     render() {
         return (
-            <CardColumns>
-                {this.props.locations.map(
-                    (location) =>
-                        <LocationCard key={location.locationName}
-                                      {...location}
-                                      expandSummary={this.expandSummary}
-                                      expanded={this.state.expandedLocationNames.includes(location.locationName)}
-                                      transports={this.props.transports.filter((transport) =>
-                                          transport.departs === location.locationName ||
-                                          transport.arrives === location.locationName)}
-                        />
-                )}
-            </CardColumns>
+            <div>
+                {this.props.isLoading ?
+                    <Row>
+                        <Col xs={{span: 8, offset: 2}}>
+                            <div style={{marginTop: '25vh'}}>
+                                <BounceLoader
+                                    size={140}
+                                    color={'#123abc'}
+                                    loading={this.props.isLoading}
+                                />
+                            </div>
+                        </Col>
+                    </Row> :
+                    <CardColumns>
+                        {this.props.locations.map(
+                            (location) =>
+                                <LocationCard key={location.locationName}
+                                              {...location}
+                                              expandSummary={this.expandSummary}
+                                              expanded={this.state.expandedLocationNames.includes(location.locationName)}
+                                              transports={this.props.transports.filter((transport) =>
+                                                  transport.departs === location.locationName ||
+                                                  transport.arrives === location.locationName)}
+                                />
+                        )}
+                    </CardColumns>
+                }
+            </div>
         );
     }
 }
@@ -52,6 +64,7 @@ class LocationSummaries extends Component {
 function mapStateToProps({locations, transports, authentication}, ownProps) {
     return {
         locations: Locations.sortLocations(locations.locations),
+        isLoading: locations.isLoading,
         transports: transports.transports,
         userLocation: authentication.userLocation
     }

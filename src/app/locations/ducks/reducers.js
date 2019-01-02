@@ -7,9 +7,15 @@ const initialState = {
 
 export default function locationsReducer(state = initialState, action) {
     switch (action.type) {
+        case locationTypes.GET_LOCATIONS_REQUEST:
+            return {
+                ...state,
+                isLoading: true,
+            };
         case locationTypes.GET_LOCATIONS_SUCCESS:
             return {
                 ...state,
+                isLoading: false,
                 locations: action.locations.reduce((acc, cur) => {
                     acc[cur.locationName] = cur;
                     return acc;
