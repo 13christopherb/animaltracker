@@ -20,18 +20,34 @@ class LocationCard extends Component {
         super(props);
         this.state = {
             isOpen: this.props.expanded,
-            showingAnimalForm: false,
-            showingTransportForm: false,
+            isShowingAnimalForm: false,
+            isShowingTransportForm: false,
         };
+        this.toggleAnimalForm = this.toggleAnimalForm.bind(this);
+        this.toggleTransportForm = this.toggleTransportForm.bind(this);
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.isSaving === false && prevProps.isSaving === true) {
-            this.setState({showingAnimalForm: false})
+        if (prevProps.isSavingAnimal === true && this.props.isSavingAnimal === false) {
+            this.toggleAnimalForm()
         }
     }
 
+    toggleAnimalForm() {
+        const {isSavingAnimal} = this.props;
+        const {isShowingAnimalForm} = this.state;
+        this.setState({isShowingAnimalForm: isSavingAnimal || !isShowingAnimalForm});
+    }
+
+    toggleTransportForm() {
+        const {isSavingTransport} = this.props;
+        const {isShowingTransportForm} = this.state;
+        this.setState({isShowingTransportForm: isSavingTransport || !isShowingTransportForm});
+    }
+
     render() {
+        const {locationName, animals, transports} = this.props;
+        const {isShowingAnimalForm, isShowingTransportForm, isOpen} = this.state;
         let animalsBySpecies = _.countBy(this.props.animals, (animal) => {
             return animal['species']
         });
@@ -42,51 +58,48 @@ class LocationCard extends Component {
             }
         }
         return (
-            <Card className="card" key={this.props.locationName}>
+            <Card className="card" key={locationName}>
                 <Card.Body>
                     <Card.Title>
                         <Dropdown>
                             <h5 className="card-title">
-                                {this.props.locationName}
+                                {locationName}
                                 <Dropdown.Toggle variant="outline-success" size="sm" className="float-right">
                                     <FontAwesomeIcon icon="plus"/>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
-                                    <Dropdown.Item onClick={() => this.setState({showingAnimalForm: true})}>
+                                    <Dropdown.Item onClick={() => this.setState({isShowingAnimalForm: true})}>
                                         <FontAwesomeIcon icon="otter"/> Add animal
                                     </Dropdown.Item>
-                                    <Dropdown.Item onClick={() => this.setState({showingTransportForm: true})}>
+                                    <Dropdown.Item onClick={() => this.setState({isShowingTransportForm: true})}>
                                         <FontAwesomeIcon icon="truck-pickup"/> Add Transport
                                     </Dropdown.Item>
                                 </Dropdown.Menu>
                             </h5>
                         </Dropdown>
                     </Card.Title>
-                    {this.props.animals.length > 0 ?
+                    {animals.length > 0 ?
                     <Button variant="primary" size="sm"
-                            onClick={(e) => this.setState({isOpen: !this.state.isOpen})}>
-                        {this.state.isOpen ? <span><FontAwesomeIcon icon="chevron-down" /> {speciesCount}</span>
+                            onClick={(e) => this.setState({isOpen: !isOpen})}>
+                        {isOpen ? <span><FontAwesomeIcon icon="chevron-down" /> {speciesCount}</span>
                             : <span><FontAwesomeIcon icon="chevron-up"/> {speciesCount}</span>}
                     </Button> : <span>No animals</span>}
-                    <Collapse in={this.state.isOpen}>
+                    <Collapse in={isOpen}>
                         <div>
-                            <AnimalList animals={this.props.animals}/>
+                            <AnimalList animals={animals}/>
                         </div>
                     </Collapse>
                 </Card.Body>
-                <LocationCardFooter locationName={this.props.locationName} transports={this.props.transports}/>
-                <AnimalFormContainer location={this.props.locationName}>
-                    <AnimalModalForm id={this.props.locationName + 'animalForm'}
-                                     show={this.state.showingAnimalForm || this.props.isSaving}
-                                     isSaving={this.props.isSaving}
-                                     toggleModal={() =>
-                                         this.setState({showingAnimalForm: !this.state.showingAnimalForm})} />
+                <LocationCardFooter locationName={locationName} transports={transports}/>
+                <AnimalFormContainer location={locationName}>
+                    <AnimalModalForm id={locationName + 'animalForm'}
+                                     show={isShowingAnimalForm}
+                                     toggleModal={this.toggleAnimalForm} />
                 </AnimalFormContainer>
                 <TransportFormContainer>
-                    <TransportModalForm id={this.props.locationName + 'transportForm'}
-                                        show={this.state.showingTransportForm}
-                                        toggleModal={() =>
-                                            this.setState({showingTransportForm: !this.state.showingTransportForm})} />
+                    <TransportModalForm id={locationName + 'transportForm'}
+                                        show={isShowingTransportForm}
+                                        toggleModal={this.toggleTransportForm} />
                 </TransportFormContainer>
             </Card>
         );
@@ -95,7 +108,7 @@ class LocationCard extends Component {
 
 function mapStateToProps({loading}, ownProps) {
     return {
-        isSaving: loading['ADD_ANIMAL'] && loading['animal'].location === ownProps.locationName,
+        isSavingAnimal: loading['ADD_ANIMAL'] && loading['animal'].location === ownProps.locationName,
     }
 }
 
