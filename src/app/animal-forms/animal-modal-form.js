@@ -3,6 +3,7 @@ import {Field} from 'redux-form'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Button, Col, Form, Modal} from 'react-bootstrap';
 import {Input, Select} from "../form-fields/index";
+import BounceLoader from 'react-spinners/BounceLoader';
 
 /**
  * Form for creating a new animal in the form of a modal
@@ -14,7 +15,7 @@ import {Input, Select} from "../form-fields/index";
  * @returns {*}
  * @constructor
  */
-export const AnimalModalForm = ({handleSubmit, handleChange, onSubmit, show, toggleModal, ...props}) => {
+export const AnimalModalForm = ({handleSubmit, handleChange, onSubmit, show, toggleModal, isSaving, ...props}) => {
     return (
         <Modal show={show} onHide={toggleModal}>
             <Form onSubmit={handleSubmit(onSubmit)}>
@@ -22,6 +23,12 @@ export const AnimalModalForm = ({handleSubmit, handleChange, onSubmit, show, tog
                     <Modal.Title>New Animal</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+                    {isSaving &&
+                    <BounceLoader
+                        size={50}
+                        color={'#123abc'}
+                        loading={isSaving}
+                    />}
                     <Form.Row>
                         <Col xs={4}>
                             {props.location ?
@@ -115,7 +122,7 @@ export const AnimalModalForm = ({handleSubmit, handleChange, onSubmit, show, tog
                     </Form.Row>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={toggleModal}
+                    <Button variant="primary"
                             disabled={props.pristine || !props.valid}
                             type="submit">
                         Submit

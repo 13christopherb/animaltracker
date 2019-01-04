@@ -1,21 +1,20 @@
 import React, {Component} from 'react';
 import _ from 'underscore';
-import $ from 'jquery';
 import {Card, Button, Collapse} from 'react-bootstrap';
 import {AnimalList} from '../animals/animal-list';
-import {LocationCardTitle} from './location-card-title';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import LocationCardFooter from './location-card-footer';
 import {AnimalFormContainer, AnimalModalForm} from '../animal-forms/index';
 import {TransportFormContainer, TransportModalForm} from '../transport-form/index';
 import Dropdown from "react-bootstrap/lib/Dropdown";
+import connect from "react-redux/es/connect/connect";
 
 
 
 /**
  * Condensed view of information about a location for mobile devices
  */
-export default class LocationCard extends Component {
+class LocationCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,14 +22,16 @@ export default class LocationCard extends Component {
             showingAnimalForm: false,
             showingTransportForm: false,
         };
-        this.hideModal = this.hideModal.bind(this);
     }
 
-    hideModal(id) {
-        $('#' + id).modal('hide');
+    componentDidUpdate(prevProps) {
+        if (this.props.isSaving === false && prevProps.isSaving === true) {
+            this.setState({showingAnimalForm: false})
+        }
     }
 
     render() {
+        console.log(this.props.isSaving);
         let animalsBySpecies = _.countBy(this.props.animals, (animal) => {
             return animal['species']
         });
@@ -41,7 +42,7 @@ export default class LocationCard extends Component {
             }
         }
         return (
-            <Card className="card">
+            <Card className="card" key={this.props.locationName}>
                 <Card.Body>
                     <Card.Title>
                         <Dropdown>
@@ -76,7 +77,8 @@ export default class LocationCard extends Component {
                 <LocationCardFooter locationName={this.props.locationName} transports={this.props.transports}/>
                 <AnimalFormContainer location={this.props.locationName}>
                     <AnimalModalForm id={this.props.locationName + 'animalForm'}
-                                     show={this.state.showingAnimalForm}
+                                     show={this.state.showingAnimalForm || this.props.isSaving}
+                                     isSaving={this.props.isSaving}
                                      toggleModal={() =>
                                          this.setState({showingAnimalForm: !this.state.showingAnimalForm})} />
                 </AnimalFormContainer>
@@ -90,3 +92,11 @@ export default class LocationCard extends Component {
         );
     }
 }
+
+function mapStateToProps({loading}, ownProps) {
+    return {
+        isSaving: loading['ADD_ANIMAL'] && loading['animal'].location === ownProps.locationName,
+    }
+}
+
+export default connect(mapStateToProps)(LocationCard);

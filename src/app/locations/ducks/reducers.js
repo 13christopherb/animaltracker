@@ -4,6 +4,9 @@ import {animalsTypes} from "../../animals/ducks";
 const initialState = {
     locations: {},
     isLoading: false,
+    isSaving: false,
+    hasSaved: false,
+    error: null,
     isDeletingAnimal: false,
     deletedAnimal: {},
 };
@@ -23,6 +26,15 @@ export default function locationsReducer(state = initialState, action) {
                     acc[cur.locationName] = cur;
                     return acc;
                 }, {})
+            };
+        case animalFormTypes.ADD_ANIMAL_REQUEST:
+            return {
+                ...state,
+            };
+        case animalFormTypes.ADD_ANIMAL_FAILURE:
+            return {
+                ...state,
+                error: action.error,
             };
         case animalFormTypes.ADD_ANIMAL_SUCCESS:
             return {

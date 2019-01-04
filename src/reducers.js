@@ -6,12 +6,15 @@ import {transportFormTypes} from "./app/transport-form/ducks";
 import authenticationReducer from './app/authentication/ducks';
 import locationReducer from './app/locations/ducks';
 import transportsReducer from './app/transports/ducks';
+import {loadingReducer, errorReducer} from "./utils/reducers";
 
 export default combineReducers({
     animals: animalsReducer,
     authentication: authenticationReducer,
     locations: locationReducer,
     transports: transportsReducer,
+    loading: loadingReducer,
+    errors: errorReducer,
     form: formReducer.plugin({
         AnimalForm: (state, action) => {
             switch (action.type) {

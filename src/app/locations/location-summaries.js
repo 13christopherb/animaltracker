@@ -61,10 +61,26 @@ class LocationSummaries extends Component {
     }
 }
 
-function mapStateToProps({locations, transports, authentication}, ownProps) {
+const sortLocations = (locations) =>
+{
+    const locationOrder = {
+        'NRO': 0,
+        'MBO': 1,
+        'SLO': 2,
+    };
+    let locs = [];
+    Object.keys(locations).map(
+        (location) =>
+            locs.push(locations[location])
+    );
+    locs.sort((loc1, loc2) => locationOrder[loc1.locationName] < locationOrder[loc2.locationName] ? -1 : 1);
+    return locs;
+};
+
+function mapStateToProps({locations, transports, loading, authentication}, ownProps) {
     return {
-        locations: Locations.sortLocations(locations.locations),
-        isLoading: locations.isLoading,
+        locations: sortLocations(locations.locations),
+        isLoading: loading['GET_LOCATIONS'],
         transports: transports.transports,
         userLocation: authentication.userLocation
     }

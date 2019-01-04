@@ -27,28 +27,13 @@ class Locations extends Component {
         this.toggleAddAnimal = this.toggleAddAnimal.bind(this);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.dispatch(locationActions.getLocations());
         this.props.dispatch(transportActions.getTransports())
     }
 
     toggleAddAnimal(e) {
         this.setState({addingAnimal: !this.state.addingAnimal})
-    }
-
-    static sortLocations(locations) {
-        const locationOrder = {
-            'NRO': 0,
-            'MBO': 1,
-            'SLO': 2,
-        };
-        let locs = [];
-        Object.keys(locations).map(
-            (location) =>
-                locs.push(locations[location])
-        );
-        locs.sort((loc1, loc2) => locationOrder[loc1.locationName] < locationOrder[loc2.locationName] ? -1 : 1);
-        return locs;
     }
 
     render() {
@@ -108,10 +93,26 @@ class Locations extends Component {
     }
 }
 
-function mapStateToProps({authentication, locations}, ownProps) {
+const sortLocations = (locations) =>
+{
+    const locationOrder = {
+        'NRO': 0,
+        'MBO': 1,
+        'SLO': 2,
+    };
+    let locs = [];
+    Object.keys(locations).map(
+        (location) =>
+            locs.push(locations[location])
+    );
+    locs.sort((loc1, loc2) => locationOrder[loc1.locationName] < locationOrder[loc2.locationName] ? -1 : 1);
+    return locs;
+};
+
+function mapStateToProps({authentication, locations, loading}, ownProps) {
     return {
-        isLoading: locations.isLoading,
-        locations: Locations.sortLocations(locations.locations),
+        isLoading: loading['GET_LOCATIONS'],
+        locations: sortLocations(locations.locations),
         loggedIn: authentication.loggedIn
     }
 }

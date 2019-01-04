@@ -11,7 +11,6 @@
     "flow-typed": "^2.5.1",
     "font-awesome": "^4.7.0",
     "halogen": "^0.2.0",
-    "jquery": "^3.3.1",
     "jsonwebtoken": "^8.4.0",
     "moment": "^2.22.2",
     "popper.js": "^1.14.6",

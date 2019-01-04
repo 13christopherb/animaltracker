@@ -34,8 +34,9 @@ class AnimalFormContainer extends Component {
     }
 }
 
-function mapStateToProps({animalForm}, ownProps) {
+function mapStateToProps({loading}, ownProps) {
     return {
+        isSaving: loading['ADD_ANIMAL']
     }
 }
 
