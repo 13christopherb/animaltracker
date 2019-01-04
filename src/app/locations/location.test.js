@@ -35,13 +35,12 @@ const store = mockStore(initialState);
 
 
 
-describe('<LocationContainer />', () => {
+describe('<Location />', () => {
     describe('render()', () => {
         test('should render the component', () => {
             const wrapper = shallow(<Location store={store} location="MBO"/>);
-            const component = wrapper.dive();
 
-            expect(toJson(component)).toMatchSnapshot()
+            expect(toJson(wrapper)).toMatchSnapshot()
         })
     })
 });

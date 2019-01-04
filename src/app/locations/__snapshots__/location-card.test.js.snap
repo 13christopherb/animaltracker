@@ -1,165 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<LocationCard /> render() should render the component 1`] = `
-<ForwardRef(Bootstrap(Card))
-  className="card"
->
-  <ForwardRef(Bootstrap(CardBody))>
-    <ForwardRef(Bootstrap(CardTitle))>
-      <ForwardRef(ContextTransform)>
-        <h5
-          className="card-title"
-        >
-          MBO
-          <ForwardRef(Bootstrap(DropdownToggle))
-            className="float-right"
-            size="sm"
-            variant="outline-success"
-          >
-            <FontAwesomeIcon
-              border={false}
-              className=""
-              fixedWidth={false}
-              flip={null}
-              icon="plus"
-              inverse={false}
-              listItem={false}
-              mask={null}
-              pull={null}
-              pulse={false}
-              rotation={null}
-              size={null}
-              spin={false}
-              symbol={false}
-              title=""
-              transform={null}
-            />
-          </ForwardRef(Bootstrap(DropdownToggle))>
-          <ForwardRef(Bootstrap(DropdownMenu))>
-            <ForwardRef(ContextTransform)
-              onClick={[Function]}
-            >
-              <FontAwesomeIcon
-                border={false}
-                className=""
-                fixedWidth={false}
-                flip={null}
-                icon="otter"
-                inverse={false}
-                listItem={false}
-                mask={null}
-                pull={null}
-                pulse={false}
-                rotation={null}
-                size={null}
-                spin={false}
-                symbol={false}
-                title=""
-                transform={null}
-              />
-               Add animal
-            </ForwardRef(ContextTransform)>
-            <ForwardRef(ContextTransform)
-              onClick={[Function]}
-            >
-              <FontAwesomeIcon
-                border={false}
-                className=""
-                fixedWidth={false}
-                flip={null}
-                icon="truck-pickup"
-                inverse={false}
-                listItem={false}
-                mask={null}
-                pull={null}
-                pulse={false}
-                rotation={null}
-                size={null}
-                spin={false}
-                symbol={false}
-                title=""
-                transform={null}
-              />
-               Add Transport
-            </ForwardRef(ContextTransform)>
-          </ForwardRef(Bootstrap(DropdownMenu))>
-        </h5>
-      </ForwardRef(ContextTransform)>
-    </ForwardRef(Bootstrap(CardTitle))>
-    <ForwardRef(Bootstrap(Button))
-      onClick={[Function]}
-      size="sm"
-      variant="primary"
-    >
-      <span>
-        <FontAwesomeIcon
-          border={false}
-          className=""
-          fixedWidth={false}
-          flip={null}
-          icon="chevron-up"
-          inverse={false}
-          listItem={false}
-          mask={null}
-          pull={null}
-          pulse={false}
-          rotation={null}
-          size={null}
-          spin={false}
-          symbol={false}
-          title=""
-          transform={null}
-        />
-         
-        CSL(1) 
-      </span>
-    </ForwardRef(Bootstrap(Button))>
-    <Collapse
-      appear={false}
-      dimension="height"
-      getDimensionValue={[Function]}
-      in={false}
-      mountOnEnter={false}
-      timeout={300}
-      unmountOnExit={false}
-    >
-      <div>
-        <AnimalList
-          animals={
-            Array [
-              Object {
-                "id": 2,
-                "isGettingControlledMeds": false,
-                "isGettingTubed": true,
-                "location": "MBO",
-                "name": "Kirt",
-                "species": "CSL",
-                "weight": 85,
-              },
-            ]
-          }
-        />
-      </div>
-    </Collapse>
-  </ForwardRef(Bootstrap(CardBody))>
-  <LocationCardFooter
-    locationName="MBO"
-  />
-  <ReduxForm
-    location="MBO"
-  >
-    <AnimalModalForm
-      id="MBOanimalForm"
-      show={false}
-      toggleModal={[Function]}
-    />
-  </ReduxForm>
-  <ReduxForm>
-    <TransportModalForm
-      id="MBOtransportForm"
-      show={false}
-      toggleModal={[Function]}
-    />
-  </ReduxForm>
-</ForwardRef(Bootstrap(Card))>
+<LocationCard
+  animals={
+    Array [
+      Object {
+        "id": 2,
+        "isGettingControlledMeds": false,
+        "isGettingTubed": true,
+        "location": "MBO",
+        "name": "Kirt",
+        "species": "CSL",
+        "weight": 85,
+      },
+    ]
+  }
+  dispatch={[Function]}
+  expandSummary={[MockFunction]}
+  expanded={false}
+  locationName="MBO"
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+/>
 `;

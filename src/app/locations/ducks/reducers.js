@@ -3,12 +3,6 @@ import {animalFormTypes} from "../../animal-forms/ducks";
 import {animalsTypes} from "../../animals/ducks";
 const initialState = {
     locations: {},
-    isLoading: false,
-    isSaving: false,
-    hasSaved: false,
-    error: null,
-    isDeletingAnimal: false,
-    deletedAnimal: {},
 };
 
 export default function locationsReducer(state = initialState, action) {
@@ -16,12 +10,10 @@ export default function locationsReducer(state = initialState, action) {
         case locationTypes.GET_LOCATIONS_REQUEST:
             return {
                 ...state,
-                isLoading: true,
             };
         case locationTypes.GET_LOCATIONS_SUCCESS:
             return {
                 ...state,
-                isLoading: false,
                 locations: action.locations.reduce((acc, cur) => {
                     acc[cur.locationName] = cur;
                     return acc;
@@ -34,7 +26,6 @@ export default function locationsReducer(state = initialState, action) {
         case animalFormTypes.ADD_ANIMAL_FAILURE:
             return {
                 ...state,
-                error: action.error,
             };
         case animalFormTypes.ADD_ANIMAL_SUCCESS:
             return {
@@ -72,14 +63,10 @@ export default function locationsReducer(state = initialState, action) {
         case animalsTypes.DELETE_ANIMAL_REQUEST:
             return {
                 ...state,
-                isDeletingAnimal: true,
-                deletedAnimal: action.animal
             };
         case animalsTypes.DELETE_ANIMAL_SUCCESS:
             return {
                 ...state,
-                isDeletingAnimal: false,
-                deletedAnimal: {},
                 locations: {
                     ...state.locations,
                     [action.animal.location]: {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LocationContainer /> render() should render the component 1`] = `
+exports[`<Location /> render() should render the component 1`] = `
 <div>
   <ForwardRef(Bootstrap(Button))
     block={true}

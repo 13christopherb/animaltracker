@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AnimalForm /> AnimalForm renders correctly 1`] = `
+exports[`<HeaderLogin /> HeaderLogin renders correctly 1`] = `
 <form
   className="form-inline"
   onSubmit={[Function]}
@@ -13,7 +13,7 @@ exports[`<AnimalForm /> AnimalForm renders correctly 1`] = `
     >
       <input
         className="mr-sm-2 form-control"
-        id="username"
+        id="header-username"
         name="username"
         onBlur={[Function]}
         onChange={[Function]}
@@ -33,7 +33,7 @@ exports[`<AnimalForm /> AnimalForm renders correctly 1`] = `
     >
       <input
         className="form-control"
-        id="password"
+        id="header-password"
         name="password"
         onBlur={[Function]}
         onChange={[Function]}

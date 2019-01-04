@@ -1,11 +1,9 @@
 import React from 'react';
 import configureMockStore from 'redux-mock-store';
-import {mount} from 'enzyme';
-
 import renderer from 'react-test-renderer'
 import {Provider} from 'react-redux'
 import {reduxForm} from 'redux-form'
-import HeaderLogin from './header-login';
+import {HeaderLogin} from './header-login';
 
 const mockStore = configureMockStore();
 
@@ -17,12 +15,12 @@ const Decorated = reduxForm({
     form: 'HeaderLogin', onSubmit: {onSubmit}
 })(HeaderLogin);
 
-describe('<AnimalForm />', () => {
+describe('<HeaderLogin />', () => {
     const defaultProps = {
         pristine: false,
         valid: true,
     };
-    test('AnimalForm renders correctly', () => {
+    test('HeaderLogin renders correctly', () => {
         const store = mockStore();
         const tree = renderer.create(
             <Provider store={store}>

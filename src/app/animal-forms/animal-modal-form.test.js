@@ -1,7 +1,8 @@
 import React from 'react';
 import configureMockStore from 'redux-mock-store';
-import {mount, ReactWrapper} from 'enzyme';
+import {mount, shallow, ReactWrapper} from 'enzyme';
 import {AnimalModalForm} from './animal-modal-form';
+import {Button} from 'react-bootstrap';
 import renderer from 'react-test-renderer'
 import {Provider} from 'react-redux'
 import {reduxForm} from 'redux-form'
@@ -17,6 +18,9 @@ const Decorated = reduxForm({
 })(AnimalModalForm);
 
 describe('<AnimalModalForm />', () => {
+    const mockSubmit = jest.fn();
+    const mockChange = jest.fn();
+    const hideModal = jest.fn();
     const defaultProps = {
         pristine: false,
         valid: true,
@@ -33,18 +37,12 @@ describe('<AnimalModalForm />', () => {
         expect(tree).toMatchSnapshot()
     });
     test('Disables button on form errors', () => {
-        const store = mockStore();
-        const props = {
-            ...defaultProps,
-            valid: false
-        };
-        const wrapper = mount(<Provider store={store}>
-            <Decorated
-                {...props}
-            />
-        </Provider>);
-        const inside_els = document.getElementsByClassName("modal-body")[0];
-        const inside_wrapper = new ReactWrapper(inside_els, true)
-        expect(inside_wrapper.find('button').props().disabled).toEqual(true);
+        const wrapper = shallow(<AnimalModalForm handleSubmit={mockSubmit}
+                                               handleChange={mockChange}
+                                               hideModal={hideModal}
+                                               id="MBO"
+                                               pristine={false}
+                                               errors={{name: 'Error'}}/>);
+        expect(wrapper.find({type: 'submit'}).props().disabled).toEqual(true);
     });
 });

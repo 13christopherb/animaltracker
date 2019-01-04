@@ -7,7 +7,7 @@ import LocationCardFooter from './location-card-footer';
 import {AnimalFormContainer, AnimalModalForm} from '../animal-forms/index';
 import {TransportFormContainer, TransportModalForm} from '../transport-form/index';
 import Dropdown from "react-bootstrap/lib/Dropdown";
-import connect from "react-redux/es/connect/connect";
+import {connect} from 'react-redux';
 
 
 
@@ -15,6 +15,7 @@ import connect from "react-redux/es/connect/connect";
  * Condensed view of information about a location for mobile devices
  */
 class LocationCard extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -31,7 +32,6 @@ class LocationCard extends Component {
     }
 
     render() {
-        console.log(this.props.isSaving);
         let animalsBySpecies = _.countBy(this.props.animals, (animal) => {
             return animal['species']
         });

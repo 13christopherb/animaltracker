@@ -1,5 +1,6 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
+import {Button, Col, Form, Modal} from 'react-bootstrap';
 import {TransportModalForm} from "./transport-modal-form";
 import toJson from 'enzyme-to-json';
 import moment from 'moment';
@@ -18,6 +19,8 @@ describe('<TransportModalForm />', () => {
 
     beforeEach(() => {
         hideModal.mockReset();
+        mockSubmit.mockReset();
+        mockChange.mockReset();
     });
     describe('render()', () => {
         it('should render the component', () => {
@@ -30,13 +33,13 @@ describe('<TransportModalForm />', () => {
         })
     });
     describe('submit', () => {
-        it('should close on form submit', () => {
+        it('should close on closing button', () => {
             const wrapper = shallow(<TransportModalForm handleSubmit={mockSubmit}
                                                         handleChange={mockChange}
-                                                        hideModal={hideModal}
+                                                        toggleModal={hideModal}
                                                         id="MBO"
                                                         defaultTime={defaultTime}/>);
-            wrapper.find('button[type="submit"]').simulate('click');
+            wrapper.find({variant: 'danger'}).simulate('click');
             expect(hideModal.mock.calls.length).toBe(1);
         });
         it('should disable button on form errors', () => {
@@ -46,8 +49,8 @@ describe('<TransportModalForm />', () => {
                                                         id="MBO"
                                                         defaultTime={defaultTime}
                                                         pristine={false}
-                                                        errors={{departs: 'Error'}}/>);
-            expect(wrapper.find('button[type="submit"]').props().disabled).toEqual(true);
+                                                        errors={{departs: 'Error'}}/>)
+            expect(wrapper.find({type: 'submit'}).props().disabled).toEqual(true);
         });
     })
 });

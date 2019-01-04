@@ -1,42 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<UserLogin /> render() should render the component 1`] = `
-<ForwardRef(Bootstrap(Jumbotron))>
-  <ForwardRef(Bootstrap(Form))
-    onSubmit={[Function]}
-  >
-    <ForwardRef(Bootstrap(FormRow))>
-      <ForwardRef(Bootstrap(Col))>
-        <label>
-          Username
-          <input
-            className="form-control"
-            name="username"
-            onChange={[Function]}
-            type="text"
-            value=""
-          />
-        </label>
-      </ForwardRef(Bootstrap(Col))>
-    </ForwardRef(Bootstrap(FormRow))>
-    <ForwardRef(Bootstrap(FormRow))>
-      <label>
-        Password
-        <input
-          className="form-control"
-          name="password"
-          onChange={[Function]}
-          type="password"
-          value=""
-        />
-      </label>
-    </ForwardRef(Bootstrap(FormRow))>
-    <ForwardRef(Bootstrap(Button))
-      type="submit"
-      variant="primary"
-    >
-      Sign in
-    </ForwardRef(Bootstrap(Button))>
-  </ForwardRef(Bootstrap(Form))>
-</ForwardRef(Bootstrap(Jumbotron))>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;

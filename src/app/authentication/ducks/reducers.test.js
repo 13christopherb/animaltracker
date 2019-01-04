@@ -38,7 +38,10 @@ describe('authentication reducer', () => {
                 type: types.LOGIN_FAILURE,
                 user: 'user'
             })
-        ).toEqual({})
+        ).toEqual({
+            loggedIn: false,
+            loginError: true,
+        })
     });
 
     it('should handle LOGOUT', () => {
