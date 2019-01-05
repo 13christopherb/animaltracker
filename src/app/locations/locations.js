@@ -33,23 +33,25 @@ class Locations extends Component {
     }
 
     toggleAddAnimal(e) {
-        this.setState({addingAnimal: !this.state.addingAnimal})
+        this.setState({isAddingAnimal: !this.state.isAddingAnimal})
     }
 
     render() {
+        const {isLoading} = this.props;
+        const {isAddingAnimal} = this.state;
         return (
             <Media query={{minWidth: 650}}>
                 {matches =>
                     matches ? (
                         <div>
-                            {this.props.isLoading ?
+                            {isLoading ?
                                 <Row>
                                     <Col xs={{span: 4, offset: 4}}>
                                         <div style={{marginTop: '25vh'}}>
                                             <BounceLoader
                                                 size={200}
                                                 color={'#123abc'}
-                                                loading={this.props.isLoading}
+                                                loading={isLoading}
                                             />
                                         </div>
                                     </Col>
@@ -58,14 +60,14 @@ class Locations extends Component {
                                 <div>
                                     <Row>
                                         <Col>
-                                            <Collapse in={this.state.addingAnimal}>
+                                            <Collapse in={isAddingAnimal}>
                                                 <div id="animal-inline-form">
                                                     <AnimalFormContainer toggleAddAnimal={this.toggleAddAnimal}>
                                                         <AnimalForm/>
                                                     </AnimalFormContainer>
                                                 </div>
                                             </Collapse>
-                                            <Fade in={!this.state.addingAnimal}>
+                                            <Fade in={!isAddingAnimal}>
                                                 <div id="add-animal-inline-form">
                                                     <Button variant="primary"
                                                             onClick={this.toggleAddAnimal}

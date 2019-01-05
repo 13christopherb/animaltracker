@@ -28,17 +28,24 @@ class LocationCard extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.isSavingAnimal === true && this.props.isSavingAnimal === false) {
+        if (prevProps.isSavingAnimal === true && this.props.isSavingAnimal === false) { //Close form if finished saving
             this.toggleAnimalForm()
         }
     }
 
+    /**
+     * Open the new animal form if it is currently closed, or close it if it is open and no new animal is being saved
+     */
     toggleAnimalForm() {
         const {isSavingAnimal} = this.props;
         const {isShowingAnimalForm} = this.state;
         this.setState({isShowingAnimalForm: isSavingAnimal || !isShowingAnimalForm});
     }
 
+    /**
+     * Open the new transport form if it is currently closed,
+     * or close it if it is open and no new transport is being saved
+     */
     toggleTransportForm() {
         const {isSavingTransport} = this.props;
         const {isShowingTransportForm} = this.state;
