@@ -1,40 +1,31 @@
 import React from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Button from 'react-bootstrap/lib/Button';
+import moment from "moment";
 
 
-export const AnimalRow = (props) => {
+export const AnimalRow = ({animal, handleChange, deleteAnimal}) => {
 
-    const deleteAnimal = () => {
-        props.deleteAnimal(props.animal);
-    };
-
-    const updateAnimal = (e) => {
-        props.handleChange({
-            ...props.animal,
-            location: e.target.value
-        })
-    };
     return (
-        <tr key={props.animal.id}>
+        <tr key={animal.id}>
             <td>
-                {props.animal.species}
+                {animal.species}
             </td>
             <td>
-                {props.animal.name}
-                <p style={{fontSize: 11}}>{props.timeAgo}</p>
+                {animal.name}
+                <p style={{fontSize: 11}}>{moment(animal.timestamp).fromNow()}</p>
             </td>
             <td>
-                {props.animal.weight} kg
+                {animal.weight} kg
             </td>
             <td style={{width: '5%'}}>
                 <FontAwesomeIcon color="green" icon="blender"
-                                 className={!props.animal.isGettingTubed ? 'invisible' : 'visible'}
+                                 className={!animal.isGettingTubed ? 'invisible' : 'visible'}
                 />
             </td>
             <td style={{width: '5%'}}>
                 <FontAwesomeIcon color="green" icon="prescription-bottle-alt"
-                                 className={!props.animal.isGettingControlledMeds ? 'invisible' : ''}
+                                 className={!animal.isGettingControlledMeds ? 'invisible' : ''}
                 />
             </td>
             <td  style={{width: '118px'}}>
@@ -44,8 +35,11 @@ export const AnimalRow = (props) => {
                         id="location"
                         title="Location"
                         name="location"
-                        value={props.animal.location}
-                        onChange={updateAnimal}
+                        value={animal.location}
+                        onChange={(e) => handleChange({
+                            ...animal,
+                            location: e.target.value
+                        })}
                     >
                         <option value="NRO">NRO</option>
                         <option value="MBO">MBO</option>
@@ -54,7 +48,7 @@ export const AnimalRow = (props) => {
                 </div>
             </td>
             <td style={{width: '16.66%'}}>
-                <Button onClick={deleteAnimal} id="delete" variant="danger">Delete</Button>
+                <Button onClick={(e) => deleteAnimal(animal)} id="delete" variant="danger">Delete</Button>
             </td>
         </tr>
     )

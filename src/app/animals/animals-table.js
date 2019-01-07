@@ -27,20 +27,20 @@ class AnimalsTable extends Component {
     }
 
     render() {
-        let animals = [];
-        for (let animal of this.props.animals) {
-            animals.push(<AnimalRow animal={animal}
-                                    timeAgo={moment(animal.timestamp).fromNow()}
-                                    deleteAnimal={this.deleteAnimal}
-                                    handleChange={this.handleChange}
-                                    key={animal.id}/>);
-        }
+        const {animals} = this.props;
+        
         return (
             <Row>
                 <Col md={12}>
                     <Table striped>
                         <tbody>
-                        {animals}
+                        {animals.map((animal) =>
+                            <AnimalRow deleteAnimal={this.deleteAnimal}
+                                       handleChange={this.handleChange}
+                                       key={animal.id}
+                                       animal={animal}
+                            />
+                        )}
                         </tbody>
                     </Table>
                 </Col>

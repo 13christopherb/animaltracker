@@ -15,7 +15,9 @@ exports[`<AnimalRow /> render() should render the component 1`] = `
           "fontSize": 11,
         }
       }
-    />
+    >
+      a few seconds ago
+    </p>
   </td>
   <td>
     85
