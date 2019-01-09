@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import moment from 'moment';
 import {Row, Col, Table} from 'react-bootstrap';
 import {animalsActions} from "./ducks";
 import {AnimalRow} from './animal-row';
@@ -28,7 +27,7 @@ class AnimalsTable extends Component {
 
     render() {
         const {animals} = this.props;
-        
+
         return (
             <Row>
                 <Col md={12}>
