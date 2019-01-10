@@ -1,0 +1,462 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AnimalListItem /> render() should render the component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <ReduxForm
+    animal={
+      Object {
+        "id": 2,
+        "isGettingControlledMeds": false,
+        "isGettingTubed": true,
+        "location": "MBO",
+        "name": "Kirt",
+        "species": "CSL",
+        "weight": 85,
+      }
+    }
+    handleSubmit={[MockFunction]}
+  >
+    <Connect(Form(Connect(AnimalListItem)))
+      animal={
+        Object {
+          "id": 2,
+          "isGettingControlledMeds": false,
+          "isGettingTubed": true,
+          "location": "MBO",
+          "name": "Kirt",
+          "species": "CSL",
+          "weight": 85,
+        }
+      }
+      destroyOnUnmount={true}
+      enableReinitialize={false}
+      forceUnregisterOnUnmount={false}
+      form="ListItemForm"
+      getFormState={[Function]}
+      handleSubmit={[MockFunction]}
+      keepDirtyOnReinitialize={false}
+      persistentSubmitErrors={false}
+      pure={true}
+      shouldAsyncValidate={[Function]}
+      shouldError={[Function]}
+      shouldValidate={[Function]}
+      shouldWarn={[Function]}
+      touchOnBlur={true}
+      touchOnChange={false}
+      updateUnregisteredFields={false}
+    >
+      <Form(Connect(AnimalListItem))
+        animal={
+          Object {
+            "id": 2,
+            "isGettingControlledMeds": false,
+            "isGettingTubed": true,
+            "location": "MBO",
+            "name": "Kirt",
+            "species": "CSL",
+            "weight": 85,
+          }
+        }
+        anyTouched={false}
+        array={
+          Object {
+            "insert": [Function],
+            "move": [Function],
+            "pop": [Function],
+            "push": [Function],
+            "remove": [Function],
+            "removeAll": [Function],
+            "shift": [Function],
+            "splice": [Function],
+            "swap": [Function],
+            "unshift": [Function],
+          }
+        }
+        arrayInsert={[Function]}
+        arrayMove={[Function]}
+        arrayPop={[Function]}
+        arrayPush={[Function]}
+        arrayRemove={[Function]}
+        arrayRemoveAll={[Function]}
+        arrayShift={[Function]}
+        arraySplice={[Function]}
+        arraySwap={[Function]}
+        arrayUnshift={[Function]}
+        asyncValidating={false}
+        autofill={[Function]}
+        blur={[Function]}
+        change={[Function]}
+        clearAsyncError={[Function]}
+        clearFields={[Function]}
+        clearSubmit={[Function]}
+        clearSubmitErrors={[Function]}
+        destroy={[Function]}
+        destroyOnUnmount={true}
+        dirty={false}
+        dispatch={[Function]}
+        enableReinitialize={false}
+        focus={[Function]}
+        forceUnregisterOnUnmount={false}
+        form="ListItemForm"
+        getFormState={[Function]}
+        handleSubmit={[MockFunction]}
+        initialize={[Function]}
+        initialized={false}
+        invalid={false}
+        keepDirtyOnReinitialize={false}
+        persistentSubmitErrors={false}
+        pristine={true}
+        pure={true}
+        registerField={[Function]}
+        reset={[Function]}
+        resetSection={[Function]}
+        setSubmitFailed={[Function]}
+        setSubmitSucceeded={[Function]}
+        shouldAsyncValidate={[Function]}
+        shouldError={[Function]}
+        shouldValidate={[Function]}
+        shouldWarn={[Function]}
+        startAsyncValidation={[Function]}
+        startSubmit={[Function]}
+        stopAsyncValidation={[Function]}
+        stopSubmit={[Function]}
+        submit={[Function]}
+        submitFailed={false}
+        submitSucceeded={false}
+        submitting={false}
+        syncErrors={Object {}}
+        syncWarnings={Object {}}
+        touch={[Function]}
+        touchOnBlur={true}
+        touchOnChange={false}
+        unregisterField={[Function]}
+        untouch={[Function]}
+        updateSyncErrors={[Function]}
+        updateSyncWarnings={[Function]}
+        updateUnregisteredFields={false}
+        valid={true}
+        validExceptSubmit={true}
+        values={Object {}}
+      >
+        <Connect(AnimalListItem)
+          animal={
+            Object {
+              "id": 2,
+              "isGettingControlledMeds": false,
+              "isGettingTubed": true,
+              "location": "MBO",
+              "name": "Kirt",
+              "species": "CSL",
+              "weight": 85,
+            }
+          }
+          anyTouched={false}
+          array={
+            Object {
+              "insert": [Function],
+              "move": [Function],
+              "pop": [Function],
+              "push": [Function],
+              "remove": [Function],
+              "removeAll": [Function],
+              "shift": [Function],
+              "splice": [Function],
+              "swap": [Function],
+              "unshift": [Function],
+            }
+          }
+          asyncValidate={[Function]}
+          asyncValidating={false}
+          autofill={[Function]}
+          blur={[Function]}
+          change={[Function]}
+          clearAsyncError={[Function]}
+          clearFields={[Function]}
+          clearSubmit={[Function]}
+          clearSubmitErrors={[Function]}
+          destroy={[Function]}
+          dirty={false}
+          dispatch={[Function]}
+          form="ListItemForm"
+          handleSubmit={[MockFunction]}
+          initialize={[Function]}
+          initialized={false}
+          invalid={false}
+          pristine={true}
+          pure={true}
+          reset={[Function]}
+          resetSection={[Function]}
+          submit={[Function]}
+          submitFailed={false}
+          submitSucceeded={false}
+          submitting={false}
+          touch={[Function]}
+          untouch={[Function]}
+          valid={true}
+        >
+          <AnimalListItem
+            animal={
+              Object {
+                "id": 2,
+                "isGettingControlledMeds": false,
+                "isGettingTubed": true,
+                "location": "MBO",
+                "name": "Kirt",
+                "species": "CSL",
+                "weight": 85,
+              }
+            }
+            anyTouched={false}
+            array={
+              Object {
+                "insert": [Function],
+                "move": [Function],
+                "pop": [Function],
+                "push": [Function],
+                "remove": [Function],
+                "removeAll": [Function],
+                "shift": [Function],
+                "splice": [Function],
+                "swap": [Function],
+                "unshift": [Function],
+              }
+            }
+            asyncValidate={[Function]}
+            asyncValidating={false}
+            autofill={[Function]}
+            blur={[Function]}
+            change={[Function]}
+            clearAsyncError={[Function]}
+            clearFields={[Function]}
+            clearSubmit={[Function]}
+            clearSubmitErrors={[Function]}
+            destroy={[Function]}
+            dirty={false}
+            dispatch={[Function]}
+            form="ListItemForm"
+            handleSubmit={[MockFunction]}
+            initialize={[Function]}
+            initialized={false}
+            invalid={false}
+            pristine={true}
+            pure={true}
+            reset={[Function]}
+            resetSection={[Function]}
+            submit={[Function]}
+            submitFailed={false}
+            submitSucceeded={false}
+            submitting={false}
+            touch={[Function]}
+            untouch={[Function]}
+            valid={true}
+          >
+            <div>
+              <ForwardRef(Bootstrap(ListGroupItem))
+                key="Kirt"
+              >
+                <ListGroupItem
+                  active={false}
+                  bsPrefix="list-group-item"
+                  disabled={false}
+                  variant={null}
+                >
+                  <AbstractNavItem
+                    as="div"
+                    className="list-group-item"
+                    disabled={false}
+                    eventKey={null}
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="list-group-item"
+                      disabled={false}
+                      onClick={[Function]}
+                    >
+                      <ForwardRef(ContextTransform)>
+                        <ForwardRef(Bootstrap(Uncontrolled(Dropdown)))
+                          onSelect={null}
+                        >
+                          <Uncontrolled(Dropdown)
+                            bsPrefix="dropdown"
+                            onSelect={null}
+                          >
+                            <Dropdown
+                              as="div"
+                              bsPrefix="dropdown"
+                              navbar={false}
+                              onSelect={null}
+                              onToggle={[Function]}
+                            >
+                              <ReactOverlaysDropdown
+                                itemSelector=".dropdown-item:not(.disabled):not(:disabled)"
+                                onToggle={[Function]}
+                              >
+                                <Manager>
+                                  <div
+                                    className="dropdown"
+                                    onKeyDown={[Function]}
+                                  >
+                                    CSL
+                                     | 
+                                    Kirt
+                                     
+                                    85
+                                     kg
+                                    <ForwardRef(Bootstrap(DropdownToggle))
+                                      as={[Function]}
+                                      size="sm"
+                                      variant="light"
+                                    >
+                                      <DropdownToggle
+                                        as={[Function]}
+                                        bsPrefix="dropdown-toggle"
+                                        size="sm"
+                                        variant="light"
+                                      >
+                                        <ReactOverlaysDropdownToggle>
+                                          <ButtonDropdownToggle
+                                            aria-expanded={false}
+                                            aria-haspopup={true}
+                                            className="dropdown-toggle"
+                                            onClick={[Function]}
+                                            size="sm"
+                                            variant="light"
+                                          >
+                                            <ForwardRef(Bootstrap(Button))
+                                              className="float-right"
+                                              onClick={[Function]}
+                                              size="sm"
+                                              variant="light"
+                                            >
+                                              <Button
+                                                active={false}
+                                                bsPrefix="btn"
+                                                className="float-right"
+                                                disabled={false}
+                                                innerRef={null}
+                                                onClick={[Function]}
+                                                size="sm"
+                                                type="button"
+                                                variant="light"
+                                              >
+                                                <button
+                                                  className="float-right btn btn-light btn-sm"
+                                                  disabled={false}
+                                                  onClick={[Function]}
+                                                  type="button"
+                                                >
+                                                  <FontAwesomeIcon
+                                                    border={false}
+                                                    className=""
+                                                    fixedWidth={false}
+                                                    flip={null}
+                                                    icon="ellipsis-h"
+                                                    inverse={false}
+                                                    listItem={false}
+                                                    mask={null}
+                                                    pull={null}
+                                                    pulse={false}
+                                                    rotation={null}
+                                                    size={null}
+                                                    spin={false}
+                                                    symbol={false}
+                                                    title=""
+                                                    transform={null}
+                                                  >
+                                                    <svg
+                                                      aria-hidden="true"
+                                                      className="svg-inline--fa fa-ellipsis-h fa-w-16 "
+                                                      data-icon="ellipsis-h"
+                                                      data-prefix="fas"
+                                                      role="img"
+                                                      style={Object {}}
+                                                      viewBox="0 0 512 512"
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                      <path
+                                                        d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"
+                                                        fill="currentColor"
+                                                        style={Object {}}
+                                                      />
+                                                    </svg>
+                                                  </FontAwesomeIcon>
+                                                </button>
+                                              </Button>
+                                            </ForwardRef(Bootstrap(Button))>
+                                          </ButtonDropdownToggle>
+                                        </ReactOverlaysDropdownToggle>
+                                      </DropdownToggle>
+                                    </ForwardRef(Bootstrap(DropdownToggle))>
+                                    <ForwardRef(Bootstrap(DropdownMenu))>
+                                      <DropdownMenu
+                                        alignRight={false}
+                                        as="div"
+                                        bsPrefix="dropdown-menu"
+                                        flip={true}
+                                      >
+                                        <ForwardRef(ContextTransform(DropdownMenu))
+                                          alignEnd={false}
+                                          flip={true}
+                                          usePopper={true}
+                                        >
+                                          <ReactOverlaysDropdownMenu
+                                            alignEnd={false}
+                                            flip={true}
+                                            menuRef={[Function]}
+                                            onToggle={[Function]}
+                                            toggleNode={
+                                              <button
+                                                class="float-right btn btn-light btn-sm"
+                                                type="button"
+                                              >
+                                                <svg
+                                                  aria-hidden="true"
+                                                  class="svg-inline--fa fa-ellipsis-h fa-w-16 "
+                                                  data-icon="ellipsis-h"
+                                                  data-prefix="fas"
+                                                  role="img"
+                                                  viewBox="0 0 512 512"
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <path
+                                                    d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"
+                                                    fill="currentColor"
+                                                  />
+                                                </svg>
+                                              </button>
+                                            }
+                                            usePopper={true}
+                                          />
+                                        </ForwardRef(ContextTransform(DropdownMenu))>
+                                      </DropdownMenu>
+                                    </ForwardRef(Bootstrap(DropdownMenu))>
+                                  </div>
+                                </Manager>
+                              </ReactOverlaysDropdown>
+                            </Dropdown>
+                          </Uncontrolled(Dropdown)>
+                        </ForwardRef(Bootstrap(Uncontrolled(Dropdown)))>
+                      </ForwardRef(ContextTransform)>
+                    </div>
+                  </AbstractNavItem>
+                </ListGroupItem>
+              </ForwardRef(Bootstrap(ListGroupItem))>
+            </div>
+          </AnimalListItem>
+        </Connect(AnimalListItem)>
+      </Form(Connect(AnimalListItem))>
+    </Connect(Form(Connect(AnimalListItem)))>
+  </ReduxForm>
+</Provider>
+`;

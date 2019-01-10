@@ -29,6 +29,10 @@ class AnimalListItem extends Component {
         this.setState({isMoving: !this.state.isMoving})
     }
 
+    handleChange(e) {
+        console.log(e.target);
+    }
+
     handleDelete(e) {
         e.preventDefault();
         this.props.dispatch(animalsActions.deleteAnimal(this.props.animal));
@@ -43,23 +47,23 @@ class AnimalListItem extends Component {
     }
 
     render() {
-        const {animal: {name, species, weight, id}, isDeletingAnimal, handleSubmit, ...rest} = this.props;
+        const {animal, isDeletingAnimal, handleSubmit, ...rest} = this.props;
         const {isMoving} = this.state;
 
 
         return (
             <div>
-                <ListGroup.Item key={name} disabled={isDeletingAnimal}>
+                <ListGroup.Item key={animal.name} disabled={isDeletingAnimal}>
                     {isMoving ? (
                         <AnimalListItemForm
                             onSubmit={this.handleSubmit}
                             handleSubmit={handleSubmit}
                             toggleMoving={this.toggleMoving}
-                            {...rest}
+                            animal={animal}
                         />
                     ) : (
                         <Dropdown>
-                            {species} | {name} {weight} kg
+                            {animal.species} | {animal.name} {animal.weight} kg
                                 <Dropdown.Toggle as={ButtonDropdownToggle} variant="light" size="sm">
                                     <FontAwesomeIcon icon="ellipsis-h"/>
                                 </Dropdown.Toggle>
@@ -86,4 +90,4 @@ function mapStateToProps({locations, loading}, ownProps) {
     }
 }
 
-export default reduxForm({})(connect(mapStateToProps)(AnimalListItem));
+export default reduxForm({form: 'ListItemForm'})(connect(mapStateToProps)(AnimalListItem));

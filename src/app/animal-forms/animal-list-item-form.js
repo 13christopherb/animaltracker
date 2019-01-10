@@ -15,7 +15,7 @@ import {Select} from "../form-fields/index";
 export const AnimalListItemForm = ({handleSubmit, handleChange, onSubmit, ...props}) => {
     return (
         <div>
-            <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form onSubmit={handleSubmit}>
                 <Form.Row>
                     <Col md={2}>
                         <h6>{props.animal.name}</h6>

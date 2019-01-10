@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import {TransportFormContainer} from './transport-form-container'
 import {TransportForm} from "./transport-form";
 import {store} from '../../utils/store';
-import {Provider} from 'react-redux'
+import {Provider} from 'react-redux';
 import {mount} from "enzyme/build";
 
 const middlewares = [thunk];
