@@ -1,6 +1,20 @@
 import animalsReducer from './index';
 import { types} from "./types";
-import * as testValues from '../../../services/TestValues';
+
+const animals = [{
+    name: 'Nymeria',
+    weight: 33,
+    species: 'Dire Wolf',
+    location: 'MBO'
+},
+    {
+        name: 'Lady',
+        weight: 33,
+        species: 'Dire Wolf',
+        location: 'MBO'
+    }
+
+];
 
 describe('animalsReducer reducer', () => {
     it('should return the initial state', () => {
@@ -13,12 +27,12 @@ describe('animalsReducer reducer', () => {
 
     it('should handle FETCH_ANIMALS_SUCCESS', () => {
         expect(
-            animalsReducer({animals: testValues.animals}, {
+            animalsReducer({animals: animals}, {
                 type: types.GET_ANIMALS_SUCCESS,
-                animals: testValues.animals
+                animals: animals
             })
         ).toEqual({
-            animals: testValues.animals
+            animals: animals
         });
     });
 });

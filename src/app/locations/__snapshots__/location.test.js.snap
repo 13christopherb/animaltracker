@@ -7,16 +7,28 @@ exports[`<Location /> render() should render the component 1`] = `
     onClick={[Function]}
     variant="info"
   >
-    <ForwardRef(Bootstrap(Row))
-      className="justify-content-md-center"
-    >
+    <ForwardRef(Bootstrap(Row))>
       <ForwardRef(Bootstrap(Col))
-        md={1}
-      />
-      <ForwardRef(Bootstrap(Col))
-        md={1}
+        md={
+          Object {
+            "offset": 5,
+            "span": 1,
+          }
+        }
       >
-        <small />
+        <strong />
+      </ForwardRef(Bootstrap(Col))>
+      <ForwardRef(Bootstrap(Col))
+        md={3}
+      >
+        <span
+          key="Dire Wolf-count"
+        >
+          Dire Wolf
+          (
+          2
+          ) 
+        </span>
       </ForwardRef(Bootstrap(Col))>
     </ForwardRef(Bootstrap(Row))>
   </ForwardRef(Bootstrap(Button))>
@@ -30,7 +42,24 @@ exports[`<Location /> render() should render the component 1`] = `
     unmountOnExit={false}
   >
     <div>
-      <Connect(AnimalsTable) />
+      <Connect(AnimalsTable)
+        animals={
+          Array [
+            Object {
+              "location": "MBO",
+              "name": "Nymeria",
+              "species": "Dire Wolf",
+              "weight": 33,
+            },
+            Object {
+              "location": "MBO",
+              "name": "Lady",
+              "species": "Dire Wolf",
+              "weight": 33,
+            },
+          ]
+        }
+      />
     </div>
   </Collapse>
 </div>

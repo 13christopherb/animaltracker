@@ -43,20 +43,23 @@ class AnimalListItem extends Component {
     }
 
     render() {
+        const {animal: {name, species, weight, id}, isDeletingAnimal, handleSubmit, ...rest} = this.props;
+        const {isMoving} = this.state;
+
+
         return (
             <div>
-                <ListGroup.Item key={this.props.animal.name} disabled={this.props.isDeletingAnimal
-                && this.props.deletedAnimal.id === this.props.animal.id}>
-                    {this.state.isMoving ? (
+                <ListGroup.Item key={name} disabled={isDeletingAnimal}>
+                    {isMoving ? (
                         <AnimalListItemForm
                             onSubmit={this.handleSubmit}
-                            handleSubmit={this.props.handleSubmit}
+                            handleSubmit={handleSubmit}
                             toggleMoving={this.toggleMoving}
-                            {...this.props}
+                            {...rest}
                         />
                     ) : (
                         <Dropdown>
-                            {this.props.animal.species} | {this.props.animal.name} {this.props.animal.weight} kg
+                            {species} | {name} {weight} kg
                                 <Dropdown.Toggle as={ButtonDropdownToggle} variant="light" size="sm">
                                     <FontAwesomeIcon icon="ellipsis-h"/>
                                 </Dropdown.Toggle>
@@ -77,10 +80,9 @@ class AnimalListItem extends Component {
     }
 }
 
-function mapStateToProps({locations}, ownProps) {
+function mapStateToProps({locations, loading}, ownProps) {
     return {
-        isDeletingAnimal: locations.isDeletingAnimal,
-        deletedAnimal: locations.deletedAnimal,
+        isDeletingAnimal: loading['DELETE_ANIMAL'] && loading.animal.id === ownProps.animal.id,
     }
 }
 

@@ -4,16 +4,14 @@ import configureMockStore from 'redux-mock-store';
 import Locations from './locations';
 import toJson from 'enzyme-to-json';
 import thunk from 'redux-thunk'
-import * as testValues from '../../services/TestValues'
 
-const middlewares = [thunk]
+const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 
 const initialState = {
     authentication: {loggedIn: true},
     loading: {},
-    animals: testValues.animals,
     locations: {
         locations: [{
             locationName: 'MBO',
