@@ -29,8 +29,7 @@
     "react-widgets": "^4.4.8",
     "redux": "^4.0.1",
     "redux-form": "^7.4.2",
-    "redux-thunk": "^2.3.0",
-    "underscore": "^1.9.1"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

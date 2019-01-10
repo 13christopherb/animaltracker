@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import _ from 'underscore';
 import {Card, Button, Collapse} from 'react-bootstrap';
 import {AnimalList} from '../animals/animal-list';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -8,7 +7,6 @@ import {AnimalFormContainer, AnimalModalForm} from '../animal-forms/index';
 import {TransportFormContainer, TransportModalForm} from '../transport-form/index';
 import Dropdown from "react-bootstrap/lib/Dropdown";
 import {connect} from 'react-redux';
-
 
 
 /**
@@ -55,14 +53,9 @@ class LocationCard extends Component {
     render() {
         const {locationName, animals, transports} = this.props;
         const {isShowingAnimalForm, isShowingTransportForm, isOpen} = this.state;
-        let animalsBySpecies = _.countBy(this.props.animals, (animal) => {
-            return animal['species']
-        });
-        let speciesCount = [];
-        for (let property in animalsBySpecies) {
-            if (animalsBySpecies.hasOwnProperty(property)) {
-                speciesCount.push(property + '(' + animalsBySpecies[property] + ') ')
-            }
+        let speciesCount = {};
+        for (let animal of animals) {
+            speciesCount[animal.species] = speciesCount[animal.species] ? speciesCount[animal.species] + 1 : 1
         }
         return (
             <Card className="card" key={locationName}>
@@ -86,11 +79,15 @@ class LocationCard extends Component {
                         </Dropdown>
                     </Card.Title>
                     {animals.length > 0 ?
-                    <Button variant="primary" size="sm"
-                            onClick={(e) => this.setState({isOpen: !isOpen})}>
-                        {isOpen ? <span><FontAwesomeIcon icon="chevron-down" /> {speciesCount}</span>
-                            : <span><FontAwesomeIcon icon="chevron-up"/> {speciesCount}</span>}
-                    </Button> : <span>No animals</span>}
+                        <Button variant="primary" size="sm"
+                                onClick={(e) => this.setState({isOpen: !isOpen})}>
+                        <span>
+                            {isOpen ? <FontAwesomeIcon icon="chevron-down"/> : <FontAwesomeIcon icon="chevron-up"/>}
+                            {Object.entries(speciesCount).map(([species, number]) =>
+                                <span key={species + '-count'}>{species}({number}) </span>
+                            )}
+                            </span>
+                        </Button> : <span>No animals</span>}
                     <Collapse in={isOpen}>
                         <div>
                             <AnimalList animals={animals}/>
@@ -101,12 +98,12 @@ class LocationCard extends Component {
                 <AnimalFormContainer location={locationName}>
                     <AnimalModalForm id={locationName + 'animalForm'}
                                      show={isShowingAnimalForm}
-                                     toggleModal={this.toggleAnimalForm} />
+                                     toggleModal={this.toggleAnimalForm}/>
                 </AnimalFormContainer>
                 <TransportFormContainer>
                     <TransportModalForm id={locationName + 'transportForm'}
                                         show={isShowingTransportForm}
-                                        toggleModal={this.toggleTransportForm} />
+                                        toggleModal={this.toggleTransportForm}/>
                 </TransportFormContainer>
             </Card>
         );

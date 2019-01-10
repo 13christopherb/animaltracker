@@ -1,7 +1,6 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import './App.css';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faPrescriptionBottleAlt, faBlender, faChevronDown, faEdit, faTrashAlt,
     faTimes, faEllipsisH, faPeopleCarry, faPlus, faArrowRight, faOtter, faTruckPickup, faChevronUp} from '@fortawesome/free-solid-svg-icons';

@@ -11,8 +11,8 @@ export const isExpired = (token) => {
 };
 
 const createApiInstance = () => {
-    //const api = 'http://localhost:5000';
-    const api = 'https://mbo-animal-tracker-api.herokuapp.com';
+    const api = 'http://localhost:5000';
+    //const api = 'https://mbo-animal-tracker-api.herokuapp.com';
 
     const bearer = 'Bearer ' + localStorage.getItem('accessToken');
     const headers = {

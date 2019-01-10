@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/lib/Button';
 import Collapse from 'react-bootstrap/lib/Collapse';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-import _ from 'underscore';
 import AnimalsTable from "../animals/animals-table";
 
 
@@ -17,28 +16,27 @@ export default class Location extends Component {
     }
 
     render() {
-        let animalsBySpecies = _.countBy(this.props.animals, (animal) => {
-            return animal['species']
-        });
-        let speciesCount = [];
-        for (let property in animalsBySpecies) {
-            if (animalsBySpecies.hasOwnProperty(property)) {
-                speciesCount.push(property + '(' + animalsBySpecies[property] + ') ')
-            }
+        const {animals, locationName} = this.props;
+        const {isOpen} = this.state;
+        let speciesCount = {};
+        for (let animal of animals) {
+            speciesCount[animal.species] = speciesCount[animal.species] ? speciesCount[animal.species] + 1 : 1
         }
         return (
             <div>
-                <Button variant="info" onClick={() => this.setState({isOpen: !this.state.isOpen})} block>
-                    <Row className="justify-content-md-center">
-                        <Col md={1}>{this.props.locationName}</Col>
-                        <Col md={1}>
-                            <small>{speciesCount}</small>
+                <Button variant="info" onClick={() => this.setState({isOpen: !isOpen})} block>
+                    <Row>
+                        <Col md={{span: 1, offset: 5}}><strong>{locationName}</strong></Col>
+                        <Col md={3}>
+                            {Object.entries(speciesCount).map(([species, number]) =>
+                                <span key={species+'-count'}>{species}({number}) </span>
+                            )}
                         </Col>
                     </Row>
                 </Button>
-                <Collapse in={this.state.isOpen}>
+                <Collapse in={isOpen}>
                     <div>
-                        <AnimalsTable animals={this.props.animals}/>
+                        <AnimalsTable animals={animals}/>
                     </div>
                 </Collapse>
             </div>
