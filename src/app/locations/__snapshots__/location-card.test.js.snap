@@ -18,7 +18,6 @@ exports[`<LocationCard /> render() should render the component 1`] = `
   dispatch={[Function]}
   expandSummary={[MockFunction]}
   expanded={false}
-  locationName="MBO"
   store={
     Object {
       "clearActions": [Function],

@@ -12,7 +12,10 @@ function addAnimal(animal) {
         return animalService.addAnimal(animal)
             .then(
                 res => {
-                    dispatch(success(res['animal']))
+                    dispatch(success({
+                        animal: res['animal'],
+                        lastUpdated: res['lastUpdated']
+                    }))
                 },
                 error => {
                     dispatch(failure(error))
@@ -24,8 +27,8 @@ function addAnimal(animal) {
         return {type: types.ADD_ANIMAL_REQUEST, animal}
     }
 
-    function success(animal) {
-        return {type: types.ADD_ANIMAL_SUCCESS, animal}
+    function success({animal, lastUpdated}) {
+        return {type: types.ADD_ANIMAL_SUCCESS, animal, lastUpdated}
     }
 
     function failure(error) {

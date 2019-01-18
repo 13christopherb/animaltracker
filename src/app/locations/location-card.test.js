@@ -10,7 +10,7 @@ const initialState = {
     loading: {},
     locations: {
         locations: [{
-            locationName: 'MBO',
+            name: 'MBO',
             animals: [{
                 name: 'Kirt',
                 species: 'CSL',
@@ -29,7 +29,7 @@ const mockStore = configureMockStore(middlewares);
 const store = mockStore(initialState);
 
 let location = {
-    locationName: 'MBO',
+    name: 'MBO',
     animals: [{
         name: 'Kirt',
         species: 'CSL',

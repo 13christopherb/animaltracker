@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/lib/Button';
 import Collapse from 'react-bootstrap/lib/Collapse';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
+import moment from "moment";
 import AnimalsTable from "../animals/animals-table";
 
 
@@ -16,7 +17,7 @@ export default class Location extends Component {
     }
 
     render() {
-        const {animals, locationName} = this.props;
+        const {animals, name, lastUpdated} = this.props;
         const {isOpen} = this.state;
         let speciesCount = {};
         for (let animal of animals) {
@@ -26,7 +27,7 @@ export default class Location extends Component {
             <div>
                 <Button variant="info" onClick={() => this.setState({isOpen: !isOpen})} block>
                     <Row>
-                        <Col md={{span: 1, offset: 5}}><strong>{locationName}</strong></Col>
+                        <Col md={{span: 1, offset: 5}}><strong>{name}</strong>{moment(lastUpdated).fromNow()}</Col>
                         <Col md={3}>
                             {Object.entries(speciesCount).map(([species, number]) =>
                                 <span key={species+'-count'}>{species}({number}) </span>

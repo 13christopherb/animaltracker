@@ -51,19 +51,19 @@ class LocationCard extends Component {
     }
 
     render() {
-        const {locationName, animals, transports} = this.props;
+        const {name, animals, transports} = this.props;
         const {isShowingAnimalForm, isShowingTransportForm, isOpen} = this.state;
         let speciesCount = {};
         for (let animal of animals) {
             speciesCount[animal.species] = speciesCount[animal.species] ? speciesCount[animal.species] + 1 : 1
         }
         return (
-            <Card className="card" key={locationName}>
+            <Card className="card" key={name}>
                 <Card.Body>
                     <Card.Title>
                         <Dropdown>
                             <h5 className="card-title">
-                                {locationName}
+                                {name}
                                 <Dropdown.Toggle variant="outline-success" size="sm" className="float-right">
                                     <FontAwesomeIcon icon="plus"/>
                                 </Dropdown.Toggle>
@@ -94,14 +94,14 @@ class LocationCard extends Component {
                         </div>
                     </Collapse>
                 </Card.Body>
-                <LocationCardFooter locationName={locationName} transports={transports}/>
-                <AnimalFormContainer location={locationName}>
-                    <AnimalModalForm id={locationName + 'animalForm'}
+                <LocationCardFooter location={name} transports={transports}/>
+                <AnimalFormContainer location={name}>
+                    <AnimalModalForm id={name + 'animalForm'}
                                      show={isShowingAnimalForm}
                                      toggleModal={this.toggleAnimalForm}/>
                 </AnimalFormContainer>
                 <TransportFormContainer>
-                    <TransportModalForm id={locationName + 'transportForm'}
+                    <TransportModalForm id={name + 'transportForm'}
                                         show={isShowingTransportForm}
                                         toggleModal={this.toggleTransportForm}/>
                 </TransportFormContainer>
@@ -112,7 +112,7 @@ class LocationCard extends Component {
 
 function mapStateToProps({loading}, ownProps) {
     return {
-        isSavingAnimal: loading['ADD_ANIMAL'] && loading['animal'].location === ownProps.locationName,
+        isSavingAnimal: loading['ADD_ANIMAL'] && loading['animal'].location === ownProps.name,
     }
 }
 

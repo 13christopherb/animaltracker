@@ -5,7 +5,6 @@ import moment from "moment";
 
 
 export const AnimalRow = ({animal, handleChange, deleteAnimal}) => {
-
     return (
         <tr key={animal.id}>
             <td>

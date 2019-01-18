@@ -37,7 +37,7 @@ class Locations extends Component {
     }
 
     render() {
-        const {isLoading} = this.props;
+        const {isLoading, locations} = this.props;
         const {isAddingAnimal} = this.state;
         return (
             <Media query={{minWidth: 650}}>
@@ -77,9 +77,9 @@ class Locations extends Component {
                                             </Fade>
                                         </Col>
                                     </Row>
-                                    {this.props.locations.map(
+                                    {locations.map(
                                         (location) =>
-                                            <Location key={location.locationName}
+                                            <Location key={location.name}
                                                       {...location}
                                             />
                                     )}
@@ -107,7 +107,7 @@ const sortLocations = (locations) =>
         (location) =>
             locs.push(locations[location])
     );
-    locs.sort((loc1, loc2) => locationOrder[loc1.locationName] < locationOrder[loc2.locationName] ? -1 : 1);
+    locs.sort((loc1, loc2) => locationOrder[loc1.name] < locationOrder[loc2.name] ? -1 : 1);
     return locs;
 };
 

@@ -15,7 +15,7 @@ export default function locationsReducer(state = initialState, action) {
             return {
                 ...state,
                 locations: action.locations.reduce((acc, cur) => {
-                    acc[cur.locationName] = cur;
+                    acc[cur.name] = cur;
                     return acc;
                 }, {})
             };
@@ -34,6 +34,7 @@ export default function locationsReducer(state = initialState, action) {
                     ...state.locations,
                     [action.animal.location]: {
                         ...state.locations[action.animal.location],
+                        lastUpdated: action.lastUpdated,
                         animals: [
                             ...state.locations[action.animal.location].animals,
                             action.animal

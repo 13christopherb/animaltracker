@@ -45,13 +45,13 @@ class LocationSummaries extends Component {
                     <CardColumns>
                         {this.props.locations.map(
                             (location) =>
-                                <LocationCard key={location.locationName}
+                                <LocationCard key={location.name}
                                               {...location}
                                               expandSummary={this.expandSummary}
-                                              expanded={this.state.expandedLocationNames.includes(location.locationName)}
+                                              expanded={this.state.expandedLocationNames.includes(location.name)}
                                               transports={this.props.transports.filter((transport) =>
-                                                  transport.departs === location.locationName ||
-                                                  transport.arrives === location.locationName)}
+                                                  transport.departs === location.name ||
+                                                  transport.arrives === location.name)}
                                 />
                         )}
                     </CardColumns>
